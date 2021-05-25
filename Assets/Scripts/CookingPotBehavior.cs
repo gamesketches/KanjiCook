@@ -38,9 +38,10 @@ public class CookingPotBehavior : MonoBehaviour
 				resultSpot.text = "Likeness";
 			}
 			else if(ingredients.IndexOf('未') > -1 && ingredients.IndexOf('女') > -1) {
-				resultSpot.text = "little Sis";
+				resultSpot.text = "Little Sis";
 			}
 		}
 		ingredients.Clear();
+		GameManager.instance.ClearRequest(resultSpot.text);
 	}
 }
