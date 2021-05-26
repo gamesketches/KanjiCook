@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	RequestQueueManager requestQueue;
 	LanguagePair[] targetWords;
+	Text scoreTally;
 
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		targetWords[0] = new LanguagePair("Likeness", new string[] {"口", "女"});
 		targetWords[1] = new LanguagePair("Little Sis", new string[] { "未", "女"});
+		scoreTally = GameObject.Find("Score").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -38,8 +41,9 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void ClearRequest(string answer) {
-		Debug.Log("clearing request");
-		requestQueue.SatisfyRequest(answer);
+		if(requestQueue.SatisfyRequest(answer)) {
+			scoreTally.text = (int.Parse(scoreTally.text) + 100).ToString();
+		}
 	}
 }
 

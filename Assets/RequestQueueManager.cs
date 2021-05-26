@@ -34,17 +34,20 @@ public class RequestQueueManager : MonoBehaviour
 		ReorganizeRequests();
 	}
 
-	public void SatisfyRequest(string displayText) {
+	public bool SatisfyRequest(string displayText) {
 		Debug.Log("satisfying request");
+		bool requestFound = false;
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(displayText)) {
 				Destroy(requests[i].gameObject);
 				Debug.Log(requests[i]);
 				requests.RemoveAt(i);
+				requestFound = true;
 				break;
 			}
 		}
 		ReorganizeRequests();
+		return requestFound;
 	}
 
 	void ReorganizeRequests() {
