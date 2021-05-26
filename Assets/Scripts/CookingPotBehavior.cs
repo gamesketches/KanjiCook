@@ -8,6 +8,7 @@ public class CookingPotBehavior : MonoBehaviour
 {
 	public static CookingPotBehavior instance;
 	public RectTransform hitRect;
+	public GameObject characterPrefab;
 	List<char> ingredients;
 	public Text resultSpot;
 	Image curImage;
@@ -28,8 +29,11 @@ public class CookingPotBehavior : MonoBehaviour
     }
 
 	public void AddIngredient(char character) {
-		Debug.Log("adding " + character.ToString());
 		ingredients.Add(character);
+		GameObject newChar = Instantiate<GameObject>(characterPrefab, transform);
+		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.value * hitRect.rect.width / 2.5f, Random.value * hitRect.rect.height / 2.5f);
+		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.value * 360);
+		newChar.GetComponent<Text>().text = character.ToString();
 	}
 
 	public void CombineIngredients() {
@@ -43,5 +47,8 @@ public class CookingPotBehavior : MonoBehaviour
 		}
 		ingredients.Clear();
 		GameManager.instance.ClearRequest(resultSpot.text);
+		foreach(Transform t in transform) {
+			Destroy(t.gameObject);
+		}
 	}
 }

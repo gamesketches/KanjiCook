@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitRect: {fileID: 0}
+  characterPrefab: {fileID: 3844544123802029379, guid: cca6e5447dfa540a58e32f8c80bc7cf9,
+    type: 3}
   resultSpot: {fileID: 357817359}
 --- !u!1 &92382567
 GameObject:
