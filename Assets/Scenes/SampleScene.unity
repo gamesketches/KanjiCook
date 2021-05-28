@@ -936,6 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4d307ca2ac44f4590a745264edf728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KanjiData: {fileID: 4900000, guid: d22f9af55e2114fd5b1707119e51ef84, type: 3}
   requestInterval: 3
 --- !u!4 &838085460
 Transform:

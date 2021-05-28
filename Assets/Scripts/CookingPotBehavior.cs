@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class CookingPotBehavior : MonoBehaviour
 {
@@ -37,18 +38,26 @@ public class CookingPotBehavior : MonoBehaviour
 	}
 
 	public void CombineIngredients() {
-		if(ingredients.Count == 2) {
-			if(ingredients.IndexOf('口') > -1 && ingredients.IndexOf('女') > -1) {
-				resultSpot.text = "Likeness";
-			}
-			else if(ingredients.IndexOf('未') > -1 && ingredients.IndexOf('女') > -1) {
-				resultSpot.text = "Little Sis";
-			}
-		}
+		resultSpot.text = RecipeLookup();
 		ingredients.Clear();
 		GameManager.instance.ClearRequest(resultSpot.text);
 		foreach(Transform t in transform) {
 			Destroy(t.gameObject);
 		}
+	}
+
+	string RecipeLookup() {
+		foreach(LanguagePair listing in GameManager.targetWords) {
+			if(listing.components.Length == ingredients.Count) {
+				bool match = true;
+				foreach(char component in ingredients) {
+					if(ArrayUtility.IndexOf(listing.components, component.ToString()) == -1) {
+						match = false;
+					}
+				}
+				if(match) return listing.target;
+			}
+		}
+		return "駄目";
 	}
 }

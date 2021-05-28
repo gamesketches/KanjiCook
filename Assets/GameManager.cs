@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	RequestQueueManager requestQueue;
-	LanguagePair[] targetWords;
+	public static LanguagePair[] targetWords;
 	Text scoreTally;
 	public TextAsset KanjiData;
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 	}
 }
 
-class LanguagePair {
+public class LanguagePair {
 	public string target;
 	public string[] components;
 	
