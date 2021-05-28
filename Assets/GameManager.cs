@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 		instance = this;
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		LoadKanji();
+		SetUpRadicals();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
     }
 
@@ -41,6 +42,25 @@ public class GameManager : MonoBehaviour
 			deKanjis.Add(new LanguagePair(kanjiListing[0].ToString(), components));
 		} 
 		targetWords = deKanjis.ToArray();
+	}
+
+	void SetUpRadicals() {
+		List<string> radicals = new List<string>();
+		foreach(LanguagePair pair in targetWords) {
+			foreach(string radical in pair.components) {
+				if(radicals.IndexOf(radical) == -1) {
+					radicals.Add(radical);
+				}
+			}
+		}
+		GameObject[] radicalButtons = GameObject.FindGameObjectsWithTag("RadicalButton");
+		if(radicals.Count > radicalButtons.Length) { 
+			Debug.LogError("There are too many radicals for the number of buttons");
+		} else {
+			for(int i = 0; i < radicals.Count; i++) {
+				radicalButtons[i].GetComponent<DraggableKanji>().SetRadical(radicals[i]);
+			}
+		}
 	}
 
 	void MakeNewRequest() {

@@ -9,14 +9,14 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	RectTransform canvas;
 	public GameObject draggedKanji;
 	GameObject kanjiCopy;
-	public char character;
+	public string character;
 	Text displayText;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         canvas = transform.parent as RectTransform;
         displayText = GetComponentInChildren<Text>();
-		displayText.text = character.ToString();
+		displayText.text = character;
     }
 
     // Update is called once per frame
@@ -25,10 +25,15 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         
     }
 
+	public void SetRadical(string newRadical) {
+		displayText.text = newRadical;
+		character = newRadical;
+	}
+
 	public void OnBeginDrag(PointerEventData eventData) {
 		Vector3 newPos;
 		kanjiCopy = Instantiate<GameObject>(draggedKanji);
-		kanjiCopy.GetComponentInChildren<Text>().text = character.ToString();
+		kanjiCopy.GetComponentInChildren<Text>().text = character;//.ToString();
 		kanjiCopy.GetComponent<Image>().color = gameObject.GetComponent<Image>().color;
 		kanjiCopy.transform.parent = transform.parent;
 		kanjiCopy.transform.position = transform.position;

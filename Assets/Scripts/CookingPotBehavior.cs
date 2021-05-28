@@ -10,7 +10,7 @@ public class CookingPotBehavior : MonoBehaviour
 	public static CookingPotBehavior instance;
 	public RectTransform hitRect;
 	public GameObject characterPrefab;
-	List<char> ingredients;
+	List<string> ingredients;
 	public Text resultSpot;
 	Image curImage;
 
@@ -19,7 +19,7 @@ public class CookingPotBehavior : MonoBehaviour
     {
         instance = this;
 		curImage = GetComponent<Image>();
-		ingredients = new List<char>();
+		ingredients = new List<string>();
 		hitRect = GetComponent<RectTransform>();
     }
 
@@ -29,12 +29,12 @@ public class CookingPotBehavior : MonoBehaviour
         
     }
 
-	public void AddIngredient(char character) {
+	public void AddIngredient(string character) {
 		ingredients.Add(character);
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, transform);
 		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.value * hitRect.rect.width / 2.5f, Random.value * hitRect.rect.height / 2.5f);
 		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.value * 360);
-		newChar.GetComponent<Text>().text = character.ToString();
+		newChar.GetComponent<Text>().text = character;
 	}
 
 	public void CombineIngredients() {
@@ -50,8 +50,8 @@ public class CookingPotBehavior : MonoBehaviour
 		foreach(LanguagePair listing in GameManager.targetWords) {
 			if(listing.components.Length == ingredients.Count) {
 				bool match = true;
-				foreach(char component in ingredients) {
-					if(ArrayUtility.IndexOf(listing.components, component.ToString()) == -1) {
+				foreach(string component in ingredients) {
+					if(ArrayUtility.IndexOf(listing.components, component) == -1) {
 						match = false;
 					}
 				}
