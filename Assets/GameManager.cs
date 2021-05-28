@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 	RequestQueueManager requestQueue;
 	LanguagePair[] targetWords;
 	Text scoreTally;
+	public TextAsset KanjiData;
 
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
@@ -17,10 +18,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 		instance = this;
-        targetWords = new LanguagePair[2];
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
-		targetWords[0] = new LanguagePair("Likeness", new string[] {"口", "女"});
-		targetWords[1] = new LanguagePair("Little Sis", new string[] { "未", "女"});
+		LoadKanji();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
     }
 
@@ -33,6 +32,16 @@ public class GameManager : MonoBehaviour
 			requestTimer = 0;
 		}
     }
+
+	void LoadKanji() {
+		string[] kanjiLines = KanjiData.text.Split('\n');
+		List<LanguagePair> deKanjis = new List<LanguagePair>();
+		foreach(string kanjiListing in kanjiLines) {
+			string[] components = kanjiListing.Substring(4).Split(' ');
+			deKanjis.Add(new LanguagePair(kanjiListing[0].ToString(), components));
+		} 
+		targetWords = deKanjis.ToArray();
+	}
 
 	void MakeNewRequest() {
 		int diceRoll = Mathf.FloorToInt(Random.Range(0, targetWords.Length));
