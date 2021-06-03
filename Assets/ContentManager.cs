@@ -10,9 +10,10 @@ public class ContentManager : MonoBehaviour
 	public int numKanji;
 	KanjiInfoFile myKanji;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         myKanji = JsonUtility.FromJson<KanjiInfoFile>(kanjiFile.text);
+		Debug.Log(myKanji.kanjiInfos.Length);
     }
 
     // Update is called once per frame
