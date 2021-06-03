@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 	public static LanguagePair[] targetWords;
 	Text scoreTally;
 	public TextAsset KanjiData;
-
+	public ContentManager contentManager;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 
@@ -35,13 +35,15 @@ public class GameManager : MonoBehaviour
     }
 
 	void LoadKanji() {
-		string[] kanjiLines = KanjiData.text.Split('\n');
+		targetWords = contentManager.CreateGameContent();
+		Debug.Log(targetWords[0]);
+		/*string[] kanjiLines = KanjiData.text.Split('\n');
 		List<LanguagePair> deKanjis = new List<LanguagePair>();
 		foreach(string kanjiListing in kanjiLines) {
 			string[] components = kanjiListing.Substring(4).Split(' ');
 			deKanjis.Add(new LanguagePair(kanjiListing[0].ToString(), components));
 		} 
-		targetWords = deKanjis.ToArray();
+		targetWords = deKanjis.ToArray();*/
 	}
 
 	void SetUpRadicals() {
@@ -78,9 +80,10 @@ public class GameManager : MonoBehaviour
 
 public class LanguagePair {
 	public string target;
+	public string literal;
 	public string[] components;
 	
-	public LanguagePair(string pairTarget, string[] pairComponents) {
+	public LanguagePair(string pairTarget, string literal, string[] pairComponents) {
 		target = pairTarget;
 		components = pairComponents;
 	}
