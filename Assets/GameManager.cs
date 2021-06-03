@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
 
 	void LoadKanji() {
 		targetWords = contentManager.CreateGameContent();
-		Debug.Log(targetWords[0]);
+		foreach(LanguagePair pairing in targetWords) {
+			Debug.Log(pairing.target + " " + pairing.literal + " ");
+		}
 		/*string[] kanjiLines = KanjiData.text.Split('\n');
 		List<LanguagePair> deKanjis = new List<LanguagePair>();
 		foreach(string kanjiListing in kanjiLines) {
