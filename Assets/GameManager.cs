@@ -14,26 +14,34 @@ public class GameManager : MonoBehaviour
 	public Text menu;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
+	bool gameStarted = false;
 
     // Start is called before the first frame update
     void Start()
     {
 		instance = this;
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
+		scoreTally = GameObject.Find("Score").GetComponent<Text>();
 		LoadKanji();
 		SetUpRadicals();
-		scoreTally = GameObject.Find("Score").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        requestTimer += Time.deltaTime;
-		if(requestTimer >= requestInterval) {
-			MakeNewRequest();
-			requestTimer = 0;
+		if(gameStarted) {
+			requestTimer += Time.deltaTime;
+			if(requestTimer >= requestInterval) {
+				MakeNewRequest();
+				requestTimer = 0;
+			}
 		}
     }
+
+	public void StartGame() {
+		gameStarted = true;
+		menu.transform.parent.gameObject.SetActive(false);
+	}
 
 	void LoadKanji() {
 		targetWords = contentManager.CreateGameContent();
@@ -90,3 +98,4 @@ public class LanguagePair {
 		components = pairComponents;
 	}
 }
+
