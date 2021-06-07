@@ -22,6 +22,17 @@ public class ContentManager : MonoBehaviour
         
     }
 
+	public LanguagePair[] LoadLevelContent(string filename) {
+		TextAsset levelFile = Resources.Load<TextAsset>(filename);
+		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(levelFile.text);
+		List<LanguagePair> tempContent = new List<LanguagePair>();
+		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
+			Debug.Log("Adding kanji " + kanji.kanji);
+			tempContent.Add(new LanguagePair(kanji.meanings[0], kanji.kanji, kanji.radicals));
+		}
+		return tempContent.ToArray();
+	}
+
 	public LanguagePair[] CreateGameContent() {
 		List<LanguagePair> tempContent = new List<LanguagePair>();
 		List<string> curRadicals = new List<string>();
@@ -39,7 +50,7 @@ public class ContentManager : MonoBehaviour
 		int numRadComponents;
 		KanjiInfo pickedKanji;
 		do {
-			pickedKanji = myKanji.kanjiInfos[Mathf.FloorToInt(Random.value * myKanji.kanjiInfos.Length)];
+			pickedKanji = myKanji.kanjiInfos[Mathf.FloorToInt(Random.value * (myKanji.kanjiInfos.Length - 1))];
 			numRadComponents = pickedKanji.radicals.Length;
 			foreach(string rad in pickedKanji.radicals) {
 				if(ArrayUtility.Contains(curRadicals, rad)) numRadComponents--;

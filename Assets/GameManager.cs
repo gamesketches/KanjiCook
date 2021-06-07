@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	void LoadKanji() {
-		targetWords = contentManager.CreateGameContent();
+		//targetWords = contentManager.CreateGameContent();
+		targetWords = contentManager.LoadLevelContent("level1");
 		string menuDisplay = "";
 		foreach(LanguagePair pairing in targetWords) {
 			menuDisplay += pairing.target + " = " + pairing.literal + ", made from: " + pairing.components[0];
@@ -93,9 +94,10 @@ public class LanguagePair {
 	public string literal;
 	public string[] components;
 	
-	public LanguagePair(string pairTarget, string literal, string[] pairComponents) {
+	public LanguagePair(string pairTarget, string pairLiteral, string[] pairComponents) {
 		target = pairTarget;
 		components = pairComponents;
+		literal = pairLiteral;
 	}
 }
 
