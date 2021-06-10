@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance;
 	RequestQueueManager requestQueue;
 	public static LanguagePair[] targetWords;
+	List<LanguagePair> wordBag;
 	Text scoreTally;
 	public TextAsset KanjiData;
 	public ContentManager contentManager;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 		instance = this;
+		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
 		LoadKanji();
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
 				menuDisplay += " + " + pairing.components[i];
 			}
 			menuDisplay += "\n";
+			wordBag.Add(pairing);
 		}
 		menu.text = menuDisplay;
 	}
@@ -77,8 +80,14 @@ public class GameManager : MonoBehaviour
 	}
 
 	void MakeNewRequest() {
-		int diceRoll = Mathf.FloorToInt(Random.Range(0, targetWords.Length));
-		string request = targetWords[diceRoll].target;
+		if(wordBag.Count == 0) {
+			foreach(LanguagePair pairing in targetWords) {
+				wordBag.Add(pairing);
+			}
+		}
+		int diceRoll = Mathf.FloorToInt(Random.Range(0, wordBag.Count));
+		string request = wordBag[diceRoll].target;
+		wordBag.RemoveAt(diceRoll);
 		requestQueue.ReceiveRequest(request);
 	}
 

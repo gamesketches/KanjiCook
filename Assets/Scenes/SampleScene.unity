@@ -1232,7 +1232,7 @@ MonoBehaviour:
   KanjiData: {fileID: 4900000, guid: d22f9af55e2114fd5b1707119e51ef84, type: 3}
   contentManager: {fileID: 275698564}
   menu: {fileID: 460592321}
-  requestInterval: 3
+  requestInterval: 5
 --- !u!4 &838085460
 Transform:
   m_ObjectHideFlags: 0
