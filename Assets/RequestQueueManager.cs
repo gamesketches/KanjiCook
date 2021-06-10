@@ -7,7 +7,7 @@ public class RequestQueueManager : MonoBehaviour
 	public GameObject requestTemplate;
 	List<RequestBehavior> requests;
 	Rect referenceRect;
-	float offset = 100;
+	float offset = 110;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +27,6 @@ public class RequestQueueManager : MonoBehaviour
 		RequestBehavior newRequestBehavior = newRequest.GetComponent<RequestBehavior>();
 		newRequestBehavior.Initialize(displayText);
 		RectTransform rt = requestTemplate.GetComponent<RectTransform>();
-		float yVal = rt.offsetMax.y - rt.offsetMin.y;
-		Debug.Log(requests.Count);
-		//newRequest.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, offset * requests.Count);
 		requests.Add(newRequestBehavior);
 		ReorganizeRequests();
 	}
