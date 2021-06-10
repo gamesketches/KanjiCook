@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 	bool gameStarted = false;
+	public string levelFileName;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
 
 	void LoadKanji() {
 		//targetWords = contentManager.CreateGameContent();
-		targetWords = contentManager.LoadLevelContent("level1");
+		targetWords = contentManager.LoadLevelContent(levelFileName);
 		string menuDisplay = "";
 		foreach(LanguagePair pairing in targetWords) {
 			menuDisplay += pairing.target + " = " + pairing.literal + ", made from: " + pairing.components[0];

@@ -1233,6 +1233,7 @@ MonoBehaviour:
   contentManager: {fileID: 275698564}
   menu: {fileID: 460592321}
   requestInterval: 5
+  levelFileName: level1
 --- !u!4 &838085460
 Transform:
   m_ObjectHideFlags: 0

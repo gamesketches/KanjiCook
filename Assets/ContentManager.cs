@@ -28,7 +28,8 @@ public class ContentManager : MonoBehaviour
 		List<LanguagePair> tempContent = new List<LanguagePair>();
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
 			Debug.Log("Adding kanji " + kanji.kanji);
-			tempContent.Add(new LanguagePair(kanji.meanings[0], kanji.kanji, kanji.radicals));
+			int randomMeaning = Random.Range(0, kanji.meanings.Length);
+			tempContent.Add(new LanguagePair(kanji.meanings[randomMeaning], kanji.kanji, kanji.radicals));
 		}
 		return tempContent.ToArray();
 	}
