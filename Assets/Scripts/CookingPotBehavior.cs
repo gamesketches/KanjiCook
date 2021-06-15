@@ -13,6 +13,8 @@ public class CookingPotBehavior : MonoBehaviour
 	List<string> ingredients;
 	public Text resultSpot;
 	Image curImage;
+	public float cookingTime;
+	bool cooking;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class CookingPotBehavior : MonoBehaviour
 		curImage = GetComponent<Image>();
 		ingredients = new List<string>();
 		hitRect = GetComponent<RectTransform>();
+		cooking = false;
     }
 
     // Update is called once per frame
@@ -38,6 +41,17 @@ public class CookingPotBehavior : MonoBehaviour
 	}
 
 	public void CombineIngredients() {
+		StartCoroutine(CookKanji());
+	}
+
+	IEnumerator CookKanji() {
+		float cookingTimer = 0;
+		while(cookingTimer < cookingTime) {
+			cookingTimer += Time.deltaTime;
+			transform.Rotate(0, 0, 25 * Time.deltaTime);
+			yield return null;
+		}
+		transform.rotation = Quaternion.identity;
 		resultSpot.text = RecipeLookup();
 		ingredients.Clear();
 		GameManager.instance.ClearRequest(resultSpot.text);

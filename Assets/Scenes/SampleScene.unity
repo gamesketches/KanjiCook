@@ -212,6 +212,7 @@ MonoBehaviour:
   characterPrefab: {fileID: 3844544123802029379, guid: cca6e5447dfa540a58e32f8c80bc7cf9,
     type: 3}
   resultSpot: {fileID: 357817359}
+  cookingTime: 0.8
 --- !u!1 &92382567
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -96.6, y: -40}
+  m_AnchoredPosition: {x: -96.6001, y: -40}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92382569
@@ -1233,6 +1234,7 @@ MonoBehaviour:
   contentManager: {fileID: 275698564}
   menu: {fileID: 460592321}
   requestInterval: 5
+  levelDuration: 20
   levelFileName: level1
 --- !u!4 &838085460
 Transform:

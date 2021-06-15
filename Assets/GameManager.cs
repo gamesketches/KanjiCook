@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 	public Text menu;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
+	public float levelDuration;
+	float levelTimer;
 	bool gameStarted = false;
 	public string levelFileName;
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 		instance = this;
+		levelTimer = 0;
 		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
@@ -37,6 +40,15 @@ public class GameManager : MonoBehaviour
 			if(requestTimer >= requestInterval) {
 				MakeNewRequest();
 				requestTimer = 0;
+			}
+			levelTimer += Time.deltaTime;
+			if(levelTimer > levelDuration) {
+				gameStarted = false;
+				LoadKanji();
+				SetUpRadicals();
+				menu.transform.parent.gameObject.SetActive(true);
+				levelTimer = 0;
+				Debug.Log("Your score is " + scoreTally.text);
 			}
 		}
     }
