@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	Text scoreTally;
 	public TextAsset KanjiData;
 	public ContentManager contentManager;
+	public ResultModalController resultModal;
 	public Text menu;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
@@ -25,11 +26,11 @@ public class GameManager : MonoBehaviour
     {
 		instance = this;
 		levelTimer = 0;
+		resultModal.gameObject.SetActive(false);
 		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
-		LoadKanji();
-		SetUpRadicals();
+		LevelSetup();
     }
 
     // Update is called once per frame
@@ -44,10 +45,8 @@ public class GameManager : MonoBehaviour
 			levelTimer += Time.deltaTime;
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
-				LoadKanji();
-				SetUpRadicals();
-				menu.transform.parent.gameObject.SetActive(true);
-				levelTimer = 0;
+				resultModal.gameObject.SetActive(true);
+				resultModal.DisplayRating(int.Parse(scoreTally.text) / 300);
 				Debug.Log("Your score is " + scoreTally.text);
 			}
 		}
@@ -56,6 +55,14 @@ public class GameManager : MonoBehaviour
 	public void StartGame() {
 		gameStarted = true;
 		menu.transform.parent.gameObject.SetActive(false);
+	}
+
+	public void LevelSetup() {
+		levelTimer = 0;
+		scoreTally.text = 0;
+		LoadKanji();
+		SetUpRadicals();
+		menu.transform.parent.gameObject.SetActive(true);
 	}
 
 	void LoadKanji() {
