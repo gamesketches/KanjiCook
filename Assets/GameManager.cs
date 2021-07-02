@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
 	public void LevelSetup() {
 		levelTimer = 0;
-		scoreTally.text = 0;
+		scoreTally.text = 0.ToString();
 		LoadKanji();
 		SetUpRadicals();
 		menu.transform.parent.gameObject.SetActive(true);
