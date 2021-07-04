@@ -10,10 +10,9 @@ public class LevelSelect : MonoBehaviour
     void Start()
     {
 		int levelCount = 0;
-     	foreach(TextAsset asset in Resources.LoadAll<TextAsset>("")) {
+     	foreach(TextAsset asset in Resources.LoadAll("", typeof(TextAsset))) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
 			levelButton.transform.parent = transform;
-			//levelButton.GetComponent<Image>().onClick.AddListener(() => LevelLoadCallback(levelCount));
 			levelButton.GetComponent<LevelSelectButton>().Initialize(levelCount, levelCount.ToString());
 			levelCount++;
 		} 
