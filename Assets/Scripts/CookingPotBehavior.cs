@@ -37,7 +37,9 @@ public class CookingPotBehavior : MonoBehaviour
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, transform);
 		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.value * hitRect.rect.width / 2.5f, Random.value * hitRect.rect.height / 2.5f);
 		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.value * 360);
-		newChar.GetComponent<Text>().text = character;
+		Text charText = newChar.GetComponent<Text>();
+		charText.text = character;
+		charText.color = Color.white;
 	}
 
 	public void CombineIngredients() {
@@ -46,13 +48,17 @@ public class CookingPotBehavior : MonoBehaviour
 
 	IEnumerator CookKanji() {
 		float cookingTimer = 0;
+		float panAnimationRange = 3;
+		ChefController.instance.cooking = true;
+		Vector3 startPosition = transform.position;
 		while(cookingTimer < cookingTime) {
 			cookingTimer += Time.deltaTime;
-			transform.Rotate(0, 0, 25 * Time.deltaTime);
+			transform.position = startPosition + new Vector3(Random.Range(-panAnimationRange, panAnimationRange), Random.Range(-panAnimationRange, panAnimationRange), 0);
 			yield return null;
 		}
-		transform.rotation = Quaternion.identity;
+		transform.position = startPosition;
 		resultSpot.text = RecipeLookup();
+		ChefController.instance.cooking = false;
 		ingredients.Clear();
 		GameManager.instance.ClearRequest(resultSpot.text);
 		foreach(Transform t in transform) {

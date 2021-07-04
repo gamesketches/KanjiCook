@@ -3003,8 +3003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cfa4b2c7fb14fd59c9134b0ef3e48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chefArm: {fileID: 136203845}
-  rotationInterval: 10
+  chefArm: {fileID: 879335258}
+  chefForearm: {fileID: 136203845}
+  rotationInterval: 8
 --- !u!212 &1674724556
 SpriteRenderer:
   m_ObjectHideFlags: 0
