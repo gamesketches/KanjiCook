@@ -9,11 +9,11 @@ public class LevelSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		int levelCount = 0;
+		int levelCount = 1;
      	foreach(TextAsset asset in Resources.LoadAll("", typeof(TextAsset))) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
 			levelButton.transform.parent = transform;
-			levelButton.GetComponent<LevelSelectButton>().Initialize(levelCount, levelCount.ToString());
+			levelButton.GetComponent<LevelSelectButton>().Initialize(asset.name, levelCount.ToString());
 			levelCount++;
 		} 
     }

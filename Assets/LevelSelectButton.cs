@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 {
-	int levelId;
+	string levelFile;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +19,12 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
         
     }
 
-	public void Initialize(int id, string levelName) {
-		levelId = id;
+	public void Initialize(string id, string levelName) {
+		levelFile = id;
 		GetComponentInChildren<Text>().text = levelName;
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData) {
-		Debug.Log("clicked " + levelId.ToString());
+		GameManager.instance.LoadLevel(levelFile);
 	}
 }

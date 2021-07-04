@@ -1872,6 +1872,7 @@ MonoBehaviour:
   contentManager: {fileID: 275698564}
   resultModal: {fileID: 2145951996}
   menu: {fileID: 460592321}
+  GameMenuCanvas: {fileID: 31813087}
   requestInterval: 5
   levelDuration: 20
   levelFileName: level1

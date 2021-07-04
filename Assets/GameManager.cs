@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	public ContentManager contentManager;
 	public ResultModalController resultModal;
 	public Text menu;
+	public GameObject GameMenuCanvas;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 	public float levelDuration;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
-		LevelSetup();
+		//LevelSetup();
     }
 
     // Update is called once per frame
@@ -63,6 +64,12 @@ public class GameManager : MonoBehaviour
 		LoadKanji();
 		SetUpRadicals();
 		menu.transform.parent.gameObject.SetActive(true);
+	}
+
+	public void LoadLevel(string levelName) {
+		GameMenuCanvas.SetActive(false);
+		levelFileName = levelName;
+		LevelSetup();
 	}
 
 	void LoadKanji() {
