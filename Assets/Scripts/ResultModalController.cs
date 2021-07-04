@@ -27,8 +27,17 @@ public class ResultModalController : MonoBehaviour
 	}
 
 	public void CloseResultModal() {
-		GameManager.instance.LevelSetup();
 		gameObject.SetActive(false);
+	}
+
+	public void Retry() {
+		GameManager.instance.LevelSetup();
+		CloseResultModal();
+	}
+
+	public void LevelSelect() {
+		GameManager.instance.OpenLevelSelect();
+		CloseResultModal();
 	}
 
 	void OnEnable() {

@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour
 		LevelSetup();
 	}
 
+	public void OpenLevelSelect() {
+		GameMenuCanvas.SetActive(true);
+	}
+
 	void LoadKanji() {
 		//targetWords = contentManager.CreateGameContent();
 		targetWords = contentManager.LoadLevelContent(levelFileName);
