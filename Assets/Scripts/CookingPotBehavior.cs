@@ -60,7 +60,7 @@ public class CookingPotBehavior : MonoBehaviour
 		resultSpot.text = RecipeLookup();
 		ChefController.instance.cooking = false;
 		ingredients.Clear();
-		GameManager.instance.ClearRequest(resultSpot.text);
+		GameManager.instance.ClearRequest(resultSpot);
 		foreach(Transform t in transform) {
 			Destroy(t.gameObject);
 		}

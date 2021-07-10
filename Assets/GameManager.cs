@@ -122,8 +122,9 @@ public class GameManager : MonoBehaviour
 		requestQueue.ReceiveRequest(request);
 	}
 
-	public void ClearRequest(string answer) {
-		if(requestQueue.SatisfyRequest(answer)) {
+	public void ClearRequest(Text answer) {
+		if(requestQueue.SatisfiesRequest(answer.text)) {
+			StartCoroutine(requestQueue.ClearRequest(answer));
 			scoreTally.text = (int.Parse(scoreTally.text) + 100).ToString();
 		}
 	}

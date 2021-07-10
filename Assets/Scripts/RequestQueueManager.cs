@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RequestQueueManager : MonoBehaviour
 {
@@ -28,25 +29,40 @@ public class RequestQueueManager : MonoBehaviour
 		newRequestBehavior.Initialize(displayText);
 		requestTemplate.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, offset * 2), Random.Range(0, offset));
 		requests.Add(newRequestBehavior);
-		//ReorganizeRequests();
 	}
 
-	public bool SatisfyRequest(string displayText) {
+	public bool SatisfiesRequest(string displayText) {
 		Debug.Log("satisfying request");
-		bool requestFound = false;
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(displayText)) {
-				Destroy(requests[i].gameObject);
-				Debug.Log(requests[i]);
-				requests.RemoveAt(i);
-				requestFound = true;
+				return true;
 				break;
 			}
 		}
 		//ReorganizeRequests();
-		return requestFound;
+		return false;
 	}
 
+	public IEnumerator ClearRequest(Text kanjiOrder) {
+		for(int i = 0; i < requests.Count; i++) {
+			if(requests[i].RequestFulfilled(kanjiOrder.text)) {
+				Vector3 targetPos = requests[i].transform.position;
+				Vector3 startPos = kanjiOrder.transform.position;
+				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
+				kanjiOrder.text = "";
+				for(float t = 0; t < 1; t += Time.deltaTime) {
+					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t/1);
+					yield return null;
+				}
+				Destroy(servedKanji);
+				Destroy(requests[i].gameObject);
+				Debug.Log(requests[i]);
+				requests.RemoveAt(i);
+				break;
+			}
+		}
+		yield return null;
+	}
 	void ReorganizeRequests() {
 		for(int i = 0; i < requests.Count; i++) {
 			requests[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, offset * i);
