@@ -34,13 +34,15 @@ public class WaitorController : MonoBehaviour
 
 	IEnumerator WaitorWalksIn() {
 		Vector3 offscreenPos = transform.position;
-		renderer.flipX = false;
+		transform.localScale = Vector3.one;
+		//renderer.flipX = false;
 		for(float t = 0; t < waitorTravelTime; t += Time.deltaTime) {
 			transform.position = Vector3.Lerp(offscreenPos, waitorPosition, t / waitorTravelTime);
 			yield return null;
 		}
 		yield return new WaitForSeconds(1);
-		renderer.flipX = true;
+		//renderer.flipX = true;
+		transform.localScale = new Vector3(-1, 1, 1);
 		for(float t = 0; t < waitorTravelTime; t += Time.deltaTime) {
 			transform.position = Vector3.Lerp(waitorPosition, offscreenPos, t / waitorTravelTime);
 			yield return null;
