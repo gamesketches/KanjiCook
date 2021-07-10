@@ -26,9 +26,9 @@ public class RequestQueueManager : MonoBehaviour
 		GameObject newRequest = Instantiate<GameObject>(requestTemplate, transform);
 		RequestBehavior newRequestBehavior = newRequest.GetComponent<RequestBehavior>();
 		newRequestBehavior.Initialize(displayText);
-		RectTransform rt = requestTemplate.GetComponent<RectTransform>();
+		requestTemplate.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, offset * 2), Random.Range(0, offset));
 		requests.Add(newRequestBehavior);
-		ReorganizeRequests();
+		//ReorganizeRequests();
 	}
 
 	public bool SatisfyRequest(string displayText) {
@@ -43,7 +43,7 @@ public class RequestQueueManager : MonoBehaviour
 				break;
 			}
 		}
-		ReorganizeRequests();
+		//ReorganizeRequests();
 		return requestFound;
 	}
 
