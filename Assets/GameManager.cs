@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
 		instance = this;
 		levelTimer = 0;
+		GameMenuCanvas.SetActive(true);
 		resultModal.gameObject.SetActive(false);
 		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();

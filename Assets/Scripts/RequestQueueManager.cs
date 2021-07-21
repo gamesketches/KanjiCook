@@ -49,16 +49,17 @@ public class RequestQueueManager : MonoBehaviour
 	public IEnumerator ClearRequest(Text kanjiOrder) {
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(kanjiOrder.text)) {
+				float travelTime = 0.7f;
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
 				kanjiOrder.text = "";
-				for(float t = 0; t < 1; t += Time.deltaTime) {
-					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t/1);
+				for(float t = 0; t < travelTime; t += Time.deltaTime) {
+					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t / travelTime);
 					yield return null;
 				}
 				Destroy(servedKanji);
-				requests[i].gameObject.SetActive(false);
+				requests[i].PlayFulfilledAnimation();
 				WaitorController.instance.PickUpOrder();
 				break;
 			}
