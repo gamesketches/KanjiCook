@@ -53,6 +53,12 @@ public class RequestQueueManager : MonoBehaviour
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
+				servedKanji.transform.position = kanjiOrder.transform.position;
+				float stretchAnimTime = 0.3f;
+				for(float t = 0; t < stretchAnimTime; t+= Time.deltaTime) {
+					servedKanji.transform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.7f, 1.7f, 1.7f), Mathf.PingPong(t, stretchAnimTime / 2) / stretchAnimTime / 2);
+					yield return null;
+				}
 				kanjiOrder.text = "";
 				for(float t = 0; t < travelTime; t += Time.deltaTime) {
 					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t / travelTime);
