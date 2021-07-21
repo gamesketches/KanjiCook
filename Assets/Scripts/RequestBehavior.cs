@@ -12,7 +12,8 @@ public class RequestBehavior : MonoBehaviour
 	GameObject fulfillStamp;
 	Text displayText;
 	public static float requestTime = 10;
-	static float stampSize = 1.4f;
+	static float stampSize = 1.5f;
+	static float stampAnimationSize = 1.9f;
 	static float fulfillAnimationTime = 0.1f;
 	float requestTimer;
 
@@ -55,9 +56,10 @@ public class RequestBehavior : MonoBehaviour
 
 	IEnumerator FulfillAnimation() {
 		fulfillStamp.SetActive(true);
-		Vector3 startSize = new Vector3(stampSize, stampSize, stampSize);
+		Vector3 startSize = new Vector3(stampAnimationSize, stampAnimationSize, stampAnimationSize);
+		Vector3 targetSize = new Vector3(stampSize, stampSize, stampSize);
 		for(float t = 0; t < fulfillAnimationTime; t += Time.deltaTime) {
-			fulfillStamp.transform.localScale = Vector3.Lerp(startSize, Vector3.one, t / fulfillAnimationTime);
+			fulfillStamp.transform.localScale = Vector3.Lerp(startSize, targetSize, t / fulfillAnimationTime);
 			yield return null;
 		}
 		yield return new WaitForSeconds(0.8f);
