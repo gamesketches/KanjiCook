@@ -65,7 +65,6 @@ public class CookingPotBehavior : MonoBehaviour
 			}
 			yield return null;
 		}
-		Debug.Log(cookingTimer);
 		transform.position = startPosition;
 		LanguagePair resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;

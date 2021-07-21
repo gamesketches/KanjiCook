@@ -33,11 +33,12 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	public void OnBeginDrag(PointerEventData eventData) {
 		Vector3 newPos;
 		kanjiCopy = Instantiate<GameObject>(draggedKanji);
-		kanjiCopy.GetComponentInChildren<Text>().text = character;//.ToString();
+		kanjiCopy.GetComponentInChildren<Text>().text = character;
 		kanjiCopy.GetComponent<Image>().color = gameObject.GetComponent<Image>().color;
 		kanjiCopy.transform.parent = transform.parent;
 		kanjiCopy.transform.position = transform.position;
-        if(RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, eventData.pressEventCamera, out newPos))
+        if(RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, 
+																		eventData.pressEventCamera, out newPos))
         {
             kanjiCopy.transform.position = newPos;
         }
@@ -54,10 +55,11 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
 	public void OnEndDrag(PointerEventData eventData) {
 		Vector3 newPos;
-		if (RectTransformUtility.ScreenPointToWorldPointInRectangle(CookingPotBehavior.instance.hitRect, eventData.position, eventData.pressEventCamera, out newPos))
-        {
-			Destroy(kanjiCopy);
+		RectTransform targetRect = CookingPotBehavior.instance.hitRect;
+		if(RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, 
+																	eventData.pressEventCamera)) {
 			CookingPotBehavior.instance.AddIngredient(character);
         }
+		Destroy(kanjiCopy);
 	}
 }
