@@ -14,7 +14,8 @@ public class RequestQueueManager : MonoBehaviour
     void Start()
     {
         referenceRect = requestTemplate.GetComponent<RectTransform>().rect;
-		requests = new List<RequestBehavior>();
+		requests = new List<RequestBehavior>(gameObject.GetComponentsInChildren<RequestBehavior>());
+		foreach(RequestBehavior request in requests) { request.gameObject.SetActive(false);}
     }
 
     // Update is called once per frame
@@ -24,11 +25,13 @@ public class RequestQueueManager : MonoBehaviour
     }
 
 	public void ReceiveRequest(string displayText) {
-		GameObject newRequest = Instantiate<GameObject>(requestTemplate, transform);
-		RequestBehavior newRequestBehavior = newRequest.GetComponent<RequestBehavior>();
-		newRequestBehavior.Initialize(displayText);
-		requestTemplate.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(0, offset * 2), Random.Range(0, offset));
-		requests.Add(newRequestBehavior);
+		foreach(RequestBehavior poolRequest in requests) {
+			if(!poolRequest.gameObject.activeInHierarchy) {
+				poolRequest.gameObject.SetActive(true);
+				poolRequest.Initialize(displayText);
+				break;
+			} 
+		}
 	}
 
 	public bool SatisfiesRequest(string displayText) {
@@ -55,9 +58,7 @@ public class RequestQueueManager : MonoBehaviour
 					yield return null;
 				}
 				Destroy(servedKanji);
-				Destroy(requests[i].gameObject);
-				Debug.Log(requests[i]);
-				requests.RemoveAt(i);
+				requests[i].gameObject.SetActive(false);
 				break;
 			}
 		}

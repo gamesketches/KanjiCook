@@ -37,6 +37,7 @@ public class RequestBehavior : MonoBehaviour
 	public void Initialize(string target) {
 		displayText.text = target;
 		backgroundImage.color = startColor;
+		requestTimer = 0;
 	}
 
 	public bool RequestFulfilled(string answer) {
