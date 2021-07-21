@@ -59,6 +59,7 @@ public class RequestQueueManager : MonoBehaviour
 				}
 				Destroy(servedKanji);
 				requests[i].gameObject.SetActive(false);
+				WaitorController.instance.PickUpOrder();
 				break;
 			}
 		}
