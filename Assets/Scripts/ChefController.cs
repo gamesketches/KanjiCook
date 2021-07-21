@@ -23,6 +23,9 @@ public class ChefController : MonoBehaviour
 			float rotationAmount = Mathf.PingPong(Time.realtimeSinceStartup * 20, rotationInterval);
 			chefArm.transform.rotation = Quaternion.Euler(0, 0, rotationAmount); 
 			chefForearm.transform.rotation = Quaternion.Euler(0, 0, -rotationAmount);
+		} else {
+			chefArm.transform.rotation = Quaternion.identity;
+			chefForearm.transform.rotation = Quaternion.identity;
 		}
     }
 }

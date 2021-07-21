@@ -35,8 +35,9 @@ public class CookingPotBehavior : MonoBehaviour
 	public void AddIngredient(string character) {
 		ingredients.Add(character);
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, transform);
-		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.value * hitRect.rect.width / 2.5f, Random.value * hitRect.rect.height / 2.5f);
-		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.value * 360);
+		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.value * hitRect.rect.width / 4f,
+															 Random.value * hitRect.rect.height / 4f);
+		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-90, 90));
 		Text charText = newChar.GetComponent<Text>();
 		charText.text = character;
 		charText.color = Color.white;
@@ -53,9 +54,18 @@ public class CookingPotBehavior : MonoBehaviour
 		Vector3 startPosition = transform.position;
 		while(cookingTimer < cookingTime) {
 			cookingTimer += Time.deltaTime;
-			transform.position = startPosition + new Vector3(Random.Range(-panAnimationRange, panAnimationRange), Random.Range(-panAnimationRange, panAnimationRange), 0);
+			Vector3 nextPos = startPosition + new Vector3(Random.Range(-panAnimationRange, panAnimationRange), Random.Range(-panAnimationRange, panAnimationRange), 0);
+			float lerpTime = (Random.value * 5) * Time.deltaTime;
+			if(lerpTime > cookingTime - cookingTimer) lerpTime = cookingTime - cookingTimer;
+			Vector3 curPos = transform.position;
+			for(float t = 0; t < lerpTime; t += Time.deltaTime) {
+				transform.position = Vector3.Lerp(curPos, nextPos, t / lerpTime);
+				cookingTimer += Time.deltaTime;
+				yield return null;
+			}
 			yield return null;
 		}
+		Debug.Log(cookingTimer);
 		transform.position = startPosition;
 		LanguagePair resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
