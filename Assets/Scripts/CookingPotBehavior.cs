@@ -57,10 +57,11 @@ public class CookingPotBehavior : MonoBehaviour
 			yield return null;
 		}
 		transform.position = startPosition;
-		resultSpot.text = RecipeLookup();
+		LanguagePair resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
+		resultSpot.text = resultPair.literal;
 		ChefController.instance.cooking = false;
 		ingredients.Clear();
-		GameManager.instance.ClearRequest(resultSpot);
+		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		foreach(Transform t in transform) {
 			Destroy(t.gameObject);
 		}
@@ -75,7 +76,9 @@ public class CookingPotBehavior : MonoBehaviour
 						match = false;
 					}
 				}
-				if(match) return listing.target;
+				if(match) {
+					return listing.target;
+				}
 			}
 		}
 		return "駄目";

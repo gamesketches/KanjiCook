@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -123,11 +124,28 @@ public class GameManager : MonoBehaviour
 		requestQueue.ReceiveRequest(request);
 	}
 
-	public void ClearRequest(Text answer) {
-		if(requestQueue.SatisfiesRequest(answer.text)) {
-			StartCoroutine(requestQueue.ClearRequest(answer));
+	public void ClearRequest(Text answer, LanguagePair result) {
+		if(requestQueue.SatisfiesRequest(result.target)) {
+			StartCoroutine(requestQueue.ClearRequest(answer, result.target));
 			scoreTally.text = (int.Parse(scoreTally.text) + 100).ToString();
 		}
+	}
+
+	public LanguagePair RecipeLookup(string[] components) {
+		foreach(LanguagePair listing in targetWords) {
+			if(listing.components.Length == components.Length) {
+				bool match = true;
+				foreach(string component in components) {
+					if(ArrayUtility.IndexOf(listing.components, component) == -1) {
+						match = false;
+					}
+				}
+				if(match) {
+					return listing;
+				}
+			}
+		}
+		return new LanguagePair("failure", "駄目", new string[0]);
 	}
 }
 
