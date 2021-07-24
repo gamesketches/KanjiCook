@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
 				resultModal.gameObject.SetActive(true);
-				resultModal.DisplayRating(int.Parse(scoreTally.text) / 300);
+				resultModal.DisplayRating(int.Parse(scoreTally.text.Substring(1)));
 				Debug.Log("Your score is " + scoreTally.text);
 			}
 		}
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
 	public void LevelSetup() {
 		levelTimer = 0;
-		scoreTally.text = 0.ToString();
+		scoreTally.text = "X 0";//0.ToString();
 		LoadKanji();
 		SetUpRadicals();
 		menu.transform.parent.gameObject.SetActive(true);
@@ -127,7 +127,8 @@ public class GameManager : MonoBehaviour
 	public void ClearRequest(Text answer, LanguagePair result) {
 		if(requestQueue.SatisfiesRequest(result.target)) {
 			StartCoroutine(requestQueue.ClearRequest(answer, result.target));
-			scoreTally.text = (int.Parse(scoreTally.text) + 100).ToString();
+			Debug.Log(scoreTally.text.Substring(1));
+			scoreTally.text = "X " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 		}
 	}
 
