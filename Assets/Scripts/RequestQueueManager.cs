@@ -77,4 +77,10 @@ public class RequestQueueManager : MonoBehaviour
 			requests[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, offset * i);
 		}
 	}
+
+	public void ClearRequests() {
+		foreach(RequestBehavior poolRequest in requests) {
+			poolRequest.gameObject.SetActive(false);
+		}
+	}
 }

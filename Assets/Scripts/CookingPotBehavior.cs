@@ -69,11 +69,8 @@ public class CookingPotBehavior : MonoBehaviour
 		LanguagePair resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
 		ChefController.instance.cooking = false;
-		ingredients.Clear();
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
-		foreach(Transform t in transform) {
-			Destroy(t.gameObject);
-		}
+		ClearIngredients();
 	}
 
 	string RecipeLookup() {
@@ -91,5 +88,12 @@ public class CookingPotBehavior : MonoBehaviour
 			}
 		}
 		return "駄目";
+	}
+
+	public void ClearIngredients() {
+		ingredients.Clear();
+		foreach(Transform t in transform) {
+			Destroy(t.gameObject);
+		}
 	}
 }

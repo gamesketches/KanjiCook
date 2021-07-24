@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	public TextAsset KanjiData;
 	public ContentManager contentManager;
 	public ResultModalController resultModal;
+	public CookingPotBehavior cookingPot;
 	public Text menu;
 	public GameObject GameMenuCanvas;
 	public float requestInterval = 5;
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
 			levelTimer += Time.deltaTime;
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
+				CleanUpGameplay();
 				resultModal.gameObject.SetActive(true);
 				resultModal.DisplayRating(int.Parse(scoreTally.text.Substring(1)));
 				Debug.Log("Your score is " + scoreTally.text);
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
 
 	public void LevelSetup() {
 		levelTimer = 0;
-		scoreTally.text = "X 0";//0.ToString();
+		scoreTally.text = "X 0";
 		LoadKanji();
 		SetUpRadicals();
 		menu.transform.parent.gameObject.SetActive(true);
@@ -75,7 +77,14 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void OpenLevelSelect() {
+		gameStarted = false;
+		requestQueue.ClearRequests();
 		GameMenuCanvas.SetActive(true);
+	}
+
+	void CleanUpGameplay() {
+		requestQueue.ClearRequests();
+		cookingPot.ClearIngredients();
 	}
 
 	void LoadKanji() {
