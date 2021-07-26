@@ -76,6 +76,15 @@ public class GameManager : MonoBehaviour
 		LevelSetup();
 	}
 
+	public void RestartLevel() {
+		gameStarted = false;
+		requestQueue.ClearRequests();
+		levelTimer = 0;
+		requestTimer = 4.5f;
+		scoreTally.text = "X 0";
+		menu.transform.parent.gameObject.SetActive(true);
+	}
+
 	public void OpenLevelSelect() {
 		gameStarted = false;
 		requestQueue.ClearRequests();
