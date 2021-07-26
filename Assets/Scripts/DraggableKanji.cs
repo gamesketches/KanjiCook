@@ -34,7 +34,6 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		Vector3 newPos;
 		kanjiCopy = Instantiate<GameObject>(draggedKanji);
 		kanjiCopy.GetComponentInChildren<Text>().text = character;
-		kanjiCopy.GetComponent<Image>().color = gameObject.GetComponent<Image>().color;
 		kanjiCopy.transform.parent = transform.parent;
 		kanjiCopy.transform.position = transform.position;
         if(RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, 
