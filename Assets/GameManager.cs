@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
-		//LevelSetup();
+		menu.CrossFadeAlpha(0, 0.01f, true);
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 		scoreTally.text = "X 0";
 		LoadKanji();
 		SetUpRadicals();
-		menu.transform.parent.gameObject.SetActive(true);
+		ShowWordMenu();
 	}
 
 	public void LoadLevel(string levelName) {
@@ -82,13 +82,18 @@ public class GameManager : MonoBehaviour
 		levelTimer = 0;
 		requestTimer = 4.5f;
 		scoreTally.text = "X 0";
-		menu.transform.parent.gameObject.SetActive(true);
+		ShowWordMenu();
 	}
 
 	public void OpenLevelSelect() {
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		GameMenuCanvas.SetActive(true);
+	}
+
+	void ShowWordMenu() {
+		menu.transform.parent.gameObject.SetActive(true);
+		menu.CrossFadeAlpha(1, 1.4f, false);
 	}
 
 	void CleanUpGameplay() {

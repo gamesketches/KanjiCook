@@ -49,7 +49,7 @@ public class RequestQueueManager : MonoBehaviour
 	public IEnumerator ClearRequest(Text kanjiOrder, string targetText) {
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(targetText)) {
-				float travelTime = 0.7f;
+				float travelTime = 0.4f;
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
