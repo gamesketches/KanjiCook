@@ -129,8 +129,12 @@ public class GameManager : MonoBehaviour
 		if(radicals.Count > radicalButtons.Length) { 
 			Debug.LogError("There are too many radicals for the number of buttons");
 		} else {
-			for(int i = 0; i < radicals.Count; i++) {
-				radicalButtons[i].GetComponent<DraggableKanji>().SetRadical(radicals[i]);
+			for(int i = 0; i < radicalButtons.Length; i++) {
+				if(i < radicals.Count) {
+					radicalButtons[i].GetComponent<DraggableKanji>().SetRadical(radicals[i]);
+				} else {
+					radicalButtons[i].SetActive(false);
+				}
 			}
 		}
 	}
