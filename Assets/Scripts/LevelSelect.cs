@@ -22,7 +22,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      	foreach(TextAsset asset in Resources.LoadAll("", typeof(TextAsset))) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
 			levelButton.transform.parent = transform;
-			levelButton.GetComponentInChildren<Text>().text = asset.name;
+			/*levelButton.GetComponentInChildren<Text>().text = asset.name;*/
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(asset.name, levelCount.ToString());
 			levelCount++;
 		} 

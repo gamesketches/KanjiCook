@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class ContentManager : MonoBehaviour
 {
+	public static ContentManager instance;
 	public TextAsset kanjiFile;
 	public int numRadicals;
 	public int numKanji;
@@ -12,6 +13,7 @@ public class ContentManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+		instance  = this;
         myKanji = JsonUtility.FromJson<KanjiInfoFile>(kanjiFile.text);
 		Debug.Log(myKanji.kanjiInfos.Length);
     }
@@ -21,6 +23,23 @@ public class ContentManager : MonoBehaviour
     {
         
     }
+
+	public void GetLevelSelectContent(string filename, out string[] kanjis, out string[] radicals) {
+		TextAsset levelFile = Resources.Load<TextAsset>(filename);
+		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(levelFile.text);
+		List<string> fileKanjis = new List<string>();
+		List<string> fileRadicals = new List<string>();
+		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
+			fileKanjis.Add(kanji.kanji);
+			foreach(string rad in kanji.radicals) {
+				if(fileRadicals.IndexOf(rad) == -1) {
+					fileRadicals.Add(rad);
+				}
+			}
+		}
+		kanjis = fileKanjis.ToArray();
+		radicals = fileRadicals.ToArray();
+	}
 
 	public LanguagePair[] LoadLevelContent(string filename) {
 		TextAsset levelFile = Resources.Load<TextAsset>(filename);
