@@ -13,10 +13,10 @@ print("krad opened")
 
 if len(sys.argv) > 1:
 	print("opening " + sys.argv[1])
-	joyo = codecs.open(sys.argv[1], encoding='utf-8')
+	inputFile = codecs.open(sys.argv[1], encoding='utf-8')
 else:
 	print("No file given, so opening joyo")
-	joyo = codecs.open("joyo.txt", encoding='utf-8')
+	inputFile = codecs.open("joyo.txt", encoding='utf-8')
 
 theKanji = []
 def GenKanjiInfoString(kanji):
@@ -25,12 +25,12 @@ def GenKanjiInfoString(kanji):
 		if(meaning.attrib.get("m_lang") is None):
 			meanings += meaning.text + "/"
 	
-	return meanings
+	return meanings.split("/")
 
-def FindKanjiMeaning(kanji):
+def GetKanjiEntry(kanji):
 	for kanji in root.findall('character'):
 		if(kanji.find('literal').text == i):
-			return GenKanjiInfoString(kanji)
+			return kanji
 		else:
 			continue
 	return "not found"
@@ -44,11 +44,24 @@ def FindKanjiRadicals(kanji):
 	krad.seek(0)
 	return "radicals not found"
 
-grade1 = joyo.readline().split()
-for i in grade1:
-	foundMeanings = FindKanjiMeaning(i).split("/")
+def FindKanjiReadings(kanji):
+	onyomi, kunyomi = " ", " "
+	for reading in kanji.find('reading_meaning').find('rmgroup').findall('reading'):
+		if reading.attrib.get("r_type") == "ja_on":
+			onyomi += reading.text + "/"
+		elif reading.attrib.get("r_type") == "ja_kun":
+			kunyomi += reading.text + "/"
+
+	return onyomi.split("/")[:-1], kunyomi.split("/")[:-1]
+
+splitInputFile = inputFile.readline().split()
+for i in splitInputFile:
+	print(i)
+	kanjiEntry = GetKanjiEntry(i)
+	foundMeanings = GenKanjiInfoString(kanjiEntry)#FindKanjiMeaning(i).split("/")
 	foundMeanings = [var.lstrip() for var in foundMeanings if var]
-	theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : FindKanjiRadicals(i).rstrip().split(" ")})
+	onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
+	theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : FindKanjiRadicals(i).rstrip().split(" "), "onyomi" : onyomi, "kunyomi" : kunyomi})
 
 outputFile = open("output.json", "w")
 outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
