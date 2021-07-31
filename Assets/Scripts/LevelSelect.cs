@@ -11,6 +11,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	RectTransform canvas;
 	RectTransform rectTransform;
 	float startOffset;
+	public float startingRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +22,12 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		int levelCount = 1;
      	foreach(TextAsset asset in Resources.LoadAll("", typeof(TextAsset))) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
-			levelButton.transform.parent = transform;
+			levelButton.transform.parent = transform.GetChild(1);
 			/*levelButton.GetComponentInChildren<Text>().text = asset.name;*/
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(asset.name, levelCount.ToString());
 			levelCount++;
 		} 
+		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
     }
 
     // Update is called once per frame
