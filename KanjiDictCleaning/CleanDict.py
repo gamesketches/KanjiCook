@@ -39,7 +39,7 @@ def FindKanjiRadicals(kanji):
 	for radEntry in krad:
 		if radEntry[0] == kanji:
 			krad.seek(0)
-			return radEntry[4:]
+			return radEntry[4:].rstrip().split(" ")
 	
 	krad.seek(0)
 	return "radicals not found"
@@ -54,19 +54,32 @@ def FindKanjiReadings(kanji):
 
 	return onyomi.split("/")[:-1], kunyomi.split("/")[:-1]
 
+def CheckRadicalCount(cleanedEntries):
+	radicalContents = []
+	for kanji in cleanedEntries:
+		for radical in kanji["radicals"]:
+			if radical not in radicalContents:
+				radicalContents.append(radical)
+	
+	for radical in radicalContents:
+		print(radical)
+	if len(radicalContents) > 7:
+		print("WARNING: TOO MANY RADS!")
+
 splitInputFile = inputFile.readline().split()
 for i in splitInputFile:
-	print(i)
 	kanjiEntry = GetKanjiEntry(i)
-	foundMeanings = GenKanjiInfoString(kanjiEntry)#FindKanjiMeaning(i).split("/")
+	foundMeanings = GenKanjiInfoString(kanjiEntry)
 	foundMeanings = [var.lstrip() for var in foundMeanings if var]
+	foundRadicals = FindKanjiRadicals(i) #FindKanjiRadicals(i).rstrip().split(" ")
 	onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
-	theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : FindKanjiRadicals(i).rstrip().split(" "), "onyomi" : onyomi, "kunyomi" : kunyomi})
+	theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
 
 outputFile = open("output.json", "w")
 outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
 outputFile.close()
 print(json.dumps({"kanjiInfos" : theKanji}))
+CheckRadicalCount(theKanji)
 #		misc = kanji.find('misc')
 #		if(misc.find('jlpt') is not None):
 #			if(misc.find('jlpt').text == i):
