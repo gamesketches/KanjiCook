@@ -48,6 +48,12 @@ public class ContentManager : MonoBehaviour
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
 			Debug.Log("Adding kanji " + kanji.kanji);
 			int randomMeaning = Random.Range(0, kanji.meanings.Length);
+			for(int i = 0; i < tempContent.Count; i++) {
+				if(tempContent[i].target == kanji.meanings[randomMeaning]) {
+					i = -1;
+					randomMeaning = Random.Range(0, kanji.meanings.Length);
+				}
+			}
 			tempContent.Add(new LanguagePair(kanji.meanings[randomMeaning], kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
 		}
 		return tempContent.ToArray();
