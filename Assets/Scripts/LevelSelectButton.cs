@@ -31,8 +31,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		string[] rads = new string[0];
 		ContentManager.instance.GetLevelSelectContent(levelFile, out levelKanjis, out rads);
 		foreach(string kanji in levelKanjis) {
-			Debug.Log(kanji);
-			Debug.Log(kanjis.text);
 			kanjis.text += " " + kanji;
 		}
 		foreach(string radical in rads) {

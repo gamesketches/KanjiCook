@@ -48,7 +48,7 @@ public class ContentManager : MonoBehaviour
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
 			Debug.Log("Adding kanji " + kanji.kanji);
 			int randomMeaning = Random.Range(0, kanji.meanings.Length);
-			tempContent.Add(new LanguagePair(kanji.meanings[randomMeaning], kanji.kanji, kanji.radicals));
+			tempContent.Add(new LanguagePair(kanji.meanings[randomMeaning], kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
 		}
 		return tempContent.ToArray();
 	}
@@ -76,7 +76,7 @@ public class ContentManager : MonoBehaviour
 				if(ArrayUtility.Contains(curRadicals, rad)) numRadComponents--;
 			}
 		} while(curRadicals.Length + numRadComponents > numRadicals);
-		return new LanguagePair(pickedKanji.meanings[0], pickedKanji.kanji, pickedKanji.radicals);
+		return new LanguagePair(pickedKanji.meanings[0], pickedKanji.kanji, pickedKanji.radicals, pickedKanji.kunyomi, pickedKanji.onyomi);
 	}
 		
 }
@@ -91,4 +91,6 @@ public class KanjiInfo {
 	public string[] meanings;
 	public string kanji;
 	public string[] radicals;
+	public string[] kunyomi;
+	public string[] onyomi;
 }

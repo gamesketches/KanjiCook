@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
-		return new LanguagePair("failure", "駄目", new string[0]);
+		return new LanguagePair("failure", "駄目", new string[0], new string[0], new string[0]);
 	}
 }
 
@@ -181,11 +181,15 @@ public class LanguagePair {
 	public string target;
 	public string literal;
 	public string[] components;
+	public string[] kunyomi;
+	public string[] onyomi;
 	
-	public LanguagePair(string pairTarget, string pairLiteral, string[] pairComponents) {
+	public LanguagePair(string pairTarget, string pairLiteral, string[] pairComponents, string[] pairKunyomi, string[] pairOnyomi) {
 		target = pairTarget;
 		components = pairComponents;
 		literal = pairLiteral;
+		kunyomi = pairKunyomi;
+		onyomi = pairOnyomi;
 	}
 }
 
