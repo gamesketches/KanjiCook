@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 433011100}
   - component: {fileID: 433011099}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6500,7 +6500,7 @@ GameObject:
   - component: {fileID: 1824063696}
   - component: {fileID: 1824063695}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
