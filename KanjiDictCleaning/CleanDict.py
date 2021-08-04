@@ -1,7 +1,11 @@
+# coding: utf-8
 import xml.etree.ElementTree as ET
 import codecs
 import json
 import sys
+
+maxLevelRadicals = 7
+maxLevelKanji = 5
 
 print("loading xml")
 root = ET.parse('kanjidic2.xml').getroot()
@@ -11,12 +15,7 @@ print("opening krad")
 krad = codecs.open("kradfile-u.txt", encoding='utf-8')
 print("krad opened")
 
-if len(sys.argv) > 1:
-	print("opening " + sys.argv[1])
-	inputFile = codecs.open(sys.argv[1], encoding='utf-8')
-else:
-	print("No file given, so opening joyo")
-	inputFile = codecs.open("joyo.txt", encoding='utf-8')
+
 
 theKanji = []
 def GenKanjiInfoString(kanji):
@@ -27,9 +26,9 @@ def GenKanjiInfoString(kanji):
 	
 	return meanings.split("/")
 
-def GetKanjiEntry(kanji):
+def GetKanjiEntry(kanjiToFind):
 	for kanji in root.findall('character'):
-		if(kanji.find('literal').text == i):
+		if(kanji.find('literal').text == kanjiToFind):
 			return kanji
 		else:
 			continue
@@ -63,23 +62,72 @@ def CheckRadicalCount(cleanedEntries):
 	
 	for radical in radicalContents:
 		print(radical)
-	if len(radicalContents) > 7:
+	if len(radicalContents) > maxLevelRadicals:
 		print("WARNING: TOO MANY RADS!")
 
-splitInputFile = inputFile.readline().split()
-for i in splitInputFile:
-	kanjiEntry = GetKanjiEntry(i)
-	foundMeanings = GenKanjiInfoString(kanjiEntry)
-	foundMeanings = [var.lstrip() for var in foundMeanings if var]
-	foundRadicals = FindKanjiRadicals(i) #FindKanjiRadicals(i).rstrip().split(" ")
-	onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
-	theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
+def GenFromFile(inputFile):
+	splitInputFile = inputFile.readline().split()
+	for i in splitInputFile:
+		kanjiEntry = GetKanjiEntry(i)
+		foundMeanings = GenKanjiInfoString(kanjiEntry)
+		foundMeanings = [var.lstrip() for var in foundMeanings if var]
+		foundRadicals = FindKanjiRadicals(i) 
+		onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
+		theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
 
-outputFile = open("output.json", "w")
-outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
-outputFile.close()
-print(json.dumps({"kanjiInfos" : theKanji}))
-CheckRadicalCount(theKanji)
+	outputFile = open("output.json", "w")
+	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
+	outputFile.close()
+	print(json.dumps({"kanjiInfos" : theKanji}))
+	CheckRadicalCount(theKanji)
+
+def GenFromKanji(startingLiteral):
+	levelRadicals = []
+	levelKanji = []
+	levelKanji.append(startingLiteral)
+	startingKanjiEntry = GetKanjiEntry(startingLiteral)
+	startingRadicals = FindKanjiRadicals(startingLiteral)
+	radSet = set(startingRadicals)
+	levelRadicals = startingRadicals
+	idleCounter = 0
+	for kanji in root.findall('character'):
+		freq = kanji.find("misc").find("freq")
+		idleCounter += 1
+		if idleCounter % 500 == 0:
+			print(idleCounter)
+		if freq is None:
+			continue
+		newRads = FindKanjiRadicals(kanji.find("literal").text)
+		numIntersection = len(radSet.intersection(newRads))
+		if numIntersection > 0:
+			radsAdded = len(newRads) - numIntersection
+			if (len(startingRadicals) + radsAdded) < maxLevelRadicals:
+				startingRadicals += newRads
+				radSet = set(startingRadicals)
+				levelKanji.append(kanji.find("literal").text)
+				print(kanji.find("literal").text)
+				if len(levelKanji) >= maxLevelKanji:
+					break
+	print("finished checking")
+	print(levelKanji)
+	print(len(radSet))
+
+if len(sys.argv) > 1:
+	print("opening " + sys.argv[1])
+	inputFile = codecs.open(sys.argv[1], encoding='utf-8')
+	GenFromKanji(inputFile.readline().split()[1])
+else:
+	print("No file given")
+	response = raw_input("Generate level from joyo? Y/N")
+	if response is "y" or response is "Y" or response is "yes" or response is "Yes":
+		inputFile = codecs.open("joyo.txt", encoding='utf-8')
+		GenFromFile(inputFile)
+	else:
+		response = ("Generate from kanji?")
+		if response.lower() is "y" or response.lower() is "yes":
+			GenFromKanji("本")
+		else:
+			print("okay, quitting")
 #		misc = kanji.find('misc')
 #		if(misc.find('jlpt') is not None):
 #			if(misc.find('jlpt').text == i):
