@@ -117,15 +117,14 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		numIntersection = len(curRadicalSet.intersection(newRads))
 		if numIntersection > 0:
 			radsAdded = len(newRads) - numIntersection
-			if len(curRadicalSet) + radsAdded < maxLevelRadicals:
-				if len(curKanjiList) == maxLevelKanji - 1:
+			if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
+				if len(curKanjiList) == maxLevelKanji:
 					print(curKanjiList)
 					print(curRadicalSet.union(newRads))
 					GenFromList(curKanjiList + [theKanji])
 					return curKanjiList + [theKanji], curRadicalSet.union(newRads)
 				else:
 					print(".")
-					print(theKanji)
 					newKanji, newRads = FindContentRecursively(curKanjiList + [theKanji], curRadicalSet.union(newRads))
 					if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 						return newKanji, newRads	
