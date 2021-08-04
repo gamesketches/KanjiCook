@@ -8,6 +8,8 @@ maxLevelRadicals = 7
 maxLevelKanji = 5
 minLevelKanji = 4
 
+levelCounter = 1
+
 print("loading xml")
 root = ET.parse('kanjidic2.xml').getroot()
 print("xml loaded")
@@ -39,7 +41,10 @@ def FindKanjiRadicals(kanji):
 	for radEntry in krad:
 		if radEntry[0] == kanji:
 			krad.seek(0)
-			return radEntry[4:].rstrip().split(" ")
+			returnVal = radEntry[4:].rstrip().split(" ")
+			if kanji in returnVal:
+				returnVal.remove(kanji)
+			return returnVal
 	
 	krad.seek(0)
 	return "radicals not found"
@@ -83,6 +88,7 @@ def GenFromFile(inputFile):
 	CheckRadicalCount(theKanji)
 
 def GenFromList(inputList):
+	global levelCounter
 	for i in inputList:
 		kanjiEntry = GetKanjiEntry(i)
 		foundMeanings = GenKanjiInfoString(kanjiEntry)
@@ -91,44 +97,15 @@ def GenFromList(inputList):
 		onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
 		theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
 
-	outputFile = open("output.json", "w")
+	outputFile = open("level" + str(levelCounter) + ".json", "w")
 	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
 	CheckRadicalCount(theKanji)
-
-def GenFromKanji(startingLiteral):
-	levelRadicals = []
-	levelKanji = []
-	levelKanji.append(startingLiteral)
-	startingKanjiEntry = GetKanjiEntry(startingLiteral)
-	startingRadicals = FindKanjiRadicals(startingLiteral)
-	radSet = set(startingRadicals)
-	levelRadicals = startingRadicals
-	idleCounter = 0
-	for kanji in root.findall('character'):
-		freq = kanji.find("misc").find("freq")
-		idleCounter += 1
-		if idleCounter % 500 == 0:
-			print(idleCounter)
-		if freq is None:
-			continue
-		newRads = FindKanjiRadicals(kanji.find("literal").text)
-		numIntersection = len(radSet.intersection(newRads))
-		if numIntersection > 0:
-			radsAdded = len(newRads) - numIntersection
-			if (len(startingRadicals) + radsAdded) < maxLevelRadicals:
-				startingRadicals += newRads
-				radSet = set(startingRadicals)
-				levelKanji.append(kanji.find("literal").text)
-				print(kanji.find("literal").text)
-				if len(levelKanji) >= maxLevelKanji:
-					break
-	print("finished checking")
-	print(levelKanji)
-	print(len(radSet))
+	levelCounter += 1
 
 def FindContentRecursively(curKanjiList, curRadicalSet):
+	global maxLevelKanji, maxLevelRadicals, minLevelKanji
 	for kanji in root.findall('character'):
 		freq = kanji.find("misc").find("freq")
 		if freq is None:
@@ -148,17 +125,24 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 					return curKanjiList + [theKanji], curRadicalSet.union(newRads)
 				else:
 					print(".")
+					print(theKanji)
 					newKanji, newRads = FindContentRecursively(curKanjiList + [theKanji], curRadicalSet.union(newRads))
-					if newKanji is not -1 and len(newKanji) > minLevelKanji:
+					if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 						return newKanji, newRads	
+	return [-1, -1], set([])
 				
 
 if len(sys.argv) > 1:
 	print("opening " + sys.argv[1])
 	inputFile = codecs.open(sys.argv[1], encoding='utf-8')
 	#GenFromKanji(inputFile.readline().split()[1])
-	startingLiteral = inputFile.readline().split()[1];
-	FindContentRecursively([startingLiteral], set(FindKanjiRadicals(startingLiteral))) 
+	#startingLiteral = inputFile.readline().split()[1];
+	#FindContentRecursively([startingLiteral], set(FindKanjiRadicals(startingLiteral))) 
+	inputKanjis = inputFile.readline().split()
+	print(inputKanjis)
+	for literal in inputKanjis:
+		print("building for " + literal)
+		FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
 else:
 	print("No file given")
 	response = raw_input("Generate level from joyo? Y/N")
