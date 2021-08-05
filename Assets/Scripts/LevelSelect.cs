@@ -12,6 +12,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	RectTransform rectTransform;
 	float startOffset;
 	public float startingRotation;
+	public Transform scrollView;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		int levelCount = 1;
      	foreach(TextAsset asset in Resources.LoadAll("", typeof(TextAsset))) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
-			levelButton.transform.parent = transform.GetChild(1);
+			levelButton.transform.parent = scrollView; 
 			/*levelButton.GetComponentInChildren<Text>().text = asset.name;*/
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(asset.name, levelCount.ToString());
 			levelCount++;

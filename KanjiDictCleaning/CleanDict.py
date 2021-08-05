@@ -80,7 +80,7 @@ def GenFromFile(inputFile):
 		onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
 		theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
 
-	outputFile = open("output.json", "w")
+	outputFile = open("./LevelOutput/output.json", "w")
 	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
@@ -97,7 +97,7 @@ def GenFromList(inputList):
 		onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
 		theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
 
-	outputFile = open("level" + str(levelCounter) + ".json", "w")
+	outputFile = open("./LevelOutput/level" + str(levelCounter) + ".json", "w")
 	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
