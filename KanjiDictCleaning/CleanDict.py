@@ -20,7 +20,6 @@ print("krad opened")
 
 
 
-theKanji = []
 def GenKanjiInfoString(kanji):
 	meanings = " "
 	for meaning in kanji.find('reading_meaning').find('rmgroup').findall('meaning'):
@@ -64,15 +63,15 @@ def CheckRadicalCount(cleanedEntries):
 	for kanji in cleanedEntries:
 		for radical in kanji["radicals"]:
 			if radical not in radicalContents:
+				print(radical)
 				radicalContents.append(radical)
 	
-	for radical in radicalContents:
-		print(radical)
 	if len(radicalContents) > maxLevelRadicals:
 		print("WARNING: TOO MANY RADS!")
 
 def GenFromFile(inputFile):
 	splitInputFile = inputFile.readline().split()
+	theKanji = []
 	for i in splitInputFile:
 		kanjiEntry = GetKanjiEntry(i)
 		foundMeanings = GenKanjiInfoString(kanjiEntry)
@@ -89,6 +88,7 @@ def GenFromFile(inputFile):
 
 def GenFromList(inputList):
 	global levelCounter
+	theKanji = []
 	for i in inputList:
 		kanjiEntry = GetKanjiEntry(i)
 		foundMeanings = GenKanjiInfoString(kanjiEntry)
@@ -118,9 +118,8 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		if numIntersection > 0:
 			radsAdded = len(newRads) - numIntersection
 			if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
-				if len(curKanjiList) == maxLevelKanji:
-					print(curKanjiList)
-					print(curRadicalSet.union(newRads))
+				if len(curKanjiList) + 1 == maxLevelKanji:
+					print(len(curRadicalSet) + radsAdded)
 					GenFromList(curKanjiList + [theKanji])
 					return curKanjiList + [theKanji], curRadicalSet.union(newRads)
 				else:
