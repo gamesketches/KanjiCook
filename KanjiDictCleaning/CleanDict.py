@@ -133,14 +133,11 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 if len(sys.argv) > 1:
 	print("opening " + sys.argv[1])
 	inputFile = codecs.open(sys.argv[1], encoding='utf-8')
-	#GenFromKanji(inputFile.readline().split()[1])
-	#startingLiteral = inputFile.readline().split()[1];
-	#FindContentRecursively([startingLiteral], set(FindKanjiRadicals(startingLiteral))) 
-	inputKanjis = inputFile.readline().split()
-	print(inputKanjis)
-	for literal in inputKanjis:
-		print("building for " + literal)
-		FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
+	kanjiLines = inputFile.readlines()
+	for inputKanjis in kanjiLines:
+		for literal in inputKanjis.split():
+			print("building for " + literal)
+			FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
 else:
 	print("No file given")
 	response = raw_input("Generate level from joyo? Y/N")
