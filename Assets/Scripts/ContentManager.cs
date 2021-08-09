@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class ContentManager : MonoBehaviour
 {
@@ -9,13 +11,19 @@ public class ContentManager : MonoBehaviour
 	public TextAsset kanjiFile;
 	public int numRadicals;
 	public int numKanji;
+	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
+	Dictionary<int, LanguagePair[]> levelLookup;
+	
+	[SerializeField] private AssetLabelReference levelLabel;
+	private AsyncOperationHandle _levelLoadOperationHandle;
     // Start is called before the first frame update
     void Awake()
     {
-		instance  = this;
+		instance = this;
         myKanji = JsonUtility.FromJson<KanjiInfoFile>(kanjiFile.text);
-		Debug.Log(myKanji.kanjiInfos.Length);
+		levelLookup = new Dictionary<int, LanguagePair[]>();
+		StartCoroutine(LoadLevels());
     }
 
     // Update is called once per frame
@@ -23,6 +31,28 @@ public class ContentManager : MonoBehaviour
     {
         
     }
+
+	IEnumerator LoadLevels() {
+		loadingLevels = true;
+		if(_levelLoadOperationHandle.IsValid()) {
+			Addressables.Release(_levelLoadOperationHandle);
+		}
+		AsyncOperationHandle<IList<TextAsset>> loadWithSingleKeyHandle = 
+							Addressables.LoadAssetsAsync<TextAsset>(levelLabel, obj => {
+        //Gets called for every loaded asset
+			Debug.Log(obj.name);
+			LanguagePair[] levelContent = ProcessLevelContent(obj);
+			int levelIndex = int.Parse(obj.name.Substring(5));
+			levelLookup.Add(levelIndex, levelContent);
+    	});
+    yield return loadWithSingleKeyHandle;
+    IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
+	loadingLevels = false;
+	}
+
+	public bool LevelSelectContentReady() {
+		return !loadingLevels;
+	}
 
 	public void GetLevelSelectContent(string filename, out string[] kanjis, out string[] radicals) {
 		TextAsset levelFile = Resources.Load<TextAsset>(filename);
@@ -41,9 +71,43 @@ public class ContentManager : MonoBehaviour
 		radicals = fileRadicals.ToArray();
 	}
 
+	public void GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals) {
+		LanguagePair[] theLevel = levelLookup[index];
+		List<string> fileKanjis = new List<string>();
+		List<string> fileRadicals = new List<string>();
+		for(int i = 0; i < theLevel.Length; i++) {
+			fileKanjis.Add(theLevel[i].literal);
+			foreach(string rad in theLevel[i].components) {
+				if(fileRadicals.IndexOf(rad) == -1) {
+					fileRadicals.Add(rad);
+				}
+			}
+		}
+		kanjis = fileKanjis.ToArray();
+		radicals = fileRadicals.ToArray();
+	}
+
 	public LanguagePair[] LoadLevelContent(string filename) {
 		TextAsset levelFile = Resources.Load<TextAsset>(filename);
-		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(levelFile.text);
+		//KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(levelFile.text);
+		return ProcessLevelContent(levelFile);
+		/*List<LanguagePair> tempContent = new List<LanguagePair>();
+		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
+			Debug.Log("Adding kanji " + kanji.kanji);
+			int randomMeaning = Random.Range(0, kanji.meanings.Length);
+			for(int i = 0; i < tempContent.Count; i++) {
+				if(tempContent[i].target == kanji.meanings[randomMeaning]) {
+					i = -1;
+					randomMeaning = Random.Range(0, kanji.meanings.Length);
+				}
+			}
+			tempContent.Add(new LanguagePair(kanji.meanings[randomMeaning], kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
+		}
+		return tempContent.ToArray();*/
+	}
+
+	LanguagePair[] ProcessLevelContent(TextAsset file) {
+		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(file.text);
 		List<LanguagePair> tempContent = new List<LanguagePair>();
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
 			Debug.Log("Adding kanji " + kanji.kanji);
@@ -100,3 +164,4 @@ public class KanjiInfo {
 	public string[] kunyomi;
 	public string[] onyomi;
 }
+

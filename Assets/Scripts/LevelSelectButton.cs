@@ -39,6 +39,18 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		//GetComponentInChildren<Text>().text = levelName;
 	}
 
+	public void Initialize(int id) {
+		string[] levelKanjis = new string[0];
+		string[] rads = new string[0];
+		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
+		foreach(string kanji in levelKanjis) {
+			kanjis.text += " " + kanji;
+		}
+		foreach(string radical in rads) {
+			radicals.text += " " + radical;
+		}
+	}
+
 	public void OnPointerClick(PointerEventData pointerEventData) {
 		GameManager.instance.LoadLevel(levelFile);
 	}

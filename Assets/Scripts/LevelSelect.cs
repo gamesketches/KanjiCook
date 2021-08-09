@@ -13,22 +13,22 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	float startOffset;
 	public float startingRotation;
 	public Transform scrollView;
+	public int levelsToLoad;
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
 		menuImage = GetComponent<Image>();
 		startOffset = rectTransform.offsetMax.y;
+		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
+		while( !ContentManager.instance.LevelSelectContentReady()) yield return null;
 		int levelCount = 1;
-     	foreach(TextAsset asset in Resources.LoadAll("", typeof(TextAsset))) {
+		for(levelCount = 1; levelCount < levelsToLoad; levelCount++) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
 			levelButton.transform.parent = scrollView; 
-			/*levelButton.GetComponentInChildren<Text>().text = asset.name;*/
-			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(asset.name, levelCount.ToString());
-			levelCount++;
-		} 
-		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
+			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
+		}
     }
 
     // Update is called once per frame
