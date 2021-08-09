@@ -1,7 +1,634 @@
 fileFormatVersion: 2
 guid: 00e14dfa797dd436a84e6110cc1290c1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1012426717946524746
+    second: GameAssets2_0
+  - first:
+      213: 3572074401892443345
+    second: GameAssets2_1
+  - first:
+      213: -9208701068592841245
+    second: GameAssets2_2
+  - first:
+      213: 5032731516333813948
+    second: GameAssets2_3
+  - first:
+      213: -7120918065928144012
+    second: GameAssets2_4
+  - first:
+      213: 2227102968117460330
+    second: GameAssets2_5
+  - first:
+      213: -293334538597467070
+    second: GameAssets2_6
+  - first:
+      213: 8830566908892051039
+    second: GameAssets2_7
+  - first:
+      213: -2286177768492082624
+    second: GameAssets2_8
+  - first:
+      213: -217148681847530155
+    second: GameAssets2_9
+  - first:
+      213: -6834399260949426221
+    second: GameAssets2_10
+  - first:
+      213: -8669663729108411937
+    second: GameAssets2_11
+  - first:
+      213: 5073721642670756784
+    second: GameAssets2_12
+  - first:
+      213: 727256798019147784
+    second: GameAssets2_13
+  - first:
+      213: -6160229919298320470
+    second: GameAssets2_14
+  - first:
+      213: 1775699747367001086
+    second: GameAssets2_15
+  - first:
+      213: 2924586677384504411
+    second: GameAssets2_16
+  - first:
+      213: 3042190865865044545
+    second: GameAssets2_17
+  - first:
+      213: 4885210324200153308
+    second: GameAssets2_18
+  - first:
+      213: 1638604853225112838
+    second: GameAssets2_19
+  - first:
+      213: 8735482496774027817
+    second: GameAssets2_20
+  - first:
+      213: -1784733578777080293
+    second: GameAssets2_21
+  - first:
+      213: 5099194216360939298
+    second: GameAssets2_22
+  - first:
+      213: -5862082871205167985
+    second: GameAssets2_23
+  - first:
+      213: 3930740335151383377
+    second: GameAssets2_24
+  - first:
+      213: 8491452610751590425
+    second: GameAssets2_25
+  - first:
+      213: -6291309317968343407
+    second: GameAssets2_26
+  - first:
+      213: 8450224779037653926
+    second: GameAssets2_27
+  - first:
+      213: -5275967324787984961
+    second: GameAssets2_28
+  - first:
+      213: 3010859265014678942
+    second: GameAssets2_29
+  - first:
+      213: 1758996640261593234
+    second: GameAssets2_30
+  - first:
+      213: -7118146608380698087
+    second: GameAssets2_31
+  - first:
+      213: -1650183098999146351
+    second: GameAssets2_32
+  - first:
+      213: 5708408583117746172
+    second: GameAssets2_33
+  - first:
+      213: 2120565062905375956
+    second: GameAssets2_34
+  - first:
+      213: -779683817682042082
+    second: GameAssets2_35
+  - first:
+      213: 5384330572708391382
+    second: GameAssets2_36
+  - first:
+      213: -7244226295242643939
+    second: GameAssets2_37
+  - first:
+      213: 7532836055988746243
+    second: GameAssets2_38
+  - first:
+      213: 8878476293641356656
+    second: GameAssets2_39
+  - first:
+      213: -3393515434640040395
+    second: GameAssets2_40
+  - first:
+      213: 242547725013489716
+    second: GameAssets2_41
+  - first:
+      213: -6892421491212227727
+    second: GameAssets2_42
+  - first:
+      213: 1548256311669045915
+    second: GameAssets2_43
+  - first:
+      213: -2725994118076902418
+    second: GameAssets2_44
+  - first:
+      213: -5609340690476375254
+    second: GameAssets2_45
+  - first:
+      213: -2442806661007539699
+    second: GameAssets2_46
+  - first:
+      213: 1590582202226282706
+    second: GameAssets2_47
+  - first:
+      213: -5378488305188381148
+    second: GameAssets2_48
+  - first:
+      213: 1141657917908950766
+    second: GameAssets2_49
+  - first:
+      213: -4598432213764469559
+    second: GameAssets2_50
+  - first:
+      213: 4998547260198412427
+    second: GameAssets2_51
+  - first:
+      213: -3540752408606486335
+    second: GameAssets2_52
+  - first:
+      213: -5864105684920172226
+    second: GameAssets2_53
+  - first:
+      213: -3732529736393157721
+    second: GameAssets2_54
+  - first:
+      213: 81776236469286285
+    second: GameAssets2_55
+  - first:
+      213: 8533936255763134772
+    second: GameAssets2_56
+  - first:
+      213: 7988653026952028208
+    second: GameAssets2_57
+  - first:
+      213: -8393939777038776236
+    second: GameAssets2_58
+  - first:
+      213: -8109593098454962114
+    second: GameAssets2_59
+  - first:
+      213: -8108718256243666227
+    second: GameAssets2_60
+  - first:
+      213: -3353611340018261675
+    second: GameAssets2_61
+  - first:
+      213: 4159539904300168451
+    second: GameAssets2_62
+  - first:
+      213: 5753002896098588185
+    second: GameAssets2_63
+  - first:
+      213: 1459234497627169084
+    second: GameAssets2_64
+  - first:
+      213: 5907398881950172395
+    second: GameAssets2_65
+  - first:
+      213: -5916493905606594016
+    second: GameAssets2_66
+  - first:
+      213: 8558088945884827920
+    second: GameAssets2_67
+  - first:
+      213: 2154215601633787706
+    second: GameAssets2_68
+  - first:
+      213: 2162341238040933229
+    second: GameAssets2_69
+  - first:
+      213: 8295954795329606877
+    second: GameAssets2_70
+  - first:
+      213: -4264487674647463773
+    second: GameAssets2_71
+  - first:
+      213: 7704816656062118022
+    second: GameAssets2_72
+  - first:
+      213: 5177265867921233904
+    second: GameAssets2_73
+  - first:
+      213: 3358559192791779153
+    second: GameAssets2_74
+  - first:
+      213: 3924662910127586115
+    second: GameAssets2_75
+  - first:
+      213: 6914878648253976391
+    second: GameAssets2_76
+  - first:
+      213: 4980273666237938052
+    second: GameAssets2_77
+  - first:
+      213: -2693732759896641762
+    second: GameAssets2_78
+  - first:
+      213: 7504104560188655660
+    second: GameAssets2_79
+  - first:
+      213: -4681389813211956705
+    second: GameAssets2_80
+  - first:
+      213: 6156890252236213021
+    second: GameAssets2_81
+  - first:
+      213: -8337413559684449185
+    second: GameAssets2_82
+  - first:
+      213: -4456494300187909170
+    second: GameAssets2_83
+  - first:
+      213: -6097024654485108181
+    second: GameAssets2_84
+  - first:
+      213: 2531009630772942606
+    second: GameAssets2_85
+  - first:
+      213: 1031255449233054388
+    second: GameAssets2_86
+  - first:
+      213: -8381714136185700505
+    second: GameAssets2_87
+  - first:
+      213: 242164478946038178
+    second: GameAssets2_88
+  - first:
+      213: -8654806438043031458
+    second: GameAssets2_89
+  - first:
+      213: -6492052700149514248
+    second: GameAssets2_90
+  - first:
+      213: -1935088003247049783
+    second: GameAssets2_91
+  - first:
+      213: 7369513019200258404
+    second: GameAssets2_92
+  - first:
+      213: -6589623936530023330
+    second: GameAssets2_93
+  - first:
+      213: -8933180059738013912
+    second: GameAssets2_94
+  - first:
+      213: 2532792008635727167
+    second: GameAssets2_95
+  - first:
+      213: -1993319387578822796
+    second: GameAssets2_96
+  - first:
+      213: 7875814984530487091
+    second: GameAssets2_97
+  - first:
+      213: -6196427330841090072
+    second: GameAssets2_98
+  - first:
+      213: -3117173493389838363
+    second: GameAssets2_99
+  - first:
+      213: 3781498776344766086
+    second: GameAssets2_100
+  - first:
+      213: 460379110791289724
+    second: GameAssets2_101
+  - first:
+      213: 8874181419412909101
+    second: GameAssets2_102
+  - first:
+      213: 5040557297179199976
+    second: GameAssets2_103
+  - first:
+      213: -7535850191017403272
+    second: GameAssets2_104
+  - first:
+      213: 8517416523187787454
+    second: GameAssets2_105
+  - first:
+      213: 2148802451321661145
+    second: GameAssets2_106
+  - first:
+      213: -7130440365965304265
+    second: GameAssets2_107
+  - first:
+      213: 1686302781588249048
+    second: GameAssets2_108
+  - first:
+      213: 7279019163220119948
+    second: GameAssets2_109
+  - first:
+      213: 4199900147465869045
+    second: GameAssets2_110
+  - first:
+      213: -93193536444317300
+    second: GameAssets2_111
+  - first:
+      213: 6820523286225418675
+    second: GameAssets2_112
+  - first:
+      213: 7080595131878917199
+    second: GameAssets2_113
+  - first:
+      213: -5636223793667514491
+    second: GameAssets2_114
+  - first:
+      213: -8817558573878891887
+    second: GameAssets2_115
+  - first:
+      213: -6865973576400085276
+    second: GameAssets2_116
+  - first:
+      213: 4342027768461572493
+    second: GameAssets2_117
+  - first:
+      213: -1200292308064380838
+    second: GameAssets2_118
+  - first:
+      213: -1092326829788038087
+    second: GameAssets2_119
+  - first:
+      213: -1016922237052605088
+    second: GameAssets2_120
+  - first:
+      213: 3022570936056004749
+    second: GameAssets2_121
+  - first:
+      213: 5680296860125666013
+    second: GameAssets2_122
+  - first:
+      213: 6234035065958001149
+    second: GameAssets2_123
+  - first:
+      213: 1523369999008724541
+    second: GameAssets2_124
+  - first:
+      213: 1728261898561044670
+    second: GameAssets2_125
+  - first:
+      213: 2826964960790787192
+    second: GameAssets2_126
+  - first:
+      213: 1891384419338229165
+    second: GameAssets2_127
+  - first:
+      213: -8342934010555047434
+    second: GameAssets2_128
+  - first:
+      213: -2990795200681421639
+    second: GameAssets2_129
+  - first:
+      213: -8776128731370670727
+    second: GameAssets2_130
+  - first:
+      213: 2535966155700086273
+    second: GameAssets2_131
+  - first:
+      213: -4320769812931846186
+    second: GameAssets2_132
+  - first:
+      213: -1140592018853949406
+    second: GameAssets2_133
+  - first:
+      213: 261643299309843540
+    second: GameAssets2_134
+  - first:
+      213: 523291985751087272
+    second: GameAssets2_135
+  - first:
+      213: -6666676275158558449
+    second: GameAssets2_136
+  - first:
+      213: 3291152379746862440
+    second: GameAssets2_137
+  - first:
+      213: -4280392774889309691
+    second: GameAssets2_138
+  - first:
+      213: -5614242434547679313
+    second: GameAssets2_139
+  - first:
+      213: -5554385877433983510
+    second: GameAssets2_140
+  - first:
+      213: 7474066833049278295
+    second: GameAssets2_141
+  - first:
+      213: -7948684155721723791
+    second: GameAssets2_142
+  - first:
+      213: 6650735434816334133
+    second: GameAssets2_143
+  - first:
+      213: -4525060162685013400
+    second: GameAssets2_144
+  - first:
+      213: 889052093200876996
+    second: GameAssets2_145
+  - first:
+      213: 3148171661736113049
+    second: GameAssets2_146
+  - first:
+      213: 3366956662832881268
+    second: GameAssets2_147
+  - first:
+      213: 7942273473870935396
+    second: GameAssets2_148
+  - first:
+      213: 6187595058601018641
+    second: GameAssets2_149
+  - first:
+      213: 899618327856725004
+    second: GameAssets2_150
+  - first:
+      213: -9106422511043520853
+    second: GameAssets2_151
+  - first:
+      213: 6037665779472104309
+    second: GameAssets2_152
+  - first:
+      213: -3727317757539772269
+    second: GameAssets2_153
+  - first:
+      213: 4572658518561520122
+    second: GameAssets2_154
+  - first:
+      213: -487333591780584290
+    second: GameAssets2_155
+  - first:
+      213: -3223770418160471465
+    second: GameAssets2_156
+  - first:
+      213: 6298739795593182306
+    second: GameAssets2_157
+  - first:
+      213: 6884978142474088575
+    second: GameAssets2_158
+  - first:
+      213: -4313377531272642904
+    second: GameAssets2_159
+  - first:
+      213: 1587428129912507467
+    second: GameAssets2_160
+  - first:
+      213: 43521172546467330
+    second: GameAssets2_161
+  - first:
+      213: -5011753753617771973
+    second: GameAssets2_162
+  - first:
+      213: -7928391774538751943
+    second: GameAssets2_163
+  - first:
+      213: -7329807281858836671
+    second: GameAssets2_164
+  - first:
+      213: -3187379149870396555
+    second: GameAssets2_165
+  - first:
+      213: 2095055917475792434
+    second: GameAssets2_166
+  - first:
+      213: -7279800526694668427
+    second: GameAssets2_167
+  - first:
+      213: 1022141334396648122
+    second: GameAssets2_168
+  - first:
+      213: 2907853233618967317
+    second: GameAssets2_169
+  - first:
+      213: 1178326948631790232
+    second: GameAssets2_170
+  - first:
+      213: -4422385346608477939
+    second: GameAssets2_171
+  - first:
+      213: -8878191111261809034
+    second: GameAssets2_172
+  - first:
+      213: -6201110807462019486
+    second: GameAssets2_173
+  - first:
+      213: 3071399381617559101
+    second: GameAssets2_174
+  - first:
+      213: 788948167909765057
+    second: GameAssets2_175
+  - first:
+      213: -4351562829148229629
+    second: GameAssets2_176
+  - first:
+      213: -9127367094067139769
+    second: GameAssets2_177
+  - first:
+      213: 2007270858833423989
+    second: GameAssets2_178
+  - first:
+      213: -6536729138614556479
+    second: GameAssets2_179
+  - first:
+      213: -3008274737076946942
+    second: GameAssets2_180
+  - first:
+      213: -7106509945931908071
+    second: GameAssets2_181
+  - first:
+      213: 6214690272105014620
+    second: GameAssets2_182
+  - first:
+      213: -6043968710947903174
+    second: GameAssets2_183
+  - first:
+      213: -1895929073143391515
+    second: GameAssets2_184
+  - first:
+      213: -995274531350256424
+    second: GameAssets2_185
+  - first:
+      213: -6394236525402130732
+    second: GameAssets2_186
+  - first:
+      213: -3255448187026762169
+    second: GameAssets2_187
+  - first:
+      213: -1390220198616795061
+    second: GameAssets2_188
+  - first:
+      213: -4543239022968340944
+    second: GameAssets2_189
+  - first:
+      213: -14392640410782909
+    second: GameAssets2_190
+  - first:
+      213: -2484836828797227489
+    second: GameAssets2_191
+  - first:
+      213: 3553681648845097952
+    second: GameAssets2_192
+  - first:
+      213: -6833473065767190169
+    second: GameAssets2_193
+  - first:
+      213: -1009159409102335721
+    second: GameAssets2_194
+  - first:
+      213: 3317483070712176905
+    second: GameAssets2_195
+  - first:
+      213: -6014577865258231401
+    second: GameAssets2_196
+  - first:
+      213: 6156301826380176587
+    second: GameAssets2_197
+  - first:
+      213: 497646276720180055
+    second: GameAssets2_198
+  - first:
+      213: 4401954862795508340
+    second: GameAssets2_199
+  - first:
+      213: 5169557249837655801
+    second: GameAssets2_200
+  - first:
+      213: -1234593337033379924
+    second: GameAssets2_201
+  - first:
+      213: -5803910396019425878
+    second: GameAssets2_202
+  - first:
+      213: 7959075537754335049
+    second: GameAssets2_203
+  - first:
+      213: -2579643404364522853
+    second: GameAssets2_204
+  - first:
+      213: -2117469972563592488
+    second: GameAssets2_205
+  - first:
+      213: 6771379633205348993
+    second: GameAssets2_206
+  - first:
+      213: 871773859079656113
+    second: GameAssets2_207
+  - first:
+      213: 4879662096645528942
+    second: GameAssets2_208
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +667,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -61,7 +688,31 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -73,7 +724,4396 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GameAssets2_0
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 2218
+        width: 282
+        height: 810
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bbceab934323f1f0800000000000000
+      internalID: -1012426717946524746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_1
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 2879
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d4a01c2ebe829130800000000000000
+      internalID: 3572074401892443345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_2
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 2879
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed73cbfa2f143080800000000000000
+      internalID: -9208701068592841245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_3
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 2903
+        width: 127
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb07df846aad7d540800000000000000
+      internalID: 5032731516333813948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_4
+      rect:
+        serializedVersion: 2
+        x: 2481
+        y: 2972
+        width: 150
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47bf0bd4fba6d2d90800000000000000
+      internalID: -7120918065928144012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_5
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 2903
+        width: 127
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6dfbdc895248ee10800000000000000
+      internalID: 2227102968117460330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_6
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 2949
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c7b829acdddebf0800000000000000
+      internalID: -293334538597467070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_7
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 2949
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5674d931d97c8a70800000000000000
+      internalID: 8830566908892051039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_8
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 2223
+        width: 353
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a52a7ae6dd540e0800000000000000
+      internalID: -2286177768492082624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_9
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 2851
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d9803ac688cfcf0800000000000000
+      internalID: -217148681847530155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_10
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 2851
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfcae515165721a0800000000000000
+      internalID: -6834399260949426221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_11
+      rect:
+        serializedVersion: 2
+        x: 2310
+        y: 2713
+        width: 56
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd99760b5ca2fa780800000000000000
+      internalID: -8669663729108411937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_12
+      rect:
+        serializedVersion: 2
+        x: 2759
+        y: 2713
+        width: 56
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b31a98c3fa796640800000000000000
+      internalID: 5073721642670756784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_13
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 2514
+        width: 172
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8085b62643cb71a00800000000000000
+      internalID: 727256798019147784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_14
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 2686
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa78d75d687728aa0800000000000000
+      internalID: -6160229919298320470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_15
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 2684
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb9f8d138d84a810800000000000000
+      internalID: 1775699747367001086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_16
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 2684
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54e7548618369820800000000000000
+      internalID: 2924586677384504411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_17
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 2686
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142f2da6978083a20800000000000000
+      internalID: 3042190865865044545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_18
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 2686
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0650b28e0cbc340800000000000000
+      internalID: 4885210324200153308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_19
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 2581
+        width: 204
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605c6bbae6e7db610800000000000000
+      internalID: 1638604853225112838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_20
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 2549
+        width: 127
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92abbd95c0baa3970800000000000000
+      internalID: 8735482496774027817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_21
+      rect:
+        serializedVersion: 2
+        x: 2481
+        y: 2549
+        width: 150
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ec74a144a5b37e0800000000000000
+      internalID: -1784733578777080293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_22
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 2549
+        width: 127
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f8be28f1af3c640800000000000000
+      internalID: 5099194216360939298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_23
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 2536
+        width: 41
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cf9e1ffa2b5aea0800000000000000
+      internalID: -5862082871205167985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_24
+      rect:
+        serializedVersion: 2
+        x: 1724
+        y: 2536
+        width: 41
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1538ff4428bcc8630800000000000000
+      internalID: 3930740335151383377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_25
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 2536
+        width: 41
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91079eae823b7d570800000000000000
+      internalID: 8491452610751590425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_26
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 2536
+        width: 41
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e44621287c0b8a0800000000000000
+      internalID: -6291309317968343407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_27
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 2432
+        width: 634
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab3eb25aaa354570800000000000000
+      internalID: 8450224779037653926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_28
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 2307
+        width: 474
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5b17fdbaff7c6b0800000000000000
+      internalID: -5275967324787984961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_29
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 2340
+        width: 634
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95c4ef9c88b8c920800000000000000
+      internalID: 3010859265014678942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_30
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 2299
+        width: 71
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298d5efef16396810800000000000000
+      internalID: 1758996640261593234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_31
+      rect:
+        serializedVersion: 2
+        x: 2419
+        y: 2299
+        width: 24
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912215c8f53473d90800000000000000
+      internalID: -7118146608380698087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_32
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 2300
+        width: 48
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1987dc9e63f5919e0800000000000000
+      internalID: -1650183098999146351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_33
+      rect:
+        serializedVersion: 2
+        x: 2629
+        y: 2300
+        width: 90
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff2685ac57583f40800000000000000
+      internalID: 5708408583117746172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_34
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 2242
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc249180b2cd6d10800000000000000
+      internalID: 2120565062905375956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_35
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 2242
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1301f1e2b10e25f0800000000000000
+      internalID: -779683817682042082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_36
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2131
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d92f83e02cf8ba40800000000000000
+      internalID: 5384330572708391382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_37
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 2143
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16a487e096577b90800000000000000
+      internalID: -7244226295242643939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_38
+      rect:
+        serializedVersion: 2
+        x: 1797
+        y: 2143
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308b6747b720a8860800000000000000
+      internalID: 7532836055988746243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_39
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 2131
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075483d162fa63b70800000000000000
+      internalID: 8878476293641356656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_40
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 2078
+        width: 71
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e997a11bfc7e0d0800000000000000
+      internalID: -3393515434640040395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_41
+      rect:
+        serializedVersion: 2
+        x: 2419
+        y: 2078
+        width: 24
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438128eeed3bd5300800000000000000
+      internalID: 242547725013489716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_42
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 2079
+        width: 48
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17be60edb233950a0800000000000000
+      internalID: -6892421491212227727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_43
+      rect:
+        serializedVersion: 2
+        x: 2629
+        y: 2079
+        width: 90
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a3a4699e28c7510800000000000000
+      internalID: 1548256311669045915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_44
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1995
+        width: 125
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3d834eac25b2ad0800000000000000
+      internalID: -2725994118076902418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_45
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 2064
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a23e2009c5e9722b0800000000000000
+      internalID: -5609340690476375254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_46
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 1996
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0200bbc848691ed0800000000000000
+      internalID: -2442806661007539699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_47
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 2030
+        width: 126
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d091cde512e21610800000000000000
+      internalID: 1590582202226282706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_48
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 1982
+        width: 131
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e57a40265cb55b0800000000000000
+      internalID: -5378488305188381148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_49
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 1996
+        width: 46
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee99fbd3dbf7df00800000000000000
+      internalID: 1141657917908950766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_50
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 1984
+        width: 82
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc0bded3461f20c0800000000000000
+      internalID: -4598432213764469559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_51
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1994
+        width: 106
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80e02def386e5540800000000000000
+      internalID: 4998547260198412427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_52
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 2009
+        width: 82
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0d66fa178bcdec0800000000000000
+      internalID: -3540752408606486335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_53
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 2024
+        width: 65
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e310cfce2f28e9ea0800000000000000
+      internalID: -5864105684920172226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_54
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1908
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a314b40bf3633cc0800000000000000
+      internalID: -3732529736393157721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_55
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 1978
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85f1d5cd07822100800000000000000
+      internalID: 81776236469286285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_56
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 1978
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439b6945fc1ae6670800000000000000
+      internalID: 8533936255763134772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_57
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 1908
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03023513a956dde60800000000000000
+      internalID: 7988653026952028208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_58
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1940
+        width: 35
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458059bee3cb28b80800000000000000
+      internalID: -8393939777038776236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_59
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1782
+        width: 125
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30f1ad1b00f47f80800000000000000
+      internalID: -8109593098454962114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_60
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 1783
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc21fd035bb087f80800000000000000
+      internalID: -8108718256243666227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_61
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 1817
+        width: 126
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5516d7321449571d0800000000000000
+      internalID: -3353611340018261675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_62
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 1769
+        width: 131
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305bfd83187a9b930800000000000000
+      internalID: 4159539904300168451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_63
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 1783
+        width: 46
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916ffbd37a5c6df40800000000000000
+      internalID: 5753002896098588185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_64
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 1771
+        width: 82
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3120135b0e304410800000000000000
+      internalID: 1459234497627169084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_65
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 1880
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be40e210cfb4bf150800000000000000
+      internalID: 5907398881950172395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_66
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 1880
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0223e88c32464eda0800000000000000
+      internalID: -5916493905606594016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_67
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1851
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01199a7bd8074c670800000000000000
+      internalID: 8558088945884827920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_68
+      rect:
+        serializedVersion: 2
+        x: 2282
+        y: 1735
+        width: 432
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f7cf81daf45ed10800000000000000
+      internalID: 2154215601633787706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_69
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1781
+        width: 106
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63bb9046ed220e10800000000000000
+      internalID: 2162341238040933229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_70
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1796
+        width: 82
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd4d158bee6212370800000000000000
+      internalID: 8295954795329606877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_71
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1811
+        width: 65
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a83b9bdd0f71d4c0800000000000000
+      internalID: -4264487674647463773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_72
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 1777
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68878144de10dea60800000000000000
+      internalID: 7704816656062118022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_73
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 1777
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7133560e759d740800000000000000
+      internalID: 5177265867921233904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_74
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 1666
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1570a7b9acffb9e20800000000000000
+      internalID: 3358559192791779153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_75
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 1678
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b3e4d7f14377630800000000000000
+      internalID: 3924662910127586115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_76
+      rect:
+        serializedVersion: 2
+        x: 1798
+        y: 1678
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f8c167e7596ff50800000000000000
+      internalID: 6914878648253976391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_77
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 1666
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4893858438c7d1540800000000000000
+      internalID: 4980273666237938052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_78
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1633
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f278ea350fd9ad0800000000000000
+      internalID: -2693732759896641762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_79
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 1636
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c280f6bc65fe32860800000000000000
+      internalID: 7504104560188655660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_80
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1639
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a7e5894cc580fb0800000000000000
+      internalID: -4681389813211956705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_81
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1638
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bca95501ba17550800000000000000
+      internalID: 6156890252236213021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_82
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 1639
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cbb7d7a8e8b4c80800000000000000
+      internalID: -8337413559684449185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_83
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1636
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec32fb5ab0a5722c0800000000000000
+      internalID: -4456494300187909170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_84
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1632
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2acd925164036ba0800000000000000
+      internalID: -6097024654485108181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_85
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1620
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07505d69d3ff1320800000000000000
+      internalID: 2531009630772942606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_86
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1628
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bad8340e51cf4e00800000000000000
+      internalID: 1031255449233054388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_87
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1627
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ff7cfb66b2eab80800000000000000
+      internalID: -8381714136185700505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_88
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1618
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1dbc08f475c5300800000000000000
+      internalID: 242164478946038178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_89
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 1621
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e586ea45663f3e780800000000000000
+      internalID: -8654806438043031458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_90
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1624
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fff870377897e5a0800000000000000
+      internalID: -6492052700149514248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_91
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 1627
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3f65da6bf2525e0800000000000000
+      internalID: -1935088003247049783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_92
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1626
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4614c0dab05c54660800000000000000
+      internalID: 7369513019200258404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_93
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 1627
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c77bb61f3fc84a0800000000000000
+      internalID: -6589623936530023330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_94
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 1624
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f76b0d018f60480800000000000000
+      internalID: -8933180059738013912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_95
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1620
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d3eac99e8462320800000000000000
+      internalID: 2532792008635727167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_96
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1615
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f077bf39e4654e0800000000000000
+      internalID: -1993319387578822796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_97
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1614
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33763a520048c4d60800000000000000
+      internalID: 7875814984530487091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_98
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1429
+        width: 199
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7e1b43c2ed10aa0800000000000000
+      internalID: -6196427330841090072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_99
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1608
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e73c3729339db4d0800000000000000
+      internalID: -3117173493389838363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_100
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1616
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686aa921a159a7430800000000000000
+      internalID: 3781498776344766086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_101
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 1615
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b99b0bc58936600800000000000000
+      internalID: 460379110791289724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_102
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1606
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c6a78cbfc672b70800000000000000
+      internalID: 8874181419412909101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_103
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1598
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e98e50e728a3f540800000000000000
+      internalID: 5040557297179199976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_104
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1607
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c19db8d284b6790800000000000000
+      internalID: -7535850191017403272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_105
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 1607
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb696ac5331f33670800000000000000
+      internalID: 8517416523187787454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_106
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1603
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d62483d17412dd10800000000000000
+      internalID: 2148802451321661145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_107
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1602
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e188e04469b0d90800000000000000
+      internalID: -7130440365965304265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_108
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1598
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d912580273f66710800000000000000
+      internalID: 1686302781588249048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_109
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 1595
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c811ff0fc55440560800000000000000
+      internalID: 7279019163220119948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_110
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 1595
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f650dd9eea094a30800000000000000
+      internalID: 4199900147465869045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_111
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1578
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81cfdce8f8e4bef0800000000000000
+      internalID: -93193536444317300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_112
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1589
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9feb9cacd57ae50800000000000000
+      internalID: 6820523286225418675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_113
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1589
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44c00202c3534260800000000000000
+      internalID: 7080595131878917199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_114
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1586
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fd7d7525c18c1b0800000000000000
+      internalID: -5636223793667514491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_115
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1586
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19aafb9c13db1a580800000000000000
+      internalID: -8817558573878891887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_116
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1577
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee5475e86927b0a0800000000000000
+      internalID: -6865973576400085276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_117
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1566
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89b808104bf14c30800000000000000
+      internalID: 4342027768461572493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_118
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1577
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5850375184b75fe0800000000000000
+      internalID: -1200292308064380838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_119
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1577
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cfad3298647d0f0800000000000000
+      internalID: -1092326829788038087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_120
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1568
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06da8400d9a23e1f0800000000000000
+      internalID: -1016922237052605088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_121
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1568
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80c908804452f920800000000000000
+      internalID: 3022570936056004749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_122
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1565
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda9e8616e774de40800000000000000
+      internalID: 5680296860125666013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_123
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 1343
+        width: 232
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df961c7fcddb38650800000000000000
+      internalID: 6234035065958001149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_124
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1558
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36f66461f8142510800000000000000
+      internalID: 1523369999008724541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_125
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1557
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0c29e3a050cf710800000000000000
+      internalID: 1728261898561044670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_126
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1556
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874396867a56b3720800000000000000
+      internalID: 2826964960790787192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_127
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 1556
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da51d50cb1c8f3a10800000000000000
+      internalID: 1891384419338229165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_128
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1546
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1675c58b1f73c80800000000000000
+      internalID: -8342934010555047434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_129
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 1546
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4d0736c9f8e76d0800000000000000
+      internalID: -2990795200681421639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_130
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1546
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9753d8faa6de43680800000000000000
+      internalID: -8776128731370670727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_131
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1545
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 106aae058cf813320800000000000000
+      internalID: 2535966155700086273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_132
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1535
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df57ff5fba8904c0800000000000000
+      internalID: -4320769812931846186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_133
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1535
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220909a1a9dcb20f0800000000000000
+      internalID: -1140592018853949406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_134
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1534
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4547939c13b81a300800000000000000
+      internalID: 261643299309843540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_135
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1534
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8908cd94b134700800000000000000
+      internalID: 523291985751087272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_136
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1523
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0956a2df353b73a0800000000000000
+      internalID: -6666676275158558449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_137
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1523
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8654e70f6a58cad20800000000000000
+      internalID: 3291152379746862440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_138
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 1523
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50af291237df894c0800000000000000
+      internalID: -4280392774889309691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_139
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1523
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf7cd550443612b0800000000000000
+      internalID: -5614242434547679313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_140
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1511
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aedd91e097bdae2b0800000000000000
+      internalID: -5554385877433983510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_141
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1511
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7575e637f2839b760800000000000000
+      internalID: 7474066833049278295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_142
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 1511
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1705e62dfd990b190800000000000000
+      internalID: -7948684155721723791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_143
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1511
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539a45f04a82c4c50800000000000000
+      internalID: 6650735434816334133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_144
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 1362
+        width: 151
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86273efb1c1c331c0800000000000000
+      internalID: -4525060162685013400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_145
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 1362
+        width: 151
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c54e0a1b2c865c00800000000000000
+      internalID: 889052093200876996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_146
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1499
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9937bb5527d80bb20800000000000000
+      internalID: 3148171661736113049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_147
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 1500
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ed946fe35d9be20800000000000000
+      internalID: 3366956662832881268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_148
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 1499
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 465b51ff4af983e60800000000000000
+      internalID: 7942273473870935396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_149
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1499
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11540e92ce0ced550800000000000000
+      internalID: 6187595058601018641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_150
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1488
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cb4515a161c7c00800000000000000
+      internalID: 899618327856725004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_151
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1488
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba651ae59fc7f9180800000000000000
+      internalID: -9106422511043520853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_152
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1487
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b77f999091ac350800000000000000
+      internalID: 6037665779472104309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_153
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1488
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39816d86f38e54cc0800000000000000
+      internalID: -3727317757539772269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_154
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1477
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9f50612b8557f30800000000000000
+      internalID: 4572658518561520122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_155
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1465
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e949dc62ea4ac39f0800000000000000
+      internalID: -487333591780584290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_156
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1467
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752f12c82edd243d0800000000000000
+      internalID: -3223770418160471465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_157
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1477
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26cb2f0d87e996750800000000000000
+      internalID: 6298739795593182306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_158
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1476
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f703f74742b5c8f50800000000000000
+      internalID: 6884978142474088575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_159
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1476
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aeb7521dfdc324c0800000000000000
+      internalID: -4313377531272642904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_160
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1457
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cc5ed397da70610800000000000000
+      internalID: 1587428129912507467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_161
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1457
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20637dd964e9a9000800000000000000
+      internalID: 43521172546467330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_162
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 1465
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32d1e5b38ca27ab0800000000000000
+      internalID: -5011753753617771973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_163
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1453
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9302d7effa1b8f190800000000000000
+      internalID: -7928391774538751943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_164
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1455
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1478bb4bc1b474a90800000000000000
+      internalID: -7329807281858836671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_165
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1465
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b0d77fc8724c3d0800000000000000
+      internalID: -3187379149870396555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_166
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1448
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23689b1c142231d10800000000000000
+      internalID: 2095055917475792434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_167
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1440
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577a9a2bdf3f8fa90800000000000000
+      internalID: -7279800526694668427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_168
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 1441
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abab4fac0206f2e00800000000000000
+      internalID: 1022141334396648122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_169
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1449
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b54d80c15ca5820800000000000000
+      internalID: 2907853233618967317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_170
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1445
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892c772ed124a5010800000000000000
+      internalID: 1178326948631790232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_171
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1445
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09428345f780a2c0800000000000000
+      internalID: -4422385346608477939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_172
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 1433
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676953519345ac480800000000000000
+      internalID: -8878191111261809034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_173
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1426
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ef364539a31f9a0800000000000000
+      internalID: -6201110807462019486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_174
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 1428
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d364ba0f67dcf9a20800000000000000
+      internalID: 3071399381617559101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_175
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 1434
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfe47ebd28e2fa00800000000000000
+      internalID: 788948167909765057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_176
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 1436
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30073d699a42c93c0800000000000000
+      internalID: -4351562829148229629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_177
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 1428
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74be98f9cf3155180800000000000000
+      internalID: -9127367094067139769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_178
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 1429
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e62cc06324bdb10800000000000000
+      internalID: 2007270858833423989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_179
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1437
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c82fe34b7fd845a0800000000000000
+      internalID: -6536729138614556479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_180
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1422
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2083fbda0167046d0800000000000000
+      internalID: -3008274737076946942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_181
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1418
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cb2f72bda906d90800000000000000
+      internalID: -7106509945931908071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_182
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1416
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5525e920e30f3650800000000000000
+      internalID: 6214690272105014620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_183
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1414
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39ef5eca728f1ca0800000000000000
+      internalID: -6043968710947903174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_184
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1416
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ead3f39d8e40b5e0800000000000000
+      internalID: -1895929073143391515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_185
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1419
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4efd046131032f0800000000000000
+      internalID: -995274531350256424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_186
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 1422
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6f39d12cb1347a0800000000000000
+      internalID: -6394236525402130732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_187
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1421
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746949b3f1352d2d0800000000000000
+      internalID: -3255448187026762169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_188
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 1414
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b487fd55812f4bce0800000000000000
+      internalID: -1390220198616795061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_189
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1416
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e77420e2c23f0c0800000000000000
+      internalID: -4543239022968340944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_190
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 1422
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3437fe448fddccff0800000000000000
+      internalID: -14392640410782909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_191
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1414
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1eabb6c116148dd0800000000000000
+      internalID: -2484836828797227489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_192
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 1414
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb8c34a1a6315130800000000000000
+      internalID: 3553681648845097952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_193
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 1410
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7614fb4b370aa21a0800000000000000
+      internalID: -6833473065767190169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_194
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1406
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71156ba3ddebef1f0800000000000000
+      internalID: -1009159409102335721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_195
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1407
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901eb2aa6411a0e20800000000000000
+      internalID: 3317483070712176905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_196
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1410
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7991b535c4de78ca0800000000000000
+      internalID: -6014577865258231401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_197
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1404
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc9a73c4e39f6550800000000000000
+      internalID: 6156301826380176587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_198
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 1402
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bb3bbe6aef7e600800000000000000
+      internalID: 497646276720180055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_199
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1402
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47aca3a00a2e61d30800000000000000
+      internalID: 4401954862795508340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_200
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 1402
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f66e92ede4fdb740800000000000000
+      internalID: 5169557249837655801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_201
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1404
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafaf00b6e7dddee0800000000000000
+      internalID: -1234593337033379924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_202
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1147
+        width: 231
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aadb019ce3e547fa0800000000000000
+      internalID: -5803910396019425878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_203
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1147
+        width: 231
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94729585801547e60800000000000000
+      internalID: 7959075537754335049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_204
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1120
+        width: 199
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a5ca3cdf3433cd0800000000000000
+      internalID: -2579643404364522853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_205
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1078
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da7ace574c3d92e0800000000000000
+      internalID: -2117469972563592488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_206
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1078
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a058c66e5c8fd50800000000000000
+      internalID: 6771379633205348993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_207
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 961
+        width: 150
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b21aeab4b9291c00800000000000000
+      internalID: 871773859079656113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameAssets2_208
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 961
+        width: 150
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d9e76c2da08b340800000000000000
+      internalID: 4879662096645528942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
