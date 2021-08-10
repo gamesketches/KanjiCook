@@ -45,9 +45,10 @@ public class ContentManager : MonoBehaviour
 			int levelIndex = int.Parse(obj.name.Substring(5));
 			levelLookup.Add(levelIndex, levelContent);
     	});
-    yield return loadWithSingleKeyHandle;
-    IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
-	loadingLevels = false;
+		yield return loadWithSingleKeyHandle;
+		IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
+		Addressables.Release(loadWithSingleKeyHandle);
+		loadingLevels = false;
 	}
 
 	public bool LevelSelectContentReady() {

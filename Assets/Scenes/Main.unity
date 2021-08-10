@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 54035782}
   - component: {fileID: 54035784}
   - component: {fileID: 54035783}
+  - component: {fileID: 54035785}
   m_Layer: 5
   m_Name: SubTitle
   m_TagString: Untagged
@@ -608,6 +609,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54035781}
   m_CullTransparentMesh: 0
+--- !u!114 &54035785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54035781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4cfb78bb1604172b3331f676a5e79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDirection: 2
+  slideSpeedMultiplier: 1
+  endingOffset: 400
 --- !u!1 &57740495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1049,7 @@ GameObject:
   - component: {fileID: 166989269}
   - component: {fileID: 166989271}
   - component: {fileID: 166989270}
+  - component: {fileID: 166989272}
   m_Layer: 5
   m_Name: Chef
   m_TagString: Untagged
@@ -1101,6 +1118,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166989268}
   m_CullTransparentMesh: 0
+--- !u!114 &166989272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166989268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4cfb78bb1604172b3331f676a5e79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDirection: 0
+  slideSpeedMultiplier: 1
+  endingOffset: 400
 --- !u!1 &181816920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1993,7 @@ GameObject:
   - component: {fileID: 433011098}
   - component: {fileID: 433011100}
   - component: {fileID: 433011099}
+  - component: {fileID: 433011101}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -2028,6 +2061,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433011097}
   m_CullTransparentMesh: 0
+--- !u!114 &433011101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433011097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4cfb78bb1604172b3331f676a5e79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDirection: 2
+  slideSpeedMultiplier: 1
+  endingOffset: 400
 --- !u!1 &460592319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,6 +4703,7 @@ GameObject:
   - component: {fileID: 907530146}
   - component: {fileID: 907530148}
   - component: {fileID: 907530147}
+  - component: {fileID: 907530149}
   m_Layer: 5
   m_Name: Waiter
   m_TagString: Untagged
@@ -4721,6 +4770,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907530145}
   m_CullTransparentMesh: 0
+--- !u!114 &907530149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907530145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4cfb78bb1604172b3331f676a5e79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDirection: 1
+  slideSpeedMultiplier: 1
+  endingOffset: 400
 --- !u!1 &913120147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,8 +5619,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1907322842}
   m_HandleRect: {fileID: 1907322841}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6036,6 +6100,7 @@ GameObject:
   - component: {fileID: 1392067613}
   - component: {fileID: 1392067615}
   - component: {fileID: 1392067614}
+  - component: {fileID: 1392067616}
   m_Layer: 5
   m_Name: Stove
   m_TagString: Untagged
@@ -6101,6 +6166,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392067612}
   m_CullTransparentMesh: 0
+--- !u!114 &1392067616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392067612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4cfb78bb1604172b3331f676a5e79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDirection: 3
+  slideSpeedMultiplier: 1
+  endingOffset: 400
 --- !u!1 &1392924619
 GameObject:
   m_ObjectHideFlags: 0
@@ -8198,7 +8278,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904384698}
-  m_LocalRotation: {x: 0, y: 0, z: 0.03489949, w: 0.99939084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8211,7 +8291,7 @@ RectTransform:
   - {fileID: 497489142}
   m_Father: {fileID: 31813091}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.03}
   m_AnchorMax: {x: 0.95, y: 0.97}
   m_AnchoredPosition: {x: 0, y: -520}
@@ -8231,7 +8311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelButtonPrefab: {fileID: 93977579417071345, guid: cf128c8dda8ff4ad58d428ce58cc3b3a,
     type: 3}
-  startingRotation: 3.65
+  startingRotation: 4
   scrollView: {fileID: 125342584}
   levelsToLoad: 15
 --- !u!114 &1904384701

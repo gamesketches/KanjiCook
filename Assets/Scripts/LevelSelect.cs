@@ -14,9 +14,11 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public float startingRotation;
 	public Transform scrollView;
 	public int levelsToLoad;
+	public static float lerpProportion;
     // Start is called before the first frame update
     IEnumerator Start()
     {
+		lerpProportion = 0;
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
 		menuImage = GetComponent<Image>();
@@ -27,6 +29,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		for(levelCount = 1; levelCount < levelsToLoad; levelCount++) {
 			GameObject levelButton = Instantiate(levelButtonPrefab);
 			levelButton.transform.parent = scrollView; 
+			levelButton.transform.localRotation = Quaternion.identity;
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
 		}
     }
@@ -56,10 +59,14 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             transform.position = newPos;
 			rectTransform.ForceUpdateRectTransforms();
 			Quaternion curRotation = transform.rotation;
-			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, rectTransform.offsetMax.y / startOffset);
+			float curProportion = rectTransform.offsetMax.y / startOffset;
+			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, curProportion);
 			if(rectTransform.offsetMax.y > 0) {
 				transform.position = oldPos;
+			} else {
+				lerpProportion = 1 - curProportion;
 			}
+				
         }
 	}
 
