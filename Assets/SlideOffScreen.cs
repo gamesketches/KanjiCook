@@ -9,7 +9,7 @@ public class SlideOffScreen : MonoBehaviour
 	RectTransform rectTransform;
 	float startInset;
 	float rectSize;
-	public float endingOffset;
+	public float endingInset;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,7 +21,7 @@ public class SlideOffScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		rectTransform.SetInsetAndSizeFromParentEdge(slideDirection, Mathf.SmoothStep(startInset, -endingOffset, LevelSelect.lerpProportion), rectSize);
+		rectTransform.SetInsetAndSizeFromParentEdge(slideDirection, Mathf.SmoothStep(startInset, endingInset, LevelSelect.lerpProportion), rectSize);
     }
 
 	void CalibrateOffset() {
