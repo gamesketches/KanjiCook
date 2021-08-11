@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 {
 	string levelFile;
+	int levelIndex;
 	Text kanjis;
 	Text radicals;
 
@@ -42,6 +43,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	public void Initialize(int id) {
 		string[] levelKanjis = new string[0];
 		string[] rads = new string[0];
+		levelIndex = id;
 		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
 		foreach(string kanji in levelKanjis) {
 			kanjis.text += " " + kanji;
@@ -52,6 +54,17 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData) {
-		GameManager.instance.LoadLevel(levelFile);
+		StartCoroutine(SelectLevel());
+		//GameManager.instance.LoadLevel(levelFile);
+	}
+
+	IEnumerator SelectLevel() {
+		Image backgroundImage = GetComponentInChildren<Image>();
+		float flashTime = 0.4f;
+		for(float t = 0; t < flashTime; t += Time.deltaTime) {
+			 backgroundImage.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(t, flashTime / 2) / (flashTime / 2));
+			yield return null;
+		}
+		GameManager.instance.LoadLevel(levelIndex);
 	}
 }

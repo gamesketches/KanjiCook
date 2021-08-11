@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 	public float levelDuration;
 	float levelTimer;
 	bool gameStarted = false;
-	public string levelFileName;
+	string levelFileName;
+	int levelIndex;
 
     // Start is called before the first frame update
     void Awake()
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
 	public void LevelSetup() {
 		levelTimer = 0;
 		scoreTally.text = "X 0";
-		LoadKanji();
+		//LoadKanji();
 		SetUpRadicals();
 		ShowWordMenu();
 	}
@@ -74,6 +75,15 @@ public class GameManager : MonoBehaviour
 		if(!LevelSelect.levelSelectLocked) return;
 		GameMenuCanvas.SetActive(false);
 		levelFileName = levelName;
+		LoadKanji();
+		LevelSetup();
+	}
+
+	public void LoadLevel(int lvlIndex) {
+		if(!LevelSelect.levelSelectLocked) return;
+		GameMenuCanvas.SetActive(false);
+		levelIndex = lvlIndex;
+		GetLoadedKanji();
 		LevelSetup();
 	}
 
@@ -102,9 +112,18 @@ public class GameManager : MonoBehaviour
 		cookingPot.ClearIngredients();
 	}
 
+	void GetLoadedKanji() {
+		targetWords = contentManager.GetLevelContent(levelIndex);
+		BuildDuJourLevel();
+	}
+
 	void LoadKanji() {
 		//targetWords = contentManager.CreateGameContent();
 		targetWords = contentManager.LoadLevelContent(levelFileName);
+		BuildDuJourLevel();	
+	}
+
+	void BuildDuJourLevel() {
 		string menuDisplay = "";
 		foreach(LanguagePair pairing in targetWords) {
 			menuDisplay += pairing.target + " = " + pairing.literal + ", made from: " + pairing.components[0];
