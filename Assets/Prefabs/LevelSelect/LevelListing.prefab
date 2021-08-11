@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7450074c54b454e108485d7695ba086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kanjiPrefab: {fileID: 1746392866183546273, guid: 3eb90bdb0c48941e88badabbd97a6a30,
+    type: 3}
 --- !u!1 &6892221092104154229
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +217,7 @@ GameObject:
   - component: {fileID: 5839300288808293316}
   - component: {fileID: 2045977305706970205}
   - component: {fileID: 7411644503720166212}
+  - component: {fileID: 5797485099415137210}
   m_Layer: 5
   m_Name: Kanjis
   m_TagString: Untagged
@@ -256,7 +259,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8023474358833243014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -282,6 +285,31 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &5797485099415137210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023474358833243014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &9210402870315507868
 GameObject:
   m_ObjectHideFlags: 0

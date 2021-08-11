@@ -10,6 +10,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	int levelIndex;
 	Text kanjis;
 	Text radicals;
+	public GameObject kanjiPrefab;
 
     // Start is called before the first frame update
     void Awake()
@@ -32,7 +33,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		string[] rads = new string[0];
 		ContentManager.instance.GetLevelSelectContent(levelFile, out levelKanjis, out rads);
 		foreach(string kanji in levelKanjis) {
-			kanjis.text += " " + kanji;
+			GameObject newKanji = Instantiate(kanjiPrefab, kanjis.transform);
+			newKanji.GetComponentInChildren<Text>().text = kanji;
 		}
 		foreach(string radical in rads) {
 			radicals.text += " " + radical;
@@ -46,7 +48,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		levelIndex = id;
 		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
 		foreach(string kanji in levelKanjis) {
-			kanjis.text += " " + kanji;
+			GameObject newKanji = Instantiate(kanjiPrefab, kanjis.transform);
+			newKanji.GetComponentInChildren<Text>().text = kanji;
 		}
 		foreach(string radical in rads) {
 			radicals.text += " " + radical;
@@ -55,7 +58,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData pointerEventData) {
 		StartCoroutine(SelectLevel());
-		//GameManager.instance.LoadLevel(levelFile);
 	}
 
 	IEnumerator SelectLevel() {
