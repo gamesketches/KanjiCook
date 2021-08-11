@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 	public string levelFileName;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 		instance = this;
 		levelTimer = 0;
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void LoadLevel(string levelName) {
+		if(!LevelSelect.levelSelectLocked) return;
 		GameMenuCanvas.SetActive(false);
 		levelFileName = levelName;
 		LevelSetup();

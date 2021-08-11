@@ -15,9 +15,11 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public Transform scrollView;
 	public int levelsToLoad;
 	public static float lerpProportion;
+	public static bool levelSelectLocked;
     // Start is called before the first frame update
     IEnumerator Start()
     {
+		levelSelectLocked = false;
 		lerpProportion = 0;
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
@@ -54,6 +56,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Vector2 dragDelta = eventData.delta;
         if (RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, eventData.pressEventCamera, out newPos))
         {
+			
+			if(levelSelectLocked) return;
 			newPos = transform.position;
 			newPos.y += dragDelta.y;
             transform.position = newPos;
@@ -63,6 +67,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, curProportion);
 			if(rectTransform.offsetMax.y > 0) {
 				transform.position = oldPos;
+				lerpProportion = 1;
+				levelSelectLocked = true;
 			} else {
 				lerpProportion = 1 - curProportion;
 			}
