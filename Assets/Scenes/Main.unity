@@ -7487,6 +7487,7 @@ GameObject:
   - component: {fileID: 1645283380}
   - component: {fileID: 1645283382}
   - component: {fileID: 1645283381}
+  - component: {fileID: 1645283383}
   m_Layer: 5
   m_Name: Flame
   m_TagString: Untagged
@@ -7550,6 +7551,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645283379}
   m_CullTransparentMesh: 0
+--- !u!114 &1645283383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645283379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9c7c0c53c234473a5c79316cd8d8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653245469
 GameObject:
   m_ObjectHideFlags: 0
@@ -8467,6 +8480,39 @@ MonoBehaviour:
   startingRotation: 4
   scrollView: {fileID: 125342584}
   levelsToLoad: 15
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9166666
+      value: 0.75114155
+      inSlope: -1.2028067
+      outSlope: -1.2028067
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1904384701
 MonoBehaviour:
   m_ObjectHideFlags: 0

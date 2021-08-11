@@ -16,6 +16,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public int levelsToLoad;
 	public static float lerpProportion;
 	public static bool levelSelectLocked;
+	public AnimationCurve scaleCurve;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -71,8 +72,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				levelSelectLocked = true;
 			} else {
 				lerpProportion = 1 - curProportion;
+				float scaleSize = scaleCurve.Evaluate(lerpProportion);
+				transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			}
-				
         }
 	}
 
