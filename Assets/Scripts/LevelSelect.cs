@@ -80,7 +80,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnEndDrag(PointerEventData eventData) {
-		if(rectTransform.offsetMax.y < 0) {
+		if(!levelSelectLocked && rectTransform.offsetMax.y < 0) {
 			StartCoroutine(FinishOpeningMenu());
 		}
 		Debug.Log("Ending Drag");
@@ -88,6 +88,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public IEnumerator FinishOpeningMenu() {
 		float xOffset = rectTransform.offsetMax.x;
+		levelSelectLocked = true;
 		rectTransform.offsetMax = new Vector2(xOffset, 0);
 		rectTransform.ForceUpdateRectTransforms();
 		Vector3 targetPos = transform.position;
