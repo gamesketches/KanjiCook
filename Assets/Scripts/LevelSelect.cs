@@ -17,6 +17,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public static float lerpProportion;
 	public static bool levelSelectLocked;
 	public AnimationCurve scaleCurve;
+	public AnimationCurve openCurve;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -72,13 +73,39 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				levelSelectLocked = true;
 			} else {
 				lerpProportion = 1 - curProportion;
-				float scaleSize = scaleCurve.Evaluate(lerpProportion);
-				transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			}
+			float scaleSize = scaleCurve.Evaluate(lerpProportion);
+			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
         }
 	}
 
 	public void OnEndDrag(PointerEventData eventData) {
+		if(rectTransform.offsetMax.y < 0) {
+			StartCoroutine(FinishOpeningMenu());
+		}
 		Debug.Log("Ending Drag");
 	}
+
+	public IEnumerator FinishOpeningMenu() {
+		float xOffset = rectTransform.offsetMax.x;
+		rectTransform.offsetMax = new Vector2(xOffset, 0);
+		rectTransform.ForceUpdateRectTransforms();
+		Vector3 targetPos = transform.position;
+		rectTransform.offsetMax = new Vector2(xOffset, startOffset);
+		rectTransform.ForceUpdateRectTransforms();
+		Vector3 startingPos = transform.position;
+		float scaleSize = scaleCurve.Evaluate(lerpProportion);
+		for(float t = lerpProportion; t < 1; t += Time.deltaTime) {
+			transform.position = Vector3.Lerp(startingPos, targetPos, t);
+			lerpProportion = t;
+			scaleSize = scaleCurve.Evaluate(lerpProportion);
+			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			yield return null;
+		}
+		lerpProportion = 1;
+		transform.position = targetPos;
+		scaleSize = scaleCurve.Evaluate(lerpProportion);
+		transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+	}
+			
 }
