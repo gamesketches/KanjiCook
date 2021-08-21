@@ -32,3 +32,4 @@ sysinfo.txt
 .DS_Store
 *.swp
 *.pyc
+.vs/KanjiCook/xs/UserPrefs.xml
