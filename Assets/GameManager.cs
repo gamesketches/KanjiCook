@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
 	public ContentManager contentManager;
 	public ResultModalController resultModal;
 	public CookingPotBehavior cookingPot;
-	public Text menu;
+	public Transform menu;
 	public GameObject GameMenuCanvas;
+	public GameObject entreePrefab;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 	public float levelDuration;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
 		wordBag = new List<LanguagePair>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
-		menu.CrossFadeAlpha(0, 0.01f, true);
+		//menu.CrossFadeAlpha(0, 0.01f, true);
     }
 
     // Update is called once per frame
@@ -104,7 +105,7 @@ public class GameManager : MonoBehaviour
 
 	void ShowWordMenu() {
 		menu.transform.parent.gameObject.SetActive(true);
-		menu.CrossFadeAlpha(1, 1.4f, false);
+		//menu.CrossFadeAlpha(1, 1.4f, false);
 	}
 
 	void CleanUpGameplay() {
@@ -126,14 +127,17 @@ public class GameManager : MonoBehaviour
 	void BuildDuJourLevel() {
 		string menuDisplay = "";
 		foreach(LanguagePair pairing in targetWords) {
-			menuDisplay += pairing.target + " = " + pairing.literal + ", made from: " + pairing.components[0];
+		/*	menuDisplay += pairing.target + " = " + pairing.literal + ", made from: " + pairing.components[0];
 			for(int i = 1; i < pairing.components.Length; i++) {
 				menuDisplay += " + " + pairing.components[i];
 			}
 			menuDisplay += "\n";
-			wordBag.Add(pairing);
+			wordBag.Add(pairing);*/
+			GameObject entreeListing = Instantiate<GameObject>(entreePrefab);
+			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
+			entreeListing.transform.parent = menu;
 		}
-		menu.text = menuDisplay;
+		//menu.text = menuDisplay;
 	}
 
 	void SetUpRadicals() {
