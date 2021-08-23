@@ -69,6 +69,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, curProportion);
 			if(rectTransform.offsetMax.y > 0) {
 				transform.position = oldPos;
+				rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 0);
 				lerpProportion = 1;
 				levelSelectLocked = true;
 			} else {
