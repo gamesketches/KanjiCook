@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
 		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
-		//menu.CrossFadeAlpha(0, 0.01f, true);
     }
 
     // Update is called once per frame
@@ -115,6 +114,9 @@ public class GameManager : MonoBehaviour
 
 	void GetLoadedKanji() {
 		targetWords = contentManager.GetLevelContent(levelIndex);
+		for(int i = 0; i < targetWords.Length; i++) {
+			targetWords[i] = TrimEntreeData(targetWords[i]);
+		}
 		BuildDuJourLevel();
 	}
 
@@ -175,6 +177,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public EntreeData TrimEntreeData(EntreeData theData) {
+		EntreeData newData = new EntreeData();
+		newData.literal = theData.literal;
+		newData.components = theData.components;
+		if(theData.meanings.Length > 1) {
+			newData.meanings = new string[] {theData.meanings[Random.Range(0, theData.meanings.Length)]};
+		} else newData.meanings = theData.meanings;
+		if(theData.kunyomi.Length > 1) {
+			newData.kunyomi = new string[] {theData.kunyomi[Random.Range(0, theData.kunyomi.Length)]};
+		} else newData.kunyomi = theData.kunyomi;
+		if(theData.onyomi.Length > 1) {
+			newData.onyomi = new string[] {theData.onyomi[Random.Range(0, theData.onyomi.Length)]};
+		} else newData.onyomi = theData.onyomi;
+		return newData;
+	}
+
 	public EntreeData RecipeLookup(string[] components) {
 		foreach(EntreeData listing in targetWords) {
 			if(listing.components.Length == components.Length) {
@@ -200,6 +218,14 @@ public class EntreeData {
 	public string[] kunyomi;
 	public string[] onyomi;
 	
+	public EntreeData() {
+		meanings = new string[0];
+		literal = "";
+		components = new string[0];
+		kunyomi = new string[0];
+		onyomi = new string[0];
+	}
+		
 	public EntreeData(string[] kanjiMeanings, string entreeLiteral, string[] entreeComponents, string[] entreeKunyomi, string[] entreeOnyomi) {
 		meanings = kanjiMeanings;
 		components = entreeComponents;
