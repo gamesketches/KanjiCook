@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e6fd6ad0f6146a581e60860759ab29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameLabel: {fileID: 3905885097556708934}
+  descLabel: {fileID: 1457796917816096304}
+  priceLabel: {fileID: 1731682271957903118}
 --- !u!1 &1777258305991701144
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kanjiPrefab: {fileID: 1746392866183546273, guid: 3eb90bdb0c48941e88badabbd97a6a30,
     type: 3}
+  interactable: 0
 --- !u!1 &4991394294212029594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1038,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5445563421533049127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4319350845009648156}
+        m_MethodName: ShowContents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9210402870315507868
 GameObject:
   m_ObjectHideFlags: 0

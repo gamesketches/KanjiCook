@@ -8,6 +8,7 @@ public class PurchaseScreenController : MonoBehaviour
 
 	public static PurchaseScreenController instance;
 	public GameObject listingPrefab;
+	public GameObject levelPrefab;
 	public Transform scrollView;
 	RectTransform rectTransform;
 	
@@ -28,12 +29,17 @@ public class PurchaseScreenController : MonoBehaviour
     }
 
 	void FillPurchaseMenu() {
-		GameObject packListing = Instantiate<GameObject>(listingPrefab);
-		packListing.transform.parent = scrollView;
-		Text[] textFields = packListing.GetComponentsInChildren<Text>();
-		textFields[1].text = "Summer Salads";
-		textFields[2].text = "99 levels of fun";
-		textFields[4].text = "$0.99";
+		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
+		packListing.GetComponent<BundleListingController>().Initialize("Summer Salads", "99 Levels of fun", "$0.99");
+		//packListing = Instantiate<GameObject>(listingPrefab, scrollView);
+		//packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99");
+	}
+
+	public void ShowDetails(string packId) {
+		for(int i = 1; i < 10; i++) {
+			GameObject levelButton = Instantiate<GameObject>(levelPrefab, scrollView);
+			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(i, false);
+		}
 	}
 
 	public IEnumerator OpenPurchaseMenu() {
@@ -55,4 +61,5 @@ public class PurchaseScreenController : MonoBehaviour
 		}
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectSize, rectSize);
 	}
+
 }

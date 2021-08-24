@@ -11,6 +11,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	Text kanjis;
 	Text radicals;
 	public GameObject kanjiPrefab;
+	public bool interactable;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,7 +28,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
         
     }
 
-	public void Initialize(string id, string levelName) {
+	public void Initialize(string id, string levelName, bool isInteractable = true) {
+		interactable = isInteractable;
 		levelFile = id;
 		string[] levelKanjis = new string[0];
 		string[] rads = new string[0];
@@ -42,9 +44,10 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		//GetComponentInChildren<Text>().text = levelName;
 	}
 
-	public void Initialize(int id) {
+	public void Initialize(int id, bool isInteractable = true) {
 		string[] levelKanjis = new string[0];
 		string[] rads = new string[0];
+		interactable = isInteractable;
 		levelIndex = id;
 		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
 		foreach(string kanji in levelKanjis) {
@@ -57,7 +60,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData) {
-		StartCoroutine(SelectLevel());
+		if(interactable)
+			StartCoroutine(SelectLevel());
 	}
 
 	IEnumerator SelectLevel() {
