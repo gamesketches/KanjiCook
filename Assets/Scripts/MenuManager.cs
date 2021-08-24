@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject levelSelect;
 	public GameObject titleScreen;
 	public GameObject aboutScreen;
+	public GameObject packStore;
 
     // Start is called before the first frame update
     void Awake()
@@ -16,6 +17,7 @@ public class MenuManager : MonoBehaviour
         titleScreen.SetActive(true);
 		levelSelect.SetActive(true);
 		aboutScreen.SetActive(false);
+		packStore.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,12 +30,21 @@ public class MenuManager : MonoBehaviour
 		DismissTitleScreen();
 	}
 	
-	public void OpenAboutScreen() {
-		aboutScreen.SetActive(true);
+	public void ToggleAboutScreen() {
+		if(!aboutScreen.activeSelf) { 
+			aboutScreen.SetActive(true);
+		} else {
+			aboutScreen.SetActive(false);
+		}
 	}
 
-	public void CloseAboutScreen() {
-		aboutScreen.SetActive(false);
+	public void TogglePackStore() {
+		if(!packStore.activeSelf) {
+			packStore.SetActive(true);
+			StartCoroutine(packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu());
+		} else {
+			StartCoroutine(packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu());
+		}
 	}
 
 	void DismissTitleScreen() {

@@ -67,6 +67,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 			 backgroundImage.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(t, flashTime / 2) / (flashTime / 2));
 			yield return null;
 		}
-		GameManager.instance.LoadLevel(levelIndex);
+		AppManager.instance.SelectLevel(levelIndex);
 	}
 }

@@ -41,7 +41,7 @@ public class ResultModalController : MonoBehaviour
 	}
 
 	public void LevelSelect() {
-		GameManager.instance.OpenLevelSelect();
+		AppManager.instance.OpenLevelSelect();
 		CloseResultModal();
 	}
 

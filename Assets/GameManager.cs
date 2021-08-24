@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
 		instance = this;
 		levelTimer = 0;
-		GameMenuCanvas.SetActive(true);
+	//	GameMenuCanvas.SetActive(true);
 		resultModal.gameObject.SetActive(false);
 		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
@@ -72,16 +72,16 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void LoadLevel(string levelName) {
-		if(!LevelSelect.levelSelectLocked) return;
-		GameMenuCanvas.SetActive(false);
+		//if(!LevelSelect.levelSelectLocked) return;
+		//GameMenuCanvas.SetActive(false);
 		levelFileName = levelName;
 		LoadKanji();
 		LevelSetup();
 	}
 
 	public void LoadLevel(int lvlIndex) {
-		if(!LevelSelect.levelSelectLocked) return;
-		GameMenuCanvas.SetActive(false);
+		//if(!LevelSelect.levelSelectLocked) return;
+		//GameMenuCanvas.SetActive(false);
 		levelIndex = lvlIndex;
 		GetLoadedKanji();
 		LevelSetup();
@@ -97,9 +97,10 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void OpenLevelSelect() {
-		gameStarted = false;
-		requestQueue.ClearRequests();
-		GameMenuCanvas.SetActive(true);
+		CleanUpGameplay();
+		//gameStarted = false;
+		//requestQueue.ClearRequests();
+		//GameMenuCanvas.SetActive(true);
 	}
 
 	void ShowWordMenu() {
@@ -107,7 +108,8 @@ public class GameManager : MonoBehaviour
 		//menu.CrossFadeAlpha(1, 1.4f, false);
 	}
 
-	void CleanUpGameplay() {
+	public void CleanUpGameplay() {
+		gameStarted = false;
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
 	}
