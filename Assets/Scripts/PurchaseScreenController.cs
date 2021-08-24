@@ -11,11 +11,14 @@ public class PurchaseScreenController : MonoBehaviour
 	public GameObject levelPrefab;
 	public Transform scrollView;
 	RectTransform rectTransform;
+	bool showingDetails;
+	List<GameObject> levelListings;
 	
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
+		showingDetails = false;
 		rectTransform = GetComponent<RectTransform>();
 		float rectWidth = rectTransform.rect.size.x;
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth);
@@ -41,12 +44,15 @@ public class PurchaseScreenController : MonoBehaviour
 				AddBundleContents();
 			} else bundle.gameObject.SetActive(false);
 		}	
+		showingDetails = true;
 	}
 
 	void AddBundleContents() {
+		levelListings = new List<GameObject>();
 		for(int i = 1; i < 10; i++) {
 			GameObject levelButton = Instantiate<GameObject>(levelPrefab, scrollView);
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(i, false);
+			levelListings.Add(levelButton);
 		}
 	}
 
@@ -70,4 +76,18 @@ public class PurchaseScreenController : MonoBehaviour
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectSize, rectSize);
 	}
 
+	public void GoBack() {
+		if(showingDetails) {
+			foreach(GameObject level in levelListings) {
+				Destroy(level);
+			} 
+			foreach(BundleListingController bundle in scrollView.GetComponentsInChildren<BundleListingController>(true)) {
+				bundle.gameObject.SetActive(true);
+			}
+			showingDetails = false;
+		} else {
+			ClosePurchaseMenu();
+		}
+	}
+		
 }
