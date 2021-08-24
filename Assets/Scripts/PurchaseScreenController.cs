@@ -31,11 +31,19 @@ public class PurchaseScreenController : MonoBehaviour
 	void FillPurchaseMenu() {
 		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
 		packListing.GetComponent<BundleListingController>().Initialize("Summer Salads", "99 Levels of fun", "$0.99");
-		//packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		//packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99");
+		packListing = Instantiate<GameObject>(listingPrefab, scrollView);
+		packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99");
 	}
 
 	public void ShowDetails(string packId) {
+		foreach(BundleListingController bundle in scrollView.GetComponentsInChildren<BundleListingController>()) {
+			if(bundle.packName == packId) {
+				AddBundleContents();
+			} else bundle.gameObject.SetActive(false);
+		}	
+	}
+
+	void AddBundleContents() {
 		for(int i = 1; i < 10; i++) {
 			GameObject levelButton = Instantiate<GameObject>(levelPrefab, scrollView);
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(i, false);

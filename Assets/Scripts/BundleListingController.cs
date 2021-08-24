@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BundleListingController : MonoBehaviour
 {
-	string packName;
+	public string packName;
 	string packDescription;
 	string packPrice;
 	public Text nameLabel;
