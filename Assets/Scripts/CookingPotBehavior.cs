@@ -66,7 +66,7 @@ public class CookingPotBehavior : MonoBehaviour
 			yield return null;
 		}
 		transform.position = startPosition;
-		LanguagePair resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
+		EntreeData resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
 		ChefController.instance.cooking = false;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
@@ -74,7 +74,7 @@ public class CookingPotBehavior : MonoBehaviour
 	}
 
 	string RecipeLookup() {
-		foreach(LanguagePair listing in GameManager.targetWords) {
+		foreach(EntreeData listing in GameManager.targetWords) {
 			if(listing.components.Length == ingredients.Count) {
 				bool match = true;
 				foreach(string component in ingredients) {
@@ -83,7 +83,7 @@ public class CookingPotBehavior : MonoBehaviour
 					}
 				}
 				if(match) {
-					return listing.target;
+					return listing.meanings[0];
 				}
 			}
 		}

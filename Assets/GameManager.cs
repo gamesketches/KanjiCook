@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	RequestQueueManager requestQueue;
-	public static LanguagePair[] targetWords;
-	List<LanguagePair> wordBag;
+	public static EntreeData[] targetWords;
+	List<EntreeData> wordBag;
 	Text scoreTally;
 	public TextAsset KanjiData;
 	public ContentManager contentManager;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 		levelTimer = 0;
 		GameMenuCanvas.SetActive(true);
 		resultModal.gameObject.SetActive(false);
-		wordBag = new List<LanguagePair>();
+		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponent<Text>();
 		//menu.CrossFadeAlpha(0, 0.01f, true);
@@ -125,8 +125,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	void BuildDuJourLevel() {
-		string menuDisplay = "";
-		foreach(LanguagePair pairing in targetWords) {
+		foreach(EntreeData pairing in targetWords) {
 			GameObject entreeListing = Instantiate<GameObject>(entreePrefab);
 			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
 			entreeListing.transform.parent = menu;
@@ -135,7 +134,7 @@ public class GameManager : MonoBehaviour
 
 	void SetUpRadicals() {
 		List<string> radicals = new List<string>();
-		foreach(LanguagePair pair in targetWords) {
+		foreach(EntreeData pair in targetWords) {
 			foreach(string radical in pair.components) {
 				if(radicals.IndexOf(radical) == -1) {
 					radicals.Add(radical);
@@ -158,26 +157,26 @@ public class GameManager : MonoBehaviour
 
 	void MakeNewRequest() {
 		if(wordBag.Count == 0) {
-			foreach(LanguagePair pairing in targetWords) {
+			foreach(EntreeData pairing in targetWords) {
 				wordBag.Add(pairing);
 			}
 		}
 		int diceRoll = Mathf.FloorToInt(Random.Range(0, wordBag.Count));
-		string request = wordBag[diceRoll].target;
+		string request = wordBag[diceRoll].meanings[0];
 		wordBag.RemoveAt(diceRoll);
 		requestQueue.ReceiveRequest(request);
 	}
 
-	public void ClearRequest(Text answer, LanguagePair result) {
-		if(requestQueue.SatisfiesRequest(result.target)) {
-			StartCoroutine(requestQueue.ClearRequest(answer, result.target));
+	public void ClearRequest(Text answer, EntreeData result) {
+		if(requestQueue.SatisfiesRequest(result.meanings[0])) {
+			StartCoroutine(requestQueue.ClearRequest(answer, result.meanings[0]));
 			Debug.Log(scoreTally.text.Substring(1));
 			scoreTally.text = "X " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 		}
 	}
 
-	public LanguagePair RecipeLookup(string[] components) {
-		foreach(LanguagePair listing in targetWords) {
+	public EntreeData RecipeLookup(string[] components) {
+		foreach(EntreeData listing in targetWords) {
 			if(listing.components.Length == components.Length) {
 				bool match = true;
 				foreach(string component in components) {
@@ -190,23 +189,23 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
-		return new LanguagePair("failure", "駄目", new string[0], new string[0], new string[0]);
+		return new EntreeData(new string[] {"failure"}, "駄目", new string[0], new string[0], new string[0]);
 	}
 }
 
-public class LanguagePair {
-	public string target;
+public class EntreeData {
+	public string[] meanings;
 	public string literal;
 	public string[] components;
 	public string[] kunyomi;
 	public string[] onyomi;
 	
-	public LanguagePair(string pairTarget, string pairLiteral, string[] pairComponents, string[] pairKunyomi, string[] pairOnyomi) {
-		target = pairTarget;
-		components = pairComponents;
-		literal = pairLiteral;
-		kunyomi = pairKunyomi;
-		onyomi = pairOnyomi;
+	public EntreeData(string[] kanjiMeanings, string entreeLiteral, string[] entreeComponents, string[] entreeKunyomi, string[] entreeOnyomi) {
+		meanings = kanjiMeanings;
+		components = entreeComponents;
+		literal = entreeLiteral;
+		kunyomi = entreeKunyomi;
+		onyomi = entreeOnyomi;
 	}
 }
 

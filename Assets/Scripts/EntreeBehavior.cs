@@ -15,7 +15,7 @@ public class EntreeBehavior : MonoBehaviour
         
     }
 
-	public void Initialize(LanguagePair entreeData) {
+	public void Initialize(EntreeData entreeData) {
 		character.text = entreeData.literal;
 		string formulaString = "= " + entreeData.components[0];
 		for(int i = 1; i < entreeData.components.Length; i++) {
@@ -23,10 +23,29 @@ public class EntreeBehavior : MonoBehaviour
 		}
 		formula.text = formulaString;
 		string definitionString = entreeData.literal;
-		string reading = "むら";
+		string reading = GenerateReadingString(entreeData.kunyomi, entreeData.onyomi);
 		string romanji = "mura";
-		string meaning = "village";
-		string definition = "\"village\"";
-		definitionString += "(" + reading + "|" + romanji + ")" + definition;
+		string definitionList = GenerateDefinitionString(entreeData.meanings);
+		definitionString += reading + definitionList;
+		definition.text = definitionString;
+	}
+
+	string GenerateReadingString(string[] kunyomi, string[] onyomi) {
+		string hiraganaReading = "むら";
+		if(kunyomi.Length > 0) hiraganaReading = kunyomi[0];
+		else if(onyomi.Length > 0) hiraganaReading = onyomi[0];
+		return "(" + hiraganaReading + "|" + GetRomanji(hiraganaReading) + ")";
+	}
+
+	string GenerateDefinitionString(string[] meanings) {
+		string returnString = "\"" + meanings[0] + "\"";
+		for(int i = 1; i < meanings.Length; i++) {
+			returnString += ", \"" + meanings[i] + "\"";
+		}
+		return returnString;
+	}
+
+	string GetRomanji(string hiraganaReading) {
+		return "mura";
 	}
 }

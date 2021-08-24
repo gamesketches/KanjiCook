@@ -13,7 +13,7 @@ public class ContentManager : MonoBehaviour
 	public int numKanji;
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
-	Dictionary<int, LanguagePair[]> levelLookup;
+	Dictionary<int, EntreeData[]> levelLookup;
 	
 	[SerializeField] private AssetLabelReference levelLabel;
 	private AsyncOperationHandle _levelLoadOperationHandle;
@@ -22,7 +22,7 @@ public class ContentManager : MonoBehaviour
     {
 		instance = this;
         myKanji = JsonUtility.FromJson<KanjiInfoFile>(kanjiFile.text);
-		levelLookup = new Dictionary<int, LanguagePair[]>();
+		levelLookup = new Dictionary<int, EntreeData[]>();
 		StartCoroutine(LoadLevels());
     }
 
@@ -41,7 +41,7 @@ public class ContentManager : MonoBehaviour
 							Addressables.LoadAssetsAsync<TextAsset>(levelLabel, obj => {
         //Gets called for every loaded asset
 			Debug.Log(obj.name);
-			LanguagePair[] levelContent = ProcessLevelContent(obj);
+			EntreeData[] levelContent = ProcessLevelContent(obj);
 			int levelIndex = int.Parse(obj.name.Substring(5));
 			levelLookup.Add(levelIndex, levelContent);
     	});
@@ -73,7 +73,7 @@ public class ContentManager : MonoBehaviour
 	}
 
 	public void GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals) {
-		LanguagePair[] theLevel = levelLookup[index];
+		EntreeData[] theLevel = levelLookup[index];
 		List<string> fileKanjis = new List<string>();
 		List<string> fileRadicals = new List<string>();
 		for(int i = 0; i < theLevel.Length; i++) {
@@ -88,37 +88,37 @@ public class ContentManager : MonoBehaviour
 		radicals = fileRadicals.ToArray();
 	}
 
-	public LanguagePair[] LoadLevelContent(string filename) {
+	public EntreeData[] LoadLevelContent(string filename) {
 		TextAsset levelFile = Resources.Load<TextAsset>(filename);
 		return ProcessLevelContent(levelFile);
 	}
 
-	public LanguagePair[] GetLevelContent(int levelIndex) {
+	public EntreeData[] GetLevelContent(int levelIndex) {
 		return levelLookup[levelIndex];
 	}
 
-	LanguagePair[] ProcessLevelContent(TextAsset file) {
+	EntreeData[] ProcessLevelContent(TextAsset file) {
 		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(file.text);
-		List<LanguagePair> tempContent = new List<LanguagePair>();
+		List<EntreeData> tempContent = new List<EntreeData>();
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
 			Debug.Log("Adding kanji " + kanji.kanji);
-			int randomMeaning = Random.Range(0, kanji.meanings.Length);
-			for(int i = 0; i < tempContent.Count; i++) {
-				if(tempContent[i].target == kanji.meanings[randomMeaning]) {
+			//int randomMeaning = Random.Range(0, kanji.meanings.Length);
+			/*for(int i = 0; i < tempContent.Count; i++) {
+				if(tempContent[i].meanings == kanji.meanings[randomMeaning]) {
 					i = -1;
 					randomMeaning = Random.Range(0, kanji.meanings.Length);
 				}
-			}
-			tempContent.Add(new LanguagePair(kanji.meanings[randomMeaning], kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
+			}*/
+			tempContent.Add(new EntreeData(kanji.meanings, kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
 		}
 		return tempContent.ToArray();
 	}
 
-	public LanguagePair[] CreateGameContent() {
-		List<LanguagePair> tempContent = new List<LanguagePair>();
+	public EntreeData[] CreateGameContent() {
+		List<EntreeData> tempContent = new List<EntreeData>();
 		List<string> curRadicals = new List<string>();
 		while(tempContent.Count < numKanji) {
-			LanguagePair newPair = FindNewPair(curRadicals.ToArray());
+			EntreeData newPair = FindNewPair(curRadicals.ToArray());
 			if(tempContent.IndexOf(newPair) == -1) {
 				tempContent.Add(newPair);
 				curRadicals.AddRange(newPair.components);
@@ -127,7 +127,7 @@ public class ContentManager : MonoBehaviour
 		return tempContent.ToArray();
 	}
 
-	LanguagePair FindNewPair(string[] curRadicals) {
+	EntreeData FindNewPair(string[] curRadicals) {
 		int numRadComponents;
 		KanjiInfo pickedKanji;
 		do {
@@ -137,7 +137,7 @@ public class ContentManager : MonoBehaviour
 				if(ArrayUtility.Contains(curRadicals, rad)) numRadComponents--;
 			}
 		} while(curRadicals.Length + numRadComponents > numRadicals);
-		return new LanguagePair(pickedKanji.meanings[0], pickedKanji.kanji, pickedKanji.radicals, pickedKanji.kunyomi, pickedKanji.onyomi);
+		return new EntreeData(pickedKanji.meanings, pickedKanji.kanji, pickedKanji.radicals, pickedKanji.kunyomi, pickedKanji.onyomi);
 	}
 		
 }
