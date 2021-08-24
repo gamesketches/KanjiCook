@@ -127,17 +127,10 @@ public class GameManager : MonoBehaviour
 	void BuildDuJourLevel() {
 		string menuDisplay = "";
 		foreach(LanguagePair pairing in targetWords) {
-		/*	menuDisplay += pairing.target + " = " + pairing.literal + ", made from: " + pairing.components[0];
-			for(int i = 1; i < pairing.components.Length; i++) {
-				menuDisplay += " + " + pairing.components[i];
-			}
-			menuDisplay += "\n";
-			wordBag.Add(pairing);*/
 			GameObject entreeListing = Instantiate<GameObject>(entreePrefab);
 			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
 			entreeListing.transform.parent = menu;
 		}
-		//menu.text = menuDisplay;
 	}
 
 	void SetUpRadicals() {
