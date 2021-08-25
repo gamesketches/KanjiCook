@@ -41,9 +41,9 @@ public class MenuManager : MonoBehaviour
 	public void TogglePackStore() {
 		if(!packStore.activeSelf) {
 			packStore.SetActive(true);
-			StartCoroutine(packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu());
+			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
 		} else {
-			StartCoroutine(packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu());
+			packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu();
 		}
 	}
 

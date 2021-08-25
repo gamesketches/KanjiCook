@@ -10,6 +10,8 @@ public class PurchaseScreenController : MonoBehaviour
 	public GameObject listingPrefab;
 	public GameObject levelPrefab;
 	public Transform scrollView;
+	public Transform detailScrollView;
+	public RectTransform detailRectTransform;
 	RectTransform rectTransform;
 	bool showingDetails;
 	List<GameObject> levelListings;
@@ -22,6 +24,8 @@ public class PurchaseScreenController : MonoBehaviour
 		rectTransform = GetComponent<RectTransform>();
 		float rectWidth = rectTransform.rect.size.x;
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth);
+		rectWidth = detailRectTransform.rect.size.x;
+		detailRectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth); 
 		FillPurchaseMenu();
     }
 
@@ -39,52 +43,62 @@ public class PurchaseScreenController : MonoBehaviour
 	}
 
 	public void ShowDetails(string packId) {
-		foreach(BundleListingController bundle in scrollView.GetComponentsInChildren<BundleListingController>()) {
+		for(int i = 0; i < scrollView.childCount; i++) {
+			BundleListingController bundle = scrollView.GetChild(i).gameObject.GetComponent<BundleListingController>();
 			if(bundle.packName == packId) {
-				AddBundleContents();
-			} else bundle.gameObject.SetActive(false);
+				FillOutDetailScreen();
+				SlideInDetailScreen();
+				return;
+			} 
 		}	
+	}
+
+	void FillOutDetailScreen() {
+		for(int i = 1; i < 10; i++) {
+			GameObject levelButton = Instantiate<GameObject>(levelPrefab, detailScrollView);
+			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(i, false);
+		}
 		showingDetails = true;
 	}
 
-	void AddBundleContents() {
-		levelListings = new List<GameObject>();
-		for(int i = 1; i < 10; i++) {
-			GameObject levelButton = Instantiate<GameObject>(levelPrefab, scrollView);
-			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(i, false);
-			levelListings.Add(levelButton);
-		}
+	void SlideInDetailScreen() {
+		StartCoroutine(LerpInsetAnimation(detailRectTransform, -detailRectTransform.rect.size.x, 0, 1));
+	}
+	
+	void SlideOutDetailScreen() {
+		StartCoroutine(LerpInsetAnimation(detailRectTransform, 0, -detailRectTransform.rect.size.x, 1));
 	}
 
-	public IEnumerator OpenPurchaseMenu() {
-		float rectSize = rectTransform.rect.size.x;
-		for(float t = 0; t < 1; t += Time.deltaTime) {
-			float newInset = Mathf.SmoothStep(-rectSize, 0, t);
-			rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, newInset, rectSize);
-			yield return null;
+	void ClearDetailScreen() {
+		int numChildren = detailScrollView.childCount;
+		for(int i = 0; i < numChildren; i++) {
+			Destroy(detailScrollView.GetChild(0).gameObject);
 		}
-		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, rectSize);
+		showingDetails = false;
+	}
+
+	public void OpenPurchaseMenu() {
+		StartCoroutine(LerpInsetAnimation(rectTransform, -rectTransform.rect.size.x, 0, 1));
 	}	
 
-	public IEnumerator ClosePurchaseMenu() {
+	public void ClosePurchaseMenu() {
+		StartCoroutine(LerpInsetAnimation(rectTransform, 0, -rectTransform.rect.size.x, 1));
+	}
+
+	IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time) {
 		float rectSize = rectTransform.rect.size.x;
-		for(float t = 0; t < 1; t += Time.deltaTime) {
-			float newInset = Mathf.SmoothStep(0, -rectSize, t);
+		for(float t = 0; t < time; t += Time.deltaTime) {
+			float newInset = Mathf.SmoothStep(startOffset, targetOffset, t);
 			rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, newInset, rectSize);
 			yield return null;
 		}
-		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectSize, rectSize);
+		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, targetOffset, rectSize);
 	}
 
 	public void GoBack() {
 		if(showingDetails) {
-			foreach(GameObject level in levelListings) {
-				Destroy(level);
-			} 
-			foreach(BundleListingController bundle in scrollView.GetComponentsInChildren<BundleListingController>(true)) {
-				bundle.gameObject.SetActive(true);
-			}
-			showingDetails = false;
+			SlideOutDetailScreen();
+			Invoke("ClearDetailScreen", 1.1f);
 		} else {
 			ClosePurchaseMenu();
 		}
