@@ -51,8 +51,7 @@ public class GameManager : MonoBehaviour
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
 				CleanUpGameplay();
-				resultModal.gameObject.SetActive(true);
-				resultModal.DisplayRating(int.Parse(scoreTally.text.Substring(1)));
+				ShowResults();
 				Debug.Log("Your score is " + scoreTally.text);
 			}
 		}
@@ -172,6 +171,17 @@ public class GameManager : MonoBehaviour
 		cookingPot.ClearIngredients();
 	}
 
+	void ShowResults() {
+		resultModal.gameObject.SetActive(true);
+		int score = int.Parse(scoreTally.text.Substring(1));
+		int attempts = 1;
+		float successRate = ((float)score / (float) attempts) * 100;
+		string performanceDescription = "You cooked " + score.ToString() + " dishes!\n" + 
+										"You made " + attempts.ToString() + " attempts\n" + 
+										"and " + successRate + "% of them were correct!\n" + 
+										"You have potential\nKeep up the good work!";
+		resultModal.DisplayResults(score, performanceDescription);
+	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {
 		EntreeData newData = new EntreeData();

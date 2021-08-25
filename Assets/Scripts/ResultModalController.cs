@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ResultModalController : MonoBehaviour
 {
 	public Image[] stars;
+	public Text performanceText;
 	public Color disabledStar;
 	public Color enabledStar;
 	public float slideInTime;
@@ -25,10 +26,11 @@ public class ResultModalController : MonoBehaviour
         
     }
 
-	public void DisplayRating(int rating) {
+	public void DisplayResults(int rating, string performanceString) {
 		for(int i = 0; i < stars.Length; i++) {
 			stars[i].color = i < rating ? enabledStar : disabledStar;
 		}
+		performanceText.text = performanceString;
 	}
 
 	public void CloseResultModal() {

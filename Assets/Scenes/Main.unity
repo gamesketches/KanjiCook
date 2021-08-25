@@ -8944,7 +8944,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: a7fbb860d095248e89943275df309e26, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 1
@@ -12486,6 +12486,7 @@ MonoBehaviour:
   - {fileID: 1653245471}
   - {fileID: 330771218}
   - {fileID: 1690507426}
+  performanceText: {fileID: 1406472169}
   disabledStar: {r: 1, g: 1, b: 1, a: 0.57254905}
   enabledStar: {r: 0.43137258, g: 0.81568635, b: 0.96470594, a: 1}
   slideInTime: 0.4
