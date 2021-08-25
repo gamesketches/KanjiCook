@@ -72,16 +72,12 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void LoadLevel(string levelName) {
-		//if(!LevelSelect.levelSelectLocked) return;
-		//GameMenuCanvas.SetActive(false);
 		levelFileName = levelName;
 		LoadKanji();
 		LevelSetup();
 	}
 
 	public void LoadLevel(int lvlIndex) {
-		//if(!LevelSelect.levelSelectLocked) return;
-		//GameMenuCanvas.SetActive(false);
 		levelIndex = lvlIndex;
 		GetLoadedKanji();
 		LevelSetup();
@@ -98,20 +94,11 @@ public class GameManager : MonoBehaviour
 
 	public void OpenLevelSelect() {
 		CleanUpGameplay();
-		//gameStarted = false;
-		//requestQueue.ClearRequests();
-		//GameMenuCanvas.SetActive(true);
 	}
 
 	void ShowWordMenu() {
 		menu.transform.parent.gameObject.SetActive(true);
 		//menu.CrossFadeAlpha(1, 1.4f, false);
-	}
-
-	public void CleanUpGameplay() {
-		gameStarted = false;
-		requestQueue.ClearRequests();
-		cookingPot.ClearIngredients();
 	}
 
 	void GetLoadedKanji() {
@@ -129,10 +116,10 @@ public class GameManager : MonoBehaviour
 	}
 
 	void BuildDuJourLevel() {
+		menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelIndex, false);
 		foreach(EntreeData pairing in targetWords) {
-			GameObject entreeListing = Instantiate<GameObject>(entreePrefab);
+			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
 			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
-			entreeListing.transform.parent = menu;
 		}
 	}
 
@@ -178,6 +165,13 @@ public class GameManager : MonoBehaviour
 			scoreTally.text = "X " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 		}
 	}
+	
+	public void CleanUpGameplay() {
+		gameStarted = false;
+		requestQueue.ClearRequests();
+		cookingPot.ClearIngredients();
+	}
+
 
 	public EntreeData TrimEntreeData(EntreeData theData) {
 		EntreeData newData = new EntreeData();
