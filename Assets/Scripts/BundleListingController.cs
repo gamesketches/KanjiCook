@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class BundleListingController : MonoBehaviour
 {
 	public string packName;
-	string packDescription;
-	string packPrice;
+	public string packDescription;
+	public string packPrice;
 	public Text nameLabel;
 	public Text descLabel;
 	public Text priceLabel;

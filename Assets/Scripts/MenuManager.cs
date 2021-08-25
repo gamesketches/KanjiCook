@@ -17,7 +17,6 @@ public class MenuManager : MonoBehaviour
         titleScreen.SetActive(true);
 		levelSelect.SetActive(true);
 		aboutScreen.SetActive(false);
-		packStore.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,8 +38,8 @@ public class MenuManager : MonoBehaviour
 	}
 
 	public void TogglePackStore() {
-		if(!packStore.activeSelf) {
-			packStore.SetActive(true);
+		PurchaseScreenController packStoreController = packStore.GetComponent<PurchaseScreenController>();
+		if(!packStoreController.open) {
 			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
 		} else {
 			packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu();
