@@ -34,7 +34,7 @@ public class EntreeBehavior : MonoBehaviour
 		string hiraganaReading = "むら";
 		if(kunyomi.Length > 0) hiraganaReading = kunyomi[0];
 		else if(onyomi.Length > 0) hiraganaReading = onyomi[0];
-		return "(" + hiraganaReading + "|" + GetRomanji(hiraganaReading) + ")";
+		return " (" + hiraganaReading + "|" + GetRomanji(hiraganaReading) + ") ";
 	}
 
 	string GenerateDefinitionString(string[] meanings) {
