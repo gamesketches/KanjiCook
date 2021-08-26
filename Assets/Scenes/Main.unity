@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4339623, g: 0.42372733, b: 0.42372733, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3086,7 +3086,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 100
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
@@ -4078,7 +4078,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Select
+  m_Text: Back
 --- !u!222 &601904352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4121,10 +4121,10 @@ RectTransform:
   m_Father: {fileID: 2145951995}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.13974999, y: 0.09}
-  m_AnchorMax: {x: 0.31625003, y: 0.16530924}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.54850006, y: 0.04751807}
+  m_AnchorMax: {x: 0.7064375, y: 0.21300001}
+  m_AnchoredPosition: {x: -0.5, y: 0}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608124401
 MonoBehaviour:
@@ -5518,7 +5518,7 @@ MonoBehaviour:
   entreePrefab: {fileID: 1034267864060128388, guid: e2d6c9c34c67c42a28bd07b2fbc97bda,
     type: 3}
   requestInterval: 4
-  levelDuration: 60
+  levelDuration: 10
 --- !u!4 &838085460
 Transform:
   m_ObjectHideFlags: 0
@@ -6197,7 +6197,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Retry
 --- !u!222 &891700724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6998,8 +6998,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -8040001351669699060, guid: 3c27d59b768604f489d741e85cf9c9a3,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8713,8 +8714,8 @@ RectTransform:
   m_Father: {fileID: 2145951995}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5203749, y: 0.09}
-  m_AnchorMax: {x: 0.71468765, y: 0.1653092}
+  m_AnchorMin: {x: 0.293875, y: 0.04751807}
+  m_AnchorMax: {x: 0.44975, y: 0.21300001}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11644,9 +11645,9 @@ MonoBehaviour:
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 10
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0.1
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 638469004}
   m_HorizontalScrollbar: {fileID: 1141788562}

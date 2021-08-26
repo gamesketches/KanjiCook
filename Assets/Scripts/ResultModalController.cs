@@ -26,9 +26,15 @@ public class ResultModalController : MonoBehaviour
         
     }
 
-	public void DisplayResults(int rating, string performanceString) {
+	public void DisplayResults(int score, int attempts) {
+		float successRate = ((float)score / (float) attempts) * 100;
+		string performanceString = "You cooked <color=#6ECFF6>" + score.ToString() + "</color> dishes!\n" + 
+										"You made <color=#6ECFF6>" + attempts.ToString() + "</color> attempts\n" + 
+										"and <color=#6ECFF6>" + successRate + "%</color> of them were correct!\n" + 
+										"You have potential\nKeep up the good work!";
+
 		for(int i = 0; i < stars.Length; i++) {
-			stars[i].color = i < rating ? enabledStar : disabledStar;
+			stars[i].color = i < score ? enabledStar : disabledStar;
 		}
 		performanceText.text = performanceString;
 	}
