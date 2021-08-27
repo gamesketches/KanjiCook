@@ -539,6 +539,8 @@ MonoBehaviour:
   titleScreen: {fileID: 1824063693}
   aboutScreen: {fileID: 1584230852}
   packStore: {fileID: 184099742}
+  purchaseButton: {fileID: 2024437055}
+  aboutButton: {fileID: 1582056830}
 --- !u!1 &49639585
 GameObject:
   m_ObjectHideFlags: 0

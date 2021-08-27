@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
 	public GameObject titleScreen;
 	public GameObject aboutScreen;
 	public GameObject packStore;
+	public GameObject purchaseButton;
+	public GameObject aboutButton;
 
     // Start is called before the first frame update
     void Awake()
@@ -52,12 +54,16 @@ public class MenuManager : MonoBehaviour
 
 	public void SlideOffMenus() {
 		DismissTitleScreen();
+		purchaseButton.SetActive(false);
+		aboutButton.SetActive(false);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, 0.4f, RectTransform.Edge.Left));
 	}
 
 	public void SlideOnMenus() {
+		purchaseButton.SetActive(true);
+		aboutButton.SetActive(true);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, 0.4f, RectTransform.Edge.Left));

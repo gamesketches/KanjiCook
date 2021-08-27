@@ -169,6 +169,10 @@ public class GameManager : MonoBehaviour
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
+		menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
+		for(int i = 1; i < menu.childCount; i++) {
+			Destroy(menu.GetChild(i).gameObject);
+		}
 	}
 
 	void ShowResults() {

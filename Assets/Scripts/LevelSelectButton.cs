@@ -55,6 +55,14 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		}
 	}
 
+	public void Clear() {
+		Debug.Log(kanjis.childCount);
+		for(int i = 0; i < kanjis.childCount; i++) {
+			Destroy(kanjis.GetChild(i).gameObject);
+		}
+		radicals.text = "";
+	}
+
 	public void OnPointerClick(PointerEventData pointerEventData) {
 		if(interactable)
 			StartCoroutine(SelectLevel());
