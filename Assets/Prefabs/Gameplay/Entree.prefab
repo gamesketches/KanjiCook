@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3996868557207604045}
   - component: {fileID: 2998305784149925969}
+  - component: {fileID: 5167374603904693513}
   m_Layer: 5
   m_Name: Entree
   m_TagString: Untagged
@@ -54,6 +55,26 @@ MonoBehaviour:
   formula: {fileID: 3064040555708588803}
   character: {fileID: 3689115808846939305}
   definition: {fileID: 4946218369458570934}
+--- !u!114 &5167374603904693513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034267864060128388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 500
+  m_MinHeight: 150
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &1974606289546017233
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "= \u30CE"
+  m_Text: "= \u30CE + \u4E00 + \u4E59"
 --- !u!114 &8175701758722304993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +388,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u4E5E( \u3053.\u3046|mura)\"beg\""
+  m_Text: "\u4E5E ( \u3053.\u3046|mura) \"beg\""
 --- !u!114 &9056921062012844277
 MonoBehaviour:
   m_ObjectHideFlags: 0
