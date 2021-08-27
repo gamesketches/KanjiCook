@@ -49,4 +49,28 @@ public class MenuManager : MonoBehaviour
 	void DismissTitleScreen() {
 		titleScreen.SetActive(false);
 	}
+
+	public void SlideOffMenus() {
+		DismissTitleScreen();
+		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
+		float levelSelectSize = levelSelectRect.rect.size.x;
+		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, 0.4f, RectTransform.Edge.Left));
+	}
+
+	public void SlideOnMenus() {
+		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
+		float levelSelectSize = levelSelectRect.rect.size.x;
+		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, 0.4f, RectTransform.Edge.Left));
+	}
+
+	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {
+		Debug.Log(parentEdge);
+		float rectSize = theRect.rect.size.x;
+		for(float t = 0; t < time; t += Time.deltaTime) {
+			float newInset = Mathf.SmoothStep(startOffset, targetOffset, t / time);
+			theRect.SetInsetAndSizeFromParentEdge(parentEdge, newInset, rectSize);
+			yield return null;
+		}
+		theRect.SetInsetAndSizeFromParentEdge(parentEdge, targetOffset, rectSize);
+	}
 }

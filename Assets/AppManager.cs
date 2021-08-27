@@ -23,12 +23,12 @@ public class AppManager : MonoBehaviour
 
 	public void SelectLevel(int levelIndex) {
 		if(!LevelSelect.levelSelectLocked) return;
-		GameMenuCanvas.SetActive(false);
+		GameMenuCanvas.GetComponent<MenuManager>().SlideOffMenus();
 		GameManager.instance.LoadLevel(levelIndex);
 	}
 		
 	public void OpenLevelSelect() {
-		GameMenuCanvas.SetActive(true);
+		GameMenuCanvas.GetComponent<MenuManager>().SlideOnMenus();
 		GameManager.instance.CleanUpGameplay();
 	}
 }
