@@ -12,13 +12,13 @@ public class MenuManager : MonoBehaviour
 	public GameObject packStore;
 	public GameObject purchaseButton;
 	public GameObject aboutButton;
+	bool aboutOpen = false;
 
     // Start is called before the first frame update
     void Awake()
     {
         titleScreen.SetActive(true);
 		levelSelect.SetActive(true);
-		aboutScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,10 +32,14 @@ public class MenuManager : MonoBehaviour
 	}
 	
 	public void ToggleAboutScreen() {
-		if(!aboutScreen.activeSelf) { 
-			aboutScreen.SetActive(true);
+		RectTransform aboutRect = aboutScreen.GetComponent<RectTransform>();
+		float rectSize = aboutRect.rect.size.y;
+		if(!aboutOpen) { 
+			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, 0.4f, RectTransform.Edge.Bottom));
+			aboutOpen = true;
 		} else {
-			aboutScreen.SetActive(false);
+			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, 0, -rectSize, 0.4f, RectTransform.Edge.Bottom));
+			aboutOpen = false;
 		}
 	}
 
@@ -72,6 +76,8 @@ public class MenuManager : MonoBehaviour
 	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {
 		Debug.Log(parentEdge);
 		float rectSize = theRect.rect.size.x;
+		if(parentEdge == RectTransform.Edge.Top || parentEdge == RectTransform.Edge.Bottom)
+			rectSize = theRect.rect.size.y;
 		for(float t = 0; t < time; t += Time.deltaTime) {
 			float newInset = Mathf.SmoothStep(startOffset, targetOffset, t / time);
 			theRect.SetInsetAndSizeFromParentEdge(parentEdge, newInset, rectSize);
