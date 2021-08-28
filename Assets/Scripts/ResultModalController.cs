@@ -44,7 +44,7 @@ public class ResultModalController : MonoBehaviour
 	}
 
 	public void Retry() {
-		GameManager.instance.LevelSetup();
+		GameManager.instance.RestartLevel();
 		CloseResultModal();
 	}
 

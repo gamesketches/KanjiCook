@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
 		instance = this;
 		levelTimer = 0;
-	//	GameMenuCanvas.SetActive(true);
 		resultModal.gameObject.SetActive(false);
 		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
@@ -59,7 +58,9 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame() {
 		gameStarted = true;
-		menu.transform.parent.gameObject.SetActive(false);
+		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
+		float rectSize = menuRect.rect.size.y;
+		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, 0, -rectSize, 0.4f, RectTransform.Edge.Top));
 	}
 
 	public void LevelSetup() {
@@ -83,12 +84,16 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void RestartLevel() {
+		Debug.Log("Restart level called");
+		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
+		float rectSize = menuRect.rect.size.y;
+		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, 0.4f, RectTransform.Edge.Top));
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		levelTimer = 0;
 		requestTimer = 4.5f;
 		scoreTally.text = "X 0";
-		ShowWordMenu();
+		//ShowWordMenu();
 	}
 
 	public void OpenLevelSelect() {
@@ -169,11 +174,14 @@ public class GameManager : MonoBehaviour
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
+	}
+
+	public void ClearDuJourMenu() {
 		menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
 		for(int i = 1; i < menu.childCount; i++) {
 			Destroy(menu.GetChild(i).gameObject);
 		}
-	}
+	}	
 
 	void ShowResults() {
 		resultModal.gameObject.SetActive(true);

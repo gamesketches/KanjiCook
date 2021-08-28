@@ -30,5 +30,6 @@ public class AppManager : MonoBehaviour
 	public void OpenLevelSelect() {
 		GameMenuCanvas.GetComponent<MenuManager>().SlideOnMenus();
 		GameManager.instance.CleanUpGameplay();
+		GameManager.instance.ClearDuJourMenu();
 	}
 }
