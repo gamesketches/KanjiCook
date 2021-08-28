@@ -12,6 +12,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	public Text radicals;
 	public GameObject kanjiPrefab;
 	public bool interactable;
+	public Color flashColor;
 
     // Start is called before the first frame update
     void Awake()
@@ -72,9 +73,10 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		Image backgroundImage = GetComponentInChildren<Image>();
 		float flashTime = 0.4f;
 		for(float t = 0; t < flashTime; t += Time.deltaTime) {
-			 backgroundImage.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(t, flashTime / 2) / (flashTime / 2));
+			 backgroundImage.color = Color.Lerp(Color.white, flashColor, Mathf.PingPong(t, flashTime / 2) / (flashTime / 2));
 			yield return null;
 		}
+		backgroundImage.color = Color.white;
 		AppManager.instance.SelectLevel(levelIndex);
 	}
 }

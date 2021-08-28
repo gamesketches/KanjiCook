@@ -152,6 +152,7 @@ MonoBehaviour:
   kanjiPrefab: {fileID: 1746392866183546273, guid: 3eb90bdb0c48941e88badabbd97a6a30,
     type: 3}
   interactable: 0
+  flashColor: {r: 0.44705886, g: 0.81568635, b: 0.9568628, a: 0.27058825}
 --- !u!1 &6892221092104154229
 GameObject:
   m_ObjectHideFlags: 0
