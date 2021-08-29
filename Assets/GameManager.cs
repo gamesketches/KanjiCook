@@ -102,6 +102,9 @@ public class GameManager : MonoBehaviour
 
 	void ShowWordMenu() {
 		menu.transform.parent.gameObject.SetActive(true);
+		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
+		float rectSize = menuRect.rect.size.y;
+		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, 0, RectTransform.Edge.Top));
 		//menu.CrossFadeAlpha(1, 1.4f, false);
 	}
 
