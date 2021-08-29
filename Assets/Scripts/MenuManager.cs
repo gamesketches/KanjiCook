@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject purchaseButton;
 	public GameObject aboutButton;
 	bool aboutOpen = false;
+	bool packsOpen = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,8 +34,11 @@ public class MenuManager : MonoBehaviour
 	
 	public void ToggleAboutScreen() {
 		RectTransform aboutRect = aboutScreen.GetComponent<RectTransform>();
+		int frontMostScreenIndex = aboutScreen.transform.parent.childCount - 3;
 		float rectSize = aboutRect.rect.size.y;
-		if(!aboutOpen) { 
+		if(!aboutOpen || 
+				(packsOpen && aboutOpen && aboutScreen.transform.GetSiblingIndex() < frontMostScreenIndex)) { 
+			aboutScreen.transform.SetSiblingIndex(frontMostScreenIndex);
 			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, 0.4f, RectTransform.Edge.Bottom));
 			aboutOpen = true;
 		} else {
@@ -45,10 +49,15 @@ public class MenuManager : MonoBehaviour
 
 	public void TogglePackStore() {
 		PurchaseScreenController packStoreController = packStore.GetComponent<PurchaseScreenController>();
-		if(!packStoreController.open) {
+		int frontMostScreenIndex = aboutScreen.transform.parent.childCount - 3;
+		if(!packsOpen || 
+				(aboutOpen && packStoreController.open && packStore.transform.GetSiblingIndex() < frontMostScreenIndex)) {
+			packStore.transform.SetSiblingIndex(frontMostScreenIndex);
 			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
+			packsOpen = true;
 		} else {
 			packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu();
+			packsOpen = false;
 		}
 	}
 
