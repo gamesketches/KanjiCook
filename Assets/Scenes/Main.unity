@@ -5663,7 +5663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.99994}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850660824
@@ -7598,7 +7598,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1907322842}
   m_HandleRect: {fileID: 1907322841}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11155,17 +11155,17 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.95415646
-      value: 0.9328776
-      inSlope: 0.18555702
-      outSlope: 0.18555702
+      time: 0.59351546
+      value: 0.9796657
+      inSlope: 0.07316516
+      outSlope: 0.07316516
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.106818184
-      outWeight: 1
+      outWeight: 0.29573315
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.99904656
+      value: 0.9992404
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -11185,8 +11185,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -11194,8 +11194,8 @@ MonoBehaviour:
       outSlope: 2
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -11651,7 +11651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.99994}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008622793
@@ -11669,7 +11669,7 @@ MonoBehaviour:
   m_Content: {fileID: 125342584}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 10
   m_Inertia: 1
   m_DecelerationRate: 0.1
