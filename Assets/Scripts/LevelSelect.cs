@@ -89,6 +89,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public IEnumerator FinishOpeningMenu() {
+		float totalCurveTime = openCurve.keys[openCurve.length - 1].time;
 		float xOffset = rectTransform.offsetMax.x;
 		levelSelectLocked = true;
 		rectTransform.offsetMax = new Vector2(xOffset, 0);
@@ -98,9 +99,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		rectTransform.ForceUpdateRectTransforms();
 		Vector3 startingPos = transform.position;
 		float scaleSize = scaleCurve.Evaluate(lerpProportion);
-		for(float t = lerpProportion; t < 1; t += Time.deltaTime) {
-			transform.position = Vector3.Lerp(startingPos, targetPos, t);
-			lerpProportion = t;
+		for(float t = lerpProportion * totalCurveTime; t < totalCurveTime; t += Time.deltaTime) {
+			transform.position = Vector3.Lerp(startingPos, targetPos, openCurve.Evaluate(t));
+			lerpProportion = t / totalCurveTime;
 			scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			Quaternion curRotation = transform.rotation;
