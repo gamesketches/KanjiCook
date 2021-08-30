@@ -110,10 +110,10 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 	for kanji in root.findall('character'):
 		freq = kanji.find("misc").find("freq")
 		if freq is None:
+			root.remove(kanji)
 			continue
 		theKanji = kanji.find("literal").text
 		if theKanji in curKanjiList or theKanji in unusableKanji:
-			print(theKanji in unusableKanji)
 			continue
 		newRads = FindKanjiRadicals(theKanji)
 		numIntersection = len(curRadicalSet.intersection(newRads))
