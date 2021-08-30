@@ -70,6 +70,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			if(rectTransform.offsetMax.y > 0) {
 				transform.position = oldPos;
 				rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 0);
+				rectTransform.offsetMin = new Vector2(rectTransform.offsetMax.x, 0);
 				lerpProportion = 1;
 				levelSelectLocked = true;
 			} else {
@@ -102,12 +103,17 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			lerpProportion = t;
 			scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			Quaternion curRotation = transform.rotation;
+			float curProportion = rectTransform.offsetMax.y / startOffset;
+			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, curProportion);
 			yield return null;
 		}
 		lerpProportion = 1;
 		transform.position = targetPos;
 		scaleSize = scaleCurve.Evaluate(lerpProportion);
 		transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+		rectTransform.offsetMax = new Vector2(xOffset, 0);
+		rectTransform.offsetMin = new Vector2(xOffset, 0);
 	}
 			
 }
