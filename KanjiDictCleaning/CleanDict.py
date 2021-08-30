@@ -9,6 +9,7 @@ maxLevelKanji = 5
 minLevelKanji = 4
 
 levelCounter = 1
+unusableKanji = [];
 
 print("loading xml")
 root = ET.parse('kanjidic2.xml').getroot()
@@ -18,7 +19,7 @@ print("opening krad")
 krad = codecs.open("kradfile-u.txt", encoding='utf-8')
 print("krad opened")
 
-
+bannedKanji = []
 
 def GenKanjiInfoString(kanji):
 	meanings = " "
@@ -111,7 +112,8 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		if freq is None:
 			continue
 		theKanji = kanji.find("literal").text
-		if theKanji in curKanjiList:
+		if theKanji in curKanjiList or theKanji in unusableKanji:
+			print(theKanji in unusableKanji)
 			continue
 		newRads = FindKanjiRadicals(theKanji)
 		numIntersection = len(curRadicalSet.intersection(newRads))
@@ -129,6 +131,14 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 						return newKanji, newRads	
 	return [-1, -1], set([])
 				
+
+bannedKanjiFile = codecs.open("bannedKanji.txt", encoding='utf-8')
+bannedKanjiLine = bannedKanjiFile.readline()
+for bannedKanji in bannedKanjiLine.split():
+	unusableKanji.append(bannedKanji)
+	
+print("Banned Kanji List: ")
+print(bannedKanji)
 
 if len(sys.argv) > 1:
 	print("opening " + sys.argv[1])
