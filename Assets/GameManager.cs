@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 		resultModal.gameObject.SetActive(false);
 		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
-		scoreTally = GameObject.Find("Score").GetComponent<Text>();
+		scoreTally = GameObject.Find("Score").GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
