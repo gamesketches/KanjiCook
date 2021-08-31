@@ -21,6 +21,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public static bool levelSelectLocked;
 	public AnimationCurve scaleCurve;
 	public AnimationCurve openCurve;
+	ScrollRect scrollRect;
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -30,6 +31,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
 		menuImage = GetComponent<Image>();
+		scrollRect = GetComponentInChildren<ScrollRect>();
+		scrollRect.vertical = false;
 		startOffsetMax = rectTransform.offsetMax;
 		startOffsetMin = rectTransform.offsetMin;
 		startingScale = transform.localScale;
@@ -48,7 +51,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     // Update is called once per frame
     void Update()
     {
-        
+		
     }
 
 	void LevelLoadCallback(int level) {
@@ -81,6 +84,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				rectTransform.offsetMin = new Vector2(rectTransform.offsetMax.x, 0);
 				lerpProportion = 1;
 				levelSelectLocked = true;
+				scrollRect.vertical = true;
 			} else {
 				lerpProportion = 1 - curProportion;
 			}
@@ -118,6 +122,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		rectTransform.offsetMin = new Vector2(currentOffsetMin.x, 0);
 		transform.localScale = Vector3.one;
 		transform.rotation = Quaternion.identity;
+		scrollRect.vertical = true;
 	}
 
 	IEnumerator CloseMenu() {
@@ -143,5 +148,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		transform.rotation = targetRotation;
 		transform.localScale = startingScale;
 		levelSelectLocked = false;
+		scrollRect.vertical = false;
 	}
 }
