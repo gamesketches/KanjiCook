@@ -11,6 +11,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	RectTransform canvas;
 	RectTransform rectTransform;
 	float startOffset;
+	Vector3 startingScale;
+	Vector2 startOffsetMax;
+	Vector2 startOffsetMin;
 	public float startingRotation;
 	public Transform scrollView;
 	public int levelsToLoad;
@@ -18,6 +21,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public static bool levelSelectLocked;
 	public AnimationCurve scaleCurve;
 	public AnimationCurve openCurve;
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -26,6 +30,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
 		menuImage = GetComponent<Image>();
+		startOffsetMax = rectTransform.offsetMax;
+		startOffsetMin = rectTransform.offsetMin;
+		startingScale = transform.localScale;
 		startOffset = rectTransform.offsetMax.y;
 		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
 		while( !ContentManager.instance.LevelSelectContentReady()) yield return null;
@@ -50,6 +57,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void OnBeginDrag(PointerEventData eventData) {
 		Debug.Log("Dragging Menu");
+		if(levelSelectLocked) StartCoroutine(CloseMenu());
 	}
 
 	public void OnDrag(PointerEventData eventData) {
@@ -89,35 +97,51 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public IEnumerator FinishOpeningMenu() {
-		float totalCurveTime = openCurve.keys[openCurve.length - 1].time;
-		float xOffset = rectTransform.offsetMax.x;
-		float yOffset = rectTransform.offsetMax.y;
 		levelSelectLocked = true;
-		rectTransform.offsetMax = new Vector2(xOffset, 0);
-		rectTransform.ForceUpdateRectTransforms();
-		Vector3 targetPos = transform.position;
-		rectTransform.offsetMax = new Vector2(xOffset, startOffset);
-		rectTransform.ForceUpdateRectTransforms();
-		Vector3 startingPos = transform.position;
-		float scaleSize = scaleCurve.Evaluate(lerpProportion);
+		float totalCurveTime = openCurve.keys[openCurve.length - 1].time;
+		Vector2 currentOffsetMax = rectTransform.offsetMax;
+		Vector2 currentOffsetMin = rectTransform.offsetMin;
 		for(float t = lerpProportion * totalCurveTime; t < totalCurveTime; t += Time.deltaTime) {
 			lerpProportion = t / totalCurveTime;
-			transform.position = Vector3.Lerp(startingPos, targetPos, openCurve.Evaluate(lerpProportion));
-			rectTransform.offsetMax = new Vector2(xOffset, Mathf.SmoothStep(yOffset, 0, openCurve.Evaluate(lerpProportion)));
-			scaleSize = scaleCurve.Evaluate(lerpProportion);
-			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			float newOffsetMax = Mathf.SmoothStep(currentOffsetMax.y, 0, openCurve.Evaluate(lerpProportion));
+			rectTransform.offsetMax = new Vector2(currentOffsetMax.x, newOffsetMax);
+			float newOffsetMin = Mathf.SmoothStep(currentOffsetMin.y, 0, openCurve.Evaluate(lerpProportion));
+			rectTransform.offsetMax = new Vector2(currentOffsetMin.x, newOffsetMin);
 			Quaternion curRotation = transform.rotation;
-			float curProportion = rectTransform.offsetMax.y / startOffset;
-			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, curProportion);
+			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, lerpProportion);
+			float scaleSize = scaleCurve.Evaluate(lerpProportion);
+			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
 		}
 		lerpProportion = 1;
-		transform.position = targetPos;
-		scaleSize = scaleCurve.Evaluate(lerpProportion);
-		transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
-		rectTransform.offsetMax = new Vector2(xOffset, 0);
-		rectTransform.offsetMin = new Vector2(xOffset, 0);
-		rectTransform.ForceUpdateRectTransforms();
+		rectTransform.offsetMax = new Vector2(currentOffsetMax.x, 0);
+		rectTransform.offsetMin = new Vector2(currentOffsetMin.x, 0);
+		transform.localScale = Vector3.one;
+		transform.rotation = Quaternion.identity;
 	}
-			
+
+	IEnumerator CloseMenu() {
+		float startingCurveTime = openCurve.keys[openCurve.length - 1].time;
+		Vector2 currentOffsetMax = rectTransform.offsetMax;
+		Vector2 currentOffsetMin = rectTransform.offsetMin;
+		Quaternion targetRotation = Quaternion.Euler(0, 0, startingRotation);
+		for(float t = startingCurveTime; t > 0; t -= Time.deltaTime) {
+			lerpProportion = t / startingCurveTime;
+			float newOffsetMax = Mathf.SmoothStep(startOffsetMax.y, 0, openCurve.Evaluate(lerpProportion));
+			rectTransform.offsetMax = new Vector2(currentOffsetMax.x, newOffsetMax);
+			float newOffsetMin = Mathf.SmoothStep(startOffsetMin.y, 0, openCurve.Evaluate(lerpProportion));
+			rectTransform.offsetMax = new Vector2(currentOffsetMin.x, newOffsetMin);
+			transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, lerpProportion);
+			float scaleSize = scaleCurve.Evaluate(lerpProportion);
+			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			yield return null;
+		}
+		lerpProportion = 0;
+		rectTransform.offsetMax = startOffsetMax;
+		rectTransform.offsetMin = startOffsetMin;
+		transform.localScale = Vector3.one;
+		transform.rotation = targetRotation;
+		transform.localScale = startingScale;
+		levelSelectLocked = false;
+	}
 }
