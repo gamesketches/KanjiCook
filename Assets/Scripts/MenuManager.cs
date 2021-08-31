@@ -34,11 +34,13 @@ public class MenuManager : MonoBehaviour
 	
 	public void ToggleAboutScreen() {
 		RectTransform aboutRect = aboutScreen.GetComponent<RectTransform>();
-		int frontMostScreenIndex = aboutScreen.transform.parent.childCount - 3;
+		Canvas aboutCanvas = aboutScreen.transform.parent.GetComponent<Canvas>();
+		Canvas packCanvas = packStore.transform.parent.GetComponent<Canvas>();
 		float rectSize = aboutRect.rect.size.y;
 		if(!aboutOpen || 
-				(packsOpen && aboutOpen && aboutScreen.transform.GetSiblingIndex() < frontMostScreenIndex)) { 
-			aboutScreen.transform.SetSiblingIndex(frontMostScreenIndex);
+				(packsOpen && aboutOpen && aboutCanvas.sortingOrder < packCanvas.sortingOrder)) { 
+			packCanvas.sortingOrder = 2;
+			aboutCanvas.sortingOrder = 3;
 			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, 0.4f, RectTransform.Edge.Bottom));
 			aboutOpen = true;
 		} else {
@@ -49,10 +51,12 @@ public class MenuManager : MonoBehaviour
 
 	public void TogglePackStore() {
 		PurchaseScreenController packStoreController = packStore.GetComponent<PurchaseScreenController>();
-		int frontMostScreenIndex = aboutScreen.transform.parent.childCount - 3;
+		Canvas aboutCanvas = aboutScreen.transform.parent.GetComponent<Canvas>();
+		Canvas packCanvas = packStore.transform.parent.GetComponent<Canvas>();
 		if(!packsOpen || 
-				(aboutOpen && packStoreController.open && packStore.transform.GetSiblingIndex() < frontMostScreenIndex)) {
-			packStore.transform.SetSiblingIndex(frontMostScreenIndex);
+				(aboutOpen && packsOpen && packCanvas.sortingOrder < aboutCanvas.sortingOrder)) {
+			aboutCanvas.sortingOrder = 2;
+			packCanvas.sortingOrder = 3;
 			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
 			packsOpen = true;
 		} else {
