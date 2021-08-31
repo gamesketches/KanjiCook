@@ -51,7 +51,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     // Update is called once per frame
     void Update()
     {
-		
+		if(levelSelectLocked) Debug.Log(scrollRect.verticalNormalizedPosition);
     }
 
 	void LevelLoadCallback(int level) {
