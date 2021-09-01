@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 	public GameObject entreePrefab;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
+	public int attempts;
 	public float levelDuration;
 	float levelTimer;
 	bool gameStarted = false;
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
 
 	public void LevelSetup() {
 		levelTimer = 0;
+		attempts = 0;
 		scoreTally.text = "X 0";
 		//LoadKanji();
 		SetUpRadicals();
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		levelTimer = 0;
+		attempts = 0;
 		requestTimer = 4.5f;
 		scoreTally.text = "X 0";
 		//ShowWordMenu();
@@ -166,6 +169,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void ClearRequest(Text answer, EntreeData result) {
+		attempts++;
 		if(requestQueue.SatisfiesRequest(result.meanings[0])) {
 			StartCoroutine(requestQueue.ClearRequest(answer, result.meanings[0]));
 			Debug.Log(scoreTally.text.Substring(1));
@@ -189,7 +193,6 @@ public class GameManager : MonoBehaviour
 	void ShowResults() {
 		resultModal.gameObject.SetActive(true);
 		int score = int.Parse(scoreTally.text.Substring(1));
-		int attempts = 1;
 		resultModal.DisplayResults(score, attempts);
 	}
 

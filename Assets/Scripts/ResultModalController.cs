@@ -27,7 +27,10 @@ public class ResultModalController : MonoBehaviour
     }
 
 	public void DisplayResults(int score, int attempts) {
-		float successRate = ((float)score / (float) attempts) * 100;
+		float successRate;
+		if(attempts == 0) successRate = 0;
+		else 
+			successRate = ((float)score / (float) attempts) * 100;
 		string performanceString = "You cooked <color=#6ECFF6>" + score.ToString() + "</color> dishes!\n" + 
 										"You made <color=#6ECFF6>" + attempts.ToString() + "</color> attempts\n" + 
 										"and <color=#6ECFF6>" + successRate + "%</color> of them were correct!\n" + 
