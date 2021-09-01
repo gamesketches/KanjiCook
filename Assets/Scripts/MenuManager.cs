@@ -39,8 +39,8 @@ public class MenuManager : MonoBehaviour
 		float rectSize = aboutRect.rect.size.y;
 		if(!aboutOpen || 
 				(packsOpen && aboutOpen && aboutCanvas.sortingOrder < packCanvas.sortingOrder)) { 
-			packCanvas.sortingOrder = 2;
-			aboutCanvas.sortingOrder = 3;
+			packCanvas.sortingOrder = 3;
+			aboutCanvas.sortingOrder = 4;
 			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, 0.4f, RectTransform.Edge.Bottom));
 			aboutOpen = true;
 		} else {
@@ -55,8 +55,8 @@ public class MenuManager : MonoBehaviour
 		Canvas packCanvas = packStore.transform.parent.GetComponent<Canvas>();
 		if(!packsOpen || 
 				(aboutOpen && packsOpen && packCanvas.sortingOrder < aboutCanvas.sortingOrder)) {
-			aboutCanvas.sortingOrder = 2;
-			packCanvas.sortingOrder = 3;
+			aboutCanvas.sortingOrder = 3;
+			packCanvas.sortingOrder = 4;
 			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
 			packsOpen = true;
 		} else {
