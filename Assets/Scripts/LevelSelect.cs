@@ -24,7 +24,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	ScrollRect scrollRect;
 
     // Start is called before the first frame update
-    IEnumerator Start()
+    void Start()
     {
 		levelSelectLocked = false;
 		lerpProportion = 0;
@@ -38,6 +38,15 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		startingScale = transform.localScale;
 		startOffset = rectTransform.offsetMax.y;
 		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
+		StartCoroutine(LoadLevelListings());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+	IEnumerator LoadLevelListings() {
 		while( !ContentManager.instance.LevelSelectContentReady()) yield return null;
 		int levelCount = 1;
 		for(levelCount = 1; levelCount < levelsToLoad; levelCount++) {
@@ -45,13 +54,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			levelButton.transform.localRotation = Quaternion.identity;
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
 		}
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-		if(levelSelectLocked) Debug.Log(scrollRect.verticalNormalizedPosition);
-    }
+	}
 
 	void LevelLoadCallback(int level) {
 		Debug.Log("loading level " + level.ToString());
