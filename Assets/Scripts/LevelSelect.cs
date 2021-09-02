@@ -107,14 +107,14 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		float totalCurveTime = openCurve.keys[openCurve.length - 1].time;
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
+		Quaternion curRotation = transform.rotation;
 		for(float t = lerpProportion * totalCurveTime; t < totalCurveTime; t += Time.deltaTime) {
 			lerpProportion = t / totalCurveTime;
 			float newOffsetMax = Mathf.SmoothStep(currentOffsetMax.y, 0, openCurve.Evaluate(lerpProportion));
 			rectTransform.offsetMax = new Vector2(currentOffsetMax.x, newOffsetMax);
 			float newOffsetMin = Mathf.SmoothStep(currentOffsetMin.y, 0, openCurve.Evaluate(lerpProportion));
-			rectTransform.offsetMax = new Vector2(currentOffsetMin.x, newOffsetMin);
-			Quaternion curRotation = transform.rotation;
-			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, lerpProportion);
+			rectTransform.offsetMin = new Vector2(currentOffsetMin.x, newOffsetMin);
+			transform.rotation = Quaternion.Lerp(curRotation, Quaternion.identity, lerpProportion);
 			float scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
@@ -137,8 +137,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			float newOffsetMax = Mathf.SmoothStep(startOffsetMax.y, 0, openCurve.Evaluate(lerpProportion));
 			rectTransform.offsetMax = new Vector2(currentOffsetMax.x, newOffsetMax);
 			float newOffsetMin = Mathf.SmoothStep(startOffsetMin.y, 0, openCurve.Evaluate(lerpProportion));
-			rectTransform.offsetMax = new Vector2(currentOffsetMin.x, newOffsetMin);
-			transform.rotation = Quaternion.Lerp(Quaternion.identity, targetRotation, lerpProportion);
+			rectTransform.offsetMin = new Vector2(currentOffsetMin.x, newOffsetMin);
+			transform.rotation = Quaternion.Lerp(targetRotation, Quaternion.identity, lerpProportion);
 			float scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
