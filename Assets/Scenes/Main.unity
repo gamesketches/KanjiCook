@@ -4805,6 +4805,7 @@ MonoBehaviour:
   packStore: {fileID: 1126905771}
   purchaseButton: {fileID: 2024437055}
   aboutButton: {fileID: 1582056830}
+  backButton: {fileID: 290611045}
 --- !u!1 &785468500
 GameObject:
   m_ObjectHideFlags: 0

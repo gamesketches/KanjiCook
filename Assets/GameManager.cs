@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponentInChildren<Text>();
+		menu.transform.parent.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -59,9 +60,7 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame() {
 		gameStarted = true;
-		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
-		float rectSize = menuRect.rect.size.y;
-		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, 0, -rectSize, 0.4f, RectTransform.Edge.Top));
+		DismissDuJourMenu();
 	}
 
 	public void LevelSetup() {
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour
 		scoreTally.text = "X 0";
 		//LoadKanji();
 		SetUpRadicals();
-		ShowWordMenu();
+		ShowDuJourMenu(0.0f);
 	}
 
 	public void LoadLevel(string levelName) {
@@ -87,28 +86,29 @@ public class GameManager : MonoBehaviour
 
 	public void RestartLevel() {
 		Debug.Log("Restart level called");
-		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
-		float rectSize = menuRect.rect.size.y;
-		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, 0.4f, RectTransform.Edge.Top));
+		ShowDuJourMenu();
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		levelTimer = 0;
 		attempts = 0;
 		requestTimer = 4.5f;
 		scoreTally.text = "X 0";
-		//ShowWordMenu();
 	}
 
 	public void OpenLevelSelect() {
 		CleanUpGameplay();
 	}
 
-	void ShowWordMenu() {
-		menu.transform.parent.gameObject.SetActive(true);
+	void ShowDuJourMenu(float lerpTime = 0.4f) {
 		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
 		float rectSize = menuRect.rect.size.y;
-		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, 0, RectTransform.Edge.Top));
-		//menu.CrossFadeAlpha(1, 1.4f, false);
+		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, lerpTime, RectTransform.Edge.Top));
+	}
+
+	void DismissDuJourMenu(float lerpTime = 0.4f) {
+		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
+		float rectSize = menuRect.rect.size.y;
+		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, 0, -rectSize, lerpTime, RectTransform.Edge.Top));
 	}
 
 	void GetLoadedKanji() {
@@ -188,6 +188,7 @@ public class GameManager : MonoBehaviour
 		for(int i = 1; i < menu.childCount; i++) {
 			Destroy(menu.GetChild(i).gameObject);
 		}
+		Invoke("DismissDuJourMenu", 0.5f);
 	}	
 
 	void ShowResults() {

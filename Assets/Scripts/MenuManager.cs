@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject packStore;
 	public GameObject purchaseButton;
 	public GameObject aboutButton;
+	public GameObject backButton;
 	bool aboutOpen = false;
 	bool packsOpen = false;
 	bool packsOnTop = false;
@@ -78,6 +79,7 @@ public class MenuManager : MonoBehaviour
 		DismissTitleScreen();
 		purchaseButton.SetActive(false);
 		aboutButton.SetActive(false);
+		backButton.SetActive(false);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, 0.4f, RectTransform.Edge.Left));
@@ -86,6 +88,7 @@ public class MenuManager : MonoBehaviour
 	public void SlideOnMenus() {
 		purchaseButton.SetActive(true);
 		aboutButton.SetActive(true);
+		backButton.SetActive(true);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, 0.4f, RectTransform.Edge.Left));
