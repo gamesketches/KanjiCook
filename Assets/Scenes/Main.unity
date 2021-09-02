@@ -5206,7 +5206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b04a8103aafe4732bf5a77e0bef0506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameMenuCanvas: {fileID: 31813087}
+  GameMenuCanvas: {fileID: 781131700}
 --- !u!1 &863804649
 GameObject:
   m_ObjectHideFlags: 0

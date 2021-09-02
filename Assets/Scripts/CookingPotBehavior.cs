@@ -35,9 +35,9 @@ public class CookingPotBehavior : MonoBehaviour
 	public void AddIngredient(string character) {
 		ingredients.Add(character);
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, transform);
-		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.value * hitRect.rect.width / 4f,
-															 Random.value * hitRect.rect.height / 4f);
-		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-90, 90));
+		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-0.1f, 0.1f) * hitRect.rect.width,
+															 Random.Range(0.2f, 0.4f) * hitRect.rect.height);
+		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-30, 30));
 		Text charText = newChar.GetComponent<Text>();
 		charText.text = character;
 		charText.color = Color.white;
