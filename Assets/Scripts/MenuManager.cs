@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject aboutButton;
 	bool aboutOpen = false;
 	bool packsOpen = false;
+	bool packsOnTop = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -38,14 +39,16 @@ public class MenuManager : MonoBehaviour
 		Canvas packCanvas = packStore.transform.parent.GetComponent<Canvas>();
 		float rectSize = aboutRect.rect.size.y;
 		if(!aboutOpen || 
-				(packsOpen && aboutOpen && aboutCanvas.sortingOrder < packCanvas.sortingOrder)) { 
-			packCanvas.sortingOrder = 3;
-			aboutCanvas.sortingOrder = 4;
+				(packsOpen && aboutOpen && packsOnTop)) { 
+			packCanvas.sortingOrder = 4;
+			aboutCanvas.sortingOrder = 5;
 			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, 0.4f, RectTransform.Edge.Bottom));
 			aboutOpen = true;
+			packsOnTop = false;
 		} else {
 			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, 0, -rectSize, 0.4f, RectTransform.Edge.Bottom));
 			aboutOpen = false;
+			if(packsOpen) packsOnTop = true;
 		}
 	}
 
@@ -54,14 +57,16 @@ public class MenuManager : MonoBehaviour
 		Canvas aboutCanvas = aboutScreen.transform.parent.GetComponent<Canvas>();
 		Canvas packCanvas = packStore.transform.parent.GetComponent<Canvas>();
 		if(!packsOpen || 
-				(aboutOpen && packsOpen && packCanvas.sortingOrder < aboutCanvas.sortingOrder)) {
-			aboutCanvas.sortingOrder = 3;
-			packCanvas.sortingOrder = 4;
+				(aboutOpen && packsOpen && !packsOnTop)) {
+			aboutCanvas.sortingOrder = 4;
+			packCanvas.sortingOrder = 5;
 			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
 			packsOpen = true;
+			packsOnTop = true;
 		} else {
 			packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu();
 			packsOpen = false;
+			packsOnTop = false;
 		}
 	}
 
@@ -84,6 +89,21 @@ public class MenuManager : MonoBehaviour
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, 0.4f, RectTransform.Edge.Left));
+	}
+
+	public void BackButtonPressed() {
+		if(packsOnTop) {
+			PurchaseScreenController packsController = packStore.GetComponent<PurchaseScreenController>();
+			packsController.GoBack();
+			if(!packsController.open) {
+				packsOnTop = false;
+				packsOpen = false;
+			}
+		} else if(aboutOpen) {
+			ToggleAboutScreen();
+		} else {
+			StartCoroutine(levelSelect.GetComponent<LevelSelect>().CloseMenu());
+		}
 	}
 
 	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {

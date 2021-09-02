@@ -94,9 +94,8 @@ public class PurchaseScreenController : MonoBehaviour
 			StartCoroutine(LerpInsetAnimation(detailRectTransform, 0, -detailRectTransform.rect.size.x, 0.6f, false));
 			showingDetails = false;
 		}
-		Debug.Log("Closing Window");
-		StartCoroutine(LerpInsetAnimation(rectTransform, 0, -rectTransform.rect.size.x, 0.4f));
 		open = false;
+		StartCoroutine(LerpInsetAnimation(rectTransform, 0, -rectTransform.rect.size.x, 0.4f));
 	}
 
 	IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, bool useMutex = true) {
@@ -119,8 +118,8 @@ public class PurchaseScreenController : MonoBehaviour
 	public void GoBack() {
 		if(showingDetails) {
 			SlideOutDetailScreen();
-			Invoke("ClearDetailScreen", 1.1f);
-		} else {
+			Invoke("ClearDetailScreen", 0.5f);
+		} else if(open){
 			ClosePurchaseMenu();
 		}
 	}

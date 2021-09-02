@@ -127,7 +127,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		scrollRect.vertical = true;
 	}
 
-	IEnumerator CloseMenu() {
+	public IEnumerator CloseMenu() {
 		float startingCurveTime = openCurve.keys[openCurve.length - 1].time;
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
