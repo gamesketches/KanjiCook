@@ -23,7 +23,7 @@ public class ContentManager : MonoBehaviour
     {
 		instance = this;
 		levelLookup = new Dictionary<int, EntreeData[]>();
-		packsOwned = new string[] {"LevelContent", "jlpt5"};
+		packsOwned = new string[] {"LevelContent"};
 		StartCoroutine(LoadOwnedLevels());
     }
 

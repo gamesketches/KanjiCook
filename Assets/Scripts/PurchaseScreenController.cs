@@ -30,7 +30,6 @@ public class PurchaseScreenController : MonoBehaviour
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth);
 		rectWidth = detailRectTransform.rect.size.x;
 		detailRectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth); 
-		//FillPurchaseMenu();
     }
 
     // Update is called once per frame
