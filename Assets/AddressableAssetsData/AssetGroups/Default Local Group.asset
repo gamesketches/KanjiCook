@@ -21,42 +21,42 @@ MonoBehaviour:
     m_Address: Assets/GeneratedLevels/level15.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelContent
+    - jlpt1
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: ee19600f9a24e46c49431222584ad374
     m_Address: Assets/GeneratedLevels/level14.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelContent
+    - jlpt1
     m_MainAsset: {fileID: 4900000, guid: ee19600f9a24e46c49431222584ad374, type: 3}
     m_TargetAsset: {fileID: 4900000, guid: ee19600f9a24e46c49431222584ad374, type: 3}
   - m_GUID: 3b2364550ada94aeb821b705b8a91f28
     m_Address: Assets/GeneratedLevels/level13.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelContent
+    - jlpt2
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: 380bb426b556f49abae4ac95471a07c3
     m_Address: Assets/GeneratedLevels/level12.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelContent
+    - jlpt2
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: 30d5fb8b438554633b82e331d75a3b70
     m_Address: Assets/GeneratedLevels/level11.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelContent
+    - jlpt3
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: ac042c8838e4b4293b56b520faa9a9b6
     m_Address: Assets/GeneratedLevels/level10.json
     m_ReadOnly: 0
     m_SerializedLabels:
-    - LevelContent
+    - jlpt3
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: 93bc48f01d47a4a3a9c59e103ba09e3f
@@ -78,15 +78,15 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - jlpt5
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 4900000, guid: d5c5ca5ea31af40de8336c45a2637094, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: d5c5ca5ea31af40de8336c45a2637094, type: 3}
   - m_GUID: 9a80e0bfd23c44e8f9511769deb506d9
     m_Address: Assets/GeneratedLevels/level6.json
     m_ReadOnly: 0
     m_SerializedLabels:
     - jlpt5
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 4900000, guid: 9a80e0bfd23c44e8f9511769deb506d9, type: 3}
+    m_TargetAsset: {fileID: 4900000, guid: 9a80e0bfd23c44e8f9511769deb506d9, type: 3}
   - m_GUID: a4348c5e675ad4788ab478b8e1291cc5
     m_Address: level5
     m_ReadOnly: 0
