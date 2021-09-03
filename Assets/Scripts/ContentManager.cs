@@ -15,7 +15,6 @@ public class ContentManager : MonoBehaviour
 	KanjiInfoFile myKanji;
 	Dictionary<int, EntreeData[]> levelLookup;
 	
-	
 	[SerializeField] private AssetLabelReference levelLabel;
 	private AsyncOperationHandle _levelLoadOperationHandle;
     // Start is called before the first frame update
@@ -87,6 +86,10 @@ public class ContentManager : MonoBehaviour
 		}
 		kanjis = fileKanjis.ToArray();
 		radicals = fileRadicals.ToArray();
+	}
+
+	public bool HasLevelIndex(int index) {
+		return levelLookup.ContainsKey(index);
 	}
 
 	public void GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals) {
