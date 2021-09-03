@@ -14,6 +14,7 @@ public class ContentManager : MonoBehaviour
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
 	Dictionary<int, EntreeData[]> levelLookup;
+	string[] packsOwned;
 	
 	[SerializeField] private AssetLabelReference levelLabel;
 	private AsyncOperationHandle _levelLoadOperationHandle;
@@ -22,8 +23,8 @@ public class ContentManager : MonoBehaviour
     {
 		instance = this;
 		levelLookup = new Dictionary<int, EntreeData[]>();
-		//StartCoroutine(LoadLevels());
-		StartCoroutine(LoadLevelsByLabel("LevelContent"));
+		packsOwned = new string[] {"LevelContent", "jlpt5"};
+		StartCoroutine(LoadOwnedLevels());
     }
 
     // Update is called once per frame
@@ -32,8 +33,15 @@ public class ContentManager : MonoBehaviour
         
     }
 
-	IEnumerator LoadLevelsByLabel(string label) {
+	IEnumerator LoadOwnedLevels() {
 		loadingLevels = true;
+		foreach(string pack in packsOwned) {
+			yield return StartCoroutine(LoadLevelsByLabel(pack));
+		}
+		loadingLevels = false;
+	}
+
+	IEnumerator LoadLevelsByLabel(string label) {
 		AsyncOperationHandle<IList<TextAsset>> loadWithSingleKeyHandle = Addressables.LoadAssetsAsync<TextAsset>(label, obj =>
 			{
 				//Gets called for every loaded asset
@@ -45,7 +53,6 @@ public class ContentManager : MonoBehaviour
 		yield return loadWithSingleKeyHandle;
 		IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
 		Addressables.Release(loadWithSingleKeyHandle);
-		loadingLevels = false;
 	}
 
 	IEnumerator LoadLevels() {
@@ -160,6 +167,12 @@ public class ContentManager : MonoBehaviour
 		return new EntreeData(pickedKanji.meanings, pickedKanji.kanji, pickedKanji.radicals, pickedKanji.kunyomi, pickedKanji.onyomi);
 	}
 		
+
+	public void AddLevelPack(string pack) {
+		List<string> ownedPacksList = new List<string>(packsOwned);
+		ownedPacksList.Add(pack);
+		packsOwned = ownedPacksList.ToArray();
+	}
 }
 
 [System.Serializable]
