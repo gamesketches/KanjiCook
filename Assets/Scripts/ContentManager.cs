@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.AddressableAssets;
@@ -8,12 +9,12 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class ContentManager : MonoBehaviour
 {
 	public static ContentManager instance;
-	public TextAsset kanjiFile;
 	public int numRadicals;
 	public int numKanji;
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
 	Dictionary<int, EntreeData[]> levelLookup;
+	
 	
 	[SerializeField] private AssetLabelReference levelLabel;
 	private AsyncOperationHandle _levelLoadOperationHandle;
@@ -21,9 +22,9 @@ public class ContentManager : MonoBehaviour
     void Awake()
     {
 		instance = this;
-        myKanji = JsonUtility.FromJson<KanjiInfoFile>(kanjiFile.text);
 		levelLookup = new Dictionary<int, EntreeData[]>();
-		StartCoroutine(LoadLevels());
+		//StartCoroutine(LoadLevels());
+		StartCoroutine(LoadLevelsByLabel("LevelContent"));
     }
 
     // Update is called once per frame
@@ -31,6 +32,22 @@ public class ContentManager : MonoBehaviour
     {
         
     }
+
+	IEnumerator LoadLevelsByLabel(string label) {
+		loadingLevels = true;
+		AsyncOperationHandle<IList<TextAsset>> loadWithSingleKeyHandle = Addressables.LoadAssetsAsync<TextAsset>(label, obj =>
+			{
+				//Gets called for every loaded asset
+				Debug.Log(obj.name);
+				EntreeData[] levelContent = ProcessLevelContent(obj);
+				int levelIndex = int.Parse(obj.name.Substring(5));
+				levelLookup.Add(levelIndex, levelContent);
+			});
+		yield return loadWithSingleKeyHandle;
+		IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
+		Addressables.Release(loadWithSingleKeyHandle);
+		loadingLevels = false;
+	}
 
 	IEnumerator LoadLevels() {
 		loadingLevels = true;

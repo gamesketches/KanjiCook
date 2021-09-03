@@ -71,6 +71,11 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - LevelContent
+    - jlpt5
+    - jlpt4
+    - jlpt3
+    - jlpt2
+    - jlpt1
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 619a63397dfb14d0a8e7633042f56b56, type: 2}
