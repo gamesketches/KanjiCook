@@ -15,6 +15,7 @@ public class CookingPotBehavior : MonoBehaviour
 	Image curImage;
 	public float cookingTime;
 	bool cooking;
+	public Color ingredientColor;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class CookingPotBehavior : MonoBehaviour
 		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-30, 30));
 		Text charText = newChar.GetComponent<Text>();
 		charText.text = character;
-		charText.color = Color.white;
+		charText.color = ingredientColor;
 	}
 
 	public void CombineIngredients() {
