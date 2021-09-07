@@ -9,6 +9,10 @@ public class RequestQueueManager : MonoBehaviour
 	List<RequestBehavior> requests;
 	Rect referenceRect;
 	float offset = 110;
+	public float resultTravelTime;
+	public float stretchAnimTime;
+	public Vector3 resultStartSize;
+	public Vector3 fullStretchSize;
 
     // Start is called before the first frame update
     void Start()
@@ -49,19 +53,22 @@ public class RequestQueueManager : MonoBehaviour
 	public IEnumerator ClearRequest(Text kanjiOrder, string targetText) {
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(targetText)) {
-				float travelTime = 0.4f;
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
 				servedKanji.transform.position = kanjiOrder.transform.position;
-				float stretchAnimTime = 0.3f;
+				float stretchingTime = stretchAnimTime / 2;
 				for(float t = 0; t < stretchAnimTime; t+= Time.deltaTime) {
-					servedKanji.transform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.7f, 1.7f, 1.7f), Mathf.PingPong(t, stretchAnimTime / 2) / stretchAnimTime / 2);
+					if(t < stretchingTime) {
+						servedKanji.transform.localScale = Vector3.Lerp(resultStartSize, fullStretchSize, Mathf.PingPong(t, stretchingTime) / stretchingTime);
+					} else {
+						servedKanji.transform.localScale = Vector3.Lerp(fullStretchSize, Vector3.one, t / stretchAnimTime);
+					}
 					yield return null;
 				}
 				kanjiOrder.text = "";
-				for(float t = 0; t < travelTime; t += Time.deltaTime) {
-					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t / travelTime);
+				for(float t = 0; t < resultTravelTime; t += Time.deltaTime) {
+					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t / resultTravelTime);
 					yield return null;
 				}
 				Destroy(servedKanji);
