@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	RequestQueueManager requestQueue;
 	public static EntreeData[] targetWords;
 	List<EntreeData> wordBag;
+	List<string> foundWords;
 	Text scoreTally;
 	public TextAsset KanjiData;
 	public ContentManager contentManager;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponentInChildren<Text>();
 		menu.transform.parent.gameObject.SetActive(true);
+		foundWords = new List<string>();
     }
 
     // Update is called once per frame
@@ -174,6 +176,7 @@ public class GameManager : MonoBehaviour
 			StartCoroutine(requestQueue.ClearRequest(answer, result.meanings[0]));
 			Debug.Log(scoreTally.text.Substring(1));
 			scoreTally.text = "X " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
+			if(foundWords.IndexOf(result.literal) == -1) foundWords.Add(result.literal);
 		} 
 	}
 	
@@ -181,6 +184,7 @@ public class GameManager : MonoBehaviour
 		gameStarted = false;
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
+		foundWords.Clear();
 	}
 
 	public void ClearDuJourMenu() {
@@ -194,7 +198,7 @@ public class GameManager : MonoBehaviour
 	void ShowResults() {
 		resultModal.gameObject.SetActive(true);
 		int score = int.Parse(scoreTally.text.Substring(1));
-		resultModal.DisplayResults(score, attempts);
+		resultModal.DisplayResults(score, attempts, foundWords.Count == targetWords.Length);
 	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {

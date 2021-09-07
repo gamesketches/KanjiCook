@@ -26,18 +26,22 @@ public class ResultModalController : MonoBehaviour
         
     }
 
-	public void DisplayResults(int score, int attempts) {
+	public void DisplayResults(int score, int attempts, bool allKanji) {
+		int numStars = 0;
 		float successRate;
 		if(attempts == 0) successRate = 0;
 		else 
 			successRate = ((float)score / (float) attempts) * 100;
+		if(successRate > 90f) numStars++;
+		if(score > 12) numStars++;
+		if(allKanji) numStars++;
 		string performanceString = "You cooked <color=#6ECFF6>" + score.ToString() + "</color> dishes!\n" + 
 										"You made <color=#6ECFF6>" + attempts.ToString() + "</color> attempts\n" + 
 										"and <color=#6ECFF6>" + successRate.ToString("F2") + "%</color> of them were correct!\n" + 
 										"You have potential\nKeep up the good work!";
 
 		for(int i = 0; i < stars.Length; i++) {
-			stars[i].color = i < score ? enabledStar : disabledStar;
+			stars[i].color = i < numStars ? enabledStar : disabledStar;
 		}
 		performanceText.text = performanceString;
 	}
