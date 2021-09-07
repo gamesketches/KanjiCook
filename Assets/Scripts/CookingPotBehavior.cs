@@ -34,6 +34,8 @@ public class CookingPotBehavior : MonoBehaviour
     }
 
 	public void AddIngredient(string character) {
+		if(resultSpot.text == "駄目")
+			resultSpot.text = "";
 		ingredients.Add(character);
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, hitRect.transform);
 		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-0.3f, 0.3f) * hitRect.rect.width,
@@ -78,6 +80,11 @@ public class CookingPotBehavior : MonoBehaviour
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
 		hitRect.transform.rotation = Quaternion.identity;
+		if(resultPair.literal == "駄目") {
+			yield return new WaitForSeconds(0.8f);
+			if(resultSpot.text == "駄目")
+				resultSpot.text = "";
+		}
 	}
 
 	string RecipeLookup() {

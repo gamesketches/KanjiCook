@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 			StartCoroutine(requestQueue.ClearRequest(answer, result.meanings[0]));
 			Debug.Log(scoreTally.text.Substring(1));
 			scoreTally.text = "X " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
-		}
+		} 
 	}
 	
 	public void CleanUpGameplay() {
