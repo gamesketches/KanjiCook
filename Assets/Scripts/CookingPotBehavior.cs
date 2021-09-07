@@ -23,7 +23,7 @@ public class CookingPotBehavior : MonoBehaviour
         instance = this;
 		curImage = GetComponent<Image>();
 		ingredients = new List<string>();
-		hitRect = GetComponent<RectTransform>();
+		//hitRect = GetComponent<RectTransform>();
 		cooking = false;
     }
 
@@ -35,10 +35,10 @@ public class CookingPotBehavior : MonoBehaviour
 
 	public void AddIngredient(string character) {
 		ingredients.Add(character);
-		GameObject newChar = Instantiate<GameObject>(characterPrefab, transform);
-		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-0.1f, 0.1f) * hitRect.rect.width,
-															 Random.Range(0.2f, 0.4f) * hitRect.rect.height);
-		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-30, 30));
+		GameObject newChar = Instantiate<GameObject>(characterPrefab, hitRect.transform);
+		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-0.3f, 0.3f) * hitRect.rect.width,
+															 Random.Range(-0.3f, 0.3f) * hitRect.rect.height);
+		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-15, 15));
 		Text charText = newChar.GetComponent<Text>();
 		charText.text = character;
 		charText.color = ingredientColor;
@@ -53,12 +53,17 @@ public class CookingPotBehavior : MonoBehaviour
 		float panAnimationRange = 3;
 		ChefController.instance.cooking = true;
 		Vector3 startPosition = transform.position;
+		RectTransform[] ingredientRects = hitRect.transform.GetComponentsInChildren<RectTransform>();
 		while(cookingTimer < cookingTime) {
 			cookingTimer += Time.deltaTime;
 			Vector3 nextPos = startPosition + new Vector3(Random.Range(-panAnimationRange, panAnimationRange), Random.Range(-panAnimationRange, panAnimationRange), 0);
 			float lerpTime = (Random.value * 5) * Time.deltaTime;
 			if(lerpTime > cookingTime - cookingTimer) lerpTime = cookingTime - cookingTimer;
 			Vector3 curPos = transform.position;
+			hitRect.transform.Rotate(0, 0, 4);
+			for(int i = 0; i < ingredientRects.Length; i++) {
+				ingredientRects[i].anchoredPosition = Vector2.Lerp(ingredientRects[i].anchoredPosition, Vector2.zero, cookingTimer / cookingTime);
+			}
 			for(float t = 0; t < lerpTime; t += Time.deltaTime) {
 				transform.position = Vector3.Lerp(curPos, nextPos, t / lerpTime);
 				cookingTimer += Time.deltaTime;
@@ -72,6 +77,7 @@ public class CookingPotBehavior : MonoBehaviour
 		ChefController.instance.cooking = false;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
+		hitRect.transform.rotation = Quaternion.identity;
 	}
 
 	string RecipeLookup() {
@@ -93,7 +99,7 @@ public class CookingPotBehavior : MonoBehaviour
 
 	public void ClearIngredients() {
 		ingredients.Clear();
-		foreach(Transform t in transform) {
+		foreach(Transform t in hitRect.transform) {
 			Destroy(t.gameObject);
 		}
 	}

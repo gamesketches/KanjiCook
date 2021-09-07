@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c3e4ce1974b49d3af8fff86d01df6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitRect: {fileID: 0}
+  hitRect: {fileID: 686026633}
   characterPrefab: {fileID: 3844544123802029379, guid: cca6e5447dfa540a58e32f8c80bc7cf9,
     type: 3}
   resultSpot: {fileID: 357817359}

@@ -18,6 +18,7 @@ print("xml loaded")
 print("opening krad")
 krad = codecs.open("kradfile-u.txt", encoding='utf-8')
 print("krad opened")
+recipes = codecs.open("jlpt5krad.txt", encoding='utf-8')
 
 bannedKanji = []
 
@@ -38,6 +39,11 @@ def GetKanjiEntry(kanjiToFind):
 	return "not found"
 
 def FindKanjiRadicals(kanji):
+	for radEntry in recipes:
+		if radEntry[0] == kanji:
+			returnVal = radEntry[4:].rstrip().split(" ")
+			return returnVal
+	
 	for radEntry in krad:
 		if radEntry[0] == kanji:
 			krad.seek(0)
@@ -60,13 +66,16 @@ def FindKanjiReadings(kanji):
 	return onyomi.split("/")[:-1], kunyomi.split("/")[:-1]
 
 def CheckRadicalCount(cleanedEntries):
+	radicalString = ""
 	radicalContents = []
 	for kanji in cleanedEntries:
 		for radical in kanji["radicals"]:
 			if radical not in radicalContents:
-				print(radical)
+				radicalString += " " + radical
+				#print(radical)
 				radicalContents.append(radical)
 	
+	print(radicalString)
 	if len(radicalContents) > maxLevelRadicals:
 		print("WARNING: TOO MANY RADS!")
 
@@ -90,8 +99,10 @@ def GenFromFile(inputFile):
 def GenFromList(inputList):
 	global levelCounter
 	theKanji = []
+	kanjiString = "" 
 	for i in inputList:
 		kanjiEntry = GetKanjiEntry(i)
+		kanjiString += " " + i
 		foundMeanings = GenKanjiInfoString(kanjiEntry)
 		foundMeanings = [var.lstrip() for var in foundMeanings if var]
 		foundRadicals = FindKanjiRadicals(i) 
@@ -102,6 +113,7 @@ def GenFromList(inputList):
 	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
+	print(kanjiString)
 	CheckRadicalCount(theKanji)
 	levelCounter += 1
 
@@ -112,8 +124,10 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		if freq is None:
 			root.remove(kanji)
 			continue
+		jlptLevel = kanji.find("misc").find("jlpt")
+		acceptableJLPT = jlptLevel is not None and jlptLevel > 3
 		theKanji = kanji.find("literal").text
-		if theKanji in curKanjiList or theKanji in unusableKanji:
+		if theKanji in curKanjiList or theKanji in unusableKanji or acceptableJLPT:
 			continue
 		newRads = FindKanjiRadicals(theKanji)
 		numIntersection = len(curRadicalSet.intersection(newRads))
