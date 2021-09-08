@@ -161,7 +161,9 @@ public class ContentManager : MonoBehaviour
 			pickedKanji = myKanji.kanjiInfos[Mathf.FloorToInt(Random.value * (myKanji.kanjiInfos.Length - 1))];
 			numRadComponents = pickedKanji.radicals.Length;
 			foreach(string rad in pickedKanji.radicals) {
-				if(ArrayUtility.Contains(curRadicals, rad)) numRadComponents--;
+				for(int i = 0; i < curRadicals.Length; i++) {
+					if(curRadicals[i] == rad) numRadComponents--;
+				}
 			}
 		} while(curRadicals.Length + numRadComponents > numRadicals);
 		return new EntreeData(pickedKanji.meanings, pickedKanji.kanji, pickedKanji.radicals, pickedKanji.kunyomi, pickedKanji.onyomi);

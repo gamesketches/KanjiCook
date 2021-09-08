@@ -221,8 +221,9 @@ public class GameManager : MonoBehaviour
 		foreach(EntreeData listing in targetWords) {
 			if(listing.components.Length == components.Length) {
 				bool match = true;
+				List<string> componentList = new List<string>(listing.components);
 				foreach(string component in components) {
-					if(ArrayUtility.IndexOf(listing.components, component) == -1) {
+					if(componentList.IndexOf(component) == -1) {
 						match = false;
 					}
 				}

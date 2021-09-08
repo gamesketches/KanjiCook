@@ -95,8 +95,9 @@ public class CookingPotBehavior : MonoBehaviour
 		foreach(EntreeData listing in GameManager.targetWords) {
 			if(listing.components.Length == ingredients.Count) {
 				bool match = true;
+				List<string> componentList = new List<string>(listing.components);
 				foreach(string component in ingredients) {
-					if(ArrayUtility.IndexOf(listing.components, component) == -1) {
+					if(componentList.IndexOf(component) == -1) {
 						match = false;
 					}
 				}
