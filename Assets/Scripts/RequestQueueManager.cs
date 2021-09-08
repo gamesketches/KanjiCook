@@ -53,6 +53,7 @@ public class RequestQueueManager : MonoBehaviour
 	public IEnumerator ClearRequest(Text kanjiOrder, string targetText) {
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(targetText)) {
+				string kanjiLiteral = kanjiOrder.text;
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
@@ -73,7 +74,7 @@ public class RequestQueueManager : MonoBehaviour
 				}
 				Destroy(servedKanji);
 				requests[i].PlayFulfilledAnimation();
-				WaitorController.instance.PickUpOrder();
+				WaitorController.instance.PickUpOrder(kanjiLiteral);
 				break;
 			}
 		}
