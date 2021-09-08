@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
 	public GameObject levelButtonPrefab;
 	Image menuImage;
@@ -60,6 +60,10 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	void LevelLoadCallback(int level) {
 		Debug.Log("loading level " + level.ToString());
+	}
+
+	public void OnPointerClick(PointerEventData eventData) {
+		if(!levelSelectLocked) StartCoroutine(FinishOpeningMenu());
 	}
 
 	public void OnBeginDrag(PointerEventData eventData) {

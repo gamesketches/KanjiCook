@@ -65,6 +65,10 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData) {
+		if(!LevelSelect.levelSelectLocked) {
+			transform.root.GetComponent<MenuManager>().OpenLevelSelect();
+			return;
+		}
 		if(interactable)
 			StartCoroutine(SelectLevel());
 	}

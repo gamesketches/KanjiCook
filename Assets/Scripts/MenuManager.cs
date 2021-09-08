@@ -33,6 +33,12 @@ public class MenuManager : MonoBehaviour
 	public void OpenMainMenu() {
 		DismissTitleScreen();
 	}
+
+	public void OpenLevelSelect() {
+		if(!LevelSelect.levelSelectLocked) {
+			StartCoroutine(levelSelect.GetComponent<LevelSelect>().FinishOpeningMenu());
+		}
+	}
 	
 	public void ToggleAboutScreen() {
 		RectTransform aboutRect = aboutScreen.GetComponent<RectTransform>();
