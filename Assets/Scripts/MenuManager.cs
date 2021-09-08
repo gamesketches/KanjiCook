@@ -110,7 +110,7 @@ public class MenuManager : MonoBehaviour
 			}
 		} else if(aboutOpen) {
 			ToggleAboutScreen();
-		} else {
+		} else if(LevelSelect.levelSelectLocked) {
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().CloseMenu());
 		}
 	}
