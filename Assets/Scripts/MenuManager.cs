@@ -84,16 +84,15 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
-	void DismissTitleScreen() {
+	public void DismissTitleScreen() {
 		titleScreen.transform.parent.GetComponent<Canvas>().enabled = false;
-		//titleScreen.SetActive(false);
 	}
 
-	void DisableAboutScreen() {
+	public void DisableAboutScreen() {
 		aboutScreen.transform.parent.GetComponent<Canvas>().enabled = false;
 	}
 
-	void DisablePackScreen() {
+	public void DisablePackScreen() {
 		packStore.transform.parent.GetComponent<Canvas>().enabled = false;
 	}
 

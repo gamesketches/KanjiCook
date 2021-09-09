@@ -98,6 +98,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				lerpProportion = 1;
 				levelSelectLocked = true;
 				scrollRect.vertical = true;
+				transform.root.GetComponent<MenuManager>().DismissTitleScreen();
 			} else {
 				lerpProportion = 1 - curProportion;
 			}
@@ -136,6 +137,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		transform.localScale = Vector3.one;
 		transform.rotation = Quaternion.identity;
 		scrollRect.vertical = true;
+		transform.root.GetComponent<MenuManager>().DismissTitleScreen();
 	}
 
 	public IEnumerator CloseMenu() {
