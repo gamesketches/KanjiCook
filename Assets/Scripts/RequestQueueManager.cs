@@ -29,12 +29,28 @@ public class RequestQueueManager : MonoBehaviour
     }
 
 	public void ReceiveRequest(string displayText) {
-		foreach(RequestBehavior poolRequest in requests) {
-			if(!poolRequest.gameObject.activeInHierarchy) {
-				poolRequest.gameObject.SetActive(true);
-				poolRequest.Initialize(displayText);
+		RequestBehavior request;
+		List<int> available = new List<int>();
+		available.Add(2);
+		if(Random.value > 0.5f) {
+			available.Add(3);
+			available.Add(1);
+			available.Add(4);
+			available.Add(0);
+		} else {
+			available.Add(1);
+			available.Add(3);
+			available.Add(0);
+			available.Add(4);
+		}
+			
+		for(int i = 0; i < available.Count; i++) {
+			int index = available[i];
+			if(!requests[index].gameObject.activeInHierarchy) {
+				requests[index].gameObject.SetActive(true);
+				requests[index].Initialize(displayText);
 				break;
-			} 
+			}
 		}
 	}
 
