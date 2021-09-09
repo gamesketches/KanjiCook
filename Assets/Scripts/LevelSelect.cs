@@ -56,6 +56,11 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
 			}
 		}
+		yield return null;
+		HorizontalLayoutGroup[] hLayouts = scrollView.GetComponentsInChildren<HorizontalLayoutGroup>();
+		foreach(HorizontalLayoutGroup hori in hLayouts) {
+			hori.enabled = false;
+		}
 	}
 
 	void LevelLoadCallback(int level) {

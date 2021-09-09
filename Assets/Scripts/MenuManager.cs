@@ -16,12 +16,15 @@ public class MenuManager : MonoBehaviour
 	bool aboutOpen = false;
 	bool packsOpen = false;
 	bool packsOnTop = false;
+	public static float menuSlideSpeed = 0.4f;
 
     // Start is called before the first frame update
     void Awake()
     {
         titleScreen.SetActive(true);
 		levelSelect.SetActive(true);
+		DisableAboutScreen();
+		DisablePackScreen();
     }
 
     // Update is called once per frame
@@ -47,14 +50,16 @@ public class MenuManager : MonoBehaviour
 		float rectSize = aboutRect.rect.size.y;
 		if(!aboutOpen || 
 				(packsOpen && aboutOpen && packsOnTop)) { 
+			aboutCanvas.enabled = true;
 			packCanvas.sortingOrder = 4;
 			aboutCanvas.sortingOrder = 5;
-			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, 0.4f, RectTransform.Edge.Bottom));
+			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, -rectSize, 0, menuSlideSpeed, RectTransform.Edge.Bottom));
 			aboutOpen = true;
 			packsOnTop = false;
 		} else {
-			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, 0, -rectSize, 0.4f, RectTransform.Edge.Bottom));
+			StartCoroutine(MenuManager.LerpInsetAnimation(aboutRect, 0, -rectSize, menuSlideSpeed, RectTransform.Edge.Bottom));
 			aboutOpen = false;
+			Invoke("DisableAboutScreen", menuSlideSpeed);
 			if(packsOpen) packsOnTop = true;
 		}
 	}
@@ -65,6 +70,7 @@ public class MenuManager : MonoBehaviour
 		Canvas packCanvas = packStore.transform.parent.GetComponent<Canvas>();
 		if(!packsOpen || 
 				(aboutOpen && packsOpen && !packsOnTop)) {
+			packCanvas.enabled = true;
 			aboutCanvas.sortingOrder = 4;
 			packCanvas.sortingOrder = 5;
 			packStore.GetComponent<PurchaseScreenController>().OpenPurchaseMenu();
@@ -74,11 +80,21 @@ public class MenuManager : MonoBehaviour
 			packStore.GetComponent<PurchaseScreenController>().ClosePurchaseMenu();
 			packsOpen = false;
 			packsOnTop = false;
+			Invoke("DisablePackScreen", menuSlideSpeed);
 		}
 	}
 
 	void DismissTitleScreen() {
-		titleScreen.SetActive(false);
+		titleScreen.transform.parent.GetComponent<Canvas>().enabled = false;
+		//titleScreen.SetActive(false);
+	}
+
+	void DisableAboutScreen() {
+		aboutScreen.transform.parent.GetComponent<Canvas>().enabled = false;
+	}
+
+	void DisablePackScreen() {
+		packStore.transform.parent.GetComponent<Canvas>().enabled = false;
 	}
 
 	public void SlideOffMenus() {
@@ -88,7 +104,7 @@ public class MenuManager : MonoBehaviour
 		backButton.SetActive(false);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
-		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, 0.4f, RectTransform.Edge.Left));
+		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, menuSlideSpeed, RectTransform.Edge.Left));
 	}
 
 	public void SlideOnMenus() {
@@ -97,7 +113,7 @@ public class MenuManager : MonoBehaviour
 		backButton.SetActive(true);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
-		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, 0.4f, RectTransform.Edge.Left));
+		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, menuSlideSpeed, RectTransform.Edge.Left));
 	}
 
 	public void BackButtonPressed() {
@@ -111,6 +127,7 @@ public class MenuManager : MonoBehaviour
 		} else if(aboutOpen) {
 			ToggleAboutScreen();
 		} else if(LevelSelect.levelSelectLocked) {
+			titleScreen.transform.parent.GetComponent<Canvas>().enabled = true;
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().CloseMenu());
 		}
 	}
