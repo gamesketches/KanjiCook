@@ -32,4 +32,20 @@ public class AppManager : MonoBehaviour
 		GameManager.instance.CleanUpGameplay();
 		GameManager.instance.ClearDuJourMenu();
 	}
+
+	public void OpenKanjiDicLink() {
+		Application.OpenURL("https://www.edrdg.org/wiki/index.php/KANJIDIC_Project");
+	}
+
+	public void OpenKradLink() {
+		Application.OpenURL("https://www.edrdg.org/krad/kradinf.html");
+	}
+
+	public void OpenEDRDGLink() {
+		Application.OpenURL("http://www.edrdg.org/");
+	}
+
+	public void OpenLicenseLink() {
+		Application.OpenURL("https://www.edrdg.org/edrdg/licence.html");
+	}
 }
