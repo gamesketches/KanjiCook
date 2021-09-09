@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 	public Transform menu;
 	public GameObject GameMenuCanvas;
 	public GameObject entreePrefab;
+	public Text countdownClock;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 	public int attempts;
@@ -61,9 +62,24 @@ public class GameManager : MonoBehaviour
     }
 
 	public void StartGame() {
-		gameStarted = true;
+		//gameStarted = true;
+		StartCoroutine(BeginCountdown());
 		DismissDuJourMenu();
 	}
+
+	IEnumerator BeginCountdown() {
+		yield return new WaitForSeconds(0.8f);
+		countdownClock.enabled = true;
+		for(int i = 3; i > 0; i--) {
+			countdownClock.text = i.ToString();
+			yield return new WaitForSeconds(0.8f);
+		}
+		countdownClock.text = "Go!";
+		yield return new WaitForSeconds(0.4f);
+		countdownClock.enabled = false;
+		gameStarted = true;
+	}
+			
 
 	public void LevelSetup() {
 		levelTimer = 0;
