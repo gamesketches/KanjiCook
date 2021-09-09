@@ -62,8 +62,7 @@ public class GameManager : MonoBehaviour
     }
 
 	public void StartGame() {
-		//gameStarted = true;
-		StartCoroutine(BeginCountdown());
+		if(!gameStarted) StartCoroutine(BeginCountdown());
 		DismissDuJourMenu();
 	}
 
@@ -79,7 +78,6 @@ public class GameManager : MonoBehaviour
 		countdownClock.enabled = false;
 		gameStarted = true;
 	}
-			
 
 	public void LevelSetup() {
 		levelTimer = 0;
@@ -116,8 +114,17 @@ public class GameManager : MonoBehaviour
 	public void OpenLevelSelect() {
 		CleanUpGameplay();
 	}
+	
+	void EnableDuJourMenu(){
+		menu.parent.gameObject.SetActive(true);
+	}
 
-	void ShowDuJourMenu(float lerpTime = 0.4f) {
+	void DisableDujourMenu() {
+		menu.parent.gameObject.SetActive(false);
+	}
+
+	public void ShowDuJourMenu(float lerpTime = 0.4f) {
+		EnableDuJourMenu();
 		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
 		float rectSize = menuRect.rect.size.y;
 		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, lerpTime, RectTransform.Edge.Top));
@@ -127,6 +134,7 @@ public class GameManager : MonoBehaviour
 		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
 		float rectSize = menuRect.rect.size.y;
 		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, 0, -rectSize, lerpTime, RectTransform.Edge.Top));
+		Invoke("DisableDujourMenu", lerpTime);
 	}
 
 	void GetLoadedKanji() {
