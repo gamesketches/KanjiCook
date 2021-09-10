@@ -128,7 +128,6 @@ public class ContentManager : MonoBehaviour
 		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(file.text);
 		List<EntreeData> tempContent = new List<EntreeData>();
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
-			Debug.Log("Adding kanji " + kanji.kanji);
 			//int randomMeaning = Random.Range(0, kanji.meanings.Length);
 			/*for(int i = 0; i < tempContent.Count; i++) {
 				if(tempContent[i].meanings == kanji.meanings[randomMeaning]) {

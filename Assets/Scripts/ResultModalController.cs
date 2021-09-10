@@ -44,6 +44,7 @@ public class ResultModalController : MonoBehaviour
 			stars[i].color = i < numStars ? enabledStar : disabledStar;
 		}
 		performanceText.text = performanceString;
+		ProgressTracker.instance.UpdateLevelInfo(GameManager.levelIndex, numStars);
 	}
 
 	public void CloseResultModal() {

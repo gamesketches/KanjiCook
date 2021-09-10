@@ -11,7 +11,6 @@ public class FlameAnimator : MonoBehaviour
     private void Awake()
     {
         offset = Random.Range(0.0f, 1.0f);
-        Debug.Log(offset);
     }
 
     // Start is called before the first frame update

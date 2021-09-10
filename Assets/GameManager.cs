@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 	float levelTimer;
 	bool gameStarted = false;
 	string levelFileName;
-	int levelIndex;
+	public static int levelIndex;
 
     // Start is called before the first frame update
     void Awake()
