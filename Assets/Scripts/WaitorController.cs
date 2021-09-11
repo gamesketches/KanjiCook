@@ -36,8 +36,8 @@ public class WaitorController : MonoBehaviour
     }
 
 	public void PickUpOrder(string literal = "字") {
-		character.text = literal;
 		if(animating) return;
+		character.text = literal;
 		animating = true;
 		//StartCoroutine(WaitorWalksIn());
 		StartCoroutine(WaitorWalksInCanvas());
