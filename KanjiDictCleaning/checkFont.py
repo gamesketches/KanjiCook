@@ -64,9 +64,13 @@ def CheckFontKanji():
 	for kanji in frequentKanjis:
 		if kanji not in fontKanji:
 			print(kanji)
+			kanjiEntry = GetKanjiEntry(kanji)
+			if kanjiEntry.find("misc").find("jlpt") is not None:
+				print("jlpt level: " + str(kanjiEntry.find("misc").find("jlpt").text))
 			missingKanji.append(kanji)
 			numMissing += 1
 	print(missingKanji)
+	print(numMissing)
 			
 FindFrequentKanji()
 CheckFontKanji()
