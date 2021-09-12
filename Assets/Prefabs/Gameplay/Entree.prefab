@@ -55,6 +55,7 @@ MonoBehaviour:
   formula: {fileID: 3064040555708588803}
   character: {fileID: 3689115808846939305}
   definition: {fileID: 4946218369458570934}
+  literalFontSize: 30
 --- !u!114 &5167374603904693513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u4E5E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100027801171559588, guid: 3eb90bdb0c48941e88badabbd97a6a30,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8424762556215832628, guid: 3eb90bdb0c48941e88badabbd97a6a30,
         type: 3}

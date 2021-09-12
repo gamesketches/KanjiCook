@@ -8,6 +8,7 @@ public class EntreeBehavior : MonoBehaviour
 	public Text formula;
 	public Text character;
 	public Text definition;
+	public int literalFontSize;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class EntreeBehavior : MonoBehaviour
 
 	public void Initialize(EntreeData entreeData) {
 		character.text = entreeData.literal;
+		character.fontSize = literalFontSize;
 		string formulaString = "= " + entreeData.components[0];
 		for(int i = 1; i < entreeData.components.Length; i++) {
 				formulaString += " + " + entreeData.components[i];
@@ -24,7 +26,6 @@ public class EntreeBehavior : MonoBehaviour
 		formula.text = formulaString;
 		string definitionString = entreeData.literal;
 		string reading = GenerateReadingString(entreeData.kunyomi, entreeData.onyomi);
-		string romanji = "mura";
 		string definitionList = GenerateDefinitionString(entreeData.meanings);
 		definitionString += reading + definitionList;
 		definition.text = definitionString;
