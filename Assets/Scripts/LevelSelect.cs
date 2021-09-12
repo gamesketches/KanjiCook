@@ -120,6 +120,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
 		Quaternion curRotation = transform.rotation;
+		MenuManager.instance.PlayPageTurnSound();
 		for(float t = lerpProportion * totalCurveTime; t < totalCurveTime; t += Time.deltaTime) {
 			lerpProportion = t / totalCurveTime;
 			float newOffsetMax = Mathf.SmoothStep(currentOffsetMax.y, 0, openCurve.Evaluate(lerpProportion));

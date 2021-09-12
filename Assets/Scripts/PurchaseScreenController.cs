@@ -68,10 +68,12 @@ public class PurchaseScreenController : MonoBehaviour
 
 	void SlideInDetailScreen() {
 		StartCoroutine(LerpInsetAnimation(detailRectTransform, -detailRectTransform.rect.size.x, 0, 0.4f));
+		MenuManager.instance.PlayPageTurnSound();
 	}
 	
 	void SlideOutDetailScreen() {
 		StartCoroutine(LerpInsetAnimation(detailRectTransform, 0, -detailRectTransform.rect.size.x, 0.4f));
+		MenuManager.instance.PlayPageTurnSound();
 	}
 
 	void ClearDetailScreen() {

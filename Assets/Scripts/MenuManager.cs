@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-
+	public static MenuManager instance;
 	public GameObject levelSelect;
 	public GameObject titleScreen;
 	public GameObject aboutScreen;
@@ -13,6 +13,8 @@ public class MenuManager : MonoBehaviour
 	public GameObject purchaseButton;
 	public GameObject aboutButton;
 	public GameObject backButton;
+	public AudioClip[] pageTurnSounds;
+	AudioSource audioSource;
 	bool aboutOpen = false;
 	bool packsOpen = false;
 	bool packsOnTop = false;
@@ -21,6 +23,8 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+		instance = this;
+		audioSource = GetComponent<AudioSource>();
         titleScreen.SetActive(true);
 		levelSelect.SetActive(true);
 		DisableAboutScreen();
@@ -82,6 +86,7 @@ public class MenuManager : MonoBehaviour
 			packsOnTop = false;
 			Invoke("DisablePackScreen", menuSlideSpeed);
 		}
+		PlayPageTurnSound();
 	}
 
 	public void DismissTitleScreen() {
@@ -104,6 +109,7 @@ public class MenuManager : MonoBehaviour
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, menuSlideSpeed, RectTransform.Edge.Left));
+		PlayPageTurnSound();
 	}
 
 	public void SlideOnMenus() {
@@ -113,12 +119,14 @@ public class MenuManager : MonoBehaviour
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, menuSlideSpeed, RectTransform.Edge.Left));
+		PlayPageTurnSound();
 	}
 
 	public void BackButtonPressed() {
 		if(packsOnTop) {
 			PurchaseScreenController packsController = packStore.GetComponent<PurchaseScreenController>();
 			packsController.GoBack();
+			PlayPageTurnSound();
 			if(!packsController.open) {
 				packsOnTop = false;
 				packsOpen = false;
@@ -128,7 +136,13 @@ public class MenuManager : MonoBehaviour
 		} else if(LevelSelect.levelSelectLocked) {
 			titleScreen.transform.parent.GetComponent<Canvas>().enabled = true;
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().CloseMenu());
+			PlayPageTurnSound();
 		}
+	}
+
+	public void PlayPageTurnSound() {
+		int diceRoll = Mathf.FloorToInt(Random.value * pageTurnSounds.Length);
+		audioSource.PlayOneShot(pageTurnSounds[diceRoll]);
 	}
 
 	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {
