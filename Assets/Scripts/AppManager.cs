@@ -9,7 +9,6 @@ public class AppManager : MonoBehaviour
 	public Canvas gameplayCanvas;
 	public Canvas gameplayUICanvas;
 	
-	
     // Start is called before the first frame update
     void Awake()
     {

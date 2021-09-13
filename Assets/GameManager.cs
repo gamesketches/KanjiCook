@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 	public GameObject GameMenuCanvas;
 	public GameObject entreePrefab;
 	public Text countdownClock;
+	public Text timer;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 	public int attempts;
@@ -52,11 +53,12 @@ public class GameManager : MonoBehaviour
 				requestTimer = 0;
 			}
 			levelTimer += Time.deltaTime;
+			timer.text = Mathf.Round(levelDuration - levelTimer).ToString();
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
+				timer.text = "";
 				CleanUpGameplay();
 				ShowResults();
-				Debug.Log("Your score is " + scoreTally.text);
 			}
 		}
     }
@@ -77,12 +79,13 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(0.4f);
 		countdownClock.enabled = false;
 		gameStarted = true;
+		timer.text = levelDuration.ToString();
 	}
 
 	public void LevelSetup() {
 		levelTimer = 0;
 		attempts = 0;
-		scoreTally.text = "X 0";
+		scoreTally.text = "× 0";
 		//LoadKanji();
 		SetUpRadicals();
 		ShowDuJourMenu(0.0f);
@@ -108,7 +111,7 @@ public class GameManager : MonoBehaviour
 		levelTimer = 0;
 		attempts = 0;
 		requestTimer = 4.5f;
-		scoreTally.text = "X 0";
+		scoreTally.text = "× 0";
 	}
 
 	public void OpenLevelSelect() {
@@ -199,7 +202,7 @@ public class GameManager : MonoBehaviour
 		if(requestQueue.SatisfiesRequest(result.meanings[0])) {
 			StartCoroutine(requestQueue.ClearRequest(answer, result.meanings[0]));
 			Debug.Log(scoreTally.text.Substring(1));
-			scoreTally.text = "X " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
+			scoreTally.text = "× " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 			if(foundWords.IndexOf(result.literal) == -1) foundWords.Add(result.literal);
 		} 
 	}
