@@ -16,6 +16,9 @@ public class CookingPotBehavior : MonoBehaviour
 	public float cookingTime;
 	bool cooking;
 	public Color ingredientColor;
+	AudioSource[] audioSources;
+	public AudioClip serviceBell;
+	public AudioClip[] cookingSounds;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class CookingPotBehavior : MonoBehaviour
         instance = this;
 		curImage = GetComponent<Image>();
 		ingredients = new List<string>();
+		audioSources = GetComponents<AudioSource>();
 		//hitRect = GetComponent<RectTransform>();
 		cooking = false;
     }
@@ -44,6 +48,7 @@ public class CookingPotBehavior : MonoBehaviour
 		Text charText = newChar.GetComponent<Text>();
 		charText.text = character;
 		charText.color = ingredientColor;
+		PlayCookingSound();
 	}
 
 	public void CombineIngredients() {
@@ -80,6 +85,7 @@ public class CookingPotBehavior : MonoBehaviour
 		EntreeData resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
 		ChefController.instance.cooking = false;
+		FinishCookingSounds();
 		hitRect.transform.localScale = Vector3.one;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
@@ -89,6 +95,24 @@ public class CookingPotBehavior : MonoBehaviour
 			if(resultSpot.text == "駄目")
 				resultSpot.text = "";
 		}
+	}
+
+	void PlayCookingSound() {
+		int diceRoll = Mathf.FloorToInt(Random.value * cookingSounds.Length);
+		for(int i = 0; i < audioSources.Length; i++) {
+			if(!audioSources[i].isPlaying) {
+				audioSources[i].clip = cookingSounds[diceRoll];
+				audioSources[i].Play();
+				return;
+			}
+		}
+	}
+
+	void FinishCookingSounds() {
+		for(int i = 0; i < audioSources.Length; i++) {
+			audioSources[i].Stop();
+		}
+		audioSources[0].PlayOneShot(serviceBell, 0.6f);
 	}
 
 	string RecipeLookup() {
