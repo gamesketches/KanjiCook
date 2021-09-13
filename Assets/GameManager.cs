@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 	float levelTimer;
 	bool gameStarted = false;
 	string levelFileName;
-	public static int levelIndex;
+	public static int levelIndex = -1;
 
     // Start is called before the first frame update
     void Awake()
@@ -98,9 +98,11 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void LoadLevel(int lvlIndex) {
-		levelIndex = lvlIndex;
-		GetLoadedKanji();
-		LevelSetup();
+		if(levelIndex == -1) {
+			levelIndex = lvlIndex;
+			GetLoadedKanji();
+			LevelSetup();
+		}
 	}
 
 	public void RestartLevel() {

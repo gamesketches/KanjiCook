@@ -34,6 +34,7 @@ public class AppManager : MonoBehaviour
 		GameMenuCanvas.GetComponent<MenuManager>().SlideOnMenus();
 		GameManager.instance.CleanUpGameplay();
 		GameManager.instance.ClearDuJourMenu();
+		GameManager.levelIndex = -1;
 		Invoke("DisableGameplayCanvases", MenuManager.menuSlideSpeed);
 	}
 
