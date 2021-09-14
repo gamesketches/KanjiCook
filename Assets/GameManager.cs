@@ -90,6 +90,28 @@ public class GameManager : MonoBehaviour
 		ShowDuJourMenu(0.0f);
 	}
 
+	void SetUpRadicals() {
+		List<string> radicals = new List<string>();
+		foreach(EntreeData pair in targetWords) {
+			foreach(string radical in pair.components) {
+				if(radicals.IndexOf(radical) == -1) {
+					radicals.Add(radical);
+				}
+			}
+		}
+		GameObject[] radicalButtons = GameObject.FindGameObjectsWithTag("RadicalButton");
+		if(radicals.Count > radicalButtons.Length) { 
+			Debug.LogError("There are too many radicals for the number of buttons");
+		} else {
+			for(int i = 0; i < radicalButtons.Length; i++) {
+				if(i < radicals.Count) {
+					radicalButtons[i].GetComponent<DraggableKanji>().SetRadical(radicals[i]);
+				} else {
+					radicalButtons[i].SetActive(false);
+				}
+			}
+		}
+	}
 	public void LoadLevel(string levelName) {
 		levelFileName = levelName;
 		LoadKanji();
@@ -115,6 +137,18 @@ public class GameManager : MonoBehaviour
 		scoreTally.text = "× 0";
 	}
 
+	public void OpenLevelSelect() {
+		CleanUpGameplay();
+	}
+	
+	void BuildDuJourLevel() {
+		menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelIndex, false);
+		foreach(EntreeData pairing in targetWords) {
+			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
+			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
+		}
+	}
+
 	public void DuJourButtonAction() {
 		if(gameStarted) {
 			DismissDuJourMenu();
@@ -123,10 +157,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void OpenLevelSelect() {
-		CleanUpGameplay();
-	}
-	
 	void EnableDuJourMenu(){
 		menu.parent.gameObject.SetActive(true);
 		if(!gameStarted) {
@@ -154,6 +184,14 @@ public class GameManager : MonoBehaviour
 		Invoke("DisableDujourMenu", lerpTime);
 	}
 
+	public void ClearDuJourMenu() {
+		menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
+		for(int i = 1; i < menu.childCount; i++) {
+			Destroy(menu.GetChild(i).gameObject);
+		}
+		Invoke("DismissDuJourMenu", 0.5f);
+	}	
+
 	void GetLoadedKanji() {
 		targetWords = contentManager.GetLevelContent(levelIndex);
 		for(int i = 0; i < targetWords.Length; i++) {
@@ -166,37 +204,6 @@ public class GameManager : MonoBehaviour
 		//targetWords = contentManager.CreateGameContent();
 		targetWords = contentManager.LoadLevelContent(levelFileName);
 		BuildDuJourLevel();	
-	}
-
-	void BuildDuJourLevel() {
-		menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelIndex, false);
-		foreach(EntreeData pairing in targetWords) {
-			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
-			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
-		}
-	}
-
-	void SetUpRadicals() {
-		List<string> radicals = new List<string>();
-		foreach(EntreeData pair in targetWords) {
-			foreach(string radical in pair.components) {
-				if(radicals.IndexOf(radical) == -1) {
-					radicals.Add(radical);
-				}
-			}
-		}
-		GameObject[] radicalButtons = GameObject.FindGameObjectsWithTag("RadicalButton");
-		if(radicals.Count > radicalButtons.Length) { 
-			Debug.LogError("There are too many radicals for the number of buttons");
-		} else {
-			for(int i = 0; i < radicalButtons.Length; i++) {
-				if(i < radicals.Count) {
-					radicalButtons[i].GetComponent<DraggableKanji>().SetRadical(radicals[i]);
-				} else {
-					radicalButtons[i].SetActive(false);
-				}
-			}
-		}
 	}
 
 	void MakeNewRequest() {
@@ -221,26 +228,18 @@ public class GameManager : MonoBehaviour
 		} 
 	}
 	
+	void ShowResults() {
+		resultModal.gameObject.SetActive(true);
+		int score = int.Parse(scoreTally.text.Substring(1));
+		resultModal.DisplayResults(score, attempts, foundWords.Count == targetWords.Length);
+	}
+
 	public void CleanUpGameplay() {
 		gameStarted = false;
 		DismissDuJourMenu();
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
 		foundWords.Clear();
-	}
-
-	public void ClearDuJourMenu() {
-		menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
-		for(int i = 1; i < menu.childCount; i++) {
-			Destroy(menu.GetChild(i).gameObject);
-		}
-		Invoke("DismissDuJourMenu", 0.5f);
-	}	
-
-	void ShowResults() {
-		resultModal.gameObject.SetActive(true);
-		int score = int.Parse(scoreTally.text.Substring(1));
-		resultModal.DisplayResults(score, attempts, foundWords.Count == targetWords.Length);
 	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {

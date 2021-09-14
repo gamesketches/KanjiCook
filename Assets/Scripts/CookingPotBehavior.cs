@@ -38,7 +38,7 @@ public class CookingPotBehavior : MonoBehaviour
     }
 
 	public void AddIngredient(string character) {
-		if(resultSpot.text == "駄目")
+		if(resultSpot.text != "")
 			resultSpot.text = "";
 		ingredients.Add(character);
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, hitRect.transform);
