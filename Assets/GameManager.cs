@@ -115,16 +115,28 @@ public class GameManager : MonoBehaviour
 		scoreTally.text = "× 0";
 	}
 
+	public void DuJourButtonAction() {
+		if(gameStarted) {
+			DismissDuJourMenu();
+		} else {
+			StartGame();
+		}
+	}
+
 	public void OpenLevelSelect() {
 		CleanUpGameplay();
 	}
 	
 	void EnableDuJourMenu(){
 		menu.parent.gameObject.SetActive(true);
+		if(!gameStarted) {
+			menu.parent.GetChild(2).GetComponentInChildren<Text>().text = "Begin";
+		}
 	}
 
 	void DisableDujourMenu() {
 		menu.parent.gameObject.SetActive(false);
+		menu.parent.GetChild(2).GetComponentInChildren<Text>().text = "Close";
 	}
 
 	public void ShowDuJourMenu(float lerpTime = 0.4f) {
@@ -135,6 +147,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	void DismissDuJourMenu(float lerpTime = 0.4f) {
+		if(!menu.parent.gameObject.activeSelf) return;
 		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
 		float rectSize = menuRect.rect.size.y;
 		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, 0, -rectSize, lerpTime, RectTransform.Edge.Top));
@@ -210,6 +223,7 @@ public class GameManager : MonoBehaviour
 	
 	public void CleanUpGameplay() {
 		gameStarted = false;
+		DismissDuJourMenu();
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
 		foundWords.Clear();
