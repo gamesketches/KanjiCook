@@ -19,6 +19,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public int levelsToLoad;
 	public static float lerpProportion;
 	public static bool levelSelectLocked;
+	public Sprite blankMenu;
 	public AnimationCurve scaleCurve;
 	public AnimationCurve openCurve;
 	ScrollRect scrollRect;
@@ -38,7 +39,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		startingScale = transform.localScale;
 		startOffset = rectTransform.offsetMax.y;
 		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
-		StartCoroutine(LoadLevelListings());
+		transform.GetChild(0).gameObject.SetActive(false);
+		transform.GetChild(1).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,11 +58,10 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
 			}
 		}
-		yield return null;
-		HorizontalLayoutGroup[] hLayouts = scrollView.GetComponentsInChildren<HorizontalLayoutGroup>();
+		/*HorizontalLayoutGroup[] hLayouts = scrollView.GetComponentsInChildren<HorizontalLayoutGroup>();
 		foreach(HorizontalLayoutGroup hori in hLayouts) {
 			hori.enabled = false;
-		}
+		}*/
 	}
 
 	void LevelLoadCallback(int level) {
@@ -99,6 +100,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				levelSelectLocked = true;
 				scrollRect.vertical = true;
 				transform.root.GetComponent<MenuManager>().DismissTitleScreen();
+				StartCoroutine(LoadLevelListings());
+				SwapFakeMenu();
 			} else {
 				lerpProportion = 1 - curProportion;
 			}
@@ -130,6 +133,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			transform.rotation = Quaternion.Lerp(curRotation, Quaternion.identity, lerpProportion);
 			float scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			StartCoroutine(LoadLevelListings());
 			yield return null;
 		}
 		lerpProportion = 1;
@@ -138,6 +142,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		transform.localScale = Vector3.one;
 		transform.rotation = Quaternion.identity;
 		scrollRect.vertical = true;
+		SwapFakeMenu();
 		transform.root.GetComponent<MenuManager>().DismissTitleScreen();
 	}
 
@@ -146,6 +151,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
 		Quaternion targetRotation = Quaternion.Euler(0, 0, startingRotation);
+		SwapFakeMenu();
 		for(float t = startingCurveTime; t > 0; t -= Time.deltaTime) {
 			lerpProportion = t / startingCurveTime;
 			float newOffsetMax = Mathf.SmoothStep(startOffsetMax.y, 0, openCurve.Evaluate(lerpProportion));
@@ -165,5 +171,15 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		transform.localScale = startingScale;
 		levelSelectLocked = false;
 		scrollRect.vertical = false;
+	}
+
+	void SwapFakeMenu() {
+		Sprite temp = menuImage.sprite;
+		GameObject header = transform.GetChild(0).gameObject;
+		GameObject scrollRect = transform.GetChild(1).gameObject;
+		header.SetActive(!header.activeSelf);
+		scrollRect.SetActive(!scrollRect.activeSelf);
+		menuImage.sprite = blankMenu;
+		blankMenu = temp;
 	}
 }
