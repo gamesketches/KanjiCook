@@ -13,6 +13,11 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	public GameObject kanjiPrefab;
 	public bool interactable;
 	public Color flashColor;
+	float instancePosition;
+	float scrollRectUpperBound;
+	float scrollRectLowerBound;
+	public static float scrollRectPosition;
+	public static float scrollWindowSize;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,7 +27,14 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
+		float windowBottom = scrollRectPosition - scrollWindowSize;
+		if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize) {
+			kanjis.gameObject.SetActive(true);
+			radicals.gameObject.SetActive(true);
+		} else {
+			kanjis.gameObject.SetActive(false);
+			radicals.gameObject.SetActive(false);
+		}
     }
 
 	public void Initialize(string id, string levelName, bool isInteractable = true) {
@@ -54,6 +66,18 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		foreach(string radical in rads) {
 			radicals.text += " " + radical;
 		}
+	}
+
+	public void CalculateInstancePosition(float elementSize, int position) {
+		instancePosition = 1 - (elementSize * position) - (elementSize / 2);
+		scrollRectUpperBound = instancePosition + (3 * elementSize);
+		scrollRectLowerBound = instancePosition - (3 * elementSize);
+		if(scrollRectUpperBound > 1) scrollRectLowerBound -= scrollRectUpperBound - 1;
+		if(scrollRectLowerBound < 0) scrollRectUpperBound += -scrollRectLowerBound;
+		Debug.Log("Position: " + position.ToString());
+		Debug.Log("Instance Position: " + instancePosition.ToString());
+		Debug.Log("UpperBound: " + scrollRectUpperBound.ToString());
+		Debug.Log("LowerBound: " + scrollRectLowerBound.ToString());
 	}
 
 	public void Clear() {
