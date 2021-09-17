@@ -63,7 +63,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				buttonBehavior.Initialize(levelCount);
 				levelButtons.Add(buttonBehavior);
 				loadedLevels++;
-				//levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
 			}
 		}
 		yield return null;
