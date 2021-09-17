@@ -12291,7 +12291,7 @@ MonoBehaviour:
     type: 3}
   startingRotation: 4
   scrollView: {fileID: 125342584}
-  levelsToLoad: 15
+  levelsToLoad: 8
   blankMenu: {fileID: -2021273199166583569, guid: 3c27d59b768604f489d741e85cf9c9a3,
     type: 3}
   scaleCurve:

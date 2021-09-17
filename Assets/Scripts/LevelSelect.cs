@@ -17,6 +17,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public float startingRotation;
 	public Transform scrollView;
 	public int levelsToLoad;
+	int loadedLevels;
 	public static float lerpProportion;
 	public static bool levelSelectLocked;
 	public Sprite blankMenu;
@@ -27,6 +28,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     // Start is called before the first frame update
     void Start()
     {
+		loadedLevels = 0;
 		levelSelectLocked = false;
 		lerpProportion = 0;
 		canvas = transform.parent.GetComponent<RectTransform>();
@@ -48,18 +50,19 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
     }
 
-	IEnumerator LoadLevelListings() {
+	IEnumerator LoadLevelListings(int startIndex = 1, int levelsToAdd = 5) {
 		while( !ContentManager.instance.LevelSelectContentReady()) yield return null;
 		Debug.Log("Loading Levels");
-		int levelCount = 1;
-		List<LevelSelectButton> levelButtons = new List<LevelSelectButton>();
-		for(levelCount = 1; levelCount < levelsToLoad; levelCount++) {
+		int levelCount;
+		List<LevelSelectButton> levelButtons = new List<LevelSelectButton>(scrollView.GetComponentsInChildren<LevelSelectButton>());
+		for(levelCount = startIndex; levelCount < startIndex + levelsToAdd; levelCount++) {
 			if(ContentManager.instance.HasLevelIndex(levelCount)) {
 				GameObject levelButton = Instantiate(levelButtonPrefab, scrollView);
 				levelButton.transform.localRotation = Quaternion.identity;
 				LevelSelectButton buttonBehavior = levelButton.GetComponentInChildren<LevelSelectButton>();
 				buttonBehavior.Initialize(levelCount);
 				levelButtons.Add(buttonBehavior);
+				loadedLevels++;
 				//levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(levelCount);
 			}
 		}
@@ -67,7 +70,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		float scrollRectHeight = scrollView.GetComponent<RectTransform>().rect.height;
 		float elementHeight = (levelButtons[0].transform.parent.GetComponent<RectTransform>().rect.height + 50) / scrollRectHeight;
 		float windowSize = 7 * elementHeight;
-		LevelSelectButton.scrollRectPosition = 1;
 		LevelSelectButton.scrollWindowSize = windowSize;
 		for(int i = 0; i < levelButtons.Count; i++) {
 			levelButtons[i].CalculateInstancePosition(elementHeight, i);
@@ -87,6 +89,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnScrollRectChange(Vector2 newPosition) {
+		if(newPosition.y < 0) {
+			StartCoroutine(LoadLevelListings(loadedLevels, 7));
+		}
 		LevelSelectButton.scrollRectPosition = newPosition.y;
 	}
 
@@ -118,7 +123,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				levelSelectLocked = true;
 				scrollRect.vertical = true;
 				transform.root.GetComponent<MenuManager>().DismissTitleScreen();
-				StartCoroutine(LoadLevelListings());
+				StartCoroutine(LoadLevelListings(1, levelsToLoad));
+				LevelSelectButton.scrollRectPosition = 1;
 				SwapFakeMenu();
 			} else {
 				lerpProportion = 1 - curProportion;
@@ -159,7 +165,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		transform.localScale = Vector3.one;
 		transform.rotation = Quaternion.identity;
 		scrollRect.vertical = true;
-		StartCoroutine(LoadLevelListings());
+		LevelSelectButton.scrollRectPosition = 1;
+		StartCoroutine(LoadLevelListings(1, levelsToLoad));
 		SwapFakeMenu();
 		transform.root.GetComponent<MenuManager>().DismissTitleScreen();
 	}

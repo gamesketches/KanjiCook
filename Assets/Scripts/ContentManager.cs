@@ -23,7 +23,7 @@ public class ContentManager : MonoBehaviour
     {
 		instance = this;
 		levelLookup = new Dictionary<int, EntreeData[]>();
-		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4"};
+		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4", "jlpt3", "jlpt2", "jlpt1"};
 		//LoadLevelsFromResources();
 		StartCoroutine(LoadOwnedLevels());
     }
@@ -49,8 +49,8 @@ public class ContentManager : MonoBehaviour
 		loadingLevels = true;
 		foreach(string pack in packsOwned) {
 			yield return StartCoroutine(LoadLevelsByLabel(pack));
+			loadingLevels = false;
 		}
-		loadingLevels = false;
 	}
 
 	IEnumerator LoadLevelsByLabel(string label) {
