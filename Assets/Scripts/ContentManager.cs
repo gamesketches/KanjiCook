@@ -24,8 +24,8 @@ public class ContentManager : MonoBehaviour
 		instance = this;
 		levelLookup = new Dictionary<int, EntreeData[]>();
 		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4"};
-		LoadLevelsFromResources();
-		//StartCoroutine(LoadOwnedLevels());
+		//LoadLevelsFromResources();
+		StartCoroutine(LoadOwnedLevels());
     }
 
     // Update is called once per frame
