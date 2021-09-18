@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		int diceRoll = Mathf.FloorToInt(Random.Range(0, wordBag.Count));
-		string request = wordBag[diceRoll].meanings[0];
+		string request = wordBag[diceRoll].kunyomi[0];
 		wordBag.RemoveAt(diceRoll);
 		requestQueue.ReceiveRequest(request);
 	}
