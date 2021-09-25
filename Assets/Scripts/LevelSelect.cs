@@ -171,6 +171,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public IEnumerator CloseMenu() {
+		levelSelectLocked = false;
 		float startingCurveTime = openCurve.keys[openCurve.length - 1].time;
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
@@ -190,10 +191,10 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		lerpProportion = 0;
 		rectTransform.offsetMax = startOffsetMax;
 		rectTransform.offsetMin = startOffsetMin;
+		rectTransform.anchorMax = new Vector2(1, 1);
 		transform.localScale = Vector3.one;
 		transform.rotation = targetRotation;
 		transform.localScale = startingScale;
-		levelSelectLocked = false;
 		scrollRect.vertical = false;
 	}
 

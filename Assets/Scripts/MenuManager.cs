@@ -123,6 +123,7 @@ public class MenuManager : MonoBehaviour
 	}
 
 	public void BackButtonPressed() {
+		if(audioSource.isPlaying) return;
 		if(packsOnTop) {
 			PurchaseScreenController packsController = packStore.GetComponent<PurchaseScreenController>();
 			packsController.GoBack();
@@ -134,6 +135,7 @@ public class MenuManager : MonoBehaviour
 		} else if(aboutOpen) {
 			ToggleAboutScreen();
 		} else if(LevelSelect.levelSelectLocked) {
+			Debug.Log("closingMenu");
 			titleScreen.transform.parent.GetComponent<Canvas>().enabled = true;
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().CloseMenu());
 			PlayPageTurnSound();
@@ -146,7 +148,7 @@ public class MenuManager : MonoBehaviour
 	}
 
 	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {
-		Debug.Log(parentEdge);
+		Debug.Log(parentEdge + " startOffset: " + startOffset + "targetOffset: " + targetOffset);
 		float rectSize = theRect.rect.size.x;
 		if(parentEdge == RectTransform.Edge.Top || parentEdge == RectTransform.Edge.Bottom)
 			rectSize = theRect.rect.size.y;
