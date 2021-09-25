@@ -138,5 +138,8 @@ public class CookingPotBehavior : MonoBehaviour
 		foreach(Transform t in hitRect.transform) {
 			Destroy(t.gameObject);
 		}
+		for(int i = 0; i < audioSources.Length; i++) {
+			audioSources[i].Stop();
+		}
 	}
 }

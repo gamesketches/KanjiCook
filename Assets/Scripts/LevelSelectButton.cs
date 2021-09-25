@@ -28,12 +28,14 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
     void Update()
     {
 		float windowBottom = scrollRectPosition - scrollWindowSize;
-		if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize) {
-			kanjis.gameObject.SetActive(true);
-			radicals.gameObject.SetActive(true);
-		} else {
-			kanjis.gameObject.SetActive(false);
-			radicals.gameObject.SetActive(false);
+		if(interactable) {
+			if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize) {
+				kanjis.gameObject.SetActive(true);
+				radicals.gameObject.SetActive(true);
+			} else {
+				kanjis.gameObject.SetActive(false);
+				radicals.gameObject.SetActive(false);
+			}
 		}
     }
 
