@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 
+public enum StudyType {Meaning, Kunyomi, Onyomi};
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
+	public static StudyType studyType = StudyType.Meaning;
 	RequestQueueManager requestQueue;
 	public static EntreeData[] targetWords;
 	List<EntreeData> wordBag;
@@ -213,15 +215,15 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		int diceRoll = Mathf.FloorToInt(Random.Range(0, wordBag.Count));
-		string request = wordBag[diceRoll].kunyomi[0];
+		string request = ExtractTargetFromEntree(wordBag[diceRoll]);
 		wordBag.RemoveAt(diceRoll);
 		requestQueue.ReceiveRequest(request);
 	}
 
 	public void ClearRequest(Text answer, EntreeData result) {
 		attempts++;
-		if(requestQueue.SatisfiesRequest(result.meanings[0])) {
-			StartCoroutine(requestQueue.ClearRequest(answer, result.meanings[0]));
+		if(requestQueue.SatisfiesRequest(ExtractTargetFromEntree(result))) {
+			StartCoroutine(requestQueue.ClearRequest(answer, ExtractTargetFromEntree(result)));
 			Debug.Log(scoreTally.text.Substring(1));
 			scoreTally.text = "× " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 			if(foundWords.IndexOf(result.literal) == -1) foundWords.Add(result.literal);
@@ -274,6 +276,21 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		return new EntreeData(new string[] {"failure"}, "駄目", new string[0], new string[0], new string[0]);
+	}
+
+	public string ExtractTargetFromEntree(EntreeData theEntree) {
+		switch(studyType) {
+			case StudyType.Meaning:
+				return theEntree.meanings[0];
+				break;
+			case StudyType.Kunyomi:
+				return theEntree.kunyomi[0];
+				break;
+			case StudyType.Onyomi:
+				return theEntree.onyomi[0];
+				break;
+		}
+		return theEntree.meanings[0];
 	}
 }
 
