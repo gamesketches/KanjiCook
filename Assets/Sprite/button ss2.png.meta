@@ -1,7 +1,100 @@
 fileFormatVersion: 2
 guid: 3409a655c65904f1da1c5b20ddb2ca01
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6032066837186283300
+    second: button ss2_0
+  - first:
+      213: 3168162932749076369
+    second: button ss2_1
+  - first:
+      213: -7511079644222671713
+    second: button ss2_2
+  - first:
+      213: 430571174157219146
+    second: button ss2_3
+  - first:
+      213: 5044000017468841277
+    second: button ss2_4
+  - first:
+      213: -3087414055736634116
+    second: button ss2_5
+  - first:
+      213: -2081747075133350418
+    second: button ss2_6
+  - first:
+      213: 6882208964669228136
+    second: button ss2_7
+  - first:
+      213: -785236205589463826
+    second: button ss2_8
+  - first:
+      213: 6004234846375581989
+    second: button ss2_9
+  - first:
+      213: 1084163293645092668
+    second: button ss2_10
+  - first:
+      213: 3647298286904505811
+    second: button ss2_11
+  - first:
+      213: 2164292258449269474
+    second: button ss2_12
+  - first:
+      213: 3224978480087252800
+    second: button ss2_13
+  - first:
+      213: -3751273754615732302
+    second: button ss2_14
+  - first:
+      213: 5240333755001323756
+    second: button ss2_15
+  - first:
+      213: 1677170198498806483
+    second: button ss2_16
+  - first:
+      213: 3053105487673620394
+    second: button ss2_17
+  - first:
+      213: -4841051937250986508
+    second: button ss2_18
+  - first:
+      213: -156025799747567695
+    second: button ss2_19
+  - first:
+      213: 3123944882170036169
+    second: button ss2_20
+  - first:
+      213: -2143996414627958755
+    second: button ss2_21
+  - first:
+      213: 3766769853569279409
+    second: button ss2_22
+  - first:
+      213: -6917887452023263215
+    second: button ss2_23
+  - first:
+      213: 6477946381306105389
+    second: button ss2_24
+  - first:
+      213: 3195992019398284796
+    second: button ss2_25
+  - first:
+      213: 1608443866240434933
+    second: button ss2_26
+  - first:
+      213: -1624671106252958346
+    second: button ss2_27
+  - first:
+      213: -4939784755067259583
+    second: button ss2_28
+  - first:
+      213: -1166206541839245330
+    second: button ss2_29
+  - first:
+      213: -5071479177984643185
+    second: button ss2_30
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +133,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +164,684 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: button ss2_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1715
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42707e344d436b350800000000000000
+      internalID: 6032066837186283300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_1
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 1811
+        width: 1
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1978115d66397fb20800000000000000
+      internalID: 3168162932749076369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_2
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 1549
+        width: 361
+        height: 318
+      alignment: 9
+      pivot: {x: 0.5819322, y: 0.50000036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94b076ebd843c790800000000000000
+      internalID: -7511079644222671713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_3
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 1619
+        width: 210
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45f92e9332b9f500800000000000000
+      internalID: 430571174157219146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_4
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 1771
+        width: 1
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d5b48aa43eff540800000000000000
+      internalID: 5044000017468841277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_5
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1720
+        width: 1
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4154d264d4725d0800000000000000
+      internalID: -3087414055736634116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_6
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1712
+        width: 3
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eedd77290162c13e0800000000000000
+      internalID: -2081747075133350418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_7
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1711
+        width: 2
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8644e110794828f50800000000000000
+      internalID: 6882208964669228136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_8
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1536
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec7015d4d74a15f0800000000000000
+      internalID: -785236205589463826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_9
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 1669
+        width: 1
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5291d3ee7c3535350800000000000000
+      internalID: 6004234846375581989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_10
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1642
+        width: 1
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37bb3c75c8bb0f00800000000000000
+      internalID: 1084163293645092668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_11
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 1633
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d575dcb77ecd9230800000000000000
+      internalID: 3647298286904505811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_12
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 1564
+        width: 2
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e22ff6975c190e10800000000000000
+      internalID: 2164292258449269474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_13
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1344
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f31e947dc61cc20800000000000000
+      internalID: 3224978480087252800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_14
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1344
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b722e0356cc0fbc0800000000000000
+      internalID: -3751273754615732302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_15
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1164
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0c75329c769b840800000000000000
+      internalID: 5240333755001323756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_16
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1164
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da8465d861864710800000000000000
+      internalID: 1677170198498806483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_17
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 985
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7f496d34fce5a20800000000000000
+      internalID: 3053105487673620394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_18
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 985
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f530fc79e021dcb0800000000000000
+      internalID: -4841051937250986508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_19
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 794
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfff3e9c5fa5ddf0800000000000000
+      internalID: -156025799747567695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_20
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 798
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cff4a7a15b7a5b20800000000000000
+      internalID: 3123944882170036169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_21
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 562
+        width: 352
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10b36ace9efe32e0800000000000000
+      internalID: -2143996414627958755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_22
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 614
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5a5a08931464430800000000000000
+      internalID: 3766769853569279409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_23
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 618
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1107502d30abeff90800000000000000
+      internalID: -6917887452023263215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_24
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 435
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e07c389e946e950800000000000000
+      internalID: 6477946381306105389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_25
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 439
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5d73dfec17a5c20800000000000000
+      internalID: 3195992019398284796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_26
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 118
+        width: 352
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2ca68ac27525610800000000000000
+      internalID: 1608443866240434933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_27
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 248
+        width: 450
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67593fa9c320479e0800000000000000
+      internalID: -1624671106252958346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_28
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 253
+        width: 450
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1457357ffeb527bb0800000000000000
+      internalID: -4939784755067259583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_29
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 68
+        width: 450
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef5fea345dc0dfe0800000000000000
+      internalID: -1166206541839245330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button ss2_30
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 73
+        width: 450
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f6f66be8c7e99b0800000000000000
+      internalID: -5071479177984643185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
