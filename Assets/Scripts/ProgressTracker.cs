@@ -15,8 +15,8 @@ public class ProgressTracker : MonoBehaviour
         LoadProgressData();
     }
 
-	public void UpdateLevelInfo(int level, int score) {
-		curProgress.UpdateLevel(level, score);
+	public void UpdateLevelInfo(string packName, int level, int score) {
+		curProgress.UpdateLevel(packName, level, score);
 		SaveProgressData();
 	}
 
@@ -29,6 +29,7 @@ public class ProgressTracker : MonoBehaviour
 
 	void LoadProgressData() {
 		if(File.Exists(Application.persistentDataPath + "/playerProgress.gd")) {
+			Debug.Log(Application.persistentDataPath);
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/playerProgress.gd", FileMode.Open);
 			curProgress = (PlayerProgress)bf.Deserialize(file);
@@ -40,17 +41,46 @@ public class ProgressTracker : MonoBehaviour
 	}
 
 	void PrintCurProgress() {
-		for(int i = 0; i < curProgress.playerProgress.Length; i++) {
-			Debug.Log("Level " + i.ToString() + ": " + curProgress.playerProgress[i].numStars.ToString());
+		for(int i = 0; i < curProgress.packs.Length; i++) {
+			PackProgress curPack = curProgress.packs[i];
+			Debug.Log(curPack.packName);
+			for(int j = 0; j < curPack.playerProgress.Length; j++) {
+				Debug.Log(curPack.playerProgress[j].numStars);
+			}
 		}
 	}
 }
 
 [System.Serializable]
 public class PlayerProgress {
-	public LevelProgress[] playerProgress;
+	public PackProgress[] packs;
 
 	public PlayerProgress() {
+		packs = new PackProgress[0];
+	}
+
+	public void UpdateLevel(string packName, int level, int score) {
+		for(int i = 0; i < packs.Length; i++) {
+			if(packs[i].packName == packName) {
+				packs[i].UpdateLevel(level, score);
+				return;
+			}
+		}
+		List<PackProgress> temp = new List<PackProgress>(packs);
+		PackProgress newPack = new PackProgress(packName);
+		newPack.UpdateLevel(level, score);
+		temp.Add(newPack);
+		packs = temp.ToArray();
+	}
+		
+}
+
+[System.Serializable]
+public class PackProgress {
+	public string packName;
+	public LevelProgress[] playerProgress;
+
+	public PackProgress(string packName = "LevelContent") {
 		playerProgress = new LevelProgress[0];
 	}
 

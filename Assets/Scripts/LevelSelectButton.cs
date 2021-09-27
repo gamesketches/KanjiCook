@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 {
 	string levelFile;
+	string packName;
 	int levelIndex;
 	public Transform kanjis;
 	public Text radicals;
@@ -60,7 +61,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		string[] rads = new string[0];
 		interactable = isInteractable;
 		levelIndex = id;
-		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
+		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads, out packName);
 		foreach(string kanji in levelKanjis) {
 			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
 			newKanji.GetComponentInChildren<Text>().text = kanji;

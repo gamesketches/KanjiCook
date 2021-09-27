@@ -14,6 +14,7 @@ public class ContentManager : MonoBehaviour
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
 	Dictionary<int, EntreeData[]> levelLookup;
+	Dictionary<int, string> packLookup;
 	string[] packsOwned;
 	
 	[SerializeField] private AssetLabelReference levelLabel;
@@ -23,6 +24,7 @@ public class ContentManager : MonoBehaviour
     {
 		instance = this;
 		levelLookup = new Dictionary<int, EntreeData[]>();
+		packLookup = new Dictionary<int, string>();
 		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4", "jlpt3", "jlpt2", "jlpt1"};
 		StartCoroutine(LoadLevelsFromResources());
 		//StartCoroutine(LoadOwnedLevels());
@@ -36,15 +38,14 @@ public class ContentManager : MonoBehaviour
 
 	IEnumerator LoadLevelsFromResources() {
 		loadingLevels = true;
-		//string[] levelAddresses = new string[] {"level1", "level2", "level3", "level4", "level5"};
+		int levelCount = 1;
 		foreach(string pack in packsOwned) {
 			TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + pack);
 			foreach(TextAsset level in levels) {
 				EntreeData[] levelContent = ProcessLevelContent(level);
-				//EntreeData[] levelContent = ProcessLevelContent(Resources.Load<TextAsset>(addy));
-				int levelIndex = int.Parse(level.name.Substring(5));
-				//int levelIndex = int.Parse(addy.Substring(5));
-				levelLookup.Add(levelIndex, levelContent);
+				levelLookup.Add(levelCount, levelContent);
+				packLookup.Add(levelCount, pack);
+				levelCount++;
 			}
 			yield return null;
 			loadingLevels = false;
@@ -117,7 +118,7 @@ public class ContentManager : MonoBehaviour
 		return levelLookup.ContainsKey(index);
 	}
 
-	public void GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals) {
+	public void GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals, out string packName) {
 		EntreeData[] theLevel = levelLookup[index];
 		List<string> fileKanjis = new List<string>();
 		List<string> fileRadicals = new List<string>();
@@ -131,6 +132,7 @@ public class ContentManager : MonoBehaviour
 		}
 		kanjis = fileKanjis.ToArray();
 		radicals = fileRadicals.ToArray();
+		packName = packLookup[index];
 	}
 
 	public EntreeData[] LoadLevelContent(string filename) {
@@ -140,6 +142,10 @@ public class ContentManager : MonoBehaviour
 
 	public EntreeData[] GetLevelContent(int levelIndex) {
 		return levelLookup[levelIndex];
+	}
+
+	public string LevelPackLookup(int levelIndex) {
+		return packLookup[levelIndex];
 	}
 
 	EntreeData[] ProcessLevelContent(TextAsset file) {
