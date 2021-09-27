@@ -40,8 +40,8 @@ public class RequestQueueManager : MonoBehaviour
 		} else {
 			available.Add(1);
 			available.Add(3);
-			available.Add(0);
 			available.Add(4);
+			available.Add(0);
 		}
 			
 		for(int i = 0; i < available.Count; i++) {

@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 				requestTimer = 0;
 			}
 			levelTimer += Time.deltaTime;
-			timer.text = Mathf.Round(levelDuration - levelTimer).ToString();
+			UpdateTimer();
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
 				timer.text = "";
@@ -208,6 +208,10 @@ public class GameManager : MonoBehaviour
 		BuildDuJourLevel();	
 	}
 
+	void UpdateTimer() {
+		timer.text = Mathf.Round(levelDuration - levelTimer).ToString();
+	}
+	
 	void MakeNewRequest() {
 		if(wordBag.Count == 0) {
 			foreach(EntreeData pairing in targetWords) {
@@ -229,7 +233,7 @@ public class GameManager : MonoBehaviour
 			if(foundWords.IndexOf(result.literal) == -1) foundWords.Add(result.literal);
 		} 
 	}
-	
+
 	void ShowResults() {
 		resultModal.gameObject.SetActive(true);
 		int score = int.Parse(scoreTally.text.Substring(1));

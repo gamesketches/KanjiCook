@@ -337,9 +337,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33841965, y: 0.23327477}
   m_AnchorMax: {x: 0.8631608, y: 0.53545797}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_AnchoredPosition: {x: -0.0000019073486, y: -0.0001449585}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.3121409, y: 0.7739592}
 --- !u!114 &25356214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,10 +1123,10 @@ RectTransform:
   m_Father: {fileID: 1388473734}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7, y: 0.935}
-  m_AnchorMax: {x: 0.97, y: 0.985}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.3104375, y: 0.9305987}
+  m_AnchorMax: {x: 0.67, y: 0.98940146}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &92382570
 CanvasRenderer:
@@ -1274,7 +1274,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000061035156}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &125342585
 MonoBehaviour:
@@ -2857,7 +2857,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 7722996117338117719, guid: 0c1bad951d49042e6a183356b3da6b19,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5340,7 +5341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &781131701
 Transform:
   m_ObjectHideFlags: 0
@@ -5858,7 +5859,7 @@ MonoBehaviour:
   timer: {fileID: 64654782}
   requestInterval: 4
   attempts: 0
-  levelDuration: 60
+  levelDuration: 15
 --- !u!4 &838085460
 Transform:
   m_ObjectHideFlags: 0
@@ -7047,11 +7048,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: "Music: \"Off To Osaka\" by Kevin MacLeod\n\nThis game uses the KRADFILE
+  m_Text: 'Music: "Off To Osaka" by Kevin MacLeod
+
+
+    This game uses the KRADFILE
     and KANJIDIC dictionary files. These files are the property of the Electronic
     Dictionary Research and Development Group, and are used in conformance with the
-    Group's licence. **** something about the font in here?**** \n\nFor more information,
-    please use the links below"
+    Group''s licence.
+
+
+    For more information, please use the links below'
 --- !u!222 &971625496
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10085,9 +10091,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0.21244505}
   m_AnchorMax: {x: 2.1720002, y: 0.38659334}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0000038146973, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.09593712, y: 0.5}
 --- !u!114 &1509585093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10872,7 +10878,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 7722996117338117719, guid: 0c1bad951d49042e6a183356b3da6b19,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11046,7 +11053,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 7722996117338117719, guid: 0c1bad951d49042e6a183356b3da6b19,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11967,8 +11975,8 @@ RectTransform:
   m_Father: {fileID: 1388473734}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.58, y: 0.935}
-  m_AnchorMax: {x: 0.67, y: 0.985}
+  m_AnchorMin: {x: 0.88, y: 0.935}
+  m_AnchorMax: {x: 0.97, y: 0.985}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12153,8 +12161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 30
-  m_MinHeight: 30
+  m_MinWidth: 61.4
+  m_MinHeight: 64.6
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
@@ -12289,7 +12297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelButtonPrefab: {fileID: 93977579417071345, guid: cf128c8dda8ff4ad58d428ce58cc3b3a,
     type: 3}
-  startingRotation: 4
+  startingRotation: 0
   scrollView: {fileID: 125342584}
   levelsToLoad: 8
   blankMenu: {fileID: -2021273199166583569, guid: 3c27d59b768604f489d741e85cf9c9a3,
@@ -12370,7 +12378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b656926cf22c4025adf25f91cd001ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3167655176cdc48888feb0b151666c3a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12862,7 +12870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -49.99994}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008622793
@@ -13964,9 +13972,17 @@ MonoBehaviour:
   - {fileID: 330771218}
   - {fileID: 1690507426}
   performanceText: {fileID: 1406472169}
-  disabledStar: {r: 1, g: 1, b: 1, a: 0.57254905}
+  disabledStar: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   enabledStar: {r: 0.43137258, g: 0.81568635, b: 0.96470594, a: 1}
   slideInTime: 0.4
+  initialDelay: 1
+  starFillDelay: 0.5
+  stretchSize: 1.3
+  stretchTime: 0.2
+  emptyStar: {fileID: 7722996117338117719, guid: 0c1bad951d49042e6a183356b3da6b19,
+    type: 3}
+  filledStar: {fileID: 853860129850113478, guid: 0c1bad951d49042e6a183356b3da6b19,
+    type: 3}
 --- !u!114 &2145951997
 MonoBehaviour:
   m_ObjectHideFlags: 0

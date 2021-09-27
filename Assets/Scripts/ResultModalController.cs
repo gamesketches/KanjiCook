@@ -10,6 +10,12 @@ public class ResultModalController : MonoBehaviour
 	public Color disabledStar;
 	public Color enabledStar;
 	public float slideInTime;
+	public float initialDelay;
+	public float starFillDelay;
+	public float stretchSize;
+	public float stretchTime;
+	public Sprite emptyStar;
+	public Sprite filledStar;
 	RectTransform rectTransform;
     // Start is called before the first frame update
     void Awake()
@@ -41,10 +47,27 @@ public class ResultModalController : MonoBehaviour
 										"You have potential\nKeep up the good work!";
 
 		for(int i = 0; i < stars.Length; i++) {
-			stars[i].color = i < numStars ? enabledStar : disabledStar;
+			stars[i].color = disabledStar;
+			stars[i].sprite = emptyStar;
+			if(i < numStars) {
+				StartCoroutine(FillStarAnimation(stars[i], initialDelay + (starFillDelay * i)));
+			}
 		}
 		performanceText.text = performanceString;
-		ProgressTracker.instance.UpdateLevelInfo(GameManager.levelIndex, numStars);
+		//ProgressTracker.instance.UpdateLevelInfo("LevelContent", GameManager.levelIndex, numStars);
+	}
+
+	IEnumerator FillStarAnimation(Image theStar, float delayOffset=0) {
+		yield return new WaitForSeconds(delayOffset);
+		theStar.color = enabledStar;
+		theStar.sprite = filledStar;
+		Vector3 startSize = theStar.transform.localScale;
+		Vector3 targetSize = new Vector3(stretchSize,stretchSize,stretchSize);
+		for(float t = 0; t < stretchTime * 2; t += Time.deltaTime) {
+			theStar.transform.localScale = Vector3.Lerp(startSize, targetSize, Mathf.PingPong(t, stretchTime) / stretchTime);
+			yield return null;
+		}
+		theStar.transform.localScale = startSize;
 	}
 
 	public void CloseResultModal() {
