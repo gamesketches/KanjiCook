@@ -7,6 +7,7 @@ import sys
 maxLevelRadicals = 7
 maxLevelKanji = 5
 minLevelKanji = 4
+targetJLPT = 4
 
 levelCounter = 1
 unusableKanji = [];
@@ -78,6 +79,7 @@ def CheckRadicalCount(cleanedEntries):
 	print(radicalString)
 	if len(radicalContents) > maxLevelRadicals:
 		print("WARNING: TOO MANY RADS!")
+	return radicalString
 
 def GenFromFile(inputFile):
 	splitInputFile = inputFile.readline().split()
@@ -114,35 +116,67 @@ def GenFromList(inputList):
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
 	print(kanjiString)
-	CheckRadicalCount(theKanji)
+	levelListFile = codecs.open("./LevelList.csv", mode="w", encoding='utf-8')
+	levelListFile.write("level" + str(levelCounter) + "," + kanjiString + "," + CheckRadicalCount(theKanji) + "\n")
+	levelListFile.close()
+	#CheckRadicalCount(theKanji)
 	levelCounter += 1
+
+def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
+	newRads = FindKanjiRadicals(newKanji)
+	numIntersection = len(curRadicalSet.intersection(newRads))
+	if numIntersection > 0:
+		radsAdded = len(newRads) - numIntersection
+		if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
+			if len(curKanjiList) + 1 == maxLevelKanji:
+				print(len(curRadicalSet) + radsAdded)
+				GenFromList(curKanjiList + [newKanji])
+				return curKanjiList + [newKanji], curRadicalSet.union(newRads)
+			else:
+				print("going a level deeper on " + newKanji)
+				newKanji, newRads = FindContentRecursively(curKanjiList + [newKanji], curRadicalSet.union(newRads))
+				if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
+					return newKanji, newRads
+	return [-1, -1], set([])
 
 def FindContentRecursively(curKanjiList, curRadicalSet):
 	global maxLevelKanji, maxLevelRadicals, minLevelKanji
+	checkAfterIteration = []
 	for kanji in root.findall('character'):
 		freq = kanji.find("misc").find("freq")
 		if freq is None:
 			root.remove(kanji)
 			continue
 		jlptLevel = kanji.find("misc").find("jlpt")
-		acceptableJLPT = jlptLevel is not None and jlptLevel > 3
+		acceptableJLPT = jlptLevel is not None and jlptLevel >= targetJLPT
 		theKanji = kanji.find("literal").text
 		if theKanji in curKanjiList or theKanji in unusableKanji or acceptableJLPT:
 			continue
-		newRads = FindKanjiRadicals(theKanji)
-		numIntersection = len(curRadicalSet.intersection(newRads))
-		if numIntersection > 0:
-			radsAdded = len(newRads) - numIntersection
-			if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
-				if len(curKanjiList) + 1 == maxLevelKanji:
-					print(len(curRadicalSet) + radsAdded)
-					GenFromList(curKanjiList + [theKanji])
-					return curKanjiList + [theKanji], curRadicalSet.union(newRads)
-				else:
-					print(".")
-					newKanji, newRads = FindContentRecursively(curKanjiList + [theKanji], curRadicalSet.union(newRads))
-					if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
-						return newKanji, newRads	
+		if jlptLevel > targetJLPT:
+			checkAfterIteration.append(theKanji)
+			continue
+		newKanji, newRads = ProcessKanjiForRecursion(theKanji, curKanjiList, curRadicalSet)
+		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
+			return newKanji, newRads
+		#newRads = FindKanjiRadicals(theKanji)
+		#numIntersection = len(curRadicalSet.intersection(newRads))
+		#if numIntersection > 0:
+		#	radsAdded = len(newRads) - numIntersection
+		#	if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
+		#		if len(curKanjiList) + 1 == maxLevelKanji:
+		#			print(len(curRadicalSet) + radsAdded)
+		#			GenFromList(curKanjiList + [theKanji])
+		#			return curKanjiList + [theKanji], curRadicalSet.union(newRads)
+		#		else:
+		#			print(".")
+		#			newKanji, newRads = FindContentRecursively(curKanjiList + [theKanji], curRadicalSet.union(newRads))
+		#			if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
+		#				return newKanji, newRads	
+	print("Looking through leftovers: " + str(len(checkAfterIteration)))
+	for leftOver in checkAfterIteration:
+		newKanji, newRads = ProcessKanjiForRecursion(leftOver, curKanjiList, curRadicalSet)
+		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
+			return newKanji, newRads
 	return [-1, -1], set([])
 				
 
