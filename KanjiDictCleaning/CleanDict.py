@@ -20,7 +20,7 @@ print("xml loaded")
 print("opening krad")
 krad = codecs.open("kradfile-u.txt", encoding='utf-8')
 print("krad opened")
-recipes = codecs.open("jlpt5krad.txt", encoding='utf-8')
+recipes = codecs.open("KanjiRecipes.csv", encoding='utf-8')
 
 bannedKanji = []
 deadEndKanji = []
@@ -44,7 +44,7 @@ def GetKanjiEntry(kanjiToFind):
 def FindKanjiRadicals(kanji):
 	for radEntry in recipes:
 		if radEntry[0] == kanji:
-			returnVal = radEntry[4:].rstrip().split(" ")
+			returnVal = radEntry[4:].rstrip().split(",")
 			return returnVal
 	
 	for radEntry in krad:
