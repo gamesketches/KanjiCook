@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 import codecs
 import json
 import sys
+import uuid
 
 maxLevelRadicals = 7
 maxLevelKanji = 5
@@ -22,6 +23,7 @@ print("krad opened")
 recipes = codecs.open("jlpt5krad.txt", encoding='utf-8')
 
 bannedKanji = []
+deadEndKanji = []
 
 def GenKanjiInfoString(kanji):
 	meanings = " "
@@ -98,7 +100,7 @@ def GenFromFile(inputFile):
 	print(json.dumps({"kanjiInfos" : theKanji}))
 	CheckRadicalCount(theKanji)
 
-def GenFromList(inputList):
+def GenerateFile(inputList):
 	global levelCounter
 	theKanji = []
 	kanjiString = "" 
@@ -111,18 +113,20 @@ def GenFromList(inputList):
 		onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
 		theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
 
+	levelUuid = str(uuid.uuid4())
 	outputFile = open("./LevelOutput/level" + str(levelCounter) + ".json", "w")
-	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji}))
+	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji, "uuid" : levelUuid}))
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
 	print(kanjiString)
-	levelListFile = codecs.open("./LevelList.csv", mode="w", encoding='utf-8')
-	levelListFile.write("level" + str(levelCounter) + "," + kanjiString + "," + CheckRadicalCount(theKanji) + "\n")
+	levelListFile = codecs.open("./LevelList.csv", mode="a", encoding='utf-8')
+	levelListFile.write("level" + str(levelCounter) + "," + kanjiString + "," + CheckRadicalCount(theKanji) + ", " + levelUuid + "," +  "\n")
 	levelListFile.close()
 	#CheckRadicalCount(theKanji)
 	levelCounter += 1
 
 def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
+	global deadEndKanji
 	newRads = FindKanjiRadicals(newKanji)
 	numIntersection = len(curRadicalSet.intersection(newRads))
 	if numIntersection > 0:
@@ -130,17 +134,18 @@ def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
 		if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
 			if len(curKanjiList) + 1 == maxLevelKanji:
 				print(len(curRadicalSet) + radsAdded)
-				GenFromList(curKanjiList + [newKanji])
+				GenerateFile(curKanjiList + [newKanji])
 				return curKanjiList + [newKanji], curRadicalSet.union(newRads)
 			else:
 				print("going a level deeper on " + newKanji)
 				newKanji, newRads = FindContentRecursively(curKanjiList + [newKanji], curRadicalSet.union(newRads))
 				if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 					return newKanji, newRads
+	deadEndKanji.append(newKanji)
 	return [-1, -1], set([])
 
 def FindContentRecursively(curKanjiList, curRadicalSet):
-	global maxLevelKanji, maxLevelRadicals, minLevelKanji
+	global maxLevelKanji, maxLevelRadicals, minLevelKanji, deadEndKanji
 	checkAfterIteration = []
 	for kanji in root.findall('character'):
 		freq = kanji.find("misc").find("freq")
@@ -148,13 +153,15 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 			root.remove(kanji)
 			continue
 		jlptLevel = kanji.find("misc").find("jlpt")
-		acceptableJLPT = jlptLevel is not None and jlptLevel >= targetJLPT
+		acceptableJLPT = jlptLevel is not None and int(jlptLevel.text) >= targetJLPT
 		theKanji = kanji.find("literal").text
-		if theKanji in curKanjiList or theKanji in unusableKanji or acceptableJLPT:
+		if theKanji in curKanjiList or theKanji in unusableKanji or not acceptableJLPT:
 			continue
 		if jlptLevel > targetJLPT:
 			checkAfterIteration.append(theKanji)
 			continue
+		#if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji - 1:
+		#	continue
 		newKanji, newRads = ProcessKanjiForRecursion(theKanji, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 			return newKanji, newRads
@@ -195,6 +202,7 @@ if len(sys.argv) > 1:
 	for inputKanjis in kanjiLines:
 		for literal in inputKanjis.split():
 			print("building for " + literal)
+			deadEndKanji = []
 			FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
 else:
 	print("No file given")
