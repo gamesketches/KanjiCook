@@ -24,6 +24,15 @@ recipes = codecs.open("KanjiRecipes.csv", encoding='utf-8')
 
 bannedKanji = []
 deadEndKanji = []
+recentlyUsedKanji = {}
+
+def PrepKanjiDic():
+	for kanji in root.findall('character'):
+		freq = kanji.find("misc").find("freq")
+		if freq is None:
+			root.remove(kanji)
+			continue
+		recentlyUsedKanji[kanji.find('literal').text] = 0
 
 def GenKanjiInfoString(kanji):
 	meanings = " "
@@ -83,6 +92,12 @@ def CheckRadicalCount(cleanedEntries):
 		print("WARNING: TOO MANY RADS!")
 	return radicalString
 
+def UpdateRecentKanjiListings(kanji):
+	if recentlyUsedKanji.has_key(kanji):
+		recentlyUsedKanji[kanji] += 1
+	else:
+		recentlyUsedKanji[kanji] = 0
+
 def GenFromFile(inputFile):
 	splitInputFile = inputFile.readline().split()
 	theKanji = []
@@ -112,6 +127,7 @@ def GenerateFile(inputList):
 		foundRadicals = FindKanjiRadicals(i) 
 		onyomi, kunyomi = FindKanjiReadings(kanjiEntry)
 		theKanji.append( {'kanji' : i, "meanings" : foundMeanings, "radicals" : foundRadicals, "onyomi" : onyomi, "kunyomi" : kunyomi})
+		UpdateRecentKanjiListings(i)
 
 	levelUuid = str(uuid.uuid4())
 	outputFile = open("./LevelOutput/level" + str(levelCounter) + ".json", "w")
@@ -157,7 +173,7 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		theKanji = kanji.find("literal").text
 		if theKanji in curKanjiList or theKanji in unusableKanji or not acceptableJLPT:
 			continue
-		if jlptLevel > targetJLPT:
+		if jlptLevel > targetJLPT or recentlyUsedKanji.has_key(theKanji):
 			checkAfterIteration.append(theKanji)
 			continue
 		#if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji - 1:
@@ -179,7 +195,7 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		#			newKanji, newRads = FindContentRecursively(curKanjiList + [theKanji], curRadicalSet.union(newRads))
 		#			if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 		#				return newKanji, newRads	
-	print("Looking through leftovers: " + str(len(checkAfterIteration)))
+	checkAfterIteration = sorted(checkAfterIteration, key=recentlyUsedKanji.__getitem__) 
 	for leftOver in checkAfterIteration:
 		newKanji, newRads = ProcessKanjiForRecursion(leftOver, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
@@ -194,6 +210,7 @@ for bannedKanji in bannedKanjiLine.split():
 	
 print("Banned Kanji List: ")
 print(bannedKanji)
+PrepKanjiDic()
 
 if len(sys.argv) > 1:
 	print("opening " + sys.argv[1])
