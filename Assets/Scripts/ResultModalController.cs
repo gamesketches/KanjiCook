@@ -54,7 +54,7 @@ public class ResultModalController : MonoBehaviour
 			}
 		}
 		performanceText.text = performanceString;
-		ProgressTracker.instance.UpdateLevelInfo("LevelContent", GameManager.levelIndex, numStars);
+		ProgressTracker.instance.UpdateLevelInfo(GameManager.levelId, numStars);
 	}
 
 	IEnumerator FillStarAnimation(Image theStar, float delayOffset=0) {

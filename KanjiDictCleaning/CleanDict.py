@@ -164,16 +164,16 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 	global maxLevelKanji, maxLevelRadicals, minLevelKanji, deadEndKanji
 	checkAfterIteration = []
 	for kanji in root.findall('character'):
-		freq = kanji.find("misc").find("freq")
-		if freq is None:
-			root.remove(kanji)
-			continue
+		#freq = kanji.find("misc").find("freq")
+		#if freq is None:
+		#	root.remove(kanji)
+		#	continue
 		jlptLevel = kanji.find("misc").find("jlpt")
 		acceptableJLPT = jlptLevel is not None and int(jlptLevel.text) >= targetJLPT
 		theKanji = kanji.find("literal").text
 		if theKanji in curKanjiList or theKanji in unusableKanji or not acceptableJLPT:
 			continue
-		if jlptLevel > targetJLPT or recentlyUsedKanji.has_key(theKanji):
+		if jlptLevel > targetJLPT or recentlyUsedKanji[theKanji] > 0:
 			checkAfterIteration.append(theKanji)
 			continue
 		#if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji - 1:

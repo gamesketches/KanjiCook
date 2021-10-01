@@ -13,8 +13,8 @@ public class ContentManager : MonoBehaviour
 	public int numKanji;
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
-	Dictionary<int, EntreeData[]> levelLookup;
-	Dictionary<int, string> packLookup;
+	Dictionary<string, EntreeData[]> levelLookup;
+	List<string> levelIds;
 	string[] packsOwned;
 	
 	[SerializeField] private AssetLabelReference levelLabel;
@@ -23,8 +23,7 @@ public class ContentManager : MonoBehaviour
     void Awake()
     {
 		instance = this;
-		levelLookup = new Dictionary<int, EntreeData[]>();
-		packLookup = new Dictionary<int, string>();
+		levelLookup = new Dictionary<string, EntreeData[]>();
 		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4", "jlpt3", "jlpt2", "jlpt1"};
 		StartCoroutine(LoadLevelsFromResources());
 		//StartCoroutine(LoadOwnedLevels());
@@ -42,10 +41,12 @@ public class ContentManager : MonoBehaviour
 		foreach(string pack in packsOwned) {
 			TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + pack);
 			foreach(TextAsset level in levels) {
-				EntreeData[] levelContent = ProcessLevelContent(level);
+				string newID = ProcessLevelContent(level);
+				levelIds.Add(newID);
+				/*EntreeData[] levelContent = ProcessLevelContent(level);
 				levelLookup.Add(levelCount, levelContent);
 				packLookup.Add(levelCount, pack);
-				levelCount++;
+				levelCount++;*/
 			}
 			yield return null;
 			loadingLevels = false;
@@ -65,9 +66,9 @@ public class ContentManager : MonoBehaviour
 			{
 				//Gets called for every loaded asset
 				Debug.Log(obj.name);
-				EntreeData[] levelContent = ProcessLevelContent(obj);
-				int levelIndex = int.Parse(obj.name.Substring(5));
-				levelLookup.Add(levelIndex, levelContent);
+				levelIds.Add(ProcessLevelContent(obj));
+				//int levelIndex = int.Parse(obj.name.Substring(5));
+				//levelLookup.Add(levelIndex, levelContent);
 			});
 		yield return loadWithSingleKeyHandle;
 		IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
@@ -83,9 +84,9 @@ public class ContentManager : MonoBehaviour
 							Addressables.LoadAssetsAsync<TextAsset>(levelLabel, obj => {
         //Gets called for every loaded asset
 			Debug.Log(obj.name);
-			EntreeData[] levelContent = ProcessLevelContent(obj);
-			int levelIndex = int.Parse(obj.name.Substring(5));
-			levelLookup.Add(levelIndex, levelContent);
+			levelIds.Add(ProcessLevelContent(obj));
+			//int levelIndex = int.Parse(obj.name.Substring(5));
+			//levelLookup.Add(levelIndex, levelContent);
     	});
 		yield return loadWithSingleKeyHandle;
 		IList<TextAsset> singleKeyResult = loadWithSingleKeyHandle.Result;
@@ -97,29 +98,8 @@ public class ContentManager : MonoBehaviour
 		return !loadingLevels;
 	}
 
-	public void GetLevelSelectContent(string filename, out string[] kanjis, out string[] radicals) {
-		TextAsset levelFile = Resources.Load<TextAsset>(filename);
-		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(levelFile.text);
-		List<string> fileKanjis = new List<string>();
-		List<string> fileRadicals = new List<string>();
-		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
-			fileKanjis.Add(kanji.kanji);
-			foreach(string rad in kanji.radicals) {
-				if(fileRadicals.IndexOf(rad) == -1) {
-					fileRadicals.Add(rad);
-				}
-			}
-		}
-		kanjis = fileKanjis.ToArray();
-		radicals = fileRadicals.ToArray();
-	}
-
-	public bool HasLevelIndex(int index) {
-		return levelLookup.ContainsKey(index);
-	}
-
-	public void GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals, out string packName) {
-		EntreeData[] theLevel = levelLookup[index];
+	public void GetLevelSelectContent(string uuid, out string[] kanjis, out string[] radicals) {
+		EntreeData[] theLevel = levelLookup[uuid];
 		List<string> fileKanjis = new List<string>();
 		List<string> fileRadicals = new List<string>();
 		for(int i = 0; i < theLevel.Length; i++) {
@@ -132,23 +112,45 @@ public class ContentManager : MonoBehaviour
 		}
 		kanjis = fileKanjis.ToArray();
 		radicals = fileRadicals.ToArray();
-		packName = packLookup[index];
 	}
 
-	public EntreeData[] LoadLevelContent(string filename) {
-		TextAsset levelFile = Resources.Load<TextAsset>(filename);
-		return ProcessLevelContent(levelFile);
+	public string GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals) {
+		string levelUUID = levelIds[index];
+		EntreeData[] theLevel = levelLookup[levelUUID];
+		List<string> fileKanjis = new List<string>();
+		List<string> fileRadicals = new List<string>();
+		for(int i = 0; i < theLevel.Length; i++) {
+			fileKanjis.Add(theLevel[i].literal);
+			foreach(string rad in theLevel[i].components) {
+				if(fileRadicals.IndexOf(rad) == -1) {
+					fileRadicals.Add(rad);
+				}
+			}
+		}
+		kanjis = fileKanjis.ToArray();
+		radicals = fileRadicals.ToArray();
+		return levelUUID;
+		//packName = packLookup[index];
 	}
 
-	public EntreeData[] GetLevelContent(int levelIndex) {
-		return levelLookup[levelIndex];
+	/*public bool HasLevelIndex(int index) {
+		return levelLookup.ContainsKey(index);
+	}*/
+
+	public EntreeData[] LoadLevelContent(string uuid) {
+		return levelLookup[uuid];
+		//return ProcessLevelContent(levelFile);
 	}
 
-	public string LevelPackLookup(int levelIndex) {
+	public EntreeData[] GetLevelContent(string levelId) {
+		return levelLookup[levelId];
+	}
+
+	/*public string LevelPackLookup(int levelIndex) {
 		return packLookup[levelIndex];
-	}
+	}*/
 
-	EntreeData[] ProcessLevelContent(TextAsset file) {
+	/*EntreeData[] ProcessLevelContent(TextAsset file) {
 		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(file.text);
 		List<EntreeData> tempContent = new List<EntreeData>();
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
@@ -158,10 +160,20 @@ public class ContentManager : MonoBehaviour
 					i = -1;
 					randomMeaning = Random.Range(0, kanji.meanings.Length);
 				}
-			}*/
+			}
 			tempContent.Add(new EntreeData(kanji.meanings, kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
 		}
 		return tempContent.ToArray();
+	}*/
+
+	string ProcessLevelContent(TextAsset file) {
+		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(file.text);
+		List<EntreeData> tempContent = new List<EntreeData>();
+		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
+			tempContent.Add(new EntreeData(kanji.meanings, kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
+		}
+		levelLookup[levelKanji.uuid] = tempContent.ToArray();
+		return levelKanji.uuid;
 	}
 
 	public EntreeData[] CreateGameContent() {
@@ -203,6 +215,7 @@ public class ContentManager : MonoBehaviour
 [System.Serializable]
 public class KanjiInfoFile {
 	public KanjiInfo[] kanjiInfos;
+	public string uuid;
 }
 
 [System.Serializable]

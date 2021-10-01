@@ -15,8 +15,8 @@ public class ProgressTracker : MonoBehaviour
         LoadProgressData();
     }
 
-	public void UpdateLevelInfo(string packName, int level, int score) {
-		curProgress.UpdateLevel(packName, level, score);
+	public void UpdateLevelInfo(string uuid, int score) {
+		curProgress.UpdateLevel(uuid, score);
 		SaveProgressData();
 	}
 
@@ -41,26 +41,33 @@ public class ProgressTracker : MonoBehaviour
 	}
 
 	void PrintCurProgress() {
-		for(int i = 0; i < curProgress.packs.Length; i++) {
-			PackProgress curPack = curProgress.packs[i];
-			Debug.Log(curPack.packName);
-			for(int j = 0; j < curPack.playerProgress.Length; j++) {
-				Debug.Log(curPack.playerProgress[j].numStars);
-			}
+		for(int i = 0; i < curProgress.levels.Length; i++) {
+			LevelProgress level = curProgress.levels[i];
+			Debug.Log(level.uuid);
+			Debug.Log(level.numStars);
 		}
 	}
 }
 
 [System.Serializable]
 public class PlayerProgress {
-	public PackProgress[] packs;
+	public LevelProgress[] levels;//PackProgress[] packs;
 
 	public PlayerProgress() {
-		packs = new PackProgress[0];
+		levels = new LevelProgress[0];
 	}
 
-	public void UpdateLevel(string packName, int level, int score) {
-		for(int i = 0; i < packs.Length; i++) {
+	public void UpdateLevel(string levelId, int score) {
+		for(int i = 0; i < levels.Length; i++) {
+			if(levels[i].uuid == levelId) {
+				levels[i].UpdateScore(score);
+				return;
+			}
+		}
+		List<LevelProgress> temp = new List<LevelProgress>(levels);
+		temp.Add(new LevelProgress(levelId, score));
+		levels = temp.ToArray();
+		/*for(int i = 0; i < packs.Length; i++) {
 			if(packs[i].packName == packName) {
 				packs[i].UpdateLevel(level, score);
 				return;
@@ -70,12 +77,12 @@ public class PlayerProgress {
 		PackProgress newPack = new PackProgress(packName);
 		newPack.UpdateLevel(level, score);
 		temp.Add(newPack);
-		packs = temp.ToArray();
+		packs = temp.ToArray();*/
 	}
 		
 }
 
-[System.Serializable]
+/*[System.Serializable]
 public class PackProgress {
 	public string packName;
 	public LevelProgress[] playerProgress;
@@ -100,17 +107,24 @@ public class PackProgress {
 			playerProgress[level - 1].UpdateScore(score);
 		}
 	}
-}
+}*/
 
 [System.Serializable]
 public class LevelProgress {
 	public int numStars;
+	public string uuid;
 
-	public LevelProgress() {
+	public LevelProgress(string uuid) {
 		this.numStars = 0;
+		this.uuid = uuid;
 	}
 
 	public LevelProgress(int stars) {
+		this.numStars = stars;
+	}
+	
+	public LevelProgress(string uuid, int stars) {
+		this.uuid = uuid;
 		this.numStars = stars;
 	}
 

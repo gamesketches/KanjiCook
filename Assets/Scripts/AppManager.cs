@@ -23,18 +23,18 @@ public class AppManager : MonoBehaviour
         
     }
 
-	public void SelectLevel(int levelIndex) {
+	public void SelectLevel(string levelId) {
 		if(!LevelSelect.levelSelectLocked) return;
 		EnableGameplayCanvases();
 		GameMenuCanvas.GetComponent<MenuManager>().SlideOffMenus();
-		GameManager.instance.LoadLevel(levelIndex);
+		GameManager.instance.LoadLevel(levelId);
 	}
 		
 	public void OpenLevelSelect() {
 		GameMenuCanvas.GetComponent<MenuManager>().SlideOnMenus();
 		GameManager.instance.CleanUpGameplay();
 		GameManager.instance.ClearDuJourMenu();
-		GameManager.levelIndex = -1;
+		GameManager.levelId = "none";
 		Invoke("DisableGameplayCanvases", MenuManager.menuSlideSpeed);
 	}
 

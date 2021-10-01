@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 	float levelTimer;
 	bool gameStarted = false;
 	string levelFileName;
-	public static int levelIndex = -1;
+	public static string levelId = "none";
 
     // Start is called before the first frame update
     void Awake()
@@ -114,19 +114,22 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-	public void LoadLevel(string levelName) {
-		levelFileName = levelName;
-		LoadKanji();
-		LevelSetup();
+	public void LoadLevel(string levelId) {
+		if(levelId == "none") {
+			levelId = levelId;
+			GetLoadedKanji();
+			//LoadKanji();
+			LevelSetup();
+		}
 	}
 
-	public void LoadLevel(int lvlIndex) {
+	/*public void LoadLevel(int lvlIndex) {
 		if(levelIndex == -1) {
 			levelIndex = lvlIndex;
 			GetLoadedKanji();
 			LevelSetup();
 		}
-	}
+	}*/
 
 	public void RestartLevel() {
 		Debug.Log("Restart level called");
@@ -144,7 +147,7 @@ public class GameManager : MonoBehaviour
 	}
 	
 	void BuildDuJourLevel() {
-		menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelIndex, false);
+		menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelId, false);
 		foreach(EntreeData pairing in targetWords) {
 			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
 			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
@@ -195,7 +198,7 @@ public class GameManager : MonoBehaviour
 	}	
 
 	void GetLoadedKanji() {
-		targetWords = contentManager.GetLevelContent(levelIndex);
+		targetWords = contentManager.GetLevelContent(levelId);
 		for(int i = 0; i < targetWords.Length; i++) {
 			targetWords[i] = TrimEntreeData(targetWords[i]);
 		}

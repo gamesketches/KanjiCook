@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 {
-	string levelFile;
-	string packName;
+	string uuid;
 	int levelIndex;
 	public Transform kanjis;
 	public Text radicals;
@@ -40,7 +39,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		}
     }
 
-	public void Initialize(string id, string levelName, bool isInteractable = true) {
+	/*public void Initialize(string id, string levelName, bool isInteractable = true) {
 		interactable = isInteractable;
 		levelFile = id;
 		string[] levelKanjis = new string[0];
@@ -54,14 +53,29 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 			radicals.text += " " + radical;
 		}
 		//GetComponentInChildren<Text>().text = levelName;
-	}
+	}*/
 
 	public void Initialize(int id, bool isInteractable = true) {
 		string[] levelKanjis = new string[0];
 		string[] rads = new string[0];
 		interactable = isInteractable;
 		levelIndex = id;
-		ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads, out packName);
+		uuid = ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
+		foreach(string kanji in levelKanjis) {
+			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
+			newKanji.GetComponentInChildren<Text>().text = kanji;
+		}
+		foreach(string radical in rads) {
+			radicals.text += " " + radical;
+		}
+	}
+
+	public void Initialize(string levelUuid, bool isInteractable = true) {
+		uuid = levelUuid;
+		string[] levelKanjis = new string[0];
+		string[] rads = new string[0];
+		interactable = isInteractable;
+		ContentManager.instance.GetLevelSelectContent(levelUuid, out levelKanjis, out rads);
 		foreach(string kanji in levelKanjis) {
 			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
 			newKanji.GetComponentInChildren<Text>().text = kanji;
@@ -77,10 +91,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		scrollRectLowerBound = instancePosition - (3 * elementSize);
 		if(scrollRectUpperBound > 1) scrollRectLowerBound -= scrollRectUpperBound - 1;
 		if(scrollRectLowerBound < 0) scrollRectUpperBound += -scrollRectLowerBound;
-		Debug.Log("Position: " + position.ToString());
-		Debug.Log("Instance Position: " + instancePosition.ToString());
-		Debug.Log("UpperBound: " + scrollRectUpperBound.ToString());
-		Debug.Log("LowerBound: " + scrollRectLowerBound.ToString());
 	}
 
 	public void Clear() {
@@ -108,6 +118,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 			yield return null;
 		}
 		backgroundImage.color = Color.white;
-		AppManager.instance.SelectLevel(levelIndex);
+		AppManager.instance.SelectLevel(uuid);
 	}
 }
