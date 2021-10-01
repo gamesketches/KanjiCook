@@ -114,9 +114,11 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-	public void LoadLevel(string levelId) {
+	public void LoadLevel(string levelUuid) {
+		Debug.Log("Load level called");
 		if(levelId == "none") {
-			levelId = levelId;
+			Debug.Log(levelId);
+			levelId = levelUuid;
 			GetLoadedKanji();
 			//LoadKanji();
 			LevelSetup();

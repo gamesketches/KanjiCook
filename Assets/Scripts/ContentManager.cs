@@ -24,6 +24,7 @@ public class ContentManager : MonoBehaviour
     {
 		instance = this;
 		levelLookup = new Dictionary<string, EntreeData[]>();
+		levelIds = new List<string>();
 		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4", "jlpt3", "jlpt2", "jlpt1"};
 		StartCoroutine(LoadLevelsFromResources());
 		//StartCoroutine(LoadOwnedLevels());
