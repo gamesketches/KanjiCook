@@ -8,6 +8,8 @@ public class AppManager : MonoBehaviour
 	public GameObject GameMenuCanvas;
 	public Canvas gameplayCanvas;
 	public Canvas gameplayUICanvas;
+	public Color primaryColor;
+	public Color secondaryColor;
 	
     // Start is called before the first frame update
     void Awake()

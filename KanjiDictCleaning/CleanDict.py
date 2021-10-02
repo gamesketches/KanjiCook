@@ -25,6 +25,9 @@ recipes = codecs.open("KanjiRecipes.csv", encoding='utf-8')
 bannedKanji = []
 deadEndKanji = []
 recentlyUsedKanji = {}
+setsGeneratedSoFar = []
+
+oldSetsGenerated = 0
 
 def PrepKanjiDic():
 	for kanji in root.findall('character'):
@@ -98,6 +101,15 @@ def UpdateRecentKanjiListings(kanji):
 	else:
 		recentlyUsedKanji[kanji] = 0
 
+def NotPreviouslyGenerated(kanjiCandidate):
+	candidateSet = set(kanjiCandidate)
+	for prevOutput in setsGeneratedSoFar:
+		if candidateSet == prevOutput or len(candidateSet.union(prevOutput)) <= 7:
+			print("this set has already been generated!")
+			print(prevOutput)
+			return False
+	return True
+
 def GenFromFile(inputFile):
 	splitInputFile = inputFile.readline().split()
 	theKanji = []
@@ -130,11 +142,12 @@ def GenerateFile(inputList):
 		UpdateRecentKanjiListings(i)
 
 	levelUuid = str(uuid.uuid4())
-	outputFile = open("./LevelOutput/level" + str(levelCounter) + ".json", "w")
+	outputFile = open("./LevelOutput/level" + str(levelCounter).zfill(4) + ".json", "w")
 	outputFile.writelines(json.dumps({"kanjiInfos" : theKanji, "uuid" : levelUuid}))
 	outputFile.close()
 	print(json.dumps({"kanjiInfos" : theKanji}))
 	print(kanjiString)
+	setsGeneratedSoFar.append(set(kanjiString.split()))
 	levelListFile = codecs.open("./LevelList.csv", mode="a", encoding='utf-8')
 	levelListFile.write("level" + str(levelCounter) + "," + kanjiString + "," + CheckRadicalCount(theKanji) + ", " + levelUuid + "," +  "\n")
 	levelListFile.close()
@@ -148,7 +161,7 @@ def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
 	if numIntersection > 0:
 		radsAdded = len(newRads) - numIntersection
 		if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
-			if len(curKanjiList) + 1 == maxLevelKanji:
+			if len(curKanjiList) + 1 == maxLevelKanji and NotPreviouslyGenerated(curKanjiList + [newKanji]):
 				print(len(curRadicalSet) + radsAdded)
 				GenerateFile(curKanjiList + [newKanji])
 				return curKanjiList + [newKanji], curRadicalSet.union(newRads)
@@ -176,8 +189,8 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		if jlptLevel > targetJLPT or recentlyUsedKanji[theKanji] > 0:
 			checkAfterIteration.append(theKanji)
 			continue
-		#if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji - 1:
-		#	continue
+		if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji - 1:
+			continue
 		newKanji, newRads = ProcessKanjiForRecursion(theKanji, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 			return newKanji, newRads
@@ -221,6 +234,7 @@ if len(sys.argv) > 1:
 			print("building for " + literal)
 			deadEndKanji = []
 			FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
+	print(oldSetsGenerated)
 else:
 	print("No file given")
 	response = raw_input("Generate level from joyo? Y/N")

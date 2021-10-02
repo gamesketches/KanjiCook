@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
 		ShowDuJourMenu();
 		gameStarted = false;
 		requestQueue.ClearRequests();
+		resultModal.CloseResultModal();
 		levelTimer = 0;
 		attempts = 0;
 		requestTimer = 4.5f;
@@ -251,6 +252,7 @@ public class GameManager : MonoBehaviour
 		requestQueue.ClearRequests();
 		cookingPot.ClearIngredients();
 		foundWords.Clear();
+		resultModal.CloseResultModal();
 	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {
@@ -273,11 +275,15 @@ public class GameManager : MonoBehaviour
 		foreach(EntreeData listing in targetWords) {
 			if(listing.components.Length == components.Length) {
 				bool match = true;
-				List<string> componentList = new List<string>(listing.components);
-				foreach(string component in components) {
-					if(componentList.IndexOf(component) == -1) {
+				List<string> recipeComponents = new List<string>(listing.components);
+				List<string> cookedComponents = new List<string>(components);
+				foreach(string ingredient in cookedComponents) {
+					int ingredientIndex = recipeComponents.IndexOf(ingredient);
+					if(ingredientIndex == -1) {
 						match = false;
+						break;
 					}
+					recipeComponents.RemoveAt(ingredientIndex);
 				}
 				if(match) {
 					return listing;
