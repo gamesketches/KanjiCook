@@ -4,6 +4,10 @@ import codecs
 import json
 import sys
 import uuid
+import time
+
+
+startTime = time.time()
 
 maxLevelRadicals = 7
 maxLevelKanji = 5
@@ -56,7 +60,11 @@ def GetKanjiEntry(kanjiToFind):
 def FindKanjiRadicals(kanji):
 	for radEntry in recipes:
 		if radEntry[0] == kanji:
+			recipes.seek(0)
 			returnVal = radEntry[4:].rstrip().split(",")
+			returnVal = [x for x in returnVal if x]
+			#print("found recipe")
+			#print(returnVal)
 			return returnVal
 	
 	for radEntry in krad:
@@ -68,6 +76,7 @@ def FindKanjiRadicals(kanji):
 			return returnVal
 	
 	krad.seek(0)
+	recipes.seek(0)
 	return "radicals not found"
 
 def FindKanjiReadings(kanji):
@@ -189,7 +198,7 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		if jlptLevel > targetJLPT or recentlyUsedKanji[theKanji] > 0:
 			checkAfterIteration.append(theKanji)
 			continue
-		if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji - 1:
+		if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji:
 			continue
 		newKanji, newRads = ProcessKanjiForRecursion(theKanji, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
@@ -210,6 +219,8 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		#				return newKanji, newRads	
 	checkAfterIteration = sorted(checkAfterIteration, key=recentlyUsedKanji.__getitem__) 
 	for leftOver in checkAfterIteration:
+		if leftOver in deadEndKanji and len(curKanjiList) < minLevelKanji:
+			continue
 		newKanji, newRads = ProcessKanjiForRecursion(leftOver, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 			return newKanji, newRads
@@ -234,7 +245,7 @@ if len(sys.argv) > 1:
 			print("building for " + literal)
 			deadEndKanji = []
 			FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
-	print(oldSetsGenerated)
+	print("Script execution time: %s" % (time.time() - startTime))
 else:
 	print("No file given")
 	response = raw_input("Generate level from joyo? Y/N")

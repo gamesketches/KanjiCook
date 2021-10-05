@@ -27,6 +27,7 @@ public class MenuManager : MonoBehaviour
 		audioSource = GetComponent<AudioSource>();
         titleScreen.SetActive(true);
 		levelSelect.SetActive(true);
+		backButton.SetActive(false);
 		DisableAboutScreen();
 		DisablePackScreen();
     }
@@ -45,6 +46,7 @@ public class MenuManager : MonoBehaviour
 		if(!LevelSelect.levelSelectLocked) {
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().FinishOpeningMenu());
 		}
+		backButton.SetActive(true);
 	}
 	
 	public void ToggleAboutScreen() {
