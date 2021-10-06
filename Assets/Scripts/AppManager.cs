@@ -15,6 +15,7 @@ public class AppManager : MonoBehaviour
     void Awake()
     {
 		AppManager.instance = this;
+		Camera.main.backgroundColor = primaryColor;
 		GameMenuCanvas.SetActive(true);
 		DisableGameplayCanvases();
     }

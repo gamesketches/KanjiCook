@@ -1,7 +1,73 @@
 fileFormatVersion: 2
 guid: e780eef7be745454d811c2161115785a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6172096121631967331
+    second: colorproof1_0
+  - first:
+      213: 823610408099874661
+    second: colorproof1_1
+  - first:
+      213: -2825141304354669817
+    second: colorproof1_2
+  - first:
+      213: 1427989133998578133
+    second: colorproof1_3
+  - first:
+      213: -2703585595248427294
+    second: colorproof1_4
+  - first:
+      213: -7417446405886130336
+    second: colorproof1_5
+  - first:
+      213: 4041633742260502301
+    second: colorproof1_6
+  - first:
+      213: 936482815097820249
+    second: colorproof1_7
+  - first:
+      213: -8122384448512707030
+    second: colorproof1_8
+  - first:
+      213: -439194059189344888
+    second: colorproof1_9
+  - first:
+      213: -5156444306645375381
+    second: colorproof1_10
+  - first:
+      213: 1073535540210315089
+    second: colorproof1_11
+  - first:
+      213: -1178604187043982697
+    second: colorproof1_12
+  - first:
+      213: -7971623506818948049
+    second: colorproof1_13
+  - first:
+      213: -490939949799851495
+    second: colorproof1_14
+  - first:
+      213: 5315779907106986482
+    second: colorproof1_15
+  - first:
+      213: 1462943250705744519
+    second: colorproof1_16
+  - first:
+      213: -3834426852100058637
+    second: colorproof1_17
+  - first:
+      213: 8860699652968394641
+    second: colorproof1_18
+  - first:
+      213: 8542978368680144872
+    second: colorproof1_19
+  - first:
+      213: -4862578025698141264
+    second: colorproof1_20
+  - first:
+      213: -5843667876196590931
+    second: colorproof1_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,14 +106,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -71,9 +137,495 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: colorproof1_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1326
+        width: 585
+        height: 421
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3688071b8b0b7a550800000000000000
+      internalID: 6172096121631967331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_1
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1525
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5678b107d4d0e6b00800000000000000
+      internalID: 823610408099874661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_2
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1554
+        width: 442
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bf7a1b3f41bc8d0800000000000000
+      internalID: -2825141304354669817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_3
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1341
+        width: 650
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d95a133d8c31d310800000000000000
+      internalID: 1427989133998578133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_4
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1104
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eeba5fa93fea7ad0800000000000000
+      internalID: -2703585595248427294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_5
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1108
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067c8ac0bcfef0990800000000000000
+      internalID: -7417446405886130336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_6
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1108
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f7baf9974c61830800000000000000
+      internalID: 4041633742260502301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_7
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 1108
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954d92c982e0ffc00800000000000000
+      internalID: 936482815097820249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_8
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1108
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a263e39d06e774f80800000000000000
+      internalID: -8122384448512707030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_9
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 1135
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885ae82845ba7e9f0800000000000000
+      internalID: -439194059189344888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_10
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 897
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66215e1931a078b0800000000000000
+      internalID: -5156444306645375381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_11
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 897
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15f2effc2e6f5ee00800000000000000
+      internalID: 1073535540210315089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_12
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 896
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79294748cb1c4afe0800000000000000
+      internalID: -1178604187043982697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_13
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 896
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2427e0f7aa1f5190800000000000000
+      internalID: -7971623506818948049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_14
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 896
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ab12e77b4df29f0800000000000000
+      internalID: -490939949799851495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_15
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 896
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9554b49a175c940800000000000000
+      internalID: 5315779907106986482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_16
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 47
+        width: 706
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7820fd0b22b6d4410800000000000000
+      internalID: 1462943250705744519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_17
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 618
+        width: 208
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f15b5bf71169cac0800000000000000
+      internalID: -3834426852100058637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_18
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 631
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19fab9c636787fa70800000000000000
+      internalID: 8860699652968394641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_19
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 316
+        width: 228
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8efa60d4091ce8670800000000000000
+      internalID: 8542978368680144872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_20
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 395
+        width: 35
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb54a57c07a48cb0800000000000000
+      internalID: -4862578025698141264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorproof1_21
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 47
+        width: 208
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daad0f5170f17eea0800000000000000
+      internalID: -5843667876196590931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

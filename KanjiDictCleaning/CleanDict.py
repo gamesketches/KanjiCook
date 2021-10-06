@@ -176,6 +176,7 @@ def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
 				return curKanjiList + [newKanji], curRadicalSet.union(newRads)
 			else:
 				print("going a level deeper on " + newKanji)
+				print(curKanjiList)
 				newKanji, newRads = FindContentRecursively(curKanjiList + [newKanji], curRadicalSet.union(newRads))
 				if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 					return newKanji, newRads
@@ -185,11 +186,9 @@ def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
 def FindContentRecursively(curKanjiList, curRadicalSet):
 	global maxLevelKanji, maxLevelRadicals, minLevelKanji, deadEndKanji
 	checkAfterIteration = []
+	if len(curKanjiList) > maxLevelKanji:
+		return [-1, -1], set([])
 	for kanji in root.findall('character'):
-		#freq = kanji.find("misc").find("freq")
-		#if freq is None:
-		#	root.remove(kanji)
-		#	continue
 		jlptLevel = kanji.find("misc").find("jlpt")
 		acceptableJLPT = jlptLevel is not None and int(jlptLevel.text) >= targetJLPT
 		theKanji = kanji.find("literal").text
@@ -203,20 +202,6 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		newKanji, newRads = ProcessKanjiForRecursion(theKanji, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 			return newKanji, newRads
-		#newRads = FindKanjiRadicals(theKanji)
-		#numIntersection = len(curRadicalSet.intersection(newRads))
-		#if numIntersection > 0:
-		#	radsAdded = len(newRads) - numIntersection
-		#	if len(curRadicalSet) + radsAdded <= maxLevelRadicals:
-		#		if len(curKanjiList) + 1 == maxLevelKanji:
-		#			print(len(curRadicalSet) + radsAdded)
-		#			GenFromList(curKanjiList + [theKanji])
-		#			return curKanjiList + [theKanji], curRadicalSet.union(newRads)
-		#		else:
-		#			print(".")
-		#			newKanji, newRads = FindContentRecursively(curKanjiList + [theKanji], curRadicalSet.union(newRads))
-		#			if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
-		#				return newKanji, newRads	
 	checkAfterIteration = sorted(checkAfterIteration, key=recentlyUsedKanji.__getitem__) 
 	for leftOver in checkAfterIteration:
 		if leftOver in deadEndKanji and len(curKanjiList) < minLevelKanji:
@@ -228,12 +213,13 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 				
 
 bannedKanjiFile = codecs.open("bannedKanji.txt", encoding='utf-8')
-bannedKanjiLine = bannedKanjiFile.readline()
-for bannedKanji in bannedKanjiLine.split():
-	unusableKanji.append(bannedKanji)
+bannedKanjiLines = bannedKanjiFile.readlines()
+for bannedKanjiLine in bannedKanjiLines:
+	for bannedKanji in bannedKanjiLine.split():
+		unusableKanji.append(bannedKanji)
 	
 print("Banned Kanji List: ")
-print(bannedKanji)
+print(unusableKanji)
 PrepKanjiDic()
 
 if len(sys.argv) > 1:
@@ -242,9 +228,12 @@ if len(sys.argv) > 1:
 	kanjiLines = inputFile.readlines()
 	for inputKanjis in kanjiLines:
 		for literal in inputKanjis.split():
-			print("building for " + literal)
-			deadEndKanji = []
-			FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
+			if literal in unusableKanji:
+				print("skipping banned character: " + literal)
+			else:
+				print("building for " + literal)
+				deadEndKanji = []
+				FindContentRecursively([literal], set(FindKanjiRadicals(literal)))
 	print("Script execution time: %s" % (time.time() - startTime))
 else:
 	print("No file given")
