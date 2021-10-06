@@ -30,7 +30,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
 		loadedLevels = 0;
 		levelSelectLocked = false;
-		lerpProportion = 0;
+		//lerpProportion = 0;
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
 		menuImage = GetComponent<Image>();

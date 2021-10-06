@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
 	bool aboutOpen = false;
 	bool packsOpen = false;
 	bool packsOnTop = false;
+	public float titleScreenSlideInTime;
 	public static float menuSlideSpeed = 0.4f;
 
     // Start is called before the first frame update
@@ -26,8 +27,10 @@ public class MenuManager : MonoBehaviour
 		instance = this;
 		audioSource = GetComponent<AudioSource>();
         titleScreen.SetActive(true);
+		LevelSelect.lerpProportion = 1;
 		levelSelect.SetActive(true);
 		backButton.SetActive(false);
+		StartCoroutine(SlideInTitleScreen());
 		DisableAboutScreen();
 		DisablePackScreen();
     }
@@ -37,6 +40,13 @@ public class MenuManager : MonoBehaviour
     {
         
     }
+
+	IEnumerator SlideInTitleScreen() {
+		for(float t = 0; t < titleScreenSlideInTime; t += Time.deltaTime) {
+			LevelSelect.lerpProportion = Mathf.SmoothStep(1, 0, t / titleScreenSlideInTime);
+			yield return null;
+		}
+	}
 
 	public void OpenMainMenu() {
 		DismissTitleScreen();
