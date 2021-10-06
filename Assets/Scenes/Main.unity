@@ -5386,6 +5386,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 25c5c6b5497ce4b829ef73a4c2c50649, type: 3}
   - {fileID: 8300000, guid: 2bced3c59023d498f83c303093c9d0c9, type: 3}
   - {fileID: 8300000, guid: 9ef76b0161cfe4350a8f69067ed64c65, type: 3}
+  titleScreenSlideInTime: 0.75
 --- !u!82 &781131703
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5853,7 +5854,7 @@ MonoBehaviour:
   cookingPot: {fileID: 49639589}
   menu: {fileID: 460592320}
   GameMenuCanvas: {fileID: 31813087}
-  entreePrefab: {fileID: 1034267864060128388, guid: e2d6c9c34c67c42a28bd07b2fbc97bda,
+  entreePrefab: {fileID: 1034267864060128388, guid: 639d58b4d2b3b4a9aaa099b84ef81209,
     type: 3}
   countdownClock: {fileID: 1004305596}
   timer: {fileID: 64654782}
@@ -7406,7 +7407,7 @@ GameObject:
   - component: {fileID: 1027314591}
   - component: {fileID: 1027314590}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: DuJourMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
