@@ -95,7 +95,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnBeginDrag(PointerEventData eventData) {
-		Debug.Log("Dragging Menu");
 		if(levelSelectLocked) StartCoroutine(CloseMenu());
 	}
 
@@ -137,7 +136,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		if(!levelSelectLocked && rectTransform.offsetMax.y < 0) {
 			StartCoroutine(FinishOpeningMenu());
 		}
-		Debug.Log("Ending Drag");
 	}
 
 	public IEnumerator FinishOpeningMenu() {
@@ -167,11 +165,13 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		LevelSelectButton.scrollRectPosition = 1;
 		StartCoroutine(LoadLevelListings(1, levelsToLoad));
 		SwapFakeMenu();
-		transform.root.GetComponent<MenuManager>().DismissTitleScreen();
+		MenuManager.instance.DismissTitleScreen();
+		MenuManager.instance.UpdateBackButtonActive();
 	}
 
 	public IEnumerator CloseMenu() {
 		levelSelectLocked = false;
+		MenuManager.instance.UpdateBackButtonActive();
 		float startingCurveTime = openCurve.keys[openCurve.length - 1].time;
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;

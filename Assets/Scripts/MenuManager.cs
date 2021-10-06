@@ -68,6 +68,7 @@ public class MenuManager : MonoBehaviour
 			Invoke("DisableAboutScreen", menuSlideSpeed);
 			if(packsOpen) packsOnTop = true;
 		}
+		UpdateBackButtonActive();
 	}
 
 	public void TogglePackStore() {
@@ -89,6 +90,7 @@ public class MenuManager : MonoBehaviour
 			Invoke("DisablePackScreen", menuSlideSpeed);
 		}
 		PlayPageTurnSound();
+		UpdateBackButtonActive();
 	}
 
 	public void DismissTitleScreen() {
@@ -122,6 +124,15 @@ public class MenuManager : MonoBehaviour
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, menuSlideSpeed, RectTransform.Edge.Left));
 		PlayPageTurnSound();
+		UpdateBackButtonActive();
+	}
+
+	public void UpdateBackButtonActive() {
+		if(packsOpen || aboutOpen || LevelSelect.levelSelectLocked) {
+			backButton.SetActive(true);
+		} else {
+			backButton.SetActive(false);
+		}
 	}
 
 	public void BackButtonPressed() {

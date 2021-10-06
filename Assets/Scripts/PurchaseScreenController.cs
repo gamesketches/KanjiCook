@@ -85,7 +85,6 @@ public class PurchaseScreenController : MonoBehaviour
 	}
 
 	public void OpenPurchaseMenu() {
-		Debug.Log("Opening Menu");
 		StartCoroutine(LerpInsetAnimation(rectTransform, -rectTransform.rect.size.x, 0, 0.4f));
 		open = true;
 	}	
