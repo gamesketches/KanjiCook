@@ -12,7 +12,9 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	public Text radicals;
 	public GameObject kanjiPrefab;
 	public bool interactable;
+	public Image[] stars;
 	public Color flashColor;
+	public Sprite filledStar;
 	float instancePosition;
 	float scrollRectUpperBound;
 	float scrollRectLowerBound;
@@ -68,6 +70,11 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		foreach(string radical in rads) {
 			radicals.text += " " + radical;
 		}
+		int prevScore = ProgressTracker.instance.GetScoreForLevel(uuid);
+		for(int i = 0; i < prevScore; i++) {
+			stars[i].sprite = filledStar;
+			stars[i].color = AppManager.instance.primaryColor;
+		}
 	}
 
 	public void Initialize(string levelUuid, bool isInteractable = true) {
@@ -82,6 +89,11 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		}
 		foreach(string radical in rads) {
 			radicals.text += " " + radical;
+		}
+		int prevScore = ProgressTracker.instance.GetScoreForLevel(levelUuid);
+		for(int i = 0; i < prevScore; i++) {
+			stars[i].sprite = filledStar;
+			stars[i].color = AppManager.instance.primaryColor;
 		}
 	}
 

@@ -47,6 +47,15 @@ public class ProgressTracker : MonoBehaviour
 			Debug.Log(level.numStars);
 		}
 	}
+
+	public int GetScoreForLevel(string levelId) {
+		for(int i = 0; i < curProgress.levels.Length; i++) {
+			if(curProgress.levels[i].uuid == levelId) {
+				return curProgress.levels[i].numStars;
+			}
+		}
+		return 0;
+	}
 }
 
 [System.Serializable]
