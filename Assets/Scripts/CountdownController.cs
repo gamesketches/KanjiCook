@@ -15,6 +15,7 @@ public class CountdownController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 		countdownText = GetComponent<Text>();
+		countdownText.color = AppManager.instance.secondaryColor;
     }
 
     // Update is called once per frame
