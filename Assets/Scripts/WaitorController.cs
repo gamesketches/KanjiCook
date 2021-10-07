@@ -11,7 +11,6 @@ public class WaitorController : MonoBehaviour
 	float offscreenTimer;
 	Vector3 waitorPosition;
 	public float waitorTravelTime;
-	public GameObject characterSprite;
 	public Text character;
 	RectTransform rectTransform;
 
@@ -22,12 +21,11 @@ public class WaitorController : MonoBehaviour
 		waitorPosition = transform.position;
 		transform.position += new Vector3(10, 0, 0);
 		rectTransform = GetComponent<RectTransform>();
-		//MenuManager.LerpInsetAnimation(rectTransform, 0, , Time.deltaTime);
 		float rectSize = rectTransform.rect.size.x;
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectSize * 2, rectSize);
 		instance = this;
-		characterSprite.SetActive(false);
 		character.text = "";
+		ToggleWaitorComponents(false);
     }
 
     // Update is called once per frame
@@ -37,6 +35,7 @@ public class WaitorController : MonoBehaviour
 
 	public void PickUpOrder(string literal = "字") {
 		if(animating) return;
+		
 		character.text = literal;
 		animating = true;
 		//StartCoroutine(WaitorWalksIn());
@@ -44,6 +43,7 @@ public class WaitorController : MonoBehaviour
 	}
 
 	IEnumerator WaitorWalksInCanvas() {
+		ToggleWaitorComponents(true);
 		character.gameObject.SetActive(false);
 		transform.localScale = Vector3.one;
 		yield return MenuManager.LerpInsetAnimation(rectTransform, -rectTransform.rect.size.x * 2, 0, waitorTravelTime);
@@ -53,17 +53,17 @@ public class WaitorController : MonoBehaviour
 		yield return MenuManager.LerpInsetAnimation(rectTransform, 0, -rectTransform.rect.size.x * 2, waitorTravelTime);
 		animating = false;
 		character.text = "";
+		ToggleWaitorComponents(false);
 	}
 
 	IEnumerator WaitorWalksIn() {
-		characterSprite.SetActive(false);
+		ToggleWaitorComponents(true);
 		Vector3 offscreenPos = transform.position;
 		transform.localScale = Vector3.one;
 		for(float t = 0; t < waitorTravelTime; t += Time.deltaTime) {
 			transform.position = Vector3.Lerp(offscreenPos, waitorPosition, t / waitorTravelTime);
 			yield return null;
 		}
-		characterSprite.SetActive(true);
 		yield return new WaitForSeconds(1);
 		transform.localScale = new Vector3(-1, 1, 1);
 		for(float t = 0; t < waitorTravelTime; t += Time.deltaTime) {
@@ -72,5 +72,13 @@ public class WaitorController : MonoBehaviour
 		}
 		animating = false;
 		character.text = "";
+		ToggleWaitorComponents(false);
+	}
+
+	void ToggleWaitorComponents(bool newState) {
+		GetComponent<Image>().enabled = newState;
+		for(int i = 0; i < transform.childCount; i++) {
+			transform.GetChild(i).gameObject.SetActive(newState);
+		}
 	}
 }
