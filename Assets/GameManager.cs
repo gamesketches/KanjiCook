@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 	public GameObject GameMenuCanvas;
 	public GameObject entreePrefab;
 	public CountdownController countdownClock;
-	public Text timer;
+	public Image timer;
 	public float requestInterval = 5;
 	float requestTimer = 4.5f;
 	public int attempts;
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 			UpdateTimer();
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
-				timer.text = "";
+				timer.fillAmount = 0;
 				CleanUpGameplay();
 				ShowResults();
 			}
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(0.4f);
 		countdownClock.ClearCountdown();
 		gameStarted = true;
-		timer.text = levelDuration.ToString();
+		timer.fillAmount = 1;
 	}
 
 	public void LevelSetup() {
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
 		requestQueue.ClearRequests();
 		resultModal.CloseResultModal();
 		levelTimer = 0;
+		timer.fillAmount = 1;
 		attempts = 0;
 		requestTimer = 4.5f;
 		scoreTally.text = "× 0";
@@ -215,7 +216,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	void UpdateTimer() {
-		timer.text = Mathf.Round(levelDuration - levelTimer).ToString();
+		timer.fillAmount = (levelDuration - levelTimer) / levelDuration;
 	}
 	
 	void MakeNewRequest() {

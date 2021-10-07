@@ -42,6 +42,7 @@ public class MenuManager : MonoBehaviour
     }
 
 	IEnumerator SlideInTitleScreen() {
+		Debug.Log("Slidin in");
 		for(float t = 0; t < titleScreenSlideInTime; t += Time.deltaTime) {
 			LevelSelect.lerpProportion = Mathf.SmoothStep(1, 0, t / titleScreenSlideInTime);
 			yield return null;
