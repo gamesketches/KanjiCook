@@ -35,10 +35,10 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		if(interactable) {
 			if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize) {
 				kanjis.gameObject.SetActive(true);
-				radicals.gameObject.SetActive(true);
+				//radicals.gameObject.SetActive(true);
 			} else {
 				kanjis.gameObject.SetActive(false);
-				radicals.gameObject.SetActive(false);
+				//radicals.gameObject.SetActive(false);
 			}
 		}
     }
@@ -69,9 +69,9 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
 			newKanji.GetComponentInChildren<Text>().text = kanji;
 		}
-		foreach(string radical in rads) {
+		/*foreach(string radical in rads) {
 			radicals.text += " " + radical;
-		}
+		}*/
 		int prevScore = ProgressTracker.instance.GetScoreForLevel(uuid);
 		for(int i = 0; i < prevScore; i++) {
 			stars[i].sprite = filledStar;
@@ -89,9 +89,9 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
 			newKanji.GetComponentInChildren<Text>().text = kanji;
 		}
-		foreach(string radical in rads) {
+		/*foreach(string radical in rads) {
 			radicals.text += " " + radical;
-		}
+		}*/
 		int prevScore = ProgressTracker.instance.GetScoreForLevel(levelUuid);
 		for(int i = 0; i < prevScore; i++) {
 			stars[i].sprite = filledStar;
@@ -112,7 +112,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		for(int i = 0; i < kanjis.childCount; i++) {
 			Destroy(kanjis.GetChild(i).gameObject);
 		}
-		radicals.text = "";
+		//radicals.text = "";
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData) {
