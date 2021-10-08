@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
 	}
 	
 	void BuildDuJourLevel() {
-		menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelId, false);
+		//menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelId, false);
 		foreach(EntreeData pairing in targetWords) {
 			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
 			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);

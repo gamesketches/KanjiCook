@@ -73,6 +73,7 @@ public class RequestQueueManager : MonoBehaviour
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
+				servedKanji.GetComponent<Text>().color = AppManager.instance.secondaryColor;
 				servedKanji.transform.position = kanjiOrder.transform.position;
 				float stretchingTime = stretchAnimTime / 2;
 				for(float t = 0; t < stretchAnimTime; t+= Time.deltaTime) {

@@ -18,6 +18,7 @@ public class EntreeBehavior : MonoBehaviour
 
 	public void Initialize(EntreeData entreeData) {
 		character.text = entreeData.literal;
+		//character.color = AppManager.instance.secondaryColor;
 		//character.fontSize = literalFontSize;
 		string formulaString = entreeData.components[0];
 		for(int i = 1; i < entreeData.components.Length; i++) {

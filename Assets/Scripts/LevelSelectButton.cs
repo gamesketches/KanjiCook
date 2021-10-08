@@ -13,7 +13,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	public GameObject kanjiPrefab;
 	public bool interactable;
 	public Image[] stars;
-	public Color flashColor;
+	Color flashColor;
 	public Sprite filledStar;
 	float instancePosition;
 	float scrollRectUpperBound;
@@ -24,6 +24,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Awake()
     {
+		flashColor = AppManager.instance.primaryColor;
+		flashColor.a = 0.2f;
     }
 
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		int prevScore = ProgressTracker.instance.GetScoreForLevel(uuid);
 		for(int i = 0; i < prevScore; i++) {
 			stars[i].sprite = filledStar;
-			stars[i].color = AppManager.instance.primaryColor;
+			stars[i].color = AppManager.instance.secondaryColor;
 		}
 	}
 
@@ -93,7 +95,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		int prevScore = ProgressTracker.instance.GetScoreForLevel(levelUuid);
 		for(int i = 0; i < prevScore; i++) {
 			stars[i].sprite = filledStar;
-			stars[i].color = AppManager.instance.primaryColor;
+			stars[i].color = AppManager.instance.secondaryColor;
 		}
 	}
 

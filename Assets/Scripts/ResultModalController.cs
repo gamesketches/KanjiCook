@@ -8,7 +8,7 @@ public class ResultModalController : MonoBehaviour
 	public Image[] stars;
 	public Text performanceText;
 	public Color disabledStar;
-	public Color enabledStar;
+	Color enabledStar;
 	public float slideInTime;
 	public float initialDelay;
 	public float starFillDelay;
@@ -24,6 +24,7 @@ public class ResultModalController : MonoBehaviour
 		rectTransform = GetComponent<RectTransform>();
 		float rectHeight = rectTransform.rect.size.y;
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, -rectHeight, rectHeight);
+		enabledStar = AppManager.instance.secondaryColor;
     }
 
     // Update is called once per frame
