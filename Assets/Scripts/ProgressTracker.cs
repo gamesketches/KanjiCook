@@ -41,19 +41,19 @@ public class ProgressTracker : MonoBehaviour
 	}
 
 	void PrintCurProgress() {
-		for(int i = 0; i < curProgress.levels.Length; i++) {
+		/*for(int i = 0; i < curProgress.levels.Length; i++) {
 			LevelProgress level = curProgress.levels[i];
 			Debug.Log(level.uuid);
 			Debug.Log(level.numStars);
-		}
+		}*/
 	}
 
 	public int GetScoreForLevel(string levelId) {
-		for(int i = 0; i < curProgress.levels.Length; i++) {
+		/*for(int i = 0; i < curProgress.levels.Length; i++) {
 			if(curProgress.levels[i].uuid == levelId) {
 				return curProgress.levels[i].numStars;
 			}
-		}
+		}*/
 		return 0;
 	}
 }
