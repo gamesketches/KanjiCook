@@ -12,7 +12,7 @@ startTime = time.time()
 maxLevelRadicals = 7
 maxLevelKanji = 5
 minLevelKanji = 4
-targetJLPT = 4
+targetJLPT = 3
 
 levelCounter = 1
 unusableKanji = [];
@@ -186,6 +186,10 @@ def ProcessKanjiForRecursion(newKanji, curKanjiList, curRadicalSet):
 def FindContentRecursively(curKanjiList, curRadicalSet):
 	global maxLevelKanji, maxLevelRadicals, minLevelKanji, deadEndKanji
 	checkAfterIteration = []
+	lowerLevels = {}
+	jlptLevelsAdded = 5 - targetJLPT
+	for i in range(targetJLPT, 5):
+		lowerLevels[i] = []
 	if len(curKanjiList) > maxLevelKanji:
 		return [-1, -1], set([])
 	for kanji in root.findall('character'):
@@ -194,14 +198,19 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 		theKanji = kanji.find("literal").text
 		if theKanji in curKanjiList or theKanji in unusableKanji or not acceptableJLPT:
 			continue
-		if jlptLevel > targetJLPT or recentlyUsedKanji[theKanji] > 0:
-			checkAfterIteration.append(theKanji)
-			continue
 		if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji:
+			continue
+		if int(jlptLevel.text) > targetJLPT:# or recentlyUsedKanji[theKanji] > 0:
+			lowerLevels[int(jlptLevel.text)].append(theKanji)
+			continue
+		if recentlyUsedKanji[theKanji] > 0:
+			checkAfterIteration.insert(0, theKanji)
 			continue
 		newKanji, newRads = ProcessKanjiForRecursion(theKanji, curKanjiList, curRadicalSet)
 		if newKanji[0] is not -1 and len(newKanji) > minLevelKanji:
 			return newKanji, newRads
+	for i in range(targetJLPT, 5):
+		checkAfterIteration += lowerLevels[i]
 	checkAfterIteration = sorted(checkAfterIteration, key=recentlyUsedKanji.__getitem__) 
 	for leftOver in checkAfterIteration:
 		if leftOver in deadEndKanji and len(curKanjiList) < minLevelKanji:
