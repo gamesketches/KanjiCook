@@ -48,8 +48,8 @@ public class ContentManager : MonoBehaviour
 				levelLookup.Add(levelCount, levelContent);
 				packLookup.Add(levelCount, pack);
 				levelCount++;*/
+				yield return null;
 			}
-			yield return null;
 			loadingLevels = false;
 		}
 	}
