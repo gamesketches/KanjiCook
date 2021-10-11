@@ -75,12 +75,17 @@ public class GameManager : MonoBehaviour
 		for(int i = 3; i > 0; i--) {
 			countdownClock.UpdateClockNumber(i);
 			yield return new WaitForSeconds(0.8f);
+			if(levelId == "none") break;
 		}
-		countdownClock.UpdateClockGo();
-		yield return new WaitForSeconds(0.4f);
-		countdownClock.ClearCountdown();
-		gameStarted = true;
-		timer.fillAmount = 1;
+		if(levelId != "none") {
+			countdownClock.UpdateClockGo();
+			yield return new WaitForSeconds(0.4f);
+			countdownClock.ClearCountdown();
+			gameStarted = true;
+			timer.fillAmount = 1;
+		} else {
+			countdownClock.ClearCountdown();
+		}
 	}
 
 	public void LevelSetup() {
