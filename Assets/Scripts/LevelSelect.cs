@@ -14,7 +14,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	Vector3 startingScale;
 	Vector2 startOffsetMax;
 	Vector2 startOffsetMin;
+	Vector2 startingAnchoredPosition;
 	public float startingRotation;
+	public float endingRotation;
 	public Transform scrollView;
 	public int levelsToLoad;
 	int loadedLevels;
@@ -30,12 +32,15 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
 		loadedLevels = 0;
 		levelSelectLocked = false;
-		//lerpProportion = 0;
 		canvas = transform.parent.GetComponent<RectTransform>();
 		rectTransform = GetComponent<RectTransform>();
 		menuImage = GetComponent<Image>();
 		scrollRect = GetComponentInChildren<ScrollRect>();
 		scrollRect.vertical = false;
+		startingAnchoredPosition = new Vector2(rectTransform.rect.size.x * 0.08f, -rectTransform.rect.size.y * 0.45f);
+
+		rectTransform.anchoredPosition = startingAnchoredPosition;
+ 		Debug.Log(rectTransform.anchoredPosition);
 		startOffsetMax = rectTransform.offsetMax;
 		startOffsetMin = rectTransform.offsetMin;
 		startingScale = transform.localScale;
@@ -111,8 +116,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             transform.position = newPos;
 			rectTransform.ForceUpdateRectTransforms();
 			Quaternion curRotation = transform.rotation;
+			Quaternion targetRotation = Quaternion.Euler(0, 0, endingRotation);
 			float curProportion = rectTransform.offsetMax.y / startOffset;
-			transform.rotation = Quaternion.Lerp(Quaternion.identity, curRotation, curProportion);
+			transform.rotation = Quaternion.Lerp(targetRotation, curRotation, curProportion);
 			if(rectTransform.offsetMax.y > 0) {
 				transform.position = oldPos;
 				rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 0);
@@ -144,6 +150,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
 		Quaternion curRotation = transform.rotation;
+		Quaternion targetRotation = Quaternion.Euler(0, 0, endingRotation);
 		MenuManager.instance.PlayPageTurnSound();
 		for(float t = lerpProportion * totalCurveTime; t < totalCurveTime; t += Time.deltaTime) {
 			lerpProportion = t / totalCurveTime;
@@ -151,7 +158,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			rectTransform.offsetMax = new Vector2(currentOffsetMax.x, newOffsetMax);
 			float newOffsetMin = Mathf.SmoothStep(currentOffsetMin.y, 0, openCurve.Evaluate(lerpProportion));
 			rectTransform.offsetMin = new Vector2(currentOffsetMin.x, newOffsetMin);
-			transform.rotation = Quaternion.Lerp(curRotation, Quaternion.identity, lerpProportion);
+			transform.rotation = Quaternion.Lerp(curRotation, targetRotation, lerpProportion);
+			rectTransform.anchoredPosition = Vector2.Lerp(startingAnchoredPosition, Vector2.zero, lerpProportion);
 			float scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
@@ -159,8 +167,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		lerpProportion = 1;
 		rectTransform.offsetMax = new Vector2(currentOffsetMax.x, 0);
 		rectTransform.offsetMin = new Vector2(currentOffsetMin.x, 0);
+		rectTransform.anchoredPosition = Vector2.zero;
 		transform.localScale = Vector3.one;
-		transform.rotation = Quaternion.identity;
+		transform.rotation = targetRotation;
 		scrollRect.vertical = true;
 		LevelSelectButton.scrollRectPosition = 1;
 		StartCoroutine(LoadLevelListings(1, levelsToLoad));
@@ -175,6 +184,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		float startingCurveTime = openCurve.keys[openCurve.length - 1].time;
 		Vector2 currentOffsetMax = rectTransform.offsetMax;
 		Vector2 currentOffsetMin = rectTransform.offsetMin;
+		Quaternion curRotation = transform.rotation;
 		Quaternion targetRotation = Quaternion.Euler(0, 0, startingRotation);
 		SwapFakeMenu();
 		for(float t = startingCurveTime; t > 0; t -= Time.deltaTime) {
@@ -183,7 +193,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			rectTransform.offsetMax = new Vector2(currentOffsetMax.x, newOffsetMax);
 			float newOffsetMin = Mathf.SmoothStep(startOffsetMin.y, 0, openCurve.Evaluate(lerpProportion));
 			rectTransform.offsetMin = new Vector2(currentOffsetMin.x, newOffsetMin);
-			transform.rotation = Quaternion.Lerp(targetRotation, Quaternion.identity, lerpProportion);
+			transform.rotation = Quaternion.Lerp(targetRotation, curRotation, lerpProportion);
+			//rectTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, startingAnchoredPosition, lerpProportion);
 			float scaleSize = scaleCurve.Evaluate(lerpProportion);
 			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
@@ -191,6 +202,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		lerpProportion = 0;
 		rectTransform.offsetMax = startOffsetMax;
 		rectTransform.offsetMin = startOffsetMin;
+		rectTransform.anchoredPosition = startingAnchoredPosition;
 		rectTransform.anchorMax = new Vector2(1, 1);
 		transform.localScale = Vector3.one;
 		transform.rotation = targetRotation;
@@ -203,6 +215,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		GameObject header = transform.GetChild(0).gameObject;
 		GameObject scrollRect = transform.GetChild(1).gameObject;
 		header.SetActive(!header.activeSelf);
+		transform.rotation = header.activeSelf ? Quaternion.identity : Quaternion.Euler(0, 0, endingRotation);
 		scrollRect.SetActive(!scrollRect.activeSelf);
 		menuImage.sprite = blankMenu;
 		blankMenu = temp;
