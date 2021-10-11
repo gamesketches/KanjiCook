@@ -8,6 +8,8 @@ public class ResultModalController : MonoBehaviour
 	public Image[] stars;
 	public Text performanceText;
 	public Color disabledStar;
+	public string colorString;
+	string colorTag;
 	Color enabledStar;
 	public float slideInTime;
 	public float initialDelay;
@@ -20,6 +22,7 @@ public class ResultModalController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+    	colorTag = "<color=" + colorString + ">";
 		foreach(Image star in stars) star.color = disabledStar;
 		rectTransform = GetComponent<RectTransform>();
 		float rectHeight = rectTransform.rect.size.y;
@@ -42,9 +45,9 @@ public class ResultModalController : MonoBehaviour
 		if(successRate > 90f) numStars++;
 		if(score > 12) numStars++;
 		if(allKanji) numStars++;
-		string performanceString = "You cooked <color=#6ECFF6>" + score.ToString() + "</color> dishes!\n" + 
-										"You made <color=#6ECFF6>" + attempts.ToString() + "</color> attempts\n" + 
-										"and <color=#6ECFF6>" + successRate.ToString("F2") + "%</color> of them were correct!\n" + 
+		string performanceString = "You cooked " + colorTag + score.ToString() + "</color> dishes!\n" + 
+										"You made " + colorTag + attempts.ToString() + "</color> attempts\n" + 
+										"and " + colorTag + successRate.ToString("F2") + "%</color> of them were correct!\n" + 
 										"You have potential\nKeep up the good work!";
 
 		for(int i = 0; i < stars.Length; i++) {

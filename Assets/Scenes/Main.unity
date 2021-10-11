@@ -4278,6 +4278,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2863898630600991943, guid: 72d03805d87a94628bdca1317bc4362d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863898630600991943, guid: 72d03805d87a94628bdca1317bc4362d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863898630600991943, guid: 72d03805d87a94628bdca1317bc4362d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863898630600991943, guid: 72d03805d87a94628bdca1317bc4362d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2978111357912131093, guid: 72d03805d87a94628bdca1317bc4362d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6029,7 +6049,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7377,9 +7397,9 @@ RectTransform:
   m_Father: {fileID: 1388473734}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.2222, y: 15.5}
+  m_AnchorMin: {x: 0.5, y: 0.77}
+  m_AnchorMax: {x: 0.5, y: 0.77}
+  m_AnchoredPosition: {x: 9.2222, y: 0}
   m_SizeDelta: {x: 276.44446, y: 236.52301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004305594
@@ -7403,10 +7423,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a7fbb860d095248e89943275df309e26, type: 3}
-    m_FontSize: 280
+    m_FontSize: 240
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 283
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -10572,7 +10592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3328029636345466420, guid: 49c7759f2f44e41a2a49b5e1ed6efe78,
+  m_Sprite: {fileID: 4041633742260502301, guid: e780eef7be745454d811c2161115785a,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -12155,7 +12175,7 @@ GameObject:
   - component: {fileID: 1866029959}
   - component: {fileID: 1866029958}
   m_Layer: 5
-  m_Name: AboutButton
+  m_Name: DuJourButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12177,8 +12197,8 @@ RectTransform:
   m_Father: {fileID: 1388473734}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.88, y: 0.935}
-  m_AnchorMax: {x: 0.97, y: 0.985}
+  m_AnchorMin: {x: 0.88, y: 0.4374584}
+  m_AnchorMax: {x: 0.97, y: 0.4874584}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12255,7 +12275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6238934396377169932, guid: 0c1bad951d49042e6a183356b3da6b19,
+  m_Sprite: {fileID: 5315779907106986482, guid: e780eef7be745454d811c2161115785a,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -13117,7 +13137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.999878}
+  m_AnchoredPosition: {x: 0, y: -49.999756}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008622793
@@ -13470,7 +13490,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 22240451716671224, guid: 49c7759f2f44e41a2a49b5e1ed6efe78, type: 3}
+  m_Sprite: {fileID: -7417446405886130336, guid: e780eef7be745454d811c2161115785a,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14058,7 +14079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.999878}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127790735
@@ -14249,6 +14270,7 @@ MonoBehaviour:
   - {fileID: 1690507426}
   performanceText: {fileID: 1406472169}
   disabledStar: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  colorString: '#4E9DA6'
   slideInTime: 0.4
   initialDelay: 1
   starFillDelay: 0.5
