@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
 		//menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelId, false);
 		foreach(EntreeData pairing in targetWords) {
 			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
-			entreePrefab.GetComponent<EntreeBehavior>().Initialize(pairing);
+			entreeListing.GetComponent<EntreeBehavior>().Initialize(pairing);
 		}
 	}
 
@@ -194,8 +194,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void ClearDuJourMenu() {
-		menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
-		for(int i = 1; i < menu.childCount; i++) {
+		//menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
+		for(int i = 0; i < menu.childCount; i++) {
 			Destroy(menu.GetChild(i).gameObject);
 		}
 		Invoke("DismissDuJourMenu", 0.5f);
