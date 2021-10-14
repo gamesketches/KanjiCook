@@ -27,6 +27,7 @@ public class MenuManager : MonoBehaviour
 		instance = this;
 		audioSource = GetComponent<AudioSource>();
         titleScreen.SetActive(true);
+		packStore.transform.parent.gameObject.SetActive(true);
 		LevelSelect.lerpProportion = 1;
 		levelSelect.SetActive(true);
 		backButton.SetActive(false);
@@ -54,6 +55,7 @@ public class MenuManager : MonoBehaviour
 	}
 
 	public void OpenLevelSelect() {
+		EnableLevelSelectScreen();
 		if(!LevelSelect.levelSelectLocked) {
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().FinishOpeningMenu());
 		}
@@ -116,6 +118,14 @@ public class MenuManager : MonoBehaviour
 		packStore.transform.parent.GetComponent<Canvas>().enabled = false;
 	}
 
+	public void EnableLevelSelectScreen() {
+		levelSelect.transform.parent.GetComponent<Canvas>().enabled = true;
+	}
+		
+	public void DisableLevelSelectScreen() {
+		levelSelect.transform.parent.GetComponent<Canvas>().enabled = false;
+	}
+
 	public void SlideOffMenus() {
 		DismissTitleScreen();
 		purchaseButton.SetActive(false);
@@ -124,6 +134,7 @@ public class MenuManager : MonoBehaviour
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, menuSlideSpeed, RectTransform.Edge.Left));
+		Invoke("DisableLevelSelectScreen", menuSlideSpeed);
 		PlayPageTurnSound();
 	}
 
@@ -131,6 +142,7 @@ public class MenuManager : MonoBehaviour
 		purchaseButton.SetActive(true);
 		aboutButton.SetActive(true);
 		backButton.SetActive(true);
+		EnableLevelSelectScreen();
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, -levelSelectSize, 0, menuSlideSpeed, RectTransform.Edge.Left));
