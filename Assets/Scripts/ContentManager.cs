@@ -38,7 +38,6 @@ public class ContentManager : MonoBehaviour
 
 	IEnumerator LoadLevelsFromResources() {
 		loadingLevels = true;
-		int levelCount = 1;
 		foreach(string pack in packsOwned) {
 			TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + pack);
 			foreach(TextAsset level in levels) {

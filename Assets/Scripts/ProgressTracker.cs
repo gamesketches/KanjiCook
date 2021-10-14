@@ -34,33 +34,36 @@ public class ProgressTracker : MonoBehaviour
 			FileStream file = File.Open(Application.persistentDataPath + "/playerProgress.gd", FileMode.Open);
 			curProgress = (PlayerProgress)bf.Deserialize(file);
 			file.Close();
-			PrintCurProgress();
     	} else {
 			curProgress = new PlayerProgress();
 		}
 	}
 
 	void PrintCurProgress() {
-		/*for(int i = 0; i < curProgress.levels.Length; i++) {
-			LevelProgress level = curProgress.levels[i];
-			Debug.Log(level.uuid);
-			Debug.Log(level.numStars);
-		}*/
+		try {
+			for(int i = 0; i < curProgress.levels.Length; i++) {
+				LevelProgress level = curProgress.levels[i];
+				Debug.Log(level.uuid);
+				Debug.Log(level.numStars);
+			}
+		} catch {
+			Debug.LogWarning("Tried to print from progress file, probably an old format");
+		}
 	}
 
 	public int GetScoreForLevel(string levelId) {
-		/*for(int i = 0; i < curProgress.levels.Length; i++) {
+		for(int i = 0; i < curProgress.levels.Length; i++) {
 			if(curProgress.levels[i].uuid == levelId) {
 				return curProgress.levels[i].numStars;
 			}
-		}*/
+		}
 		return 0;
 	}
 }
 
 [System.Serializable]
 public class PlayerProgress {
-	public LevelProgress[] levels;//PackProgress[] packs;
+	public LevelProgress[] levels;
 
 	public PlayerProgress() {
 		levels = new LevelProgress[0];
