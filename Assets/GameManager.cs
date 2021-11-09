@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 	public int attempts;
 	public float levelDuration;
 	float levelTimer;
-	bool gameStarted = false;
+	public static bool gameStarted = false;
 	string levelFileName;
 	public static string levelId = "none";
 

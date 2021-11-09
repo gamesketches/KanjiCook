@@ -52,7 +52,9 @@ public class CookingPotBehavior : MonoBehaviour
 	}
 
 	public void CombineIngredients() {
-		StartCoroutine(CookKanji());
+		if(GameManager.gameStarted) {
+			StartCoroutine(CookKanji());
+		}
 	}
 
 	IEnumerator CookKanji() {
