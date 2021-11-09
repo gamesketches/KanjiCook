@@ -72,7 +72,7 @@ public class CookingPotBehavior : MonoBehaviour
 				float lerpProportion = cookingTimer / cookingTime;
 				ingredientRects[i].anchoredPosition = Vector2.Lerp(ingredientRects[i].anchoredPosition, Vector2.zero, lerpProportion);
 				lerpProportion /= 2;
-				ingredientRects[i].transform.localScale = Vector3.one - new Vector3(lerpProportion, lerpProportion, lerpProportion);
+				//ingredientRects[i].transform.localScale = Vector3.one - new Vector3(lerpProportion, lerpProportion, lerpProportion);
 			}
 			for(float t = 0; t < lerpTime; t += Time.deltaTime) {
 				transform.position = Vector3.Lerp(curPos, nextPos, t / lerpTime);
@@ -85,10 +85,10 @@ public class CookingPotBehavior : MonoBehaviour
 		EntreeData resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
 		ChefController.instance.cooking = false;
-		FinishCookingSounds();
 		hitRect.transform.localScale = Vector3.one;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
+		FinishCookingSounds();
 		hitRect.transform.rotation = Quaternion.identity;
 		if(resultPair.literal == "駄目") {
 			yield return new WaitForSeconds(0.8f);
