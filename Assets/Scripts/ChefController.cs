@@ -19,7 +19,7 @@ public class ChefController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(cooking) {
+		if(cooking && GameManager.gameStarted) {
 			float rotationAmount = Mathf.PingPong(Time.realtimeSinceStartup * 20, rotationInterval);
 			chefArm.transform.rotation = Quaternion.Euler(0, 0, rotationAmount); 
 			chefForearm.transform.rotation = Quaternion.Euler(0, 0, -rotationAmount);
