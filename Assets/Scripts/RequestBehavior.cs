@@ -66,6 +66,10 @@ public class RequestBehavior : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
+	public void ClearText() {
+		displayText.text = "";
+	}
+
 	void OnEnable() {
 		fulfillStamp.SetActive(false);
 	}

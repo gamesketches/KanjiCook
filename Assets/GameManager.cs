@@ -122,8 +122,8 @@ public class GameManager : MonoBehaviour
 	public void LoadLevel(string levelUuid) {
 		Debug.Log("Load level called");
 		if(levelId == "none") {
-			Debug.Log(levelId);
 			levelId = levelUuid;
+			Debug.Log(levelId);
 			GetLoadedKanji();
 			//LoadKanji();
 			LevelSetup();
@@ -259,6 +259,8 @@ public class GameManager : MonoBehaviour
 		cookingPot.ClearIngredients();
 		foundWords.Clear();
 		resultModal.CloseResultModal();
+		wordBag.Clear();
+		requestTimer = 4.5f;
 	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {

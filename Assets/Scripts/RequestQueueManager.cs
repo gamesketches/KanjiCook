@@ -105,6 +105,7 @@ public class RequestQueueManager : MonoBehaviour
 
 	public void ClearRequests() {
 		foreach(RequestBehavior poolRequest in requests) {
+			poolRequest.ClearText();
 			poolRequest.gameObject.SetActive(false);
 		}
 	}

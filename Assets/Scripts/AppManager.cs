@@ -14,6 +14,8 @@ public class AppManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+		QualitySettings.vSyncCount = 0;
+		Application.targetFrameRate = 60;
 		AppManager.instance = this;
 		Camera.main.backgroundColor = primaryColor;
 		GameMenuCanvas.SetActive(true);
