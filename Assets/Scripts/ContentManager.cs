@@ -25,32 +25,26 @@ public class ContentManager : MonoBehaviour
 		instance = this;
 		levelLookup = new Dictionary<string, EntreeData[]>();
 		levelIds = new List<string>();
-		packsOwned = new string[] {"LevelContent", "jlpt5", "jlpt4", "jlpt3", "jlpt2", "jlpt1"};
+		packsOwned = new string[] {"LevelContent"};
 		StartCoroutine(LoadLevelsFromResources());
 		//StartCoroutine(LoadOwnedLevels());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 	IEnumerator LoadLevelsFromResources() {
 		loadingLevels = true;
 		foreach(string pack in packsOwned) {
-			TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + pack);
+			yield return LoadLevelPack(pack);
+			loadingLevels = false;
+		}
+	}
+
+	IEnumerator LoadLevelPack(string packName) {
+		TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + packName);
 			foreach(TextAsset level in levels) {
 				string newID = ProcessLevelContent(level);
 				levelIds.Add(newID);
-				/*EntreeData[] levelContent = ProcessLevelContent(level);
-				levelLookup.Add(levelCount, levelContent);
-				packLookup.Add(levelCount, pack);
-				levelCount++;*/
 				yield return null;
 			}
-			loadingLevels = false;
-		}
 	}
 
 	IEnumerator LoadOwnedLevels() {
@@ -209,6 +203,7 @@ public class ContentManager : MonoBehaviour
 		List<string> ownedPacksList = new List<string>(packsOwned);
 		ownedPacksList.Add(pack);
 		packsOwned = ownedPacksList.ToArray();
+		StartCoroutine(LoadLevelPack(pack));
 	}
 }
 
