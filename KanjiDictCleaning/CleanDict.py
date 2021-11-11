@@ -12,7 +12,7 @@ startTime = time.time()
 maxLevelRadicals = 7
 maxLevelKanji = 5
 minLevelKanji = 4
-targetJLPT = 3
+targetJLPT = 4
 
 levelCounter = 1
 unusableKanji = [];
@@ -36,13 +36,17 @@ oldSetsGenerated = 0
 def PrepKanjiDic():
 	for kanji in root.findall('character'):
 		freq = kanji.find("misc").find("freq")
-		if freq is None:
+		jlpt = kanji.find("misc").find("jlpt")
+		if freq is None and jlpt is None:
 			root.remove(kanji)
 			continue
 		recentlyUsedKanji[kanji.find('literal').text] = 0
 
 def GenKanjiInfoString(kanji):
 	meanings = " "
+	print(kanji)
+	print(kanji.find('literal').text)
+	print(kanji.find('reading_meaning'))
 	for meaning in kanji.find('reading_meaning').find('rmgroup').findall('meaning'):
 		if(meaning.attrib.get("m_lang") is None):
 			meanings += meaning.text + "/"
@@ -55,7 +59,7 @@ def GetKanjiEntry(kanjiToFind):
 			return kanji
 		else:
 			continue
-	return "not found"
+	return kanjiToFind + " not found"
 
 def FindKanjiRadicals(kanji):
 	for radEntry in recipes:
@@ -200,7 +204,7 @@ def FindContentRecursively(curKanjiList, curRadicalSet):
 			continue
 		if theKanji in deadEndKanji and len(curKanjiList) < minLevelKanji:
 			continue
-		if int(jlptLevel.text) > targetJLPT:# or recentlyUsedKanji[theKanji] > 0:
+		if int(jlptLevel.text) > targetJLPT:
 			lowerLevels[int(jlptLevel.text)].append(theKanji)
 			continue
 		if recentlyUsedKanji[theKanji] > 0:
@@ -232,8 +236,10 @@ print(unusableKanji)
 PrepKanjiDic()
 
 if len(sys.argv) > 1:
-	print("opening " + sys.argv[1])
-	inputFile = codecs.open(sys.argv[1], encoding='utf-8')
+	inputFileName = "jlpt" + sys.argv[1] + ".csv"
+	print("opening " + inputFileName)
+	inputFile = codecs.open(inputFileName, encoding='utf-8')
+	targetJLPT = int(sys.argv[1])
 	kanjiLines = inputFile.readlines()
 	for inputKanjis in kanjiLines:
 		for literal in inputKanjis.split():

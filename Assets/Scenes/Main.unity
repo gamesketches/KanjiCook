@@ -4319,6 +4319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319350845009648156, guid: 72d03805d87a94628bdca1317bc4362d,
         type: 3}
+      propertyPath: packId
+      value: jlpt5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319350845009648156, guid: 72d03805d87a94628bdca1317bc4362d,
+        type: 3}
       propertyPath: packName
       value: Summer Salads
       objectReference: {fileID: 0}
@@ -10699,6 +10704,7 @@ MonoBehaviour:
   packName: 
   packDescription: 
   packPrice: 
+  packId: 
   nameLabel: {fileID: 1949570758}
   descLabel: {fileID: 427904207}
   priceLabel: {fileID: 1383988559}

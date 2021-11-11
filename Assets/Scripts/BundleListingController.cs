@@ -8,19 +8,16 @@ public class BundleListingController : MonoBehaviour
 	public string packName;
 	public string packDescription;
 	public string packPrice;
+	public string packId;
 	public Text nameLabel;
 	public Text descLabel;
 	public Text priceLabel;
-    // Start is called before the first frame update
-    void Start()
-    {
-		
-    }
 
-	public void Initialize(string name, string desc, string cost) {
+	public void Initialize(string name, string desc, string cost, string id) {
 		packName = name;
 		packDescription = desc;
 		packPrice = cost;
+		packId = id;
 		nameLabel.text = name;
 		descLabel.text = desc;
 		priceLabel.text = cost;
@@ -28,5 +25,9 @@ public class BundleListingController : MonoBehaviour
 
     public void ShowContents() {
 		PurchaseScreenController.instance.ShowDetails(packName);
+	}
+
+	public void PurchasePack() {
+		IAPManager.instance.BuyProductID(packId);
 	}
 }

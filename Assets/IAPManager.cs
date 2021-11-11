@@ -13,6 +13,15 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
 	private string jlpt5 = "jlpt5";
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        if(storeController == null) {
+			InitializePurchasing();
+		}
+		instance = this;
+    }
+
 	public void InitializePurchasing() {
 		if(IsInitialized()) return;
 		var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
@@ -30,7 +39,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 		BuyProductID(jlpt5);
 	}
 
-	void BuyProductID(string productId) {
+	public void BuyProductID(string productId) {
 		if(IsInitialized()) {
 			Product product = storeController.products.WithID(productId);
 			if(product != null && product.availableToPurchase) {
@@ -71,19 +80,4 @@ public class IAPManager : MonoBehaviour, IStoreListener
 	public void OnInitializeFailed(InitializationFailureReason error) {
 		Debug.Log("IStoreController initialization failed: " + error);
 	}
-
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(storeController == null) {
-			InitializePurchasing();
-		}
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

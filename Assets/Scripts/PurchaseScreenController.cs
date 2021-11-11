@@ -40,9 +40,9 @@ public class PurchaseScreenController : MonoBehaviour
 
 	void FillPurchaseMenu() {
 		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("Summer Salads", "99 Levels of fun", "$0.99");
+		packListing.GetComponent<BundleListingController>().Initialize("Summer Salads", "99 Levels of fun", "$0.99", "jlpt5");
 		packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99");
+		packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99", "jlpt4");
 	}
 
 	public void ShowDetails(string packId) {
@@ -58,7 +58,7 @@ public class PurchaseScreenController : MonoBehaviour
 
 	void FillOutDetailScreen(BundleListingController bundle) {
 		BundleListingController pageBundle = detailScrollView.GetChild(0).GetComponent<BundleListingController>();
-		pageBundle.Initialize(bundle.packName, bundle.packDescription, bundle.packPrice);
+		pageBundle.Initialize(bundle.packName, bundle.packDescription, bundle.packPrice, bundle.packId);
 		for(int i = 1; i < 10; i++) {
 			GameObject levelButton = Instantiate<GameObject>(levelPrefab, detailScrollView);
 			levelButton.GetComponentInChildren<LevelSelectButton>().Initialize(i, false);
