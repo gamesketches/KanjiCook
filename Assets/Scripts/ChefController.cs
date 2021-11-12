@@ -6,14 +6,13 @@ public class ChefController : MonoBehaviour
 {
 	public Transform chefArm;
 	public Transform chefForearm;
-	public static ChefController instance;
 	public bool cooking;
 	float forearmRotation;
 	public float rotationInterval;
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+		GameManager.GameEnded += GameEnded;
     }
 
     // Update is called once per frame
@@ -28,4 +27,8 @@ public class ChefController : MonoBehaviour
 			chefForearm.transform.rotation = Quaternion.identity;
 		}
     }
+
+	void GameEnded() {
+		cooking = false;
+	}
 }

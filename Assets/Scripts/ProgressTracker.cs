@@ -29,10 +29,14 @@ public class ProgressTracker : MonoBehaviour
 
 	void LoadProgressData() {
 		if(File.Exists(Application.persistentDataPath + "/playerProgress.gd")) {
-			Debug.Log(Application.persistentDataPath);
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/playerProgress.gd", FileMode.Open);
-			curProgress = (PlayerProgress)bf.Deserialize(file);
+			try {
+				curProgress = (PlayerProgress)bf.Deserialize(file);
+			} catch {
+				Debug.Log("invalid progress file type");
+				curProgress = new PlayerProgress();
+			}
 			file.Close();
     	} else {
 			curProgress = new PlayerProgress();
@@ -43,8 +47,6 @@ public class ProgressTracker : MonoBehaviour
 		try {
 			for(int i = 0; i < curProgress.levels.Length; i++) {
 				LevelProgress level = curProgress.levels[i];
-				Debug.Log(level.uuid);
-				Debug.Log(level.numStars);
 			}
 		} catch {
 			Debug.LogWarning("Tried to print from progress file, probably an old format");
@@ -54,7 +56,14 @@ public class ProgressTracker : MonoBehaviour
 	public int GetScoreForLevel(string levelId) {
 		for(int i = 0; i < curProgress.levels.Length; i++) {
 			if(curProgress.levels[i].uuid == levelId) {
-				return curProgress.levels[i].numStars;
+				switch(GameManager.studyType) {
+					case StudyType.Meaning:
+						return curProgress.levels[i].numStarsMeaning;
+					case StudyType.Kunyomi:
+						return curProgress.levels[i].numStarsKunyomi;
+					case StudyType.Onyomi:
+						return curProgress.levels[i].numStarsOnyomi;
+				}
 			}
 		}
 		return 0;
@@ -123,28 +132,62 @@ public class PackProgress {
 
 [System.Serializable]
 public class LevelProgress {
-	public int numStars;
+	public int numStarsMeaning, numStarsKunyomi, numStarsOnyomi;
 	public string uuid;
 
 	public LevelProgress(string uuid) {
-		this.numStars = 0;
+		this.numStarsMeaning = 0;
+		this.numStarsKunyomi = 0;
+		this.numStarsOnyomi = 0;
 		this.uuid = uuid;
 	}
 
 	public LevelProgress(int stars) {
-		this.numStars = stars;
+		switch(GameManager.studyType) {
+			case StudyType.Meaning:
+				numStarsMeaning = stars;
+				break;
+			case StudyType.Kunyomi:
+				numStarsKunyomi = stars;
+				break;
+			case StudyType.Onyomi:
+				numStarsOnyomi = stars;
+				break;
+		}
 	}
 	
 	public LevelProgress(string uuid, int stars) {
 		this.uuid = uuid;
-		this.numStars = stars;
+		switch(GameManager.studyType) {
+			case StudyType.Meaning:
+				this.numStarsMeaning = stars;
+				break;
+			case StudyType.Kunyomi:
+				this.numStarsKunyomi = stars;
+				break;
+			case StudyType.Onyomi:
+				this.numStarsOnyomi = stars;
+				break;
+		}
 	}
 
 	public void UpdateScore(int score) {
-		Debug.Log("CurScore: " + numStars.ToString());
-		Debug.Log("NewScore: " + score.ToString());
-		if(score > numStars) {
-			numStars = score;
+		switch(GameManager.studyType) {
+			case StudyType.Meaning:
+				if(score > numStarsMeaning) {
+					numStarsMeaning = score;
+				}
+				break;
+			case StudyType.Kunyomi:
+				if(score > numStarsKunyomi) {
+					numStarsKunyomi = score;
+				}
+				break;
+			case StudyType.Onyomi:
+				if(score > numStarsOnyomi) {
+					numStarsOnyomi = score;
+				}
+				break;
 		}
 	}
 }

@@ -7,6 +7,8 @@ using UnityEditor;
 public enum StudyType {Meaning, Kunyomi, Onyomi};
 public class GameManager : MonoBehaviour
 {
+	public delegate void GameEnd();
+	public static event GameEnd GameEnded;
 	public static GameManager instance;
 	public static StudyType studyType = StudyType.Meaning;
 	RequestQueueManager requestQueue;
@@ -240,7 +242,6 @@ public class GameManager : MonoBehaviour
 		attempts++;
 		if(requestQueue.SatisfiesRequest(ExtractTargetFromEntree(result))) {
 			StartCoroutine(requestQueue.ClearRequest(answer, ExtractTargetFromEntree(result)));
-			Debug.Log(scoreTally.text.Substring(1));
 			scoreTally.text = "× " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 			if(foundWords.IndexOf(result.literal) == -1) foundWords.Add(result.literal);
 		} 
@@ -254,13 +255,13 @@ public class GameManager : MonoBehaviour
 
 	public void CleanUpGameplay() {
 		gameStarted = false;
+		GameEnded();
 		DismissDuJourMenu();
-		requestQueue.ClearRequests();
-		cookingPot.ClearIngredients();
 		foundWords.Clear();
 		resultModal.CloseResultModal();
 		wordBag.Clear();
 		requestTimer = 4.5f;
+		timer.fillAmount = 1;
 	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {

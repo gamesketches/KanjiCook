@@ -102,5 +102,5 @@ public class ResultModalController : MonoBehaviour
 		}
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, rectHeight);
 	}
-		
+
 }

@@ -17,6 +17,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         canvas = transform.parent as RectTransform;
         displayText = GetComponentInChildren<Text>();
 		displayText.text = character;
+		GameManager.GameEnded += GameEnded;
     }
 
     // Update is called once per frame
@@ -55,12 +56,21 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
 
 	public void OnEndDrag(PointerEventData eventData) {
-		Vector3 newPos;
 		RectTransform targetRect = CookingPotBehavior.instance.hitRect;
 		if(RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, 
 																	eventData.pressEventCamera)) {
 			CookingPotBehavior.instance.AddIngredient(character);
         }
 		Destroy(kanjiCopy);
+	}
+
+	void GameEnded() {
+		StartCoroutine(ClearTextAfterDelay(0.7f));
+	}
+
+	IEnumerator ClearTextAfterDelay(float delay) {
+		yield return new WaitForSeconds(delay);
+		displayText.text = "";
+		character = "";
 	}
 }

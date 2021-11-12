@@ -14,11 +14,11 @@ public class CookingPotBehavior : MonoBehaviour
 	public Text resultSpot;
 	Image curImage;
 	public float cookingTime;
-	bool cooking;
 	public Color ingredientColor;
 	AudioSource[] audioSources;
 	public AudioClip serviceBell;
 	public AudioClip[] cookingSounds;
+	public ChefController chef;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class CookingPotBehavior : MonoBehaviour
 		ingredients = new List<string>();
 		audioSources = GetComponents<AudioSource>();
 		//hitRect = GetComponent<RectTransform>();
-		cooking = false;
+		GameManager.GameEnded += GameEnded;
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class CookingPotBehavior : MonoBehaviour
 	IEnumerator CookKanji() {
 		float cookingTimer = 0;
 		float panAnimationRange = 3;
-		ChefController.instance.cooking = true;
+		chef.cooking = true;
 		Vector3 startPosition = transform.position;
 		RectTransform[] ingredientRects = hitRect.transform.GetComponentsInChildren<RectTransform>();
 		while(cookingTimer < cookingTime) {
@@ -86,7 +86,7 @@ public class CookingPotBehavior : MonoBehaviour
 		transform.position = startPosition;
 		EntreeData resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
-		ChefController.instance.cooking = false;
+		chef.cooking = false;
 		hitRect.transform.localScale = Vector3.one;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
@@ -143,5 +143,10 @@ public class CookingPotBehavior : MonoBehaviour
 		for(int i = 0; i < audioSources.Length; i++) {
 			audioSources[i].Stop();
 		}
+	}
+
+	void GameEnded() {
+		ClearIngredients();
+		FinishCookingSounds();
 	}
 }

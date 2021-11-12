@@ -184,7 +184,6 @@ public class MenuManager : MonoBehaviour
 	}
 
 	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {
-		Debug.Log(parentEdge + " startOffset: " + startOffset + "targetOffset: " + targetOffset);
 		float rectSize = theRect.rect.size.x;
 		if(parentEdge == RectTransform.Edge.Top || parentEdge == RectTransform.Edge.Bottom)
 			rectSize = theRect.rect.size.y;

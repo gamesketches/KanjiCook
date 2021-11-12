@@ -30,6 +30,7 @@ public class PurchaseScreenController : MonoBehaviour
 		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth);
 		rectWidth = detailRectTransform.rect.size.x;
 		detailRectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectWidth, rectWidth); 
+		FillPurchaseMenu();
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class PurchaseScreenController : MonoBehaviour
 		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
 		packListing.GetComponent<BundleListingController>().Initialize("Summer Salads", "99 Levels of fun", "$0.99", "jlpt5");
 		packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99", "jlpt4");
+		packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99", "jlpt5");
 	}
 
 	public void ShowDetails(string packId) {

@@ -20,6 +20,7 @@ public class RequestQueueManager : MonoBehaviour
         referenceRect = requestTemplate.GetComponent<RectTransform>().rect;
 		requests = new List<RequestBehavior>(gameObject.GetComponentsInChildren<RequestBehavior>());
 		foreach(RequestBehavior request in requests) { request.gameObject.SetActive(false);}
+		GameManager.GameEnded += GameEnded;
     }
 
     // Update is called once per frame
@@ -29,7 +30,6 @@ public class RequestQueueManager : MonoBehaviour
     }
 
 	public void ReceiveRequest(string displayText) {
-		RequestBehavior request;
 		List<int> available = new List<int>();
 		available.Add(2);
 		if(Random.value > 0.5f) {
@@ -55,7 +55,6 @@ public class RequestQueueManager : MonoBehaviour
 	}
 
 	public bool SatisfiesRequest(string displayText) {
-		Debug.Log("satisfying request");
 		for(int i = 0; i < requests.Count; i++) {
 			if(requests[i].RequestFulfilled(displayText)) {
 				return true;
@@ -108,5 +107,9 @@ public class RequestQueueManager : MonoBehaviour
 			poolRequest.ClearText();
 			poolRequest.gameObject.SetActive(false);
 		}
+	}
+
+	void GameEnded() {
+		ClearRequests();
 	}
 }
