@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 	List<EntreeData> wordBag;
 	List<string> foundWords;
 	Text scoreTally;
+	GameObject[] radicalButtons;
 	public TextAsset KanjiData;
 	public ContentManager contentManager;
 	public ResultModalController resultModal;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
 		scoreTally = GameObject.Find("Score").GetComponentInChildren<Text>();
 		menu.transform.parent.gameObject.SetActive(true);
 		foundWords = new List<string>();
+		radicalButtons = GameObject.FindGameObjectsWithTag("RadicalButton");
     }
 
     // Update is called once per frame
@@ -108,9 +110,8 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
-		GameObject[] radicalButtons = GameObject.FindGameObjectsWithTag("RadicalButton");
 		if(radicals.Count > radicalButtons.Length) { 
-			Debug.LogError("There are too many radicals for the number of buttons");
+			Debug.LogError("There are too many radicals for the number of buttons: " + radicals.Count.ToString());
 		} else {
 			for(int i = 0; i < radicalButtons.Length; i++) {
 				if(i < radicals.Count) {
@@ -243,7 +244,11 @@ public class GameManager : MonoBehaviour
 		if(requestQueue.SatisfiesRequest(ExtractTargetFromEntree(result))) {
 			StartCoroutine(requestQueue.ClearRequest(answer, ExtractTargetFromEntree(result)));
 			scoreTally.text = "× " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
-			if(foundWords.IndexOf(result.literal) == -1) foundWords.Add(result.literal);
+			if(foundWords.IndexOf(result.literal) == -1) {
+				foundWords.Add(result.literal);
+			} else {
+				Debug.Log(foundWords.IndexOf(result.literal));
+			}
 		} 
 	}
 
@@ -251,6 +256,8 @@ public class GameManager : MonoBehaviour
 		resultModal.gameObject.SetActive(true);
 		int score = int.Parse(scoreTally.text.Substring(1));
 		resultModal.DisplayResults(score, attempts, foundWords.Count == targetWords.Length);
+		Debug.Log(foundWords.Count);
+		Debug.Log(targetWords.Length);
 	}
 
 	public void CleanUpGameplay() {
@@ -262,6 +269,7 @@ public class GameManager : MonoBehaviour
 		wordBag.Clear();
 		requestTimer = 4.5f;
 		timer.fillAmount = 1;
+		foreach(GameObject radicalButton in radicalButtons) radicalButton.SetActive(true);
 	}
 
 	public EntreeData TrimEntreeData(EntreeData theData) {

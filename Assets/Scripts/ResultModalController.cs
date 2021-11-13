@@ -44,11 +44,14 @@ public class ResultModalController : MonoBehaviour
 			successRate = ((float)score / (float) attempts) * 100;
 		if(successRate > 90f) numStars++;
 		if(score > 12) numStars++;
-		if(allKanji) numStars++;
 		string performanceString = "You cooked " + colorTag + score.ToString() + "</color> dishes!\n" + 
-										"You made " + colorTag + attempts.ToString() + "</color> attempts\n" + 
-										"and " + colorTag + successRate.ToString("F2") + "%</color> of them were correct!\n" + 
-										"You have potential\nKeep up the good work!";
+										"You had a " + colorTag + successRate.ToString("F2") + "</color> success rate\n";  
+		if(allKanji) {
+			numStars++;
+			performanceString += "You made at least one of each kanji!\nKeep up the good work!";
+		} else {
+			performanceString += "\nKeep up the good work!";
+		}
 
 		for(int i = 0; i < stars.Length; i++) {
 			stars[i].color = disabledStar;
