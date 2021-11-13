@@ -41,9 +41,9 @@ public class PurchaseScreenController : MonoBehaviour
 
 	void FillPurchaseMenu() {
 		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("Summer Salads", "99 Levels of fun", "$0.99", "jlpt5");
+		packListing.GetComponent<BundleListingController>().Initialize("JLPT 5 Levels", "30 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt5");
 		packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("Fall Soups", "98 Levels of fun", "$0.99", "jlpt5");
+		packListing.GetComponent<BundleListingController>().Initialize("JLPT4 Kanjis", "50 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt4");
 	}
 
 	public void ShowDetails(string packId) {

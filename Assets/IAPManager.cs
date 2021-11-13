@@ -11,7 +11,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
 	private static IStoreController storeController;
 	private static IExtensionProvider storeExtensionProvider;
 
-	private string jlpt5 = "jlpt5";
+	private string jlpt5 = "com.bluesphere.kanjicook.jlpt5";
+	private string jlpt4 = "com.bluesphere.kanjicook.jlpt4";
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 		var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
 		builder.AddProduct(jlpt5, ProductType.NonConsumable); 
+		builder.AddProduct(jlpt4, ProductType.NonConsumable);
 
 		UnityPurchasing.Initialize(this, builder);
 	}
@@ -58,7 +60,11 @@ public class IAPManager : MonoBehaviour, IStoreListener
 	public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args) {
 		if(String.Equals(args.purchasedProduct.definition.id, jlpt5, StringComparison.Ordinal)) {
 			Debug.Log("Purchased jlpt5");
-			ContentManager.instance.AddLevelPack(jlpt5);
+			ContentManager.instance.AddLevelPack("jlpt5");
+		}
+		else if(String.Equals(args.purchasedProduct.definition.id, jlpt4, StringComparison.Ordinal)) {
+			Debug.Log("Purchased jlpt4");
+			ContentManager.instance.AddLevelPack("jlpt4");
 		}
 		else {
 			Debug.LogError("Purchase failed");
