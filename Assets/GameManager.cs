@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
 				timer.fillAmount = 0;
-				CleanUpGameplay();
 				ShowResults();
+				//CleanUpGameplay();
 			}
 		}
     }
@@ -246,9 +246,7 @@ public class GameManager : MonoBehaviour
 			scoreTally.text = "× " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
 			if(foundWords.IndexOf(result.literal) == -1) {
 				foundWords.Add(result.literal);
-			} else {
-				Debug.Log(foundWords.IndexOf(result.literal));
-			}
+			} 
 		} 
 	}
 
@@ -256,8 +254,6 @@ public class GameManager : MonoBehaviour
 		resultModal.gameObject.SetActive(true);
 		int score = int.Parse(scoreTally.text.Substring(1));
 		resultModal.DisplayResults(score, attempts, foundWords.Count == targetWords.Length);
-		Debug.Log(foundWords.Count);
-		Debug.Log(targetWords.Length);
 	}
 
 	public void CleanUpGameplay() {
