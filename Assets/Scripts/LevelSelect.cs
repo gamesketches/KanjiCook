@@ -39,7 +39,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		scrollRect.vertical = false;
 		startingAnchoredPosition = new Vector2(0, -rectTransform.rect.size.y * 0.45f);
 		rectTransform.anchoredPosition = startingAnchoredPosition;
- 		Debug.Log(rectTransform.anchoredPosition);
 		startOffsetMax = rectTransform.offsetMax;
 		startOffsetMin = rectTransform.offsetMin;
 		startingScale = transform.localScale;

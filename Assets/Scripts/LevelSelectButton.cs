@@ -26,6 +26,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
     {
 		flashColor = AppManager.instance.primaryColor;
 		flashColor.a = 0.2f;
+		GameManager.GameEnded += UpdatePreviousScore;
     }
 
     // Update is called once per frame
@@ -42,22 +43,6 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 			}
 		}
     }
-
-	/*public void Initialize(string id, string levelName, bool isInteractable = true) {
-		interactable = isInteractable;
-		levelFile = id;
-		string[] levelKanjis = new string[0];
-		string[] rads = new string[0];
-		ContentManager.instance.GetLevelSelectContent(levelFile, out levelKanjis, out rads);
-		foreach(string kanji in levelKanjis) {
-			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
-			newKanji.GetComponentInChildren<Text>().text = kanji;
-		}
-		foreach(string radical in rads) {
-			radicals.text += " " + radical;
-		}
-		//GetComponentInChildren<Text>().text = levelName;
-	}*/
 
 	public void Initialize(int id, bool isInteractable = true) {
 		string[] levelKanjis = new string[0];
@@ -92,7 +77,11 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		/*foreach(string radical in rads) {
 			radicals.text += " " + radical;
 		}*/
-		int prevScore = ProgressTracker.instance.GetScoreForLevel(levelUuid);
+		UpdatePreviousScore();
+	}
+
+	void UpdatePreviousScore() {
+		int prevScore = ProgressTracker.instance.GetScoreForLevel(uuid);
 		for(int i = 0; i < prevScore; i++) {
 			stars[i].sprite = filledStar;
 			stars[i].color = AppManager.instance.secondaryColor;
