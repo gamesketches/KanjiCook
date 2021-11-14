@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 4a30c8c04a87d4f8d9c12bd0c58ee74e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4731168171240443761
+    second: openingAndIcons_0
+  - first:
+      213: -9117378880717304436
+    second: openingAndIcons_1
+  - first:
+      213: -5421657489497072033
+    second: openingAndIcons_2
+  - first:
+      213: 7171422227807556798
+    second: openingAndIcons_3
+  - first:
+      213: 4497497238565647438
+    second: openingAndIcons_4
+  - first:
+      213: 1679121017552845956
+    second: openingAndIcons_5
+  - first:
+      213: 777840607458714599
+    second: openingAndIcons_6
+  - first:
+      213: -242950997875978995
+    second: openingAndIcons_7
+  - first:
+      213: -7349128883828628670
+    second: openingAndIcons_8
+  - first:
+      213: -9039354831375078071
+    second: openingAndIcons_9
+  - first:
+      213: -1665964451125189125
+    second: openingAndIcons_10
+  - first:
+      213: -7402294190343291240
+    second: openingAndIcons_11
+  - first:
+      213: -4743560418115681706
+    second: openingAndIcons_12
+  - first:
+      213: 2088145628943655385
+    second: openingAndIcons_13
+  - first:
+      213: 2694854838810789181
+    second: openingAndIcons_14
+  - first:
+      213: -5398260940667079152
+    second: openingAndIcons_15
+  - first:
+      213: -4556755585978428741
+    second: openingAndIcons_16
+  - first:
+      213: 4521650217560573138
+    second: openingAndIcons_17
+  - first:
+      213: -1808736810447284709
+    second: openingAndIcons_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: openingAndIcons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2975
+        width: 1177
+        height: 1121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17fcb6b826c78a140800000000000000
+      internalID: 4731168171240443761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2819
+        width: 85
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53154457, y: 0.4847752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d4234c630987180800000000000000
+      internalID: -9117378880717304436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 3995
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ed0bc0d3762c4b0800000000000000
+      internalID: -5421657489497072033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_3
+      rect:
+        serializedVersion: 2
+        x: 2824
+        y: 0
+        width: 1272
+        height: 4096
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb45fc63582068360800000000000000
+      internalID: 7171422227807556798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_4
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 3978
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e447103e8e15a6e30800000000000000
+      internalID: 4497497238565647438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_5
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 3960
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c312a4baf6d4710800000000000000
+      internalID: 1679121017552845956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_6
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 2823
+        width: 139
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3637b49e17bca00800000000000000
+      internalID: 777840607458714599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_7
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 2551
+        width: 223
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d86c9ca5dd0acf0800000000000000
+      internalID: -242950997875978995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1074
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243e4dea736a20a90800000000000000
+      internalID: -7349128883828628670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 1030
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d6d256ca2cd8280800000000000000
+      internalID: -9039354831375078071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_10
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 843
+        width: 180
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5214a882e41e8e0800000000000000
+      internalID: -1665964451125189125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_11
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 935
+        width: 87
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e76a527a4c54990800000000000000
+      internalID: -7402294190343291240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_12
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 648
+        width: 167
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6528c93aeec7b2eb0800000000000000
+      internalID: -4743560418115681706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_13
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 803
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1a874d2659afc10800000000000000
+      internalID: 2088145628943655385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_14
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 699
+        width: 62
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d354f8ca23c066520800000000000000
+      internalID: 2694854838810789181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_15
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 468
+        width: 152
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0163ca296468515b0800000000000000
+      internalID: -5398260940667079152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_16
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 607
+        width: 61
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb29a71ffe623c0c0800000000000000
+      internalID: -4556755585978428741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_17
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 519
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d404488ae020ce30800000000000000
+      internalID: 4521650217560573138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openingAndIcons_18
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 306
+        width: 121
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16dd19347316e6e0800000000000000
+      internalID: -1808736810447284709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
