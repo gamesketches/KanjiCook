@@ -87,11 +87,14 @@ public class RequestQueueManager : MonoBehaviour
 				kanjiOrder.text = "";
 				for(float t = 0; t < resultTravelTime; t += Time.deltaTime) {
 					servedKanji.transform.position = Vector3.Lerp(startPos, targetPos, t / resultTravelTime);
+					if(!GameManager.gameStarted) break;
 					yield return null;
 				}
 				Destroy(servedKanji);
-				requests[i].PlayFulfilledAnimation();
-				WaitorController.instance.PickUpOrder(kanjiLiteral);
+				if(GameManager.gameStarted) {
+					requests[i].PlayFulfilledAnimation();
+					WaitorController.instance.PickUpOrder(kanjiLiteral);
+				}
 				break;
 			}
 		}
