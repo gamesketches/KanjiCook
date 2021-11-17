@@ -74,6 +74,7 @@ public class RequestQueueManager : MonoBehaviour
 				GameObject servedKanji = Instantiate(kanjiOrder.gameObject, transform.parent);
 				servedKanji.GetComponent<Text>().color = AppManager.instance.secondaryColor;
 				servedKanji.transform.position = kanjiOrder.transform.position;
+				servedKanji.transform.SetSiblingIndex(kanjiOrder.gameObject.transform.GetSiblingIndex());
 				float stretchingTime = stretchAnimTime / 2;
 				for(float t = 0; t < stretchAnimTime; t+= Time.deltaTime) {
 					if(t < stretchingTime) {
