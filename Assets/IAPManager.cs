@@ -83,6 +83,22 @@ public class IAPManager : MonoBehaviour, IStoreListener
 		storeExtensionProvider = extensions;
 	}
 
+	public void RestorePurchases() {
+		if(!IsInitialized()) {
+			Debug.Log("Restore Purchases Failed. Purchaser not initialized");
+		}
+
+		if(Application.platform == RuntimePlatform.IPhonePlayer) {
+			Debug.Log("Restore Purchases Started");
+
+			var apple = storeExtensionProvider.GetExtension<IAppleExtensions>();
+
+			apple.RestoreTransactions((result) => {
+				Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
+			});
+		}
+	}
+
 	public void OnInitializeFailed(InitializationFailureReason error) {
 		Debug.Log("IStoreController initialization failed: " + error);
 	}
