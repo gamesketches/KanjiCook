@@ -56,7 +56,7 @@ public class RequestQueueManager : MonoBehaviour
 
 	public bool SatisfiesRequest(string displayText) {
 		for(int i = 0; i < requests.Count; i++) {
-			if(requests[i].RequestFulfilled(displayText)) {
+			if(requests[i].RequestFulfilled(displayText) && requests[i].gameObject.activeSelf) {
 				return true;
 				break;
 			}
