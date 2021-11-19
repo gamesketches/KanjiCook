@@ -87,7 +87,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnPointerClick(PointerEventData eventData) {
-		if(!levelSelectLocked) StartCoroutine(FinishOpeningMenu());
+		//if(!levelSelectLocked) StartCoroutine(FinishOpeningMenu());
 	}
 
 	public void OnScrollRectChange(Vector2 newPosition) {
@@ -142,6 +142,11 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 	}
 
+	public void OpenMenu() {
+		if(!levelSelectLocked) StartCoroutine(FinishOpeningMenu());
+		MenuManager.instance.ToggleStartButton();
+	}
+
 	public IEnumerator FinishOpeningMenu() {
 		levelSelectLocked = true;
 		float totalCurveTime = openCurve.keys[openCurve.length - 1].time;
@@ -158,8 +163,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			rectTransform.offsetMin = new Vector2(currentOffsetMin.x, newOffsetMin);
 		//	transform.rotation = Quaternion.Lerp(curRotation, targetRotation, lerpProportion);
 			rectTransform.anchoredPosition = Vector2.Lerp(startingAnchoredPosition, Vector2.zero, lerpProportion);
-			float scaleSize = scaleCurve.Evaluate(lerpProportion);
-			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			//float scaleSize = scaleCurve.Evaluate(lerpProportion);
+			//transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
 		}
 		lerpProportion = 1;
@@ -193,8 +198,8 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			rectTransform.offsetMin = new Vector2(currentOffsetMin.x, newOffsetMin);
 			//transform.rotation = Quaternion.Lerp(targetRotation, curRotation, lerpProportion);
 			//rectTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, startingAnchoredPosition, lerpProportion);
-			float scaleSize = scaleCurve.Evaluate(lerpProportion);
-			transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
+			//float scaleSize = scaleCurve.Evaluate(lerpProportion);
+			//transform.localScale = new Vector3(scaleSize, scaleSize, scaleSize);
 			yield return null;
 		}
 		lerpProportion = 0;
@@ -206,6 +211,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		//transform.rotation = targetRotation;
 		transform.localScale = startingScale;
 		scrollRect.vertical = false;
+		MenuManager.instance.ToggleStartButton();
 	}
 
 	void SwapFakeMenu() {

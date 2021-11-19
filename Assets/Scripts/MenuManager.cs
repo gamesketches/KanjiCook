@@ -8,11 +8,13 @@ public class MenuManager : MonoBehaviour
 	public static MenuManager instance;
 	public GameObject levelSelect;
 	public GameObject titleScreen;
+	public GameObject concierge;
 	public GameObject aboutScreen;
 	public GameObject packStore;
 	public GameObject purchaseButton;
 	public GameObject aboutButton;
 	public GameObject backButton;
+	public GameObject startButton;
 	public AudioClip[] pageTurnSounds;
 	AudioSource audioSource;
 	bool aboutOpen = false;
@@ -34,12 +36,6 @@ public class MenuManager : MonoBehaviour
 		StartCoroutine(SlideInTitleScreen());
 		DisableAboutScreen();
 		DisablePackScreen();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 	IEnumerator SlideInTitleScreen() {
@@ -175,6 +171,14 @@ public class MenuManager : MonoBehaviour
 			titleScreen.transform.parent.GetComponent<Canvas>().enabled = true;
 			StartCoroutine(levelSelect.GetComponent<LevelSelect>().CloseMenu());
 			PlayPageTurnSound();
+		}
+	}
+
+	public void ToggleStartButton() {
+		if(startButton.activeSelf) {
+			startButton.SetActive(false);
+		} else {
+			startButton.SetActive(true);
 		}
 	}
 
