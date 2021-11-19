@@ -66,8 +66,8 @@ public class RequestQueueManager : MonoBehaviour
 	}
 
 	public IEnumerator ClearRequest(Text kanjiOrder, string targetText) {
-		for(int i = 0; i < requests.Count; i++) {
-			if(requests[i].RequestFulfilled(targetText)) {
+		for(int i = requests.Count - 1; i > -1; i--) {
+			if(requests[i].RequestFulfilled(targetText) && requests[i].gameObject.activeSelf) {
 				string kanjiLiteral = kanjiOrder.text;
 				Vector3 targetPos = requests[i].transform.position;
 				Vector3 startPos = kanjiOrder.transform.position;
