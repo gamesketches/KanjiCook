@@ -51,7 +51,7 @@ public class CookingPotBehavior : MonoBehaviour
 		}
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, hitRect.transform);
 		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-0.3f, 0.3f) * hitRect.rect.width,
-															 Random.Range(-0.3f, 0.3f) * hitRect.rect.height);
+															 Random.Range(-0.1f, 0.3f) * hitRect.rect.height);
 		newChar.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-15, 15));
 		Text charText = newChar.GetComponent<Text>();
 		charText.text = character;
