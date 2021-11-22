@@ -337,7 +337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33841965, y: 0.23327477}
   m_AnchorMax: {x: 0.8631608, y: 0.53545797}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.3121409, y: 0.7739592}
 --- !u!114 &25356214
@@ -1286,7 +1286,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0007351527}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &125342585
 MonoBehaviour:
@@ -4940,7 +4940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &781131701
 Transform:
   m_ObjectHideFlags: 0
@@ -8122,7 +8122,10 @@ MonoBehaviour:
   chefArm: {fileID: 1509585092}
   chefForearm: {fileID: 25356213}
   cooking: 0
-  rotationInterval: 8
+  rotationInterval: 14
+  rotationSpeed: 50
+  translationInterval: 14
+  translationSpeed: 50
 --- !u!114 &1289439931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9556,8 +9559,8 @@ RectTransform:
   m_Father: {fileID: 1289439929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.65, y: 0.21244505}
-  m_AnchorMax: {x: 2.1720002, y: 0.38659334}
+  m_AnchorMin: {x: 0.65, y: 0.2224451}
+  m_AnchorMax: {x: 2.1720002, y: 0.4065933}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.09593712, y: 0.5}
@@ -10564,6 +10567,9 @@ MonoBehaviour:
   chefForearm: {fileID: 136203845}
   cooking: 0
   rotationInterval: 8
+  rotationSpeed: 0
+  translationInterval: 0
+  translationSpeed: 0
 --- !u!212 &1674724556
 SpriteRenderer:
   m_ObjectHideFlags: 0

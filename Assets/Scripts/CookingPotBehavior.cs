@@ -60,7 +60,8 @@ public class CookingPotBehavior : MonoBehaviour
 	IEnumerator CookKanji() {
 		float cookingTimer = 0;
 		float panAnimationRange = 3;
-		chef.cooking = true;
+		chef.StartCooking();
+		//chef.cooking = true;
 		Vector3 startPosition = transform.position;
 		RectTransform[] ingredientRects = hitRect.transform.GetComponentsInChildren<RectTransform>();
 		while(cookingTimer < cookingTime) {
@@ -86,7 +87,8 @@ public class CookingPotBehavior : MonoBehaviour
 		transform.position = startPosition;
 		EntreeData resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
-		chef.cooking = false;
+		chef.StopCooking();
+		//chef.cooking = false;
 		hitRect.transform.localScale = Vector3.one;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
