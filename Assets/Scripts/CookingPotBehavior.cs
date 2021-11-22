@@ -12,6 +12,7 @@ public class CookingPotBehavior : MonoBehaviour
 	public GameObject characterPrefab;
 	List<string> ingredients;
 	public Text resultSpot;
+	public Text tutorialText;
 	Image curImage;
 	public float cookingTime;
 	public Color ingredientColor;
@@ -19,6 +20,7 @@ public class CookingPotBehavior : MonoBehaviour
 	public AudioClip serviceBell;
 	public AudioClip[] cookingSounds;
 	public ChefController chef;
+	bool tutorialTextShown;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,8 @@ public class CookingPotBehavior : MonoBehaviour
 		audioSources = GetComponents<AudioSource>();
 		//hitRect = GetComponent<RectTransform>();
 		GameManager.GameEnded += GameEnded;
+		tutorialTextShown = false;
+		tutorialText.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,6 +45,10 @@ public class CookingPotBehavior : MonoBehaviour
 		if(resultSpot.text != "")
 			resultSpot.text = "";
 		ingredients.Add(character);
+		if(!tutorialTextShown && ingredients.Count > 1) {
+			tutorialText.enabled = true;
+			tutorialTextShown = true;
+		}
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, hitRect.transform);
 		newChar.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(-0.3f, 0.3f) * hitRect.rect.width,
 															 Random.Range(-0.3f, 0.3f) * hitRect.rect.height);
@@ -61,7 +69,7 @@ public class CookingPotBehavior : MonoBehaviour
 		float cookingTimer = 0;
 		float panAnimationRange = 3;
 		chef.StartCooking();
-		//chef.cooking = true;
+		tutorialText.enabled = false;
 		Vector3 startPosition = transform.position;
 		RectTransform[] ingredientRects = hitRect.transform.GetComponentsInChildren<RectTransform>();
 		while(cookingTimer < cookingTime) {
@@ -150,5 +158,6 @@ public class CookingPotBehavior : MonoBehaviour
 	void GameEnded() {
 		ClearIngredients();
 		FinishCookingSounds();
+		tutorialTextShown = false;
 	}
 }
