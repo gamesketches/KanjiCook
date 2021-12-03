@@ -37,13 +37,13 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		menuImage = GetComponent<Image>();
 		scrollRect = GetComponentInChildren<ScrollRect>();
 		scrollRect.vertical = false;
-		startingAnchoredPosition = new Vector2(0, -rectTransform.rect.size.y * 0.45f);
-		rectTransform.anchoredPosition = startingAnchoredPosition;
+		/*startingAnchoredPosition = new Vector2(0, -rectTransform.rect.size.y * 0.45f);
+		/rectTransform.anchoredPosition = startingAnchoredPosition;
 		startOffsetMax = rectTransform.offsetMax;
 		startOffsetMin = rectTransform.offsetMin;
 		startingScale = transform.localScale;
 		startOffset = rectTransform.offsetMax.y;
-		transform.rotation = Quaternion.Euler(0, 0, startingRotation);
+		transform.rotation = Quaternion.Euler(0, 0, startingRotation);*/
 		transform.GetChild(0).gameObject.SetActive(false);
 		transform.GetChild(1).gameObject.SetActive(false);
     }
@@ -99,6 +99,30 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void OnBeginDrag(PointerEventData eventData) {
 		if(levelSelectLocked) StartCoroutine(CloseMenu());
+	}
+
+	public IEnumerator OpenLevelSelectNoAnimation(float delay) {
+		yield return new WaitForSeconds(delay);
+		menuImage.color = Color.white;
+		lerpProportion = 1;
+		levelSelectLocked = true;
+		LevelSelectButton.scrollRectPosition = 1;
+		StartCoroutine(LoadLevelListings(1, levelsToLoad));
+		SwapFakeMenu();
+		MenuManager.instance.DismissTitleScreen();
+		MenuManager.instance.UpdateBackButtonActive();
+		scrollRect.vertical = true;
+	}
+
+	public void CloseMenuNoAnimation() {
+		Debug.Log("Closing menu without animation");
+		SwapFakeMenu();
+		menuImage.CrossFadeAlpha(0, MenuManager.menuSlideSpeed / 2, false);
+		lerpProportion = 0;
+		levelSelectLocked = false;
+		scrollRect.vertical = false;
+		MenuManager.instance.ReturnToTitleScreen();
+		MenuManager.instance.UpdateBackButtonActive();
 	}
 
 	public void OnDrag(PointerEventData eventData) {
@@ -221,6 +245,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		header.SetActive(!header.activeSelf);
 		//transform.rotation = header.activeSelf ? Quaternion.identity : Quaternion.Euler(0, 0, endingRotation);
 		scrollRect.SetActive(!scrollRect.activeSelf);
+		Debug.Log(scrollRect.activeSelf);
 		menuImage.sprite = blankMenu;
 		blankMenu = temp;
 	}
