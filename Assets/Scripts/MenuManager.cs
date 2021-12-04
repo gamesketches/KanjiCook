@@ -48,19 +48,21 @@ public class MenuManager : MonoBehaviour
 
 	public void SlideUpTitleScreen() {
 		Debug.Log("Opening levelSelect");
-		RectTransform titleTransform = titleScreen.transform.GetChild(0).GetComponent<RectTransform>();
-		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, -titleTransform.anchoredPosition.y / 2, -500, menuSlideSpeed, RectTransform.Edge.Top));
+		RectTransform titleTransform = titleScreen.transform.GetComponent<RectTransform>();
+		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, 0, -titleTransform.rect.size.y, menuSlideSpeed, RectTransform.Edge.Top));
 		startButton.GetComponent<Image>().CrossFadeAlpha(0f, menuSlideSpeed, false);
 		startButton.GetComponentInChildren<Text>().CrossFadeAlpha(0f, menuSlideSpeed, false);
 		Invoke("ToggleStartButton", menuSlideSpeed);
 		StartCoroutine(levelSelect.GetComponent<LevelSelect>().OpenLevelSelectNoAnimation(menuSlideSpeed));
+		startButton.GetComponent<Button>().interactable = false;
 	}
 		
 	public void ReturnToTitleScreen() {
-		RectTransform titleTransform = titleScreen.transform.GetChild(0).GetComponent<RectTransform>();
-		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, -500, -titleTransform.anchoredPosition.y / 2, menuSlideSpeed, RectTransform.Edge.Top));
+		RectTransform titleTransform = titleScreen.transform.GetComponent<RectTransform>();
+		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, -titleTransform.rect.size.y, 0, menuSlideSpeed, RectTransform.Edge.Top));
 		startButton.GetComponent<Image>().CrossFadeAlpha(1f, menuSlideSpeed, false);
 		startButton.GetComponentInChildren<Text>().CrossFadeAlpha(1f, menuSlideSpeed, false);
+		startButton.GetComponent<Button>().interactable = true;
 		Invoke("ToggleStartButton", menuSlideSpeed);
 	}
 
