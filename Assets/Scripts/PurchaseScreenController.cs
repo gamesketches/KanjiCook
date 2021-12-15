@@ -40,11 +40,18 @@ public class PurchaseScreenController : MonoBehaviour
     }
 
 	void FillPurchaseMenu() {
-		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("JLPT 5 Levels", "30 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt5");
-		packListing = Instantiate<GameObject>(listingPrefab, scrollView);
-		packListing.GetComponent<BundleListingController>().Initialize("JLPT4 Kanjis", "50 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt4");
+		CreateNewPurchase("JLPT 5 Levels", "30 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt5");
+		CreateNewPurchase("JLPT 4 Kanjis", "50 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt4");
+		CreateNewPurchase("JLPT 3 Kanjis", "144 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt3");
+		CreateNewPurchase("JLPT 2 Kanjis", "148 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt2");
 	}
+
+	void CreateNewPurchase(string title, string subTitle, string price, string iapCode) {
+		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
+		packListing.GetComponent<BundleListingController>().Initialize(title, subTitle, price, iapCode);
+		packListing.transform.SetSiblingIndex(packListing.transform.parent.childCount - 2);
+	}
+		
 
 	public void ShowDetails(string packId) {
 		for(int i = 0; i < scrollView.childCount; i++) {

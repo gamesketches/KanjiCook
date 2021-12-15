@@ -56,7 +56,7 @@ public class MenuManager : MonoBehaviour
 		StartCoroutine(levelSelect.GetComponent<LevelSelect>().OpenLevelSelectNoAnimation(menuSlideSpeed));
 		startButton.GetComponent<Button>().interactable = false;
 	}
-		
+
 	public void ReturnToTitleScreen() {
 		RectTransform titleTransform = titleScreen.transform.GetComponent<RectTransform>();
 		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, -titleTransform.rect.size.y, 0, menuSlideSpeed, RectTransform.Edge.Top));

@@ -107,7 +107,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		lerpProportion = 1;
 		levelSelectLocked = true;
 		LevelSelectButton.scrollRectPosition = 1;
-		//menuImage.CrossFadeAlpha(1, MenuManager.menuSlideSpeed, false);
 		StartCoroutine(LoadLevelListings(1, levelsToLoad));
 		SwapFakeMenu();
 		MenuManager.instance.DismissTitleScreen();
@@ -119,7 +118,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Debug.Log("Closing menu without animation");
 		SwapFakeMenu();
 		menuImage.color = Color.clear;
-		//menuImage.CrossFadeAlpha(0, MenuManager.menuSlideSpeed / 2, false);
 		lerpProportion = 0;
 		levelSelectLocked = false;
 		scrollRect.vertical = false;
