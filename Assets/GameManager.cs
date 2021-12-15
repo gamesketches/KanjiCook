@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 	public CountdownController countdownClock;
 	public Image timer;
 	public float requestInterval = 5;
+	public float requestCutoff = 2;
 	float requestTimer = 4.5f;
 	public int attempts;
 	public float levelDuration;
@@ -54,11 +55,11 @@ public class GameManager : MonoBehaviour
     {
 		if(gameStarted) {
 			requestTimer += Time.deltaTime;
-			if(requestTimer >= requestInterval) {
+			levelTimer += Time.deltaTime;
+			if(requestTimer >= requestInterval && levelTimer < levelDuration - requestCutoff) {
 				MakeNewRequest();
 				requestTimer = 0;
 			}
-			levelTimer += Time.deltaTime;
 			UpdateTimer();
 			if(levelTimer > levelDuration) {
 				gameStarted = false;
