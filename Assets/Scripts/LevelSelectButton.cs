@@ -50,6 +50,9 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 		interactable = isInteractable;
 		levelIndex = id;
 		uuid = ContentManager.instance.GetLevelSelectContent(id, out levelKanjis, out rads);
+		if(uuid == "none") {
+			gameObject.SetActive(false);
+		}
 		foreach(string kanji in levelKanjis) {
 			GameObject newKanji = Instantiate(kanjiPrefab, kanjis);
 			newKanji.GetComponentInChildren<Text>().text = kanji;

@@ -1,17 +1,22 @@
 ﻿<Properties StartupConfiguration="{6C126FC1-6E1F-C01B-8DB8-7BA1BFA9CDBD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FlameAnimator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelSelect.cs">
     <Files>
-      <File FileName="Assets/FlipAnimatingScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/LevelSelectButton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FlameAnimator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FlameAnimator.cs" />
+      <File FileName="Assets/IAPManager.cs" Line="15" Column="51" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AppManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ContentManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelSelect.cs" Line="95" Column="55" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="KanjiCook" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
-              <Node name="FlipAnimatingScript.cs" selected="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="LevelSelect.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -20,7 +25,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1ca628dc-b45b-47cd-aeeb-6bcd827a7807" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="57de9579-93b9-4aa5-b06d-8aae6c6e822c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

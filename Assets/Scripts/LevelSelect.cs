@@ -58,6 +58,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Debug.Log("Loading Levels");
 		List<LevelSelectButton> levelButtons = 
 							new List<LevelSelectButton>(scrollView.GetComponentsInChildren<LevelSelectButton>());
+		if(loadedLevels + levelsToAdd > ContentManager.instance.numLevels) {
+			levelsToAdd = ContentManager.instance.numLevels - loadedLevels;
+		}
 		for(int levelCount = startIndex; levelCount < startIndex + levelsToAdd; levelCount++) {
 			//if(ContentManager.instance.HasLevelIndex(levelCount)) {
 				GameObject levelButton = Instantiate(levelButtonPrefab, scrollView);
@@ -65,6 +68,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				LevelSelectButton buttonBehavior = levelButton.GetComponentInChildren<LevelSelectButton>();
 				buttonBehavior.Initialize(levelCount);
 				levelButtons.Add(buttonBehavior);
+				Debug.Log(loadedLevels);
 				loadedLevels++;
 			//}
 		}

@@ -11,6 +11,7 @@ public class ContentManager : MonoBehaviour
 	public static ContentManager instance;
 	public int numRadicals;
 	public int numKanji;
+	public int numLevels;
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
 	Dictionary<string, EntreeData[]> levelLookup;
@@ -36,6 +37,7 @@ public class ContentManager : MonoBehaviour
 			yield return LoadLevelPack(pack);
 			loadingLevels = false;
 		}
+		numLevels = levelIds.Count;
 	}
 
 	IEnumerator LoadLevelPack(string packName) {
@@ -109,6 +111,11 @@ public class ContentManager : MonoBehaviour
 	}
 
 	public string GetLevelSelectContent(int index, out string[] kanjis, out string[] radicals) {
+		if(index > levelIds.Count) {
+			kanjis = new string[0];
+			radicals = new string[0];
+			return "none";
+		}
 		string levelUUID = levelIds[index];
 		EntreeData[] theLevel = levelLookup[levelUUID];
 		List<string> fileKanjis = new List<string>();
