@@ -13,6 +13,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
 	private string jlpt5 = "com.bluesphere.kanjicook.jlpt5";
 	private string jlpt4 = "com.bluesphere.kanjicook.jlpt4";
+	private string jlpt3 = "com.bluesphere.kanjicook.jlpt3";
+	private string jlpt2 = "com.bluesphere.kanjicook.jlpt2";
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,14 @@ public class IAPManager : MonoBehaviour, IStoreListener
 		else if(String.Equals(args.purchasedProduct.definition.id, jlpt4, StringComparison.Ordinal)) {
 			Debug.Log("Purchased jlpt4");
 			ContentManager.instance.AddLevelPack("jlpt4");
+		}
+		else if(String.Equals(args.purchasedProduct.definition.id, jlpt3, StringComparison.Ordinal)) {
+			Debug.Log("Purchased jlpt3");
+			ContentManager.instance.AddLevelPack("jlpt3");
+		}
+		else if(String.Equals(args.purchasedProduct.definition.id, jlpt2, StringComparison.Ordinal)) {
+			Debug.Log("Purchased jlpt2");
+			ContentManager.instance.AddLevelPack("jlpt2");
 		}
 		else {
 			Debug.LogError("Purchase failed");
