@@ -15,11 +15,13 @@ public class MenuManager : MonoBehaviour
 	public GameObject aboutButton;
 	public GameObject backButton;
 	public GameObject startButton;
+	public GameObject tutorialImage;
 	public AudioClip[] pageTurnSounds;
 	AudioSource audioSource;
 	bool aboutOpen = false;
 	bool packsOpen = false;
 	bool packsOnTop = false;
+	bool tutorialOut = false;
 	public float titleScreenSlideInTime;
 	public static float menuSlideSpeed = 0.4f;
 
@@ -122,6 +124,18 @@ public class MenuManager : MonoBehaviour
 		UpdateBackButtonActive();
 	}
 
+	public void ToggleTutorialImage() { 
+		RectTransform tutorialTransform = tutorialImage.GetComponent<RectTransform>();
+		float rectSize = tutorialTransform.rect.size.x;
+		if(!tutorialOut) {
+			StartCoroutine(LerpInsetAnimation(tutorialTransform, -rectSize, 0, menuSlideSpeed, RectTransform.Edge.Left));
+			}
+		else { 
+			StartCoroutine(LerpInsetAnimation(tutorialTransform, 0, -rectSize, menuSlideSpeed, RectTransform.Edge.Left));
+			}
+		tutorialOut = !tutorialOut;
+	}
+
 	public void DismissTitleScreen() {
 		titleScreen.transform.parent.GetComponent<Canvas>().enabled = false;
 	}
@@ -176,7 +190,10 @@ public class MenuManager : MonoBehaviour
 
 	public void BackButtonPressed() {
 		if(audioSource.isPlaying) return;
-		if(packsOnTop) {
+		if(tutorialOut) {
+			ToggleTutorialImage();
+		}
+		else if(packsOnTop) {
 			PurchaseScreenController packsController = packStore.GetComponent<PurchaseScreenController>();
 			packsController.GoBack();
 			PlayPageTurnSound();
