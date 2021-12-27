@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{6C126FC1-6E1F-C01B-8DB8-7BA1BFA9CDBD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/IAPManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PurchaseScreenController.cs">
     <Files>
       <File FileName="Assets/Scripts/LevelSelectButton.cs" Line="51" Column="18" />
       <File FileName="Assets/Scripts/FlameAnimator.cs" />
-      <File FileName="Assets/IAPManager.cs" Line="16" Column="56" />
+      <File FileName="Assets/IAPManager.cs" />
       <File FileName="Assets/Scripts/MenuManager.cs" />
       <File FileName="Assets/Scripts/AppManager.cs" />
-      <File FileName="Assets/Scripts/ContentManager.cs" />
-      <File FileName="Assets/Scripts/LevelSelect.cs" Line="66" Column="72" />
+      <File FileName="Assets/Scripts/ContentManager.cs" Line="29" Column="46" />
+      <File FileName="Assets/Scripts/LevelSelect.cs" Line="67" Column="67" />
+      <File FileName="Assets/Scripts/PurchaseScreenController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +16,7 @@
           <Node name="KanjiCook" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="LevelSelectButton.cs" selected="True" />
+                <Node name="PurchaseScreenController.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -25,7 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6e9d7bea-a247-4d22-9b59-d9fbc75cdb7c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5d444d1d-707f-48a0-9578-9526d3e36e1b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

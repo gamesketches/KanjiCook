@@ -49,7 +49,7 @@ public class PurchaseScreenController : MonoBehaviour
 	void CreateNewPurchase(string title, string subTitle, string price, string iapCode) {
 		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
 		packListing.GetComponent<BundleListingController>().Initialize(title, subTitle, price, iapCode);
-		packListing.transform.SetSiblingIndex(packListing.transform.parent.childCount - 2);
+		packListing.transform.SetSiblingIndex(packListing.transform.parent.childCount - 3);
 	}
 		
 

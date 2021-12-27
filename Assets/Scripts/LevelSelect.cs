@@ -64,7 +64,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		for(int levelCount = startIndex; levelCount < startIndex + levelsToAdd; levelCount++) {
 			//if(ContentManager.instance.HasLevelIndex(levelCount)) {
 				GameObject levelButton = Instantiate(levelButtonPrefab, scrollView);
-				levelButton.transform.SetSiblingIndex(scrollView.childCount - 2);
+				levelButton.transform.SetSiblingIndex(scrollView.childCount - 3);
 				levelButton.transform.localRotation = Quaternion.identity;
 				LevelSelectButton buttonBehavior = levelButton.GetComponentInChildren<LevelSelectButton>();
 				buttonBehavior.Initialize(levelCount);
