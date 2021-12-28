@@ -30,6 +30,7 @@ public class MenuManager : MonoBehaviour
     {
 		instance = this;
 		audioSource = GetComponent<AudioSource>();
+		//UpdateTitleBackingPosition();
         titleScreen.SetActive(true);
 		packStore.transform.parent.gameObject.SetActive(true);
 		LevelSelect.lerpProportion = 1;
@@ -223,6 +224,7 @@ public class MenuManager : MonoBehaviour
 		int diceRoll = Mathf.FloorToInt(Random.value * pageTurnSounds.Length);
 		audioSource.PlayOneShot(pageTurnSounds[diceRoll]);
 	}
+
 
 	public static IEnumerator LerpInsetAnimation(RectTransform theRect, float startOffset, float targetOffset, float time, RectTransform.Edge parentEdge = RectTransform.Edge.Right) {
 		float rectSize = theRect.rect.size.x;
