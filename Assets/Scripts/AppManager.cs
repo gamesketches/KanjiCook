@@ -10,6 +10,7 @@ public class AppManager : MonoBehaviour
 	public Canvas gameplayUICanvas;
 	public Color primaryColor;
 	public Color secondaryColor;
+	public Color menuColor;
 	
     // Start is called before the first frame update
     void Awake()

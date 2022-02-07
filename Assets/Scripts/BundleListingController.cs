@@ -12,6 +12,7 @@ public class BundleListingController : MonoBehaviour
 	public Text nameLabel;
 	public Text descLabel;
 	public Text priceLabel;
+	public Button purchaseButton;
 
 	public void Initialize(string name, string desc, string cost, string id) {
 		packName = name;
@@ -21,6 +22,10 @@ public class BundleListingController : MonoBehaviour
 		nameLabel.text = name;
 		descLabel.text = desc;
 		priceLabel.text = cost;
+		if(ContentManager.instance.AlreadyOwned(id)) {
+			Debug.Log(id + " is already owned");
+			purchaseButton.interactable = false;
+			}
 	}
 
     public void ShowContents() {
@@ -28,6 +33,11 @@ public class BundleListingController : MonoBehaviour
 	}
 
 	public void PurchasePack() {
-		IAPManager.instance.BuyProductID(packId);
+		if (!ContentManager.instance.AlreadyOwned(packId))
+		{
+			ContentManager.instance.AddLevelPack(packId);
+			IAPManager.instance.BuyProductID(packId);
+			purchaseButton.interactable = false;
+		}
 	}
 }

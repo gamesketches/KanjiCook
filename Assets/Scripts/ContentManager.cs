@@ -17,6 +17,7 @@ public class ContentManager : MonoBehaviour
 	Dictionary<string, EntreeData[]> levelLookup;
 	List<string> levelIds;
 	string[] packsOwned;
+	public LevelSelect levelSelect;
 	
 	[SerializeField] private AssetLabelReference levelLabel;
 	private AsyncOperationHandle _levelLoadOperationHandle;
@@ -27,6 +28,7 @@ public class ContentManager : MonoBehaviour
 		levelLookup = new Dictionary<string, EntreeData[]>();
 		levelIds = new List<string>();
 		packsOwned = new string[] {"LevelContent"};
+		CheckOwnedPacks();
 		StartCoroutine(LoadLevelsFromResources());
 		//StartCoroutine(LoadOwnedLevels());
     }
@@ -35,18 +37,22 @@ public class ContentManager : MonoBehaviour
 		loadingLevels = true;
 		foreach(string pack in packsOwned) {
 			yield return LoadLevelPack(pack);
+			Debug.Log(pack);
 			loadingLevels = false;
 		}
-		numLevels = levelIds.Count;
 	}
 
-	IEnumerator LoadLevelPack(string packName) {
+	IEnumerator LoadLevelPack(string packName, bool triggerLevelSelect = false) {
 		TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + packName);
 			foreach(TextAsset level in levels) {
 				string newID = ProcessLevelContent(level);
 				levelIds.Add(newID);
 				yield return null;
 			}
+	   if(triggerLevelSelect) {
+			levelSelect.LoadNewLevels();
+			}
+		numLevels = levelIds.Count;
 	}
 
 	IEnumerator LoadOwnedLevels() {
@@ -205,12 +211,62 @@ public class ContentManager : MonoBehaviour
 		return new EntreeData(pickedKanji.meanings, pickedKanji.kanji, pickedKanji.radicals, pickedKanji.kunyomi, pickedKanji.onyomi);
 	}
 		
+	private void CheckOwnedPacks() {
+		List<string> packsToAdd = new List<string>();
+		packsToAdd.Add("LevelContent");
+		for (int i = 5; i > 1; i--)
+		{
+			string packString = "com.bluesphere.kanjicook.jlpt" + i.ToString();
+			if (PlayerPrefs.HasKey(packString))
+			{
+				if (PlayerPrefs.GetInt(packString) == 1)
+				{
+					packsToAdd.Add(packString);
+				}
+			}
+			else PlayerPrefs.SetInt(packString, 0);
+		}
+		packsOwned = packsToAdd.ToArray();
+	}
+
+	private void ClearOwnedPacks() { 
+		for (int i = 5; i > 1; i--)
+		{
+			string packString = "com.bluesphere.kanjicook.jlpt" + i.ToString();
+			PlayerPrefs.SetInt(packString, 0);
+		}
+		PlayerPrefs.Save();
+	}
 
 	public void AddLevelPack(string pack) {
 		List<string> ownedPacksList = new List<string>(packsOwned);
 		ownedPacksList.Add(pack);
 		packsOwned = ownedPacksList.ToArray();
-		StartCoroutine(LoadLevelPack(pack));
+		AddOwnedPack(pack);
+		StartCoroutine(LoadLevelPack(pack, true));
+	}
+
+	public bool AlreadyOwned(string pack) { 
+		if(PlayerPrefs.HasKey(pack)) {
+			return PlayerPrefs.GetInt(pack) == 1;
+		}
+		return false;
+	}
+
+	private void AddOwnedPack(string pack) {
+		string packKey = pack;
+		if (!PlayerPrefs.HasKey(packKey))
+		{
+			Debug.Log("adding pack and key " + packKey);
+			PlayerPrefs.SetInt(packKey, 1);
+		}
+		else if (PlayerPrefs.GetInt(packKey) == 0)
+		{
+			Debug.Log("adding pack " + packKey);
+			PlayerPrefs.SetInt(packKey, 1);
+		}
+		else Debug.Log(PlayerPrefs.GetInt(packKey));
+		PlayerPrefs.Save();
 	}
 }
 

@@ -65,6 +65,7 @@ MonoBehaviour:
   nameLabel: {fileID: 3905885097556708934}
   descLabel: {fileID: 1457796917816096304}
   priceLabel: {fileID: 1731682271957903118}
+  purchaseButton: {fileID: 4714951951231944374}
 --- !u!114 &7919410368247569247
 MonoBehaviour:
   m_ObjectHideFlags: 0

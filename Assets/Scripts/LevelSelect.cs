@@ -55,7 +55,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	IEnumerator LoadLevelListings(int startIndex = 1, int levelsToAdd = 5) {
 		while( !ContentManager.instance.LevelSelectContentReady()) yield return null;
-		Debug.Log("Loading Levels");
 		List<LevelSelectButton> levelButtons = 
 							new List<LevelSelectButton>(scrollView.GetComponentsInChildren<LevelSelectButton>());
 		if(loadedLevels + levelsToAdd > ContentManager.instance.numLevels) {
@@ -95,10 +94,17 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnScrollRectChange(Vector2 newPosition) {
+		Debug.Log(LevelSelectButton.scrollRectPosition);
 		if(newPosition.y < 0) {
 			StartCoroutine(LoadLevelListings(loadedLevels, 7));
 		}
 		LevelSelectButton.scrollRectPosition = newPosition.y;
+	}
+
+	public void LoadNewLevels() {
+		if (LevelSelectButton.scrollRectPosition < 0.015f) {
+			StartCoroutine(LoadLevelListings(loadedLevels, 7));
+		}
 	}
 
 	public void OnBeginDrag(PointerEventData eventData) {
@@ -107,7 +113,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public IEnumerator OpenLevelSelectNoAnimation(float delay) {
 		yield return new WaitForSeconds(delay);
-		menuImage.color = Color.white;
+		menuImage.color = AppManager.instance.menuColor;
 		lerpProportion = 1;
 		levelSelectLocked = true;
 		LevelSelectButton.scrollRectPosition = 1;
