@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum DynamicColorAssignment {Primary, Secondary};
+public enum DynamicColorAssignment {Primary, Secondary, Menu};
 public class DynamicColorObject : MonoBehaviour
 {
 	//Image coloredObject;
@@ -15,8 +15,10 @@ public class DynamicColorObject : MonoBehaviour
         var coloredObject = GetComponent<Image>();
 		if(colorAssignment == DynamicColorAssignment.Primary) {
 			coloredObject.color = AppManager.instance.primaryColor;
-		} else {
+		} else if(colorAssignment == DynamicColorAssignment.Secondary) {
 			coloredObject.color = AppManager.instance.secondaryColor;
+		} else { 
+			coloredObject.color = AppManager.instance.menuColor;
 		}
     }
 
@@ -27,8 +29,10 @@ public class DynamicColorObject : MonoBehaviour
 		}*/
 		if(colorAssignment == DynamicColorAssignment.Primary) {
 			coloredObject.color = AppManager.instance.primaryColor;
-		} else {
+		} else if(colorAssignment == DynamicColorAssignment.Secondary) {
 			coloredObject.color = AppManager.instance.secondaryColor;
+		} else { 
+			coloredObject.color = AppManager.instance.menuColor;
 		}
 	}
 }
