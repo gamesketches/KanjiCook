@@ -1,0 +1,40 @@
+{
+    "uuid": "9757f603-459d-4a4f-851a-7dc7963336cb",
+    "kanjiInfos": [
+        {
+            "meanings": [ "south" ],
+            "onyomi": [ " \u30ca\u30f3", "\u30ca" ],
+            "kanji": "\u5357",
+            "kunyomi": [ " \u307f\u306a\u307f" ],
+            "radicals": [ "\u5341", "\u5182", "\u4e37", "\u5e72" ]
+        },
+        {
+            "meanings": [ "stand up", "rise", "set up", "erect" ],
+            "onyomi": [ " \u30ea\u30c4", "\u30ea\u30e5\u30a6", "\u30ea\u30c3\u30c8\u30eb" ],
+            "kanji": "\u7acb",
+            "kunyomi": [ " \u305f.\u3064", "-\u305f.\u3064", "\u305f.\u3061-", "\u305f.\u3066\u308b", "-\u305f.\u3066\u308b", "\u305f.\u3066-", "\u305f\u3066-", "-\u305f.\u3066", "-\u3060.\u3066", "-\u3060.\u3066\u308b" ],
+            "radicals": [ "\u4ea0", "\u4e37", "\u4e00" ]
+        },
+        {
+            "meanings": [ "noon" ],
+            "onyomi": [ " \u30b4" ],
+            "kanji": "\u5348",
+            "kunyomi": [ " \u3046\u307e" ],
+            "radicals": [ "\u30ce", "\u4e00", "\u5341" ]
+        },
+        {
+            "meanings": [ "circle", "yen", "round" ],
+            "onyomi": [ " \u30a8\u30f3" ],
+            "kanji": "\u5186",
+            "kunyomi": [ " \u307e\u308b.\u3044", "\u307e\u308b", "\u307e\u3069", "\u307e\u3069.\u304b", "\u307e\u308d.\u3084\u304b" ],
+            "radicals": [ "\u5182", "\u4ea0" ]
+        },
+        {
+            "meanings": [ "soil", "earth", "ground", "Turkey" ],
+            "onyomi": [ " \u30c9", "\u30c8" ],
+            "kanji": "\u571f",
+            "kunyomi": [ " \u3064\u3061" ],
+            "radicals": [ "\u5341", "\u4e00" ]
+        }
+    ]
+}

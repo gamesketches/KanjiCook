@@ -1,0 +1,40 @@
+{
+    "uuid": "15b6de26-b92e-4795-b14a-57dc64faef5f",
+    "kanjiInfos": [
+        {
+            "meanings": [ "every" ],
+            "onyomi": [ " \u30de\u30a4" ],
+            "kanji": "\u6bce",
+            "kunyomi": [ " \u3054\u3068", "-\u3054\u3068.\u306b" ],
+            "radicals": [ "\ud840\udc89", "\u6bcd" ]
+        },
+        {
+            "meanings": [ "life", "genuine", "birth" ],
+            "onyomi": [ " \u30bb\u30a4", "\u30b7\u30e7\u30a6" ],
+            "kanji": "\u751f",
+            "kunyomi": [ " \u3044.\u304d\u308b", "\u3044.\u304b\u3059", "\u3044.\u3051\u308b", "\u3046.\u307e\u308c\u308b", "\u3046\u307e.\u308c\u308b", "\u3046.\u307e\u308c", "\u3046\u307e\u308c", "\u3046.\u3080", "\u304a.\u3046", "\u306f.\u3048\u308b", "\u306f.\u3084\u3059", "\u304d", "\u306a\u307e", "\u306a\u307e-", "\u306a.\u308b", "\u306a.\u3059", "\u3080.\u3059", "-\u3046" ],
+            "radicals": [ "\u30ce", "\u4e00", "\u571f" ]
+        },
+        {
+            "meanings": [ "noon"],
+            "onyomi": [ " \u30b4" ],
+            "kanji": "\u5348",
+            "kunyomi": [ " \u3046\u307e" ],
+            "radicals": [  "\u30ce", "\u4e00", "\u5341" ]
+        },
+        {
+            "meanings": [ "car" ],
+            "onyomi": [ " \u30b7\u30e3" ],
+            "kanji": "\u8eca",
+            "kunyomi": [ " \u304f\u308b\u307e" ],
+            "radicals": [ "\u4e00", "\u65e5", "\u5341" ]
+        },
+        {
+            "meanings": [ "company", "firm", "office", "association", "shrine" ],
+            "onyomi": [ " \u30b7\u30e3" ],
+            "kanji": "\u793e",
+            "kunyomi": [ " \u3084\u3057\u308d" ],
+            "radicals": [ "\u2ead", "\u571f" ]
+        }
+    ]
+}
