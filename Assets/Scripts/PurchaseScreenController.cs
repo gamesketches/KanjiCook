@@ -9,6 +9,7 @@ public class PurchaseScreenController : MonoBehaviour
 	public static PurchaseScreenController instance;
 	public GameObject listingPrefab;
 	public GameObject levelPrefab;
+	public GameObject dottedLinePrefab;
 	public Transform scrollView;
 	public Transform detailScrollView;
 	public RectTransform detailRectTransform;
@@ -50,6 +51,8 @@ public class PurchaseScreenController : MonoBehaviour
 		GameObject packListing = Instantiate<GameObject>(listingPrefab, scrollView);
 		packListing.GetComponent<BundleListingController>().Initialize(title, subTitle, price, iapCode);
 		packListing.transform.SetSiblingIndex(packListing.transform.parent.childCount - 3);
+		GameObject dottedLine = Instantiate<GameObject>(dottedLinePrefab, scrollView);
+		dottedLine.transform.SetSiblingIndex(scrollView.childCount - 3);
 	}
 		
 
