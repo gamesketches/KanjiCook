@@ -12,6 +12,7 @@ public class BundleListingController : MonoBehaviour
 	public Text nameLabel;
 	public Text descLabel;
 	public Text priceLabel;
+	public Text kanjiLabel;
 	public Button purchaseButton;
 
 	public void Initialize(string name, string desc, string cost, string id) {
@@ -21,7 +22,8 @@ public class BundleListingController : MonoBehaviour
 		packId = id;
 		nameLabel.text = name;
 		descLabel.text = desc;
-		priceLabel.text = cost;
+		priceLabel.text = "Buy $" + cost;
+		kanjiLabel.text = GetLabel(id);
 		if(ContentManager.instance.AlreadyOwned(id)) {
 			Debug.Log(id + " is already owned");
 			purchaseButton.interactable = false;
@@ -38,6 +40,22 @@ public class BundleListingController : MonoBehaviour
 			ContentManager.instance.AddLevelPack(packId);
 			IAPManager.instance.BuyProductID(packId);
 			purchaseButton.interactable = false;
+		}
+	}
+
+	string GetLabel(string packId) {
+		switch (packId)
+		{
+			case "com.bluesphere.kanjicook.jlpt5":
+				return "五";
+			case "com.bluesphere.kanjicook.jlpt4":
+				return "四";
+			case "com.bluesphere.kanjicook.jlpt3":
+				return "三";
+			case "com.bluesphere.kanjicook.jlpt2":
+				return "二";
+			default:
+				return "字";
 		}
 	}
 }
