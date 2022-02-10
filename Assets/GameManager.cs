@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 	public void LevelSetup() {
 		levelTimer = 0;
 		attempts = 0;
-		scoreTally.text = "× 0";
+		scoreTally.text = "0";
 		//LoadKanji();
 		SetUpRadicals();
 		ShowDuJourMenu(0.0f);
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
 		timer.fillAmount = 1;
 		attempts = 0;
 		requestTimer = 4.5f;
-		scoreTally.text = "× 0";
+		scoreTally.text = "0";
 	}
 
 	public void OpenLevelSelect() {
@@ -244,7 +244,7 @@ public class GameManager : MonoBehaviour
 		attempts++;
 		if(requestQueue.SatisfiesRequest(ExtractTargetFromEntree(result))) {
 			StartCoroutine(requestQueue.ClearRequest(answer, ExtractTargetFromEntree(result)));
-			scoreTally.text = "× " + (int.Parse(scoreTally.text.Substring(1)) + 1).ToString();
+			scoreTally.text = (int.Parse(scoreTally.text) + 1).ToString();
 			if(foundWords.IndexOf(result.literal) == -1) {
 				foundWords.Add(result.literal);
 			} 
@@ -253,7 +253,7 @@ public class GameManager : MonoBehaviour
 
 	void ShowResults() {
 		resultModal.gameObject.SetActive(true);
-		int score = int.Parse(scoreTally.text.Substring(1));
+		int score = int.Parse(scoreTally.text);
 		resultModal.DisplayResults(score, attempts, foundWords.Count == targetWords.Length);
 	}
 
