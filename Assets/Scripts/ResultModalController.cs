@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ResultModalController : MonoBehaviour
 {
 	public Image[] stars;
-	public Text performanceText;
+	public Text dishesMade;
+	public Text successRateText;
 	public Color disabledStar;
 	public string colorString;
 	string colorTag;
@@ -44,15 +45,15 @@ public class ResultModalController : MonoBehaviour
 			successRate = ((float)score / (float) attempts) * 100;
 		if(successRate > 90f) numStars++;
 		if(score > 12) numStars++;
-		string performanceString = "You cooked " + colorTag + score.ToString() + "</color> dishes!\n" + 
-										"You had a " + colorTag + successRate.ToString("F2") + "</color> success rate\n";  
+		dishesMade.text = score.ToString();
+		successRateText.text = successRate.ToString() + "%";
 		if(allKanji) {
 			numStars++;
-			performanceString += "You made at least one of each kanji!\nKeep up the good work!";
-		} else {
+		//	performanceString += "You made at least one of each kanji!\nKeep up the good work!";
+		}/* else {
 			performanceString += "\nKeep up the good work!";
 		}
-
+		*/
 		for(int i = 0; i < stars.Length; i++) {
 			stars[i].color = disabledStar;
 			stars[i].sprite = emptyStar;
@@ -60,7 +61,6 @@ public class ResultModalController : MonoBehaviour
 				StartCoroutine(FillStarAnimation(stars[i], initialDelay + (starFillDelay * i)));
 			}
 		}
-		performanceText.text = performanceString;
 		ProgressTracker.instance.UpdateLevelInfo(GameManager.levelId, numStars);
 	}
 
