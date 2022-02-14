@@ -1,7 +1,88 @@
 fileFormatVersion: 2
 guid: ee613ada71ce145f996102434df961bf
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8738514471348244279
+    second: vqa plus 2_0
+  - first:
+      213: -3658814032430625936
+    second: vqa plus 2_1
+  - first:
+      213: 6689677143224937736
+    second: vqa plus 2_2
+  - first:
+      213: 1552055142235697154
+    second: vqa plus 2_3
+  - first:
+      213: -3226571712868637387
+    second: vqa plus 2_4
+  - first:
+      213: 1185250679253486715
+    second: vqa plus 2_5
+  - first:
+      213: -1021798470431856621
+    second: vqa plus 2_6
+  - first:
+      213: 4455790870720702631
+    second: vqa plus 2_7
+  - first:
+      213: 289387871078829390
+    second: vqa plus 2_8
+  - first:
+      213: -7246630218888805590
+    second: vqa plus 2_9
+  - first:
+      213: 2700815895262028976
+    second: vqa plus 2_10
+  - first:
+      213: -5901065290882083111
+    second: vqa plus 2_11
+  - first:
+      213: -2389334433520724095
+    second: vqa plus 2_12
+  - first:
+      213: -6749850878759116434
+    second: vqa plus 2_13
+  - first:
+      213: -3435803555768599773
+    second: vqa plus 2_14
+  - first:
+      213: -3364037524525777921
+    second: vqa plus 2_15
+  - first:
+      213: 8777922910913158427
+    second: vqa plus 2_16
+  - first:
+      213: -6653557232357168607
+    second: vqa plus 2_17
+  - first:
+      213: 7211671971409944343
+    second: vqa plus 2_18
+  - first:
+      213: 2308955970556261171
+    second: vqa plus 2_19
+  - first:
+      213: -3977480604620035202
+    second: vqa plus 2_20
+  - first:
+      213: -4587277479771032550
+    second: vqa plus 2_21
+  - first:
+      213: -8472041860499940002
+    second: vqa plus 2_22
+  - first:
+      213: -7293712386081025019
+    second: vqa plus 2_23
+  - first:
+      213: -1619238070972660401
+    second: vqa plus 2_24
+  - first:
+      213: 6897931023271532106
+    second: vqa plus 2_25
+  - first:
+      213: -2215233194727760699
+    second: vqa plus 2_26
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,14 +121,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -61,7 +142,43 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -73,7 +190,574 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: vqa plus 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 802
+        width: 1636
+        height: 3294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c07dae036f8ab680800000000000000
+      internalID: -8738514471348244279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_1
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 3754
+        width: 122
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b02c1d508493dc0800000000000000
+      internalID: -3658814032430625936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3754
+        width: 122
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80de8f71be186dc50800000000000000
+      internalID: 6689677143224937736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_3
+      rect:
+        serializedVersion: 2
+        x: 2950
+        y: 3220
+        width: 818
+        height: 873
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200f6c0cde10a8510800000000000000
+      internalID: 1552055142235697154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_4
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 3410
+        width: 248
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535242c4f1ae833d0800000000000000
+      internalID: -3226571712868637387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_5
+      rect:
+        serializedVersion: 2
+        x: 2062
+        y: 3408
+        width: 248
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7cc1ba863bd27010800000000000000
+      internalID: 1185250679253486715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_6
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 3148
+        width: 196
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3182fd174b7d1d1f0800000000000000
+      internalID: -1021798470431856621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_7
+      rect:
+        serializedVersion: 2
+        x: 2086
+        y: 3148
+        width: 198
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a86cba603626dd30800000000000000
+      internalID: 4455790870720702631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_8
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 2058
+        width: 852
+        height: 916
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4dc5f94cbc140400800000000000000
+      internalID: 289387871078829390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_9
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 922
+        width: 816
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a238580d53cce6b90800000000000000
+      internalID: -7246630218888805590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_10
+      rect:
+        serializedVersion: 2
+        x: 2852
+        y: 2274
+        width: 818
+        height: 856
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b462d84fb93b7520800000000000000
+      internalID: 2700815895262028976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 512
+        width: 570
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6169412643b1ea0800000000000000
+      internalID: -5901065290882083111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 284
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1875360fdf067ded0800000000000000
+      internalID: -2389334433520724095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 284
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6164b45366b352a0800000000000000
+      internalID: -6749850878759116434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_14
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 284
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b7364aed29150d0800000000000000
+      internalID: -3435803555768599773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_15
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 46
+        width: 430
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb7e83e1b98051d0800000000000000
+      internalID: -3364037524525777921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_16
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 594
+        width: 594
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dddba416271d970800000000000000
+      internalID: 8777922910913158427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_17
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 330
+        width: 674
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12aae9003f0d9a3a0800000000000000
+      internalID: -6653557232357168607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_18
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 128
+        width: 594
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fd78ce271051460800000000000000
+      internalID: 7211671971409944343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_19
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 338
+        width: 533
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333f50bc83f0b0020800000000000000
+      internalID: 2308955970556261171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_20
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 160
+        width: 408
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7bed94b6762dc8c0800000000000000
+      internalID: -3977480604620035202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_21
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 324
+        width: 262
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a143914cf67b650c0800000000000000
+      internalID: -4587277479771032550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_22
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 148
+        width: 262
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d59ae80d24d6a80800000000000000
+      internalID: -8472041860499940002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_23
+      rect:
+        serializedVersion: 2
+        x: 2855
+        y: 0
+        width: 1241
+        height: 2169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50416c58a3787ca90800000000000000
+      internalID: -7293712386081025019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_24
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 698
+        width: 838
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45c2e4bd8f4789e0800000000000000
+      internalID: -1619238070972660401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_25
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 636
+        width: 952
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a461f3708bf5abf50800000000000000
+      internalID: 6897931023271532106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vqa plus 2_26
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 578
+        width: 1078
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc199d6529e141e0800000000000000
+      internalID: -2215233194727760699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

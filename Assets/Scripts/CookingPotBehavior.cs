@@ -12,7 +12,7 @@ public class CookingPotBehavior : MonoBehaviour
 	public GameObject characterPrefab;
 	List<string> ingredients;
 	public Text resultSpot;
-	public Text tutorialText;
+	public GameObject tutorialText;
 	Image curImage;
 	public float cookingTime;
 	public Color ingredientColor;
@@ -32,7 +32,7 @@ public class CookingPotBehavior : MonoBehaviour
 		//hitRect = GetComponent<RectTransform>();
 		GameManager.GameEnded += GameEnded;
 		tutorialTextShown = false;
-		tutorialText.enabled = false;
+		tutorialText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class CookingPotBehavior : MonoBehaviour
 			resultSpot.text = "";
 		ingredients.Add(character);
 		if(!tutorialTextShown && ingredients.Count > 1) {
-			tutorialText.enabled = true;
+			tutorialText.SetActive(true);
 			tutorialTextShown = true;
 		}
 		GameObject newChar = Instantiate<GameObject>(characterPrefab, hitRect.transform);
@@ -69,7 +69,7 @@ public class CookingPotBehavior : MonoBehaviour
 		float cookingTimer = 0;
 		float panAnimationRange = 3;
 		chef.StartCooking();
-		tutorialText.enabled = false;
+		tutorialText.SetActive(false);
 		Vector3 startPosition = transform.position;
 		RectTransform[] ingredientRects = hitRect.transform.GetComponentsInChildren<RectTransform>();
 		while(cookingTimer < cookingTime) {
