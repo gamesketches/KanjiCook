@@ -53,12 +53,16 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             kanjiCopy.transform.position = newPos;
         }
+		if(OverCookingPot(eventData.position, eventData.pressEventCamera)) {
+			CookingPotBehavior.instance.HighlightPot(true);
+		} else {
+			CookingPotBehavior.instance.HighlightPot(false);
+		}
     }
 
 	public void OnEndDrag(PointerEventData eventData) {
 		RectTransform targetRect = CookingPotBehavior.instance.hitRect;
-		if(RectTransformUtility.RectangleContainsScreenPoint(targetRect, eventData.position, 
-																	eventData.pressEventCamera)) {
+		if(OverCookingPot(eventData.position, eventData.pressEventCamera)) {
 			CookingPotBehavior.instance.AddIngredient(character);
         }
 		Destroy(kanjiCopy);
@@ -72,5 +76,11 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		yield return new WaitForSeconds(delay);
 		displayText.text = "";
 		character = "";
+	}
+
+	bool OverCookingPot(Vector2 dragPos, Camera eventCamera) {
+		RectTransform targetRect = CookingPotBehavior.instance.hitRect;
+		return RectTransformUtility.RectangleContainsScreenPoint(targetRect, dragPos,
+																	eventCamera);
 	}
 }

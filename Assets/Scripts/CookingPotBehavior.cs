@@ -14,6 +14,8 @@ public class CookingPotBehavior : MonoBehaviour
 	public Text resultSpot;
 	public GameObject tutorialText;
 	Image curImage;
+	public Sprite normalSprite;
+	public Sprite errorSprite;
 	public float cookingTime;
 	public Color ingredientColor;
 	AudioSource[] audioSources;
@@ -42,8 +44,10 @@ public class CookingPotBehavior : MonoBehaviour
     }
 
 	public void AddIngredient(string character) {
-		if(resultSpot.text != "")
+		if (resultSpot.text != "") {
 			resultSpot.text = "";
+			curImage.sprite = normalSprite;
+		}
 		ingredients.Add(character);
 		if(!tutorialTextShown && ingredients.Count > 1) {
 			tutorialText.SetActive(true);
@@ -57,6 +61,7 @@ public class CookingPotBehavior : MonoBehaviour
 		charText.text = character;
 		charText.color = ingredientColor;
 		PlayCookingSound();
+		HighlightPot(false);
 	}
 
 	public void CombineIngredients() {
@@ -66,6 +71,7 @@ public class CookingPotBehavior : MonoBehaviour
 	}
 
 	IEnumerator CookKanji() {
+		resultSpot.color = AppManager.instance.secondaryColor;
 		float cookingTimer = 0;
 		float panAnimationRange = 3;
 		chef.StartCooking();
@@ -103,9 +109,13 @@ public class CookingPotBehavior : MonoBehaviour
 		FinishCookingSounds();
 		hitRect.transform.rotation = Quaternion.identity;
 		if(resultPair.literal == "駄目") {
+			curImage.sprite = errorSprite;
+			resultSpot.color = Color.black;
 			yield return new WaitForSeconds(0.8f);
-			if(resultSpot.text == "駄目")
+			if (resultSpot.text == "駄目") {
 				resultSpot.text = "";
+				curImage.sprite = normalSprite;
+			}
 		}
 	}
 
@@ -159,5 +169,13 @@ public class CookingPotBehavior : MonoBehaviour
 		ClearIngredients();
 		FinishCookingSounds();
 		tutorialTextShown = false;
+	}
+
+	public void HighlightPot(bool highlight) { 
+		if(highlight && curImage.color == Color.white) {
+			curImage.color = AppManager.instance.secondaryColor;
+		} else if(!highlight && curImage.color != Color.white) {
+			curImage.color = Color.white;
+		}
 	}
 }

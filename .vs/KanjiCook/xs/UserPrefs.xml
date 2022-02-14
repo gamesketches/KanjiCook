@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{6C126FC1-6E1F-C01B-8DB8-7BA1BFA9CDBD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ResultModalController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DraggableKanji.cs">
     <Files>
-      <File FileName="Assets/Scripts/CookingPotBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CookingPotBehavior.cs" Line="72" Column="31" />
       <File FileName="Assets/Scripts/BundleListingController.cs" />
       <File FileName="Assets/Scripts/MenuManager.cs" />
       <File FileName="Assets/Scripts/AppManager.cs" />
@@ -10,6 +10,7 @@
       <File FileName="Assets/Scripts/PurchaseScreenController.cs" />
       <File FileName="Assets/GameManager.cs" />
       <File FileName="Assets/Scripts/ResultModalController.cs" Line="51" Column="15" />
+      <File FileName="Assets/Scripts/DraggableKanji.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +18,7 @@
           <Node name="KanjiCook" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="CookingPotBehavior.cs" selected="True" />
+                <Node name="DraggableKanji.cs" selected="True" />
               </Node>
             </Node>
           </Node>
