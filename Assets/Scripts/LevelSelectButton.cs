@@ -118,12 +118,13 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 
 	IEnumerator SelectLevel() {
 		Image backgroundImage = GetComponentInChildren<Image>();
+		Color baseColor = backgroundImage.color;
 		float flashTime = 0.4f;
 		for(float t = 0; t < flashTime; t += Time.deltaTime) {
-			 backgroundImage.color = Color.Lerp(Color.white, flashColor, Mathf.PingPong(t, flashTime / 2) / (flashTime / 2));
+			 backgroundImage.color = Color.Lerp(baseColor, flashColor, Mathf.PingPong(t, flashTime / 2) / (flashTime / 2));
 			yield return null;
 		}
-		backgroundImage.color = Color.white;
+		backgroundImage.color = baseColor;
 		AppManager.instance.SelectLevel(uuid);
 	}
 }

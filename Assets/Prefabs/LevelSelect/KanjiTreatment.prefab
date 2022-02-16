@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1361895588840233659, guid: 0c1bad951d49042e6a183356b3da6b19,
+  m_Sprite: {fileID: -3226571712868637387, guid: ee613ada71ce145f996102434df961bf,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 30
-  m_MinHeight: 30
+  m_MinWidth: 50
+  m_MinHeight: 50
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1

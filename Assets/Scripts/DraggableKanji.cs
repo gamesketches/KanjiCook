@@ -9,8 +9,12 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	RectTransform canvas;
 	public GameObject draggedKanji;
 	GameObject kanjiCopy;
+	public Sprite emptySprite;
+	public Sprite normalSprite;
 	public string character;
 	Text displayText;
+	Image backingImage;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,12 +22,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         displayText = GetComponentInChildren<Text>();
 		displayText.text = character;
 		GameManager.GameEnded += GameEnded;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+		backingImage = GetComponent<Image>();
     }
 
 	public void SetRadical(string newRadical) {
@@ -37,6 +36,9 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		Text kanjiText = kanjiCopy.GetComponentInChildren<Text>();
 		kanjiText.text = character;
 		kanjiText.color = AppManager.instance.secondaryColor;
+		displayText.text = "";
+		backingImage.sprite = emptySprite;
+
 		//kanjiCopy.GetComponentInChildren<Text>().text = character;
 		kanjiCopy.transform.position = transform.position;
         if(RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, 
@@ -66,6 +68,8 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 			CookingPotBehavior.instance.AddIngredient(character);
         }
 		Destroy(kanjiCopy);
+		backingImage.sprite = normalSprite;
+		displayText.text = character;
 	}
 
 	void GameEnded() {
