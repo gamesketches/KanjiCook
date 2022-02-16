@@ -22,7 +22,7 @@ public class BundleListingController : MonoBehaviour
 		packId = id;
 		nameLabel.text = name;
 		descLabel.text = desc;
-		priceLabel.text = "Buy $" + cost;
+		priceLabel.text = "Buy " + cost;
 		kanjiLabel.text = GetLabel(id);
 		if(ContentManager.instance.AlreadyOwned(id)) {
 			Debug.Log(id + " is already owned");
