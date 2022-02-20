@@ -46,7 +46,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		startOffset = rectTransform.offsetMax.y;
 		transform.rotation = Quaternion.Euler(0, 0, startingRotation);*/
 		transform.GetChild(0).gameObject.SetActive(false);
-		transform.GetChild(1).gameObject.SetActive(false);
+		//transform.GetChild(1).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -256,9 +256,9 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	void SwapFakeMenu() {
 		Sprite temp = menuImage.sprite;
-		GameObject header = transform.GetChild(0).gameObject;
-		GameObject scrollRect = transform.GetChild(1).gameObject;
-		header.SetActive(!header.activeSelf);
+		//GameObject header = transform.GetChild(0).gameObject;
+		GameObject scrollRect = transform.GetChild(0).gameObject;
+		//header.SetActive(!header.activeSelf);
 		//transform.rotation = header.activeSelf ? Quaternion.identity : Quaternion.Euler(0, 0, endingRotation);
 		scrollRect.SetActive(!scrollRect.activeSelf);
 		menuImage.sprite = blankMenu;

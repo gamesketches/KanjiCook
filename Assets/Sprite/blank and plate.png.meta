@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -9163345476152708450
     second: blank and plate_2
+  - first:
+      213: -2325502124460009668
+    second: blank and plate_3
+  - first:
+      213: 1474071715421206239
+    second: blank and plate_4
+  - first:
+      213: 7332976037268352195
+    second: blank and plate_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -178,6 +187,69 @@ TextureImporter:
       bones: []
       spriteID: e923cb3c6d145d080800000000000000
       internalID: -9163345476152708450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blank and plate_3
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 3138
+        width: 229
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37152b83282abfd0800000000000000
+      internalID: -2325502124460009668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blank and plate_4
+      rect:
+        serializedVersion: 2
+        x: 2516
+        y: 2890
+        width: 207
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6b12b4a64f47410800000000000000
+      internalID: 1474071715421206239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blank and plate_5
+      rect:
+        serializedVersion: 2
+        x: 2557
+        y: 2713
+        width: 126
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cce4d7aad6f3c560800000000000000
+      internalID: 7332976037268352195
       vertices: []
       indices: 
       edges: []
