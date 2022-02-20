@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{6C126FC1-6E1F-C01B-8DB8-7BA1BFA9CDBD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelSelect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TutorialImageController.cs">
     <Files>
       <File FileName="Assets/Scripts/BundleListingController.cs" Line="25" Column="25" />
       <File FileName="Assets/Scripts/LevelSelectButton.cs" />
@@ -11,7 +11,8 @@
       <File FileName="Assets/GameManager.cs" />
       <File FileName="Assets/Scripts/ResultModalController.cs" />
       <File FileName="Assets/Scripts/DraggableKanji.cs" Line="36" Column="47" />
-      <File FileName="Assets/Scripts/LevelSelect.cs" Line="49" Column="52" />
+      <File FileName="Assets/Scripts/LevelSelect.cs" Line="261" Column="4" />
+      <File FileName="Assets/Scripts/TutorialImageController.cs" Line="28" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +20,7 @@
           <Node name="KanjiCook" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="LevelSelect.cs" selected="True" />
+                <Node name="TutorialImageController.cs" selected="True" />
               </Node>
             </Node>
           </Node>

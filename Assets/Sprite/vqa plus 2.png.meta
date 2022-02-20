@@ -678,9 +678,9 @@ TextureImporter:
       name: vqa plus 2_23
       rect:
         serializedVersion: 2
-        x: 2855
+        x: 2854
         y: 0
-        width: 1241
+        width: 1242
         height: 2169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

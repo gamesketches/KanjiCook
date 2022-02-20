@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -25,6 +24,13 @@ public class TutorialImageController : MonoBehaviour, IPointerClickHandler
 			tutorialImage.sprite = tutorialImages[imageIndex];
 		} else {
 			MenuManager.instance.BackButtonPressed();
+			StartCoroutine(ResetTutorial());
 		}
+	}
+
+	IEnumerator ResetTutorial() {
+		yield return new WaitForSeconds(1f);
+		imageIndex = 0;
+		tutorialImage.sprite = tutorialImages[imageIndex];
 	}
 }
