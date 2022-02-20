@@ -66,7 +66,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 			CookingPotBehavior.instance.AddIngredient(character);
         }
 		Destroy(kanjiCopy);
-		backingImage.enabled = true;
+		kanjiBacking.enabled = true;
 		displayText.text = character;
 	}
 
