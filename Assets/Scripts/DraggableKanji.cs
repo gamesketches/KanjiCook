@@ -9,15 +9,13 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	RectTransform canvas;
 	public GameObject draggedKanji;
 	GameObject kanjiCopy;
-	public Sprite emptySprite;
-	public Sprite normalSprite;
+	public Image kanjiBacking;
 	public string character;
 	Text displayText;
 	Image backingImage;
 
     // Start is called before the first frame update
-    void Awake()
-    {
+    void Awake() {
         canvas = transform.parent as RectTransform;
         displayText = GetComponentInChildren<Text>();
 		displayText.text = character;
@@ -37,12 +35,12 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		kanjiText.text = character;
 		kanjiText.color = AppManager.instance.secondaryColor;
 		displayText.text = "";
-		backingImage.sprite = emptySprite;
+		kanjiBacking.enabled = false;
 
 		//kanjiCopy.GetComponentInChildren<Text>().text = character;
 		kanjiCopy.transform.position = transform.position;
         if(RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, 
-																		eventData.pressEventCamera, out newPos))
+														eventData.pressEventCamera, out newPos))
         {
             kanjiCopy.transform.position = newPos;
         }
@@ -68,7 +66,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 			CookingPotBehavior.instance.AddIngredient(character);
         }
 		Destroy(kanjiCopy);
-		backingImage.sprite = normalSprite;
+		backingImage.enabled = true;
 		displayText.text = character;
 	}
 
