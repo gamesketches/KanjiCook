@@ -29,6 +29,24 @@ public class ChefController : MonoBehaviour
 
 	IEnumerator CookingAnimation() {
 		float cookingTime = 0;
+		while (cooking && GameManager.gameStarted)
+		{
+			float rotationAmount = Mathf.PingPong(cookingTime * rotationSpeed, rotationInterval);
+			chefArm.transform.rotation = Quaternion.Euler(0, 0, rotationAmount);
+			cookingTime += Time.deltaTime;
+			yield return null;
+		}
+		
+		Quaternion curRotation = chefArm.transform.rotation;
+		for(float t = 0; t < 0.4f; t += Time.deltaTime) {
+			chefArm.transform.rotation = Quaternion.Lerp(curRotation, Quaternion.identity, t / 0.4f);
+			yield return null;
+		}
+		chefArm.transform.rotation = Quaternion.identity;
+    }
+
+	/*IEnumerator CookingAnimation() {
+		float cookingTime = 0;
 		Vector3 startPos = chefArm.transform.position;
 		while(cooking && GameManager.gameStarted) {
 			float rotationAmount = Mathf.PingPong(cookingTime * rotationSpeed, rotationInterval);
@@ -47,6 +65,7 @@ public class ChefController : MonoBehaviour
 		chefForearm.transform.rotation = Quaternion.identity;
 		chefArm.transform.position = startPos;
 	}
+	*/
 
 	void GameEnded() {
 		cooking = false;

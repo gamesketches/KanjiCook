@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{6C126FC1-6E1F-C01B-8DB8-7BA1BFA9CDBD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TutorialImageController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ChefController.cs">
     <Files>
-      <File FileName="Assets/Scripts/BundleListingController.cs" Line="25" Column="25" />
+      <File FileName="Assets/Scripts/ChefController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BundleListingController.cs" />
       <File FileName="Assets/Scripts/LevelSelectButton.cs" />
       <File FileName="Assets/Scripts/CookingPotBehavior.cs" />
       <File FileName="Assets/Scripts/MenuManager.cs" />
@@ -10,18 +11,16 @@
       <File FileName="Assets/Scripts/PurchaseScreenController.cs" />
       <File FileName="Assets/GameManager.cs" />
       <File FileName="Assets/Scripts/ResultModalController.cs" />
-      <File FileName="Assets/Scripts/DraggableKanji.cs" Line="36" Column="47" />
-      <File FileName="Assets/Scripts/LevelSelect.cs" Line="261" Column="4" />
-      <File FileName="Assets/Scripts/TutorialImageController.cs" Line="28" Column="10" />
+      <File FileName="Assets/Scripts/DraggableKanji.cs" />
+      <File FileName="Assets/Scripts/LevelSelect.cs" />
+      <File FileName="Assets/Scripts/TutorialImageController.cs" Line="23" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="KanjiCook" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="TutorialImageController.cs" selected="True" />
-              </Node>
+            <Node name="Assets" expanded="True" selected="True">
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -30,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4ae99a39-f171-47d8-a117-e19074c68bb3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="15fd31de-7599-4f39-8f62-12e1b125871a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
