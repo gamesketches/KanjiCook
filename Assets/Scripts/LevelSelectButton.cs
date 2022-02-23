@@ -20,6 +20,8 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	float scrollRectLowerBound;
 	public static float scrollRectPosition;
 	public static float scrollWindowSize;
+	public static float scrollTopPadding = 0.3f;
+	public static float scrollBottomPadding;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,7 +36,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
     {
 		float windowBottom = scrollRectPosition - scrollWindowSize;
 		if(interactable) {
-			if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize) {
+			if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize + scrollBottomPadding) {
 				kanjis.gameObject.SetActive(true);
 				//radicals.gameObject.SetActive(true);
 			} else {
