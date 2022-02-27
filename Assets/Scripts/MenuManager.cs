@@ -55,7 +55,7 @@ public class MenuManager : MonoBehaviour
 		RectTransform titleTransform = titleScreen.transform.GetComponent<RectTransform>();
 		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, 0, -titleTransform.rect.size.y, menuSlideSpeed, RectTransform.Edge.Top));
 		startButton.GetComponent<Image>().CrossFadeAlpha(0f, menuSlideSpeed, false);
-		startButton.GetComponentInChildren<Text>().CrossFadeAlpha(0f, menuSlideSpeed, false);
+		//startButton.GetComponentInChildren<Text>().CrossFadeAlpha(0f, menuSlideSpeed, false);
 		Invoke("ToggleStartButton", menuSlideSpeed);
 		StartCoroutine(levelSelect.GetComponent<LevelSelect>().OpenLevelSelectNoAnimation(menuSlideSpeed));
 		startButton.GetComponent<Button>().interactable = false;
@@ -65,7 +65,7 @@ public class MenuManager : MonoBehaviour
 		RectTransform titleTransform = titleScreen.transform.GetComponent<RectTransform>();
 		StartCoroutine(MenuManager.LerpInsetAnimation(titleTransform, -titleTransform.rect.size.y, 0, menuSlideSpeed, RectTransform.Edge.Top));
 		startButton.GetComponent<Image>().CrossFadeAlpha(1f, menuSlideSpeed, false);
-		startButton.GetComponentInChildren<Text>().CrossFadeAlpha(1f, menuSlideSpeed, false);
+		//startButton.GetComponentInChildren<Text>().CrossFadeAlpha(1f, menuSlideSpeed, false);
 		startButton.GetComponent<Button>().interactable = true;
 		Invoke("ToggleStartButton", menuSlideSpeed);
 	}
@@ -165,6 +165,7 @@ public class MenuManager : MonoBehaviour
 		purchaseButton.SetActive(false);
 		aboutButton.SetActive(false);
 		backButton.SetActive(false);
+		headerBar.SetActive(false);
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
 		StartCoroutine(MenuManager.LerpInsetAnimation(levelSelectRect, 0, -levelSelectSize, menuSlideSpeed, RectTransform.Edge.Left));
@@ -176,6 +177,7 @@ public class MenuManager : MonoBehaviour
 		purchaseButton.SetActive(true);
 		aboutButton.SetActive(true);
 		backButton.SetActive(true);
+		headerBar.SetActive(true);
 		EnableLevelSelectScreen();
 		RectTransform levelSelectRect = levelSelect.GetComponent<RectTransform>();
 		float levelSelectSize = levelSelectRect.rect.size.x;
