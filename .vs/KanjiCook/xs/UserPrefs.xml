@@ -3,12 +3,13 @@
     <Files>
       <File FileName="Assets/Scripts/ChefController.cs" Line="44" Column="1" />
       <File FileName="Assets/Scripts/BundleListingController.cs" />
-      <File FileName="Assets/Scripts/LevelSelectButton.cs" Line="39" Column="95" />
-      <File FileName="Assets/Scripts/CookingPotBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ContentManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PurchaseScreenController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelSelectButton.cs" />
+      <File FileName="Assets/Scripts/CookingPotBehavior.cs" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="132" Column="21" />
+      <File FileName="Assets/Scripts/ContentManager.cs" />
+      <File FileName="Assets/Scripts/PurchaseScreenController.cs" />
       <File FileName="Assets/Scripts/LevelSelect.cs" Line="85" Column="60" />
+      <File FileName="Assets/Scripts/TutorialImageController.cs" Line="27" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,7 +27,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="15fd31de-7599-4f39-8f62-12e1b125871a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="28ba2d9f-8ee1-415a-82c9-75f775893a68" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

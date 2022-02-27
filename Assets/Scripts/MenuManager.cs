@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject backButton;
 	public GameObject startButton;
 	public GameObject tutorialImage;
+	public GameObject headerBar;
 	public AudioClip[] pageTurnSounds;
 	AudioSource audioSource;
 	bool aboutOpen = false;
@@ -130,9 +131,11 @@ public class MenuManager : MonoBehaviour
 		float rectSize = tutorialTransform.rect.size.x;
 		if(!tutorialOut) {
 			StartCoroutine(LerpInsetAnimation(tutorialTransform, -rectSize, 0, menuSlideSpeed, RectTransform.Edge.Left));
+			headerBar.SetActive(false);
 			}
 		else { 
 			StartCoroutine(LerpInsetAnimation(tutorialTransform, 0, -rectSize, menuSlideSpeed, RectTransform.Edge.Left));
+			headerBar.SetActive(true);
 			}
 		tutorialOut = !tutorialOut;
 	}
@@ -208,6 +211,7 @@ public class MenuManager : MonoBehaviour
 			Debug.Log("closingMenu");
 			titleScreen.transform.parent.GetComponent<Canvas>().enabled = true;
 			levelSelect.GetComponent<LevelSelect>().CloseMenuNoAnimation();
+			headerBar.SetActive(false);
 			PlayPageTurnSound();
 		}
 	}
@@ -215,6 +219,7 @@ public class MenuManager : MonoBehaviour
 	public void ToggleStartButton() {
 		if(startButton.activeSelf) {
 			startButton.SetActive(false);
+			headerBar.SetActive(true);
 		} else {
 			startButton.SetActive(true);
 		}

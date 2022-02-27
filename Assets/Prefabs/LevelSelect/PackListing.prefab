@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648edf2ea6aaf44b1a348bf19e10ca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorAssignment: 1
+  colorAssignment: 2
 --- !u!1001 &858105895002253972
 PrefabInstance:
   m_ObjectHideFlags: 0
