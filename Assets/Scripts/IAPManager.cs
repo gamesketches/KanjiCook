@@ -31,6 +31,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
 		builder.AddProduct(jlpt5, ProductType.NonConsumable); 
 		builder.AddProduct(jlpt4, ProductType.NonConsumable);
+		builder.AddProduct(jlpt3, ProductType.NonConsumable); 
+		builder.AddProduct(jlpt2, ProductType.NonConsumable);
 
 		UnityPurchasing.Initialize(this, builder);
 	}
