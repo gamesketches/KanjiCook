@@ -41,10 +41,10 @@ public class PurchaseScreenController : MonoBehaviour
     }
 
 	void FillPurchaseMenu() {
-		CreateNewPurchase("JLPT 5 Levels", "30 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt5");
-		CreateNewPurchase("JLPT 4 Kanjis", "50 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt4");
-		CreateNewPurchase("JLPT 3 Kanjis", "144 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt3");
-		CreateNewPurchase("JLPT 2 Kanjis", "148 Levels of fun", "$0.99", "com.bluesphere.kanjicook.jlpt2");
+		CreateNewPurchase("JLPT 5 Pack", "24 Levels with JLPT5 kanji", "$0.99", "com.bluesphere.kanjicook.jlpt5");
+		CreateNewPurchase("JLPT 4 Pack", "50 Levels with JLPT4 kanji", "$1.99", "com.bluesphere.kanjicook.jlpt4");
+		CreateNewPurchase("JLPT 3 Pack", "144 Levels with JLPT3 kanji", "$4.99", "com.bluesphere.kanjicook.jlpt3");
+		CreateNewPurchase("JLPT 2 Pack", "148 Levels with JLPT2 kanji", "$4.99", "com.bluesphere.kanjicook.jlpt2");
 	}
 
 	void CreateNewPurchase(string title, string subTitle, string price, string iapCode) {

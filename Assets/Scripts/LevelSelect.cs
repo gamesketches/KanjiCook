@@ -101,7 +101,6 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	public void OnScrollRectChange(Vector2 newPosition) {
-		Debug.Log(LevelSelectButton.scrollRectPosition);
 		if(newPosition.y < 0) {
 			StartCoroutine(LoadLevelListings(loadedLevels, 7));
 		}

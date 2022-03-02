@@ -594,9 +594,9 @@ TextureImporter:
       name: vqa plus 2_19
       rect:
         serializedVersion: 2
-        x: 1491
+        x: 1509
         y: 338
-        width: 533
+        width: 515
         height: 126
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -615,9 +615,9 @@ TextureImporter:
       name: vqa plus 2_20
       rect:
         serializedVersion: 2
-        x: 1510
+        x: 1509
         y: 160
-        width: 408
+        width: 410
         height: 126
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -681,7 +681,7 @@ TextureImporter:
         x: 2854
         y: 0
         width: 1242
-        height: 2169
+        height: 2208
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -29,6 +29,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	}
 
 	public void OnBeginDrag(PointerEventData eventData) {
+		if (!GameManager.gameStarted) return;
 		Vector3 newPos;
 		kanjiCopy = Instantiate<GameObject>(draggedKanji, transform.parent);
 		Text kanjiText = kanjiCopy.GetComponentInChildren<Text>();
@@ -48,6 +49,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	
 	public void OnDrag(PointerEventData eventData)
     {
+		if (kanjiCopy == null) return;
         Vector3 newPos;
         if (RectTransformUtility.ScreenPointToWorldPointInRectangle(canvas, eventData.position, eventData.pressEventCamera, out newPos))
         {
@@ -61,6 +63,7 @@ public class DraggableKanji : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
 
 	public void OnEndDrag(PointerEventData eventData) {
+		if (kanjiCopy == null) return;
 		RectTransform targetRect = CookingPotBehavior.instance.hitRect;
 		if(OverCookingPot(eventData.position, eventData.pressEventCamera)) {
 			CookingPotBehavior.instance.AddIngredient(character);

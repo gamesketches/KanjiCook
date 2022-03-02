@@ -15,6 +15,7 @@ public class ContentManager : MonoBehaviour
 	bool loadingLevels = true;
 	KanjiInfoFile myKanji;
 	Dictionary<string, EntreeData[]> levelLookup;
+	Dictionary<string, string> charReplacementDict;
 	List<string> levelIds;
 	string[] packsOwned;
 	public LevelSelect levelSelect;
@@ -28,6 +29,7 @@ public class ContentManager : MonoBehaviour
 		levelLookup = new Dictionary<string, EntreeData[]>();
 		levelIds = new List<string>();
 		packsOwned = new string[] {"LevelContent"};
+		BuildCharReplacementDict();
 		CheckOwnedPacks();
 		StartCoroutine(LoadLevelsFromResources());
 		//StartCoroutine(LoadOwnedLevels());
@@ -177,7 +179,10 @@ public class ContentManager : MonoBehaviour
 		KanjiInfoFile levelKanji = JsonUtility.FromJson<KanjiInfoFile>(file.text);
 		List<EntreeData> tempContent = new List<EntreeData>();
 		foreach(KanjiInfo kanji in levelKanji.kanjiInfos) {
-			tempContent.Add(new EntreeData(kanji.meanings, kanji.kanji, kanji.radicals, kanji.kunyomi, kanji.onyomi));
+			string targetKanji = GetValidatedCharacter(kanji.kanji);
+			List<string> rads = new List<string>(kanji.radicals);
+			for (int i = 0; i < rads.Count; i++) rads[i] = GetValidatedCharacter(rads[i]);
+			tempContent.Add(new EntreeData(kanji.meanings, targetKanji, rads.ToArray(), kanji.kunyomi, kanji.onyomi));
 		}
 		levelLookup[levelKanji.uuid] = tempContent.ToArray();
 		return levelKanji.uuid;
@@ -267,6 +272,19 @@ public class ContentManager : MonoBehaviour
 		}
 		else Debug.Log(PlayerPrefs.GetInt(packKey));
 		PlayerPrefs.Save();
+	}
+
+	private void BuildCharReplacementDict() {
+		charReplacementDict = new Dictionary<string, string>();
+		charReplacementDict.Add("\ud840\udda2", "\u4eba");
+	}
+
+	public string GetValidatedCharacter(string relevantCharacter) {
+		if (charReplacementDict.ContainsKey(relevantCharacter))
+		{
+			relevantCharacter = charReplacementDict[relevantCharacter];
+		}
+		return relevantCharacter;
 	}
 }
 

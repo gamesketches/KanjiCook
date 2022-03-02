@@ -549,10 +549,10 @@ TextureImporter:
       name: colorproof1_18
       rect:
         serializedVersion: 2
-        x: 1161
-        y: 631
-        width: 200
-        height: 200
+        x: 1157
+        y: 627
+        width: 208
+        height: 208
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
