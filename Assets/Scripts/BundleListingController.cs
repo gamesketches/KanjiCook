@@ -27,7 +27,8 @@ public class BundleListingController : MonoBehaviour
 		if(ContentManager.instance.AlreadyOwned(id)) {
 			Debug.Log(id + " is already owned");
 			purchaseButton.interactable = false;
-			}
+			purchaseButton.GetComponent<DynamicColorObject>().colorAssignment = DynamicColorAssignment.Menu;
+		}
 	}
 
     public void ShowContents() {
