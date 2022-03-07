@@ -80,7 +80,7 @@ public class LevelSelect : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		yield return null;
 		float scrollRectHeight = scrollView.GetComponent<RectTransform>().rect.height;
 		float elementHeight = (levelButtons[0].transform.parent.GetComponent<RectTransform>().rect.height + 50) / scrollRectHeight;
-		float windowSize = 7 * elementHeight;
+		float windowSize = 15 * elementHeight;
 		LevelSelectButton.scrollWindowSize = windowSize;
 		LevelSelectButton.scrollBottomPadding = 4 * elementHeight;
 		for(int i = 0; i < levelButtons.Count; i++) {

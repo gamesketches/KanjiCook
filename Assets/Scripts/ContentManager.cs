@@ -16,6 +16,7 @@ public class ContentManager : MonoBehaviour
 	KanjiInfoFile myKanji;
 	Dictionary<string, EntreeData[]> levelLookup;
 	Dictionary<string, string> charReplacementDict;
+	Dictionary<string, string> packAddressLookup;
 	List<string> levelIds;
 	string[] packsOwned;
 	public LevelSelect levelSelect;
@@ -29,6 +30,8 @@ public class ContentManager : MonoBehaviour
 		levelLookup = new Dictionary<string, EntreeData[]>();
 		levelIds = new List<string>();
 		packsOwned = new string[] {"LevelContent"};
+		BuildPackAddressLookup();
+		AddAllPacks();
 		BuildCharReplacementDict();
 		CheckOwnedPacks();
 		StartCoroutine(LoadLevelsFromResources());
@@ -39,13 +42,13 @@ public class ContentManager : MonoBehaviour
 		loadingLevels = true;
 		foreach(string pack in packsOwned) {
 			yield return LoadLevelPack(pack);
-			Debug.Log(pack);
 			loadingLevels = false;
 		}
 	}
 
 	IEnumerator LoadLevelPack(string packName, bool triggerLevelSelect = false) {
-		TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + packName);
+		string packAddress = packAddressLookup[packName];
+		TextAsset[] levels = Resources.LoadAll<TextAsset>("Levels/" + packAddress);
 			foreach(TextAsset level in levels) {
 				string newID = ProcessLevelContent(level);
 				levelIds.Add(newID);
@@ -243,6 +246,15 @@ public class ContentManager : MonoBehaviour
 		PlayerPrefs.Save();
 	}
 
+	private void AddAllPacks() { 
+		for (int i = 5; i > 1; i--)
+		{
+			string packString = "com.bluesphere.kanjicook.jlpt" + i.ToString();
+			PlayerPrefs.SetInt(packString, 1);
+		}
+		PlayerPrefs.Save();
+    }
+
 	public void AddLevelPack(string pack) {
 		List<string> ownedPacksList = new List<string>(packsOwned);
 		ownedPacksList.Add(pack);
@@ -273,6 +285,15 @@ public class ContentManager : MonoBehaviour
 		else Debug.Log(PlayerPrefs.GetInt(packKey));
 		PlayerPrefs.Save();
 	}
+
+	void BuildPackAddressLookup() {
+		packAddressLookup = new Dictionary<string, string>();
+		packAddressLookup.Add("LevelContent", "LevelContent");
+		packAddressLookup.Add("com.bluesphere.kanjicook.jlpt5", "jlpt5");
+		packAddressLookup.Add("com.bluesphere.kanjicook.jlpt4", "jlpt4");
+		packAddressLookup.Add("com.bluesphere.kanjicook.jlpt3", "jlpt3");
+		packAddressLookup.Add("com.bluesphere.kanjicook.jlpt2", "jlpt2");
+    }
 
 	private void BuildCharReplacementDict() {
 		charReplacementDict = new Dictionary<string, string>();

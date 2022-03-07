@@ -65,6 +65,12 @@ TextureImporter:
   - first:
       213: -7860099698830983372
     second: tutorialImages_20
+  - first:
+      213: 7579857722166398552
+    second: tutorialImages_21
+  - first:
+      213: 5234445431892385066
+    second: tutorialImages_22
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -497,7 +503,7 @@ TextureImporter:
         width: 672
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -518,7 +524,7 @@ TextureImporter:
         width: 672
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -539,7 +545,7 @@ TextureImporter:
         width: 672
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -560,7 +566,7 @@ TextureImporter:
         width: 672
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,7 +587,7 @@ TextureImporter:
         width: 672
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,7 +608,7 @@ TextureImporter:
         width: 672
         height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -610,6 +616,48 @@ TextureImporter:
       bones: []
       spriteID: 43f3600f7f05be290800000000000000
       internalID: -7860099698830983372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorialImages_21
+      rect:
+        serializedVersion: 2
+        x: 2504
+        y: 1001
+        width: 672
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ecab14070113960800000000000000
+      internalID: 7579857722166398552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorialImages_22
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 743
+        width: 661
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d9c14136c74a840800000000000000
+      internalID: 5234445431892385066
       vertices: []
       indices: 
       edges: []

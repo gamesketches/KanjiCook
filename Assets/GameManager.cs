@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 	public ContentManager contentManager;
 	public ResultModalController resultModal;
 	public CookingPotBehavior cookingPot;
-	public Transform menu;
+	public Transform duJourMenu;
 	public GameObject GameMenuCanvas;
 	public GameObject entreePrefab;
 	public CountdownController countdownClock;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 		wordBag = new List<EntreeData>();
 		requestQueue = GameObject.Find("RequestQueue").GetComponent<RequestQueueManager>();
 		scoreTally = GameObject.Find("Score").GetComponentInChildren<Text>();
-		menu.transform.parent.gameObject.SetActive(true);
+		duJourMenu.transform.parent.gameObject.SetActive(true);
 		foundWords = new List<string>();
 		radicalButtons = GameObject.FindGameObjectsWithTag("RadicalButton");
     }
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
 	void BuildDuJourLevel() {
 		//menu.parent.GetComponentInChildren<LevelSelectButton>().Initialize(levelId, false);
 		foreach(EntreeData pairing in targetWords) {
-			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, menu);
+			GameObject entreeListing = Instantiate<GameObject>(entreePrefab, duJourMenu);
 			entreeListing.GetComponent<EntreeBehavior>().Initialize(pairing);
 		}
 	}
@@ -176,27 +176,34 @@ public class GameManager : MonoBehaviour
 	}
 
 	void EnableDuJourMenu(){
-		menu.parent.gameObject.SetActive(true);
+		duJourMenu.parent.gameObject.SetActive(true);
 		if(!gameStarted) {
-			menu.parent.GetChild(2).GetComponentInChildren<Text>().text = "Begin";
+			// "Begin" button is the 3rd child, "Dismiss" button is the 4th
+			duJourMenu.parent.GetChild(3).gameObject.SetActive(true);
+			duJourMenu.parent.GetChild(4).gameObject.SetActive(false);
+		} else { 
+			// "Begin" button is the 3rd child, "Dismiss" button is the 4th
+			duJourMenu.parent.GetChild(3).gameObject.SetActive(false);
+			duJourMenu.parent.GetChild(4).gameObject.SetActive(true);
 		}
 	}
 
 	void DisableDujourMenu() {
-		menu.parent.gameObject.SetActive(false);
-		menu.parent.GetChild(2).GetComponentInChildren<Text>().text = "Close";
+		duJourMenu.parent.gameObject.SetActive(false);
+		duJourMenu.parent.GetChild(3).gameObject.SetActive(false);
+		duJourMenu.parent.GetChild(4).gameObject.SetActive(true);
 	}
 
 	public void ShowDuJourMenu(float lerpTime = 0.4f) {
 		EnableDuJourMenu();
-		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
+		RectTransform menuRect = duJourMenu.transform.parent.GetComponent<RectTransform>();
 		float rectSize = menuRect.rect.size.y;
 		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, -rectSize, 0, lerpTime, RectTransform.Edge.Top));
 	}
 
 	void DismissDuJourMenu(float lerpTime = 0.4f) {
-		if(!menu.parent.gameObject.activeSelf) return;
-		RectTransform menuRect = menu.transform.parent.GetComponent<RectTransform>();
+		if(!duJourMenu.parent.gameObject.activeSelf) return;
+		RectTransform menuRect = duJourMenu.transform.parent.GetComponent<RectTransform>();
 		float rectSize = menuRect.rect.size.y;
 		StartCoroutine(MenuManager.LerpInsetAnimation(menuRect, 0, -rectSize, lerpTime, RectTransform.Edge.Top));
 		Invoke("DisableDujourMenu", lerpTime);
@@ -204,8 +211,8 @@ public class GameManager : MonoBehaviour
 
 	public void ClearDuJourMenu() {
 		//menu.parent.GetComponentInChildren<LevelSelectButton>().Clear();
-		for(int i = 0; i < menu.childCount; i++) {
-			Destroy(menu.GetChild(i).gameObject);
+		for(int i = 0; i < duJourMenu.childCount; i++) {
+			Destroy(duJourMenu.GetChild(i).gameObject);
 		}
 		Invoke("DismissDuJourMenu", 0.5f);
 	}	
