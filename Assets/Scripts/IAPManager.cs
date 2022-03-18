@@ -64,19 +64,23 @@ public class IAPManager : MonoBehaviour, IStoreListener
 	public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args) {
 		if(String.Equals(args.purchasedProduct.definition.id, jlpt5, StringComparison.Ordinal)) {
 			Debug.Log("Purchased jlpt5");
-			ContentManager.instance.AddLevelPack("jlpt5");
+			Debug.Log("Adding code " + jlpt5);
+			ContentManager.instance.AddLevelPack(jlpt5);
 		}
 		else if(String.Equals(args.purchasedProduct.definition.id, jlpt4, StringComparison.Ordinal)) {
 			Debug.Log("Purchased jlpt4");
-			ContentManager.instance.AddLevelPack("jlpt4");
+			Debug.Log("Adding code " + jlpt4);
+			ContentManager.instance.AddLevelPack(jlpt4);
 		}
 		else if(String.Equals(args.purchasedProduct.definition.id, jlpt3, StringComparison.Ordinal)) {
 			Debug.Log("Purchased jlpt3");
-			ContentManager.instance.AddLevelPack("jlpt3");
+			Debug.Log("Adding code " + jlpt3);
+			ContentManager.instance.AddLevelPack(jlpt3);
 		}
 		else if(String.Equals(args.purchasedProduct.definition.id, jlpt2, StringComparison.Ordinal)) {
 			Debug.Log("Purchased jlpt2");
-			ContentManager.instance.AddLevelPack("jlpt2");
+			Debug.Log("Adding code " + jlpt2);
+			ContentManager.instance.AddLevelPack(jlpt2);
 		}
 		else {
 			Debug.LogError("Purchase failed");

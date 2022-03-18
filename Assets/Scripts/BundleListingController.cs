@@ -38,9 +38,7 @@ public class BundleListingController : MonoBehaviour
 	public void PurchasePack() {
 		if (!ContentManager.instance.AlreadyOwned(packId))
 		{
-			ContentManager.instance.AddLevelPack(packId);
 			IAPManager.instance.BuyProductID(packId);
-			purchaseButton.interactable = false;
 		}
 	}
 

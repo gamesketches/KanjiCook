@@ -84,7 +84,6 @@ public class CookingPotBehavior : MonoBehaviour
 			float lerpTime = (Random.value * 5) * Time.deltaTime;
 			if(lerpTime > cookingTime - cookingTimer) lerpTime = cookingTime - cookingTimer;
 			Vector3 curPos = transform.position;
-			//hitRect.transform.Rotate(0, 0, 4);
 			for(int i = 1; i < ingredientRects.Length; i++) {
 				float lerpProportion = cookingTimer / cookingTime;
 				ingredientRects[i].position = Vector2.Lerp(ingredientRects[i].transform.position, resultSpot.transform.position, lerpProportion);
