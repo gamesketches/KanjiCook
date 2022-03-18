@@ -85,11 +85,10 @@ public class CookingPotBehavior : MonoBehaviour
 			if(lerpTime > cookingTime - cookingTimer) lerpTime = cookingTime - cookingTimer;
 			Vector3 curPos = transform.position;
 			//hitRect.transform.Rotate(0, 0, 4);
-			for(int i = 0; i < ingredientRects.Length; i++) {
+			for(int i = 1; i < ingredientRects.Length; i++) {
 				float lerpProportion = cookingTimer / cookingTime;
-				ingredientRects[i].anchoredPosition = Vector2.Lerp(ingredientRects[i].anchoredPosition, Vector2.zero, lerpProportion);
+				ingredientRects[i].position = Vector2.Lerp(ingredientRects[i].transform.position, resultSpot.transform.position, lerpProportion);
 				lerpProportion /= 2;
-				//ingredientRects[i].transform.localScale = Vector3.one - new Vector3(lerpProportion, lerpProportion, lerpProportion);
 			}
 			for(float t = 0; t < lerpTime; t += Time.deltaTime) {
 				transform.position = Vector3.Lerp(curPos, nextPos, t / lerpTime);
@@ -102,7 +101,6 @@ public class CookingPotBehavior : MonoBehaviour
 		EntreeData resultPair = GameManager.instance.RecipeLookup(ingredients.ToArray());
 		resultSpot.text = resultPair.literal;
 		chef.StopCooking();
-		//chef.cooking = false;
 		hitRect.transform.localScale = Vector3.one;
 		GameManager.instance.ClearRequest(resultSpot, resultPair);
 		ClearIngredients();
