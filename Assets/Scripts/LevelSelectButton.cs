@@ -35,7 +35,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
     void Update()
     {
 		float windowBottom = scrollRectPosition - scrollWindowSize;
-		if(interactable) {
+		/*if(interactable) {
 			if(Mathf.Abs(scrollRectPosition - instancePosition) < scrollWindowSize + scrollBottomPadding) {
 				kanjis.gameObject.SetActive(true);
 				//radicals.gameObject.SetActive(true);
@@ -43,7 +43,7 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 				kanjis.gameObject.SetActive(false);
 				//radicals.gameObject.SetActive(false);
 			}
-		}
+		}*/
     }
 
 	public void Initialize(int id, bool isInteractable = true) {
@@ -94,11 +94,11 @@ public class LevelSelectButton : MonoBehaviour, IPointerClickHandler
 	}
 
 	public void CalculateInstancePosition(float elementSize, int position) {
-		instancePosition = 1 - (elementSize * position) - (elementSize / 2);
+		/*instancePosition = 1 - (elementSize * position) - (elementSize / 2);
 		scrollRectUpperBound = instancePosition + (3 * elementSize);
 		scrollRectLowerBound = instancePosition - (3 * elementSize);
 		if(scrollRectUpperBound > 1) scrollRectLowerBound -= scrollRectUpperBound - 1;
-		if(scrollRectLowerBound < 0) scrollRectUpperBound += -scrollRectLowerBound;
+		if(scrollRectLowerBound < 0) scrollRectUpperBound += -scrollRectLowerBound;*/
 	}
 
 	public void Clear() {

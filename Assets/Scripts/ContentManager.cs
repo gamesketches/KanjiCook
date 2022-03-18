@@ -31,7 +31,6 @@ public class ContentManager : MonoBehaviour
 		levelIds = new List<string>();
 		packsOwned = new string[] {"LevelContent"};
 		BuildPackAddressLookup();
-		AddAllPacks();
 		BuildCharReplacementDict();
 		CheckOwnedPacks();
 		StartCoroutine(LoadLevelsFromResources());

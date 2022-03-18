@@ -69,4 +69,8 @@ public class AppManager : MonoBehaviour
 	public void OpenLicenseLink() {
 		Application.OpenURL("https://www.edrdg.org/edrdg/licence.html");
 	}
+
+	public void OpenPrivacyPolicy() {
+		Application.OpenURL("https://www.bluesphere.studio/kanjiprivacypolicy");
+	}
 }
