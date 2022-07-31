@@ -31,12 +31,6 @@ public class ResultModalController : MonoBehaviour
 		enabledStar = AppManager.instance.secondaryColor;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	public void DisplayResults(int score, int attempts, bool allKanji) {
 		int numStars = 0;
 		float successRate;

@@ -9,6 +9,7 @@ public class WaitorController : MonoBehaviour
 	public float waitorInterval;
 	bool animating;
 	float offscreenTimer;
+	Vector2 pickUpPoint;
 	Vector3 waitorPosition;
 	public float waitorTravelTime;
 	public Text character;
@@ -18,19 +19,16 @@ public class WaitorController : MonoBehaviour
     void Awake()
     {
         offscreenTimer = waitorInterval;
-		waitorPosition = transform.position;
-		transform.position += new Vector3(10, 0, 0);
+		//waitorPosition = transform.position;
+		//transform.position += new Vector3(10, 0, 0);
 		rectTransform = GetComponent<RectTransform>();
+		pickUpPoint = rectTransform.anchoredPosition;
 		float rectSize = rectTransform.rect.size.x;
-		rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectSize * 2, rectSize);
+		rectTransform.anchoredPosition = rectTransform.anchoredPosition + new Vector2(rectSize, 0);
+		//rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, -rectSize * 2, rectSize);
 		instance = this;
 		character.text = "";
 		ToggleWaitorComponents(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
 	public void PickUpOrder(string literal = "字") {
@@ -46,11 +44,18 @@ public class WaitorController : MonoBehaviour
 		ToggleWaitorComponents(true);
 		character.gameObject.SetActive(false);
 		transform.localScale = Vector3.one;
-		yield return MenuManager.LerpInsetAnimation(rectTransform, -rectTransform.rect.size.x * 2, 0, waitorTravelTime);
+		Vector2 startingPoint = rectTransform.anchoredPosition;
+		for(float t = 0; t < waitorTravelTime; t += Time.deltaTime) {
+			rectTransform.anchoredPosition = Vector2.Lerp(startingPoint, pickUpPoint, t / waitorTravelTime);
+			yield return null;
+			}
 		character.gameObject.SetActive(true);
 		yield return new WaitForSeconds(1);
 		transform.localScale = new Vector3(-1, 1, 1);
-		yield return MenuManager.LerpInsetAnimation(rectTransform, 0, -rectTransform.rect.size.x * 2, waitorTravelTime);
+		for(float t = 0; t < waitorTravelTime; t += Time.deltaTime) {
+			rectTransform.anchoredPosition = Vector2.Lerp(pickUpPoint, startingPoint, t / waitorTravelTime);
+			yield return null;
+			}
 		animating = false;
 		character.text = "";
 		ToggleWaitorComponents(false);

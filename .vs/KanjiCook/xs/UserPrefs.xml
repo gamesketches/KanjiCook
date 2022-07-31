@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{6C126FC1-6E1F-C01B-8DB8-7BA1BFA9CDBD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ContentManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WaitorController.cs">
     <Files>
-      <File FileName="Assets/Scripts/ContentManager.cs" Line="20" Column="24" />
-      <File FileName="Assets/Scripts/AppManager.cs" Line="74" Column="74" />
+      <File FileName="Assets/Scripts/ResultModalController.cs" Line="22" Column="2" />
+      <File FileName="Assets/Scripts/ContentManager.cs" Line="34" Column="19" />
+      <File FileName="Assets/Scripts/AppManager.cs" />
       <File FileName="Assets/Scripts/LevelSelectButton.cs" />
       <File FileName="Assets/GameManager.cs" />
       <File FileName="Assets/Scripts/ChefController.cs" />
@@ -11,6 +12,7 @@
       <File FileName="Assets/Scripts/MenuManager.cs" />
       <File FileName="Assets/Scripts/PurchaseScreenController.cs" />
       <File FileName="Assets/Scripts/IAPManager.cs" />
+      <File FileName="Assets/Scripts/WaitorController.cs" Line="49" Column="75" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +20,7 @@
           <Node name="KanjiCook" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="ContentManager.cs" selected="True" />
+                <Node name="WaitorController.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -28,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bf8c6358-0649-4dbe-b976-8be49bee7bdf" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f82d8c9a-6cf1-47ec-8c9e-8868e5ffad5c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
